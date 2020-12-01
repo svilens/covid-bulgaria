@@ -1,0 +1,43 @@
+Sources
+
+Shape files https://www.diva-gis.org/gdata
+COVID data https://data.egov.bg/data/resourceView/cb5d7df0-3066-4d7a-b4a1-ac26525e0f0c/80
+Population data https://www.nsi.bg/bg/content/2975/население-по-области-общини-местоживеене-и-пол
+
+Geopandas is needed, but it might return errors during installation.
+
+For Anaconda, the below should work fine:
+
+conda install -c conda-forge geopandas
+
+Otherwise, try to install manually:
+
+pip install wheel
+pip install pipwin
+pipwin install numpy
+pipwin install pandas
+pipwin install shapely
+pipwin install gdal
+pipwin install fiona
+pipwin install pyproj
+pipwin install six
+pipwin install rtree
+pipwin install geopandas
+
+GDAL and Fiona might also return errors during installation, then download the respective .whl files and install them manually: https://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+Visual C++ 14.0 might also be required: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+Make sure that you have the correct version of statsmodels (otherwise you might need to use smoothing_slope parameter of fitted data instead of smoothing_trend, and seasonal_decompose might not work properly):
+statsmodels==0.12.1
+
+For charts/dash:
+plotly==4.5.4
+dash==1.14.0
+dash-bootstrap-components==0.10.7
+dash-core-components==1.10.2
+dash-html-components==1.0.3
+dash-renderer==1.6.0
+dash-table==4.9.0
+Flask==1.1.1
+

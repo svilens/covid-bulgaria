@@ -1,0 +1,74 @@
+.carddeck {
+	width: 99%;
+	padding-left: 1%;
+}
+.card {
+    text-align: center;
+    /*width: 100%;*/
+}
+.card .card-title {
+    text-align: center;
+    font-weight: lighter;
+}
+.card .card-value {
+    font-size: 2rem;
+}
+.card .card-target {
+    font-size: 1rem;
+    font-weight: lighter;
+}
+.card .card-diff-down {
+    color: red;
+}
+.card .card-diff-up {
+    color: lightgreen;
+}
+
+/* Tabs */
+.custom-tabs-container {
+	width: 98%;
+}
+.custom-tabs {
+	border-top-left-radius: 3px;
+	padding: 20px 20px;
+}
+.custom-tab {
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top: 0.5px solid #d6d6d6 !important;
+	border-left: 0.5px solid #222222 !important;
+	border-right: 0.5px solid #222222 !important;
+	padding: 10px !important;*
+	font-family: "Verdana";
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	background-color: #fafbfc !important;
+	color: #1E1E1E !important;
+}
+.custom-tab--selected {
+	border-left: 0px solid lightgrey !important;
+	border-right: 0px solid lightgrey !important;
+	border-top: 1px solid #fafbfc !important;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	/*color: #fafbfc !important;*/
+	/*background-color: #1E1E1E !important;*/
+	background-color: #222222 !important;
+	color: #fafbfc !important;
+}
+
+.dropdown {
+	color: #222222 !important;
+	width: 50%;
+	display: flex !important;
+	/*vertical-align: center;*/
+}
+.dropdown .VirtualizedSelectFocusedOption {
+  background-color: #222222 !important;
+  color: #fafbfc;
+}

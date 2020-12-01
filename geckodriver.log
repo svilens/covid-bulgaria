@@ -1,0 +1,1047 @@
+1603656290117	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileSar6Q3"
+1603656408838	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileNnf1p8"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603656412430	Marionette	INFO	Listening on port 9159
+1603656412904	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript warning: https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js, line 2683: unreachable code after return statement
+JavaScript warning: https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js, line 2683: unreachable code after return statement
+JavaScript warning: https://coronavirus.bg/arcgis/jsapi/jsapi/init.js, line 138: unreachable code after return statement
+JavaScript warning: https://coronavirus.bg/arcgis/jsapi/jsapi/init.js, line 152: unreachable code after return statement
+JavaScript warning: https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js, line 8415: Script terminated by timeout at:
+processFields@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:8415:198
+parsePartSerialData@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:8388:6
+parseSerialData@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:8362:80
+parseData@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:8936:187
+initChart@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:8892:358
+validateSize/n<@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7978:106
+setTimeout handler*validateSize@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7978:82
+e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7649:159
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+FrameRequestCallback*e.update@https://coronavirus.bg/arcgis/apps/opsdashboard/assets/vendor-909e4570d9f68cfd4daafda805ca50e6.js:7650:58
+
+console.warn: "Got a mutation for an unexpected actor: server0.conn0.child2/domnode424, please file a bug on bugzilla.mozilla.org!"
+console.trace: 
+resource://devtools/client/fronts/walker.js 276 getMutations
+1603656686060	Marionette	INFO	Stopped listening on port 9159
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603656704531	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileP0BVcN"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603656708270	Marionette	INFO	Listening on port 9277
+1603656708542	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource:///actors/LinkHandlerParent.jsm, line 46: TypeError: tab is null
+Extension error: TypeError: WEBREQUEST_DATA[requestID][id][typ].requestBody.raw[0] is undefined moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: WEBREQUEST_DATA[requestID][id][typ].requestBody.raw[0] is undefined moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: WEBREQUEST_DATA[requestID][id][typ].requestBody.raw[0] is undefined moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: undefined has no properties moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: undefined has no properties moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Extension error: TypeError: WEBREQUEST_DATA[requestID][id][typ].requestBody.raw[0] is undefined moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: WEBREQUEST_DATA[requestID][id][typ].requestBody.raw[0] is undefined moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+1603657075154	Marionette	ERROR	[71] No reply from Marionette:Register
+1603657077606	Marionette	ERROR	[72] No reply from Marionette:Register
+Extension error: TypeError: WEBREQUEST_DATA[requestID][id][typ].requestBody.raw[0] is undefined moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+1603657080561	Marionette	ERROR	[74] No reply from Marionette:Register
+1603657129925	Marionette	ERROR	[77] No reply from Marionette:Register
+Extension error: TypeError: WEBREQUEST_DATA[requestID][id][typ].requestBody.raw[0] is undefined moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: undefined has no properties moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: undefined has no properties moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Extension error: TypeError: undefined has no properties moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: undefined has no properties moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: undefined has no properties moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Extension error: TypeError: undefined has no properties moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js 176
+[[Exception stack
+set_data_html@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:176:1
+setdata_webRequest@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:110:20
+@moz-extension://8ea4a22b-7bfb-4ff0-aa53-b8e5b0f8241a/HTTPHeaderMain.js:10:23
+Current stack
+applySafeWithoutClone@resource://gre/modules/ExtensionCommon.jsm:619:13
+fire@resource://gre/modules/ExtensionChild.jsm:806:37
+recvRunListener@resource://gre/modules/ExtensionChild.jsm:810:13
+_recv@resource://gre/modules/ConduitsChild.jsm:78:20
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:169:20
+run@resource://gre/modules/ConduitsChild.jsm:160:30
+receiveMessage/<@resource://gre/modules/ConduitsChild.jsm:161:46
+receiveMessage@resource://gre/modules/ConduitsChild.jsm:161:31
+]]
+Handler function threw an exception: TypeError: topFrame.browsingContext is null
+Stack: matchRequest@resource://devtools/server/actors/network-monitor/network-observer.js:111:9
+_onRequestHeader@resource://devtools/server/actors/network-monitor/network-observer.js:857:10
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:632:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 111, column: 9
+console.error: (new TypeError("topFrame.browsingContext is null", "resource://devtools/server/actors/network-monitor/network-observer.js", 111))
+Handler function threw an exception: TypeError: topFrame.browsingContext is null
+Stack: matchRequest@resource://devtools/server/actors/network-monitor/network-observer.js:111:9
+_onRequestHeader@resource://devtools/server/actors/network-monitor/network-observer.js:857:10
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:632:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 111, column: 9
+console.error: (new TypeError("topFrame.browsingContext is null", "resource://devtools/server/actors/network-monitor/network-observer.js", 111))
+Handler function threw an exception: TypeError: topFrame.browsingContext is null
+Stack: matchRequest@resource://devtools/server/actors/network-monitor/network-observer.js:111:9
+_onRequestHeader@resource://devtools/server/actors/network-monitor/network-observer.js:857:10
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:632:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 111, column: 9
+console.error: (new TypeError("topFrame.browsingContext is null", "resource://devtools/server/actors/network-monitor/network-observer.js", 111))
+console.warn: "Got a mutation for an unexpected actor: server0.conn0.child2/domnode576, please file a bug on bugzilla.mozilla.org!"
+console.trace: 
+resource://devtools/client/fronts/walker.js 276 getMutations
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1603657992195	Marionette	INFO	Stopped listening on port 9277
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603658181422	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileI574yy"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603658184836	Marionette	INFO	Listening on port 9602
+1603658185286	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 6728, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603658309388	Marionette	INFO	Stopped listening on port 9602
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+r: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603658308571	Marionette	INFO	Listening on port 9673
+1603658308810	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603659211481	Marionette	INFO	Stopped listening on port 9673
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+ers\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilerbocV7"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603659151017	Marionette	INFO	Listening on port 9763
+1603659151242	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603659214593	Marionette	INFO	Stopped listening on port 9763
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603659230540	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileP93gz1"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603659234268	Marionette	INFO	Listening on port 9837
+1603659234549	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x1D0011,name=PBackgroundStorage::Msg_Observe) Channel error: cannot send/recv
+
+1603659425913	Marionette	INFO	Stopped listening on port 9837
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603659470747	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofiletEH4ao"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603659474415	Marionette	INFO	Listening on port 9908
+1603659474725	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603659484022	Marionette	INFO	Stopped listening on port 9908
+1603659819615	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofile31x25o"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603659823169	Marionette	INFO	Listening on port 9972
+1603659823593	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603659832262	Marionette	INFO	Stopped listening on port 9972
+[Parent 8304, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603659998920	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileo1xaF9"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1603660002102	Marionette	INFO	Listening on port 10053
+1603660002259	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603660011190	Marionette	INFO	Stopped listening on port 10053
+1603661313793	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofile5DTBXm"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603661317173	Marionette	INFO	Listening on port 10160
+1603661317671	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603661327348	Marionette	INFO	Stopped listening on port 10160
+1603661627512	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileAo4Zvp"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603661630689	Marionette	INFO	Listening on port 10430
+1603661630880	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603661639578	Marionette	INFO	Stopped listening on port 10430
+[Parent 1816, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603661643572	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilehQvUFM"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603661646623	Marionette	INFO	Listening on port 10494
+1603661646910	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603661655195	Marionette	INFO	Stopped listening on port 10494
+[Parent 8504, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603662058305	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilel2Yyk1"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603662061306	Marionette	INFO	Listening on port 10573
+1603662061629	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603662064777	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:245:13
+TimedPromise@chrome://marionette/content/sync.js:230:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:416:10
+webdriverClickElement@chrome://marionette/content/interaction.js:182:31
+1603662070008	Marionette	INFO	Stopped listening on port 10573
+[Parent 4180, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603831281862	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilepMREBn"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603831285863	Marionette	INFO	Listening on port 4104
+1603831286345	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+[Child 9560, MediaDecoderStateMachine #1] WARNING: Decoder=2001e400 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp, line 3470
+[Child 9560, MediaDecoderStateMachine #1] WARNING: Decoder=fb1800 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp, line 3470
+[Child 9560, MediaDecoderStateMachine #1] WARNING: Decoder=fb1800 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp, line 3470
+JavaScript warning: resource://devtools/client/shared/demangle.js, line 0: Successfully compiled asm.js code (total compilation time 137ms)
+[Child 9560, MediaDecoderStateMachine #1] WARNING: Decoder=11e05c00 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp, line 3470
+[Child 9560, MediaDecoderStateMachine #1] WARNING: Decoder=11e05c00 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<MediaSourceTrackDemuxer::SamplesPromise> __cdecl mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp, line 3470
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 235: Error: Invalid autocomplete selectedIndex
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 235: Error: Invalid autocomplete selectedIndex
+console.warn: "Error while detaching the worker target:" (new Error("wrongState from: server0.conn0.child2/workerTarget216", "resource://devtools/shared/protocol/Front.js", 327))
+1603831956692	Marionette	INFO	Stopped listening on port 4104
+[Parent 10232, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603832102296	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileZBFkco"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832105746	Marionette	INFO	Listening on port 5123
+1603832106283	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832114046	Marionette	INFO	Stopped listening on port 5123
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 1900, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603832117946	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileNBIzpW"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832121059	Marionette	INFO	Listening on port 5201
+1603832121271	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832129569	Marionette	INFO	Stopped listening on port 5201
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603832133579	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileWuCyNA"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832136412	Marionette	INFO	Listening on port 5279
+1603832136897	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832144594	Marionette	INFO	Stopped listening on port 5279
+[Parent 2312, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603832186311	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileBRVOCc"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832189480	Marionette	INFO	Listening on port 5386
+1603832189774	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832197944	Marionette	INFO	Stopped listening on port 5386
+1603832201989	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilekSekF8"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832205503	Marionette	INFO	Listening on port 5460
+1603832206008	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832214440	Marionette	INFO	Stopped listening on port 5460
+[Parent 6876, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 6876, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603832218359	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileE3qGPC"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832222061	Marionette	INFO	Listening on port 5538
+1603832222289	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832229925	Marionette	INFO	Stopped listening on port 5538
+[Parent 5012, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603832238058	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileRG3ChZ"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832241263	Marionette	INFO	Listening on port 5612
+1603832241337	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832249068	Marionette	INFO	Stopped listening on port 5612
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xD,name=PAPZ::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xD,name=PAPZ::Msg_Destroy) Channel error: cannot send/recv
+
+1603832252969	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileg5tg4x"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832256065	Marionette	INFO	Listening on port 5685
+1603832256348	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832264676	Marionette	INFO	Stopped listening on port 5685
+[Parent 3616, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603832268639	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilebFQ0Xh"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603832271650	Marionette	INFO	Listening on port 5761
+1603832272050	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603832280037	Marionette	INFO	Stopped listening on port 5761
+[Parent 5568, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 5568, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603835514032	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileO69a9S"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603835517538	Marionette	INFO	Listening on port 8781
+1603835518015	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603835525852	Marionette	INFO	Stopped listening on port 8781
+[Parent 9260, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603835529830	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofile4QtWJo"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603835532974	Marionette	INFO	Listening on port 8859
+1603835533093	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603835541476	Marionette	INFO	Stopped listening on port 8859
+1603835545417	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilepw2MWq"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603835549111	Marionette	INFO	Listening on port 8932
+1603835549379	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603835557049	Marionette	INFO	Stopped listening on port 8932
+[Parent 6496, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 6496, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603917062243	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilektyCk1"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603917065390	Marionette	INFO	Listening on port 14147
+1603917065505	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603917068672	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:245:13
+TimedPromise@chrome://marionette/content/sync.js:230:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:416:10
+webdriverClickElement@chrome://marionette/content/interaction.js:182:31
+1603917073925	Marionette	INFO	Stopped listening on port 14147
+[Parent 3752, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603917078061	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilezokj92"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1603917081093	Marionette	INFO	Listening on port 14204
+1603917081290	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603917089638	Marionette	INFO	Stopped listening on port 14204
+[Parent 3872, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 3872, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603917093528	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileN6mWxK"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603917096750	Marionette	INFO	Listening on port 14263
+1603917096832	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603917104671	Marionette	INFO	Stopped listening on port 14263
+[Parent 9300, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603917164568	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofile5zqODh"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603917168155	Marionette	INFO	Listening on port 14322
+1603917168376	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603917176720	Marionette	INFO	Stopped listening on port 14322
+1603917180733	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileQWGjmh"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603917184417	Marionette	INFO	Listening on port 14389
+1603917184573	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603917193766	Marionette	INFO	Stopped listening on port 14389
+[Parent 9428, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 9428, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603917197856	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileoJ7Els"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603917201272	Marionette	INFO	Listening on port 14454
+1603917201667	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603917209559	Marionette	INFO	Stopped listening on port 14454
+[Parent 6340, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1603923071438	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileKoLtwR"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603923074762	Marionette	INFO	Listening on port 14981
+1603923074805	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603923082821	Marionette	INFO	Stopped listening on port 14981
+[Parent 7424, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603923086759	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilegF4gGW"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603923089825	Marionette	INFO	Listening on port 1076
+1603923090160	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603923098434	Marionette	INFO	Stopped listening on port 1076
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603923102406	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileL9oOA7"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603923105519	Marionette	INFO	Listening on port 1141
+1603923105618	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603923113404	Marionette	INFO	Stopped listening on port 1141
+[Parent 9300, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603923406443	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileHkFxRE"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603923409814	Marionette	INFO	Listening on port 1236
+1603923410329	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603923418570	Marionette	INFO	Stopped listening on port 1236
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603923422666	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileVAtHQS"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1603923430297	Marionette	INFO	Listening on port 1309
+1603923430756	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603923440492	Marionette	INFO	Stopped listening on port 1309
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 5908, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1603923444664	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilekHnib6"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1603923449406	Marionette	INFO	Listening on port 1388
+1603923449910	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603923458070	Marionette	INFO	Stopped listening on port 1388
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604446613398	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilex5JQGZ"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604446616903	Marionette	INFO	Listening on port 13921
+1604446617403	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604446670047	Marionette	INFO	Stopped listening on port 13921
+[Parent 2772, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 2772, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1604446674197	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilej41hJy"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604446677144	Marionette	INFO	Listening on port 13987
+1604446677511	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604446723167	Marionette	INFO	Stopped listening on port 13987
+1604446727239	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofile0gyH3Y"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604446730121	Marionette	INFO	Listening on port 14047
+1604446730144	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604446739475	Marionette	INFO	Stopped listening on port 14047
+[Parent 9676, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 9676, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1604446861716	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofile1nQSbz"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604446865203	Marionette	INFO	Listening on port 14121
+1604446865789	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604446891616	Marionette	INFO	Stopped listening on port 14121
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604446895633	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileGGNXXu"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604446898578	Marionette	INFO	Listening on port 14183
+1604446899036	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604446908732	Marionette	INFO	Stopped listening on port 14183
+1604446912826	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilekt7Fmo"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604446915906	Marionette	INFO	Listening on port 14245
+1604446916108	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604446925736	Marionette	INFO	Stopped listening on port 14245
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604447098704	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilejHptXj"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1604447102932	Marionette	INFO	Listening on port 14377
+1604447103233	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604447112678	Marionette	INFO	Stopped listening on port 14377
+1604447116790	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilez6UHWR"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604447119740	Marionette	INFO	Listening on port 14452
+1604447120055	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604447129545	Marionette	INFO	Stopped listening on port 14452
+[Parent 8572, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604447133583	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilezs6KOK"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604447136796	Marionette	INFO	Listening on port 14510
+1604447136810	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604447192293	Marionette	INFO	Stopped listening on port 14510
+[Parent 3396, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 3396, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 3396, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604447404331	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileMuwNlz"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604447407933	Marionette	INFO	Listening on port 14662
+1604447408139	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604447458421	Marionette	INFO	Stopped listening on port 14662
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+[Parent 6224, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1604447462573	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileAD51Xg"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604447467550	Marionette	INFO	Listening on port 14731
+[Parent 5152, Gecko_IOThread] WARNING: Failed to launch tab subprocess: file /builds/worker/checkouts/gecko/ipc/glue/GeckoChildProcessHost.cpp, line 745
+1604447467758	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604447509842	Marionette	INFO	Stopped listening on port 14731
+[Parent 5152, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 5152, Gecko_IOThread] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 545
+[Parent 5152, Gecko_IOThread] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 545
+[Parent 5152, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+[Parent 5152, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1604447514193	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileb5sb18"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604447517158	Marionette	INFO	Listening on port 14796
+1604447517396	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604447530581	Marionette	INFO	Stopped listening on port 14796
+[Parent 1912, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1604961668823	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileQONcKw"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604961672964	Marionette	INFO	Listening on port 4079
+1604961673293	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604961748918	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileTSNyCj"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604961752150	Marionette	INFO	Listening on port 4134
+1604961752234	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604961778880	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileFd9EVU"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604961782073	Marionette	INFO	Listening on port 4175
+1604961782317	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+gram Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofilejlSkJc"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604962032345	Marionette	INFO	Listening on port 4295
+1604962032651	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileqKxOX5"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604962075363	Marionette	INFO	Listening on port 4338
+1604962075569	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+gram Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileUmDnNn"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604962178885	Marionette	INFO	Listening on port 4386
+1604962179083	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://static-media-prod-cdn.itsre-sumo.mozilla.net/static/build/wiki-min.5b7d955e1e18.js, line 1: TypeError: document.location is null
+JavaScript error: https://sectigostore.com/page/wp-content/themes/sectigostore/js/functions.js?ver=20150330, line 1: ReferenceError: screenReaderText is not defined
+1604962744723	Marionette	INFO	Stopped listening on port 4386
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604962768566	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileOGN2ok"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604962771985	Marionette	INFO	Listening on port 4596
+1604962771998	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://sectigostore.com/page/wp-content/themes/sectigostore/js/functions.js?ver=20150330, line 1: ReferenceError: screenReaderText is not defined
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604962860454	Marionette	INFO	Stopped listening on port 4596
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1604962971784	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileIMLteN"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604962977720	Marionette	INFO	Listening on port 1273
+1604962977896	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 840, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1604964494835	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\RUMJAC~1\\AppData\\Local\\Temp\\rust_mozprofileDMVOXs"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1604964497682	Marionette	INFO	Listening on port 2075
+1604964498084	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
