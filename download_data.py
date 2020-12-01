@@ -33,6 +33,9 @@ def firefox_driver(download_dir, driver_dir):
 
 def chrome_driver(download_dir, driver_dir):
     options = webdriver.ChromeOptions()
+    options.binary_location=GOOGLE_CHROME_BIN #heroku
+    options.add_argument('--disable-gpu') #heroku
+    options.add_argument('--no-sandbox') #heroku
     options.add_argument("browser.download.folderList=2");
     options.add_argument("browser.helperApps.alwaysAsk.force=False");
     options.add_argument("browser.download.manager.showWhenStarting=False");
@@ -43,7 +46,8 @@ def chrome_driver(download_dir, driver_dir):
     options.add_argument("--proxy-server='direct://'");
     options.add_argument("--proxy-bypass-list=*");
     options.headless = True
-    return webdriver.Chrome(chrome_options=options, executable_path=driver_dir)
+    #return webdriver.Chrome(chrome_options=options, executable_path=driver_dir)
+    return webdriver.Chrome(chrome_options=options, executable_path=CHROMEDRIVER_PATH) #heroku
 
 
 download_dir = os.getcwd() + '\\data\\'
