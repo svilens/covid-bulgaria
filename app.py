@@ -22,9 +22,9 @@ covid_urls = ['https://data.egov.bg/data/resourceView/e59f95dd-afde-43af-83c8-ea
 
 #for url in covid_urls:
 #    download_files(url, "chrome")
-download_files[covid_urls[0], "chrome"]
-download_files[covid_urls[1], "chrome"]
-download_files[covid_urls[2], "chrome"]
+download_files(covid_urls[0], "chrome")
+download_files(covid_urls[1], "chrome")
+download_files(covid_urls[2], "chrome")
     
 print(f'{datetime.now().strftime("%Y-%m-%d %H:%m")} - Finished downloading!')
 
