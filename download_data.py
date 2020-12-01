@@ -2,6 +2,8 @@ import os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
+GOOGLE_CHROME_BIN = 'app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = 'app/.chromedriver/bin/chromedriver'
 
 def backup_existing_file(filename):
     # if the file already exists
