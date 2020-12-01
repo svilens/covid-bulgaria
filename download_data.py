@@ -49,7 +49,7 @@ def chrome_driver(download_dir, driver_dir):
     options.add_argument("--proxy-bypass-list=*");
     options.headless = True
     #return webdriver.Chrome(chrome_options=options, executable_path=driver_dir)
-    return webdriver.Chrome(chrome_options=options, executable_path=os.environ.get('CHROMEDRIVER_PATH')) #heroku
+    return webdriver.Chrome(chrome_options=options, executable_path=str(os.environ.get('CHROMEDRIVER_PATH'))) #heroku
 
 
 download_dir = os.getcwd() + '\\data\\'
