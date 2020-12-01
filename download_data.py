@@ -2,8 +2,8 @@ import os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
-#GOOGLE_CHROME_BIN = 'app/.apt/usr/bin/google_chrome'
-#CHROMEDRIVER_PATH = 'app/.chromedriver/bin/chromedriver'
+GOOGLE_CHROME_BIN = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
 def backup_existing_file(filename):
     # if the file already exists
@@ -35,7 +35,7 @@ def firefox_driver(download_dir, driver_dir):
 
 def chrome_driver(download_dir, driver_dir):
     options = webdriver.ChromeOptions()
-    options.binary_location=os.environ.get('GOOGLE_CHROME_BIN') #heroku
+    options.binary_location=str(os.environ.get('GOOGLE_CHROME_BIN')) #heroku
     options.add_argument('--disable-gpu') #heroku
     options.add_argument('--no-sandbox') #heroku
     options.add_argument("browser.download.folderList=2");
