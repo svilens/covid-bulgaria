@@ -20,8 +20,11 @@ covid_urls = ['https://data.egov.bg/data/resourceView/e59f95dd-afde-43af-83c8-ea
               'https://data.egov.bg/data/resourceView/cb5d7df0-3066-4d7a-b4a1-ac26525e0f0c', # province
               'https://data.egov.bg/data/resourceView/8f62cfcf-a979-46d4-8317-4e1ab9cbd6a8'] # age bands
 
-for url in covid_urls:
-    download_files(url, "chrome")
+#for url in covid_urls:
+#    download_files(url, "chrome")
+download_files[covid_urls[0], "chrome"]
+download_files[covid_urls[1], "chrome"]
+download_files[covid_urls[2], "chrome"]
     
 print(f'{datetime.now().strftime("%Y-%m-%d %H:%m")} - Finished downloading!')
 
