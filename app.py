@@ -28,6 +28,7 @@ download_files(covid_urls[2], "chrome")
     
 print(f'{datetime.now().strftime("%Y-%m-%d %H:%m")} - Finished downloading!')
 
+print('reading general stats')
 covid_general = read_covid_general('./data/Обща статистика за разпространението.csv', 'Дата')
 covid_general.head()
 
@@ -51,6 +52,7 @@ covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases']
 covid_general_weekly = covid_general_weekly[1:-1]
 
 
+print('charting weekly stats')
 from plotly.subplots import make_subplots
 
 fig_gen_stats_weekly = make_subplots(specs=[[{"secondary_y": True}]])
@@ -111,6 +113,7 @@ covid_general['hospitalized_rate'] = (covid_general['hospitalized'] / covid_gene
 covid_general['intensive_care_rate'] = (covid_general['intensive_care'] / covid_general['hospitalized']).round(4)
 covid_general['tests_positive_rate'] = (covid_general['new_cases'] / covid_general['daily_tests']).round(4)
 
+print('charting rates')
 
 fig_rates_mort_rec = go.Figure()
 fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.death_rate,
@@ -139,7 +142,7 @@ fig_rates_positive_tests.update_layout(title="COVID-19 positive tests rate")
 for f in [fig_rates_mort_rec, fig_rates_hospitalized, fig_rates_positive_tests]:
     f.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
-
+print('reading spatial data')
 
 geodf = read_spatial_data('./shape/BGR_adm1.shp', codes_spatial)
 covid_by_province = read_covid_by_province('./data/Разпределение по дата и по области.csv', date_col='Дата')
@@ -205,7 +208,7 @@ covid_by_age_band = (pd.read_csv('./data/Разпределение по дат�
                      .rename(columns={'Дата':'date'}))
 covid_by_age_band.head()
 
-
+print('charting age bands')
 age_band_colors = ['green', 'cyan', 'magenta', 'ghostwhite', 'coral', 'royalblue', 'darkred', 'orange', 'brown']
 
 fig_age = go.Figure()
@@ -229,6 +232,8 @@ fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)
 #fig_age.show()
 fig_age = fig_age.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+
+print('starting r0')
 
 import pandas as pd
 import numpy as np
@@ -471,6 +476,8 @@ fig_rt.show()
 fig_rt = fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
+print('calculating r0 for provinces')
+
 sigmas = np.linspace(1/20, 1, 20)
 
 provinces_to_process = provinces
@@ -552,6 +559,8 @@ fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the
 #fig_rt_province_yesterday.show()
 fig_rt_province_yesterday = fig_rt_province_yesterday.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+print('charting r0 provinces')
+
 def generate_rt_by_province(provinces, final_results):
     provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
     data = final_results.reset_index()
@@ -592,6 +601,7 @@ def generate_rt_by_province(provinces, final_results):
 fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 #fig_rt_province_actual.show()
 
+print('starting arima')
 
 import itertools
 import pandas as pd
@@ -693,6 +703,7 @@ def arima_province(ts_data, province, column='total_cases', forecast_days=15):
 
     return (pred, result, fig, model_error)
 
+print('calculating arima for provinces')
 
 from datetime import datetime
 start = datetime.now()
@@ -747,7 +758,7 @@ def plot_rolling(df):
     
 plot_rolling(df)
 
-
+print('holt')
 
 from statsmodels.tsa.holtwinters import Holt
 
@@ -824,6 +835,7 @@ def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     return fig_exp_smoothing_double
 
 
+print('holt-winters')
 
 from statsmodels.tsa.holtwinters import ExponentialSmoothing as HWES
 
@@ -883,6 +895,7 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     return fig_exp_smoothing_triple, pred_triple_error
 
 
+print('starting dash')
 
 import dash
 import dash_core_components as dcc
