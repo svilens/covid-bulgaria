@@ -162,7 +162,7 @@ covid_pop_sorted = covid_pop.sort_values(by=['date', 'ALL'])
 covid_pop_sorted['day'] = covid_pop_sorted.date.apply(lambda x: (x - min(covid_pop_sorted.date)).days + 1)
 
 covid_yesterday = gpd.GeoDataFrame(covid_pop.loc[covid_pop.date == max(covid_pop.date)])
-from plotly.offline import download_plotlyjs, init_notebook_mode, plot
+#from plotly.offline import download_plotlyjs, init_notebook_mode, plot
 import plotly.express as px
 #init_notebook_mode()
 
@@ -248,7 +248,7 @@ from matplotlib.patches import Patch
 from scipy import stats as sps
 from scipy.interpolate import interp1d
 
-from IPython.display import clear_output
+#from IPython.display import clear_output
 #%config InlineBackend.figure_format = 'retina'
 
 provinces = covid_pop_sorted[['province', 'date', 'ALL']].groupby(['province','date']).ALL.sum()
