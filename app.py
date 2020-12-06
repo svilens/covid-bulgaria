@@ -536,7 +536,7 @@ fig_exp_smoothing_triple = fig_exp_smoothing_triple.update_layout(paper_bgcolor=
 def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
     df = ts_data.set_index('date')
     # replace zeros with 0.1 as the multiplicative seasonal element o HWES requires strictly positive values
-    df = df.loc[df['province'] == province].replace(0,0.1)
+    df = df.loc[df['province'] == province].replace(0,0.1).dropna()
     df = df.resample("D").sum()
     
     train = df.iloc[:-forecast_days]
@@ -837,7 +837,7 @@ tabs = html.Div([
                                 options=[{'label':p, 'value':p} for p in ts_data['province'].unique()],
                                 placeholder='Select a province',
                                 value='Sofiya-Grad',
-                                style=dict(width='140%')
+                                style=dict(width='70%')
                             )
                         ]),
                         html.Div([

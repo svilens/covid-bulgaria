@@ -330,10 +330,10 @@ for i, province in list(enumerate(provinces_list)):
     else:
         col_num = 2
 
-    fig_new_by_province.add_trace(go.Scatter(x=r0_provinces_original.reset_index()['date'], y=r0_provinces_original.reset_index()[f'{province} cases'],
+    fig_new_by_province.add_trace(go.Scatter(x=r0_provinces_original.reset_index()['date'], y=r0_provinces_original['new_cases'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'),
                                   row=row_num, col=col_num)
-    fig_new_by_province.add_trace(go.Scatter(x=r0_provinces_smoothed.reset_index()['date'], y=r0_provinces_smoothed.reset_index()[f'{province} cases'],
+    fig_new_by_province.add_trace(go.Scatter(x=r0_provinces_smoothed.reset_index()['date'], y=r0_provinces_smoothed['new_cases'],
                                       mode='lines', line=dict(width=3), name='Smoothed'),
                                   row=row_num, col=col_num)
     fig_new_by_province.update_layout(title='Daily new cases by province', height=3200, showlegend=False)

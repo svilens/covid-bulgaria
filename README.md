@@ -1,7 +1,7 @@
 # COVID-19 in Bulgaria
 
 ## How to run
-Run execute.py locally. It downloads the latest data, does some processing (90 mins) and creates some files in dash_data folder.
+Run data_processing.py locally. It downloads the latest data, does some processing (90 mins) and creates some files in dash_data folder.
 Then deploy to heroku:
 git push heroku master
 It will push everything to heroku, which will run app.py to read the dash_data files, draw charts and create a dashboard.

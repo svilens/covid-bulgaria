@@ -123,3 +123,45 @@
 2020-12-06 02:47:42,007 — app.log — INFO — Creating dash callbacks
 2020-12-06 02:47:42,007 — app.log — INFO — Running dash server
 2020-12-06 03:04:39,963 — app.log — INFO — Creating chart 12: Rt by province
+2020-12-06 10:19:38,559 — __main__ — INFO — The backup is done!
+2020-12-06 10:20:21,422 — __main__ — INFO — Finished downloading!
+2020-12-06 10:20:21,423 — __main__ — INFO — reading general stats
+2020-12-06 10:20:25,376 — __main__ — INFO — charting weekly stats
+2020-12-06 10:20:26,204 — __main__ — INFO — charting rates
+2020-12-06 10:20:26,813 — __main__ — INFO — reading spatial data
+2020-12-06 10:21:17,533 — __main__ — INFO — charting age bands
+2020-12-06 10:21:18,141 — __main__ — INFO — starting r0
+2020-12-06 10:25:33,713 — __main__ — INFO — The backup is done!
+2020-12-06 10:26:17,831 — __main__ — INFO — Finished downloading!
+2020-12-06 10:26:17,832 — __main__ — INFO — reading general stats
+2020-12-06 10:26:18,298 — __main__ — INFO — charting weekly stats
+2020-12-06 10:26:19,137 — __main__ — INFO — charting rates
+2020-12-06 10:26:19,824 — __main__ — INFO — reading spatial data
+2020-12-06 10:27:22,052 — __main__ — INFO — charting age bands
+2020-12-06 10:27:22,690 — __main__ — INFO — starting r0
+2020-12-06 10:29:28,982 — __main__ — INFO — The backup is done!
+2020-12-06 10:30:15,060 — __main__ — INFO — Finished downloading!
+2020-12-06 10:30:15,063 — __main__ — INFO — reading general stats
+2020-12-06 10:30:15,475 — __main__ — INFO — charting weekly stats
+2020-12-06 10:30:17,891 — __main__ — INFO — charting rates
+2020-12-06 10:30:18,939 — __main__ — INFO — reading spatial data
+2020-12-06 10:31:18,518 — __main__ — INFO — charting age bands
+2020-12-06 10:31:19,034 — __main__ — INFO — starting r0
+2020-12-06 10:34:52,589 — __main__ — INFO — calculating r0 for provinces
+2020-12-06 11:00:31,052 — __main__ — INFO — provinces R0 runtime: 0:19:30.159930
+2020-12-06 11:00:31,620 — __main__ — INFO — charting r0 provinces
+2020-12-06 11:00:33,360 — __main__ — INFO — starting arima
+2020-12-06 11:00:34,035 — __main__ — INFO — calculating arima for provinces
+2020-12-06 11:38:10,814 — __main__ — INFO — Provinces ARIMA runtime: 0:37:36.777081
+2020-12-06 11:38:11,605 — __main__ — INFO — holt
+2020-12-06 11:38:12,036 — __main__ — INFO — holt-winters
+2020-12-06 11:38:12,664 — __main__ — INFO — starting dash
+2020-12-06 11:38:13,562 — __main__ — INFO — The backup is done!
+2020-12-06 11:38:58,169 — __main__ — INFO — Finished downloading!
+2020-12-06 11:38:58,169 — __main__ — INFO — reading general stats
+2020-12-06 11:39:00,948 — __main__ — INFO — charting weekly stats
+2020-12-06 11:39:01,943 — __main__ — INFO — charting rates
+2020-12-06 11:39:02,538 — __main__ — INFO — reading spatial data
+2020-12-06 11:39:48,841 — __main__ — INFO — charting age bands
+2020-12-06 11:39:49,330 — __main__ — INFO — starting r0
+2020-12-06 11:42:52,179 — __main__ — INFO — calculating r0 for provinces
