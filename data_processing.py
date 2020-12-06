@@ -744,7 +744,7 @@ for province in ts_data['province'].unique():
     arima_errors = [arima_results[3] for x in range(len(arima_preds))]
     arima_indexes = arima_results[4]
     arima_true_values = arima_results[5]
-    arima_temp_df = pd.DataFrame({'date':arima_indexes, 'province':province, 'pred':arima_preds, 'error':arima_errors, 'values':arima_true_values})
+    arima_temp_df = pd.DataFrame({'date':arima_indexes, 'province':province, 'pred':arima_preds, 'error':arima_errors, 'value':arima_true_values})
     arima_provinces_df = pd.concat([arima_provinces_df, arima_temp_df])
 
 logger.info(f'Provinces ARIMA runtime: {datetime.now() - start}')

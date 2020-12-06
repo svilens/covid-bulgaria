@@ -113,3 +113,13 @@
 2020-12-06 02:45:10,653 — app.log — INFO — Reading ARIMA
 2020-12-06 02:45:10,677 — app.log — INFO — Starting Double exponential smoothing (Holt)
 2020-12-06 02:45:10,836 — app.log — INFO — Creating chart 13: Double exp smoothing
+2020-12-06 02:47:39,483 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2020-12-06 02:47:40,087 — app.log — INFO — Creating chart 14: Triple exp smoothing
+2020-12-06 02:47:41,402 — app.log — INFO — Running dash
+2020-12-06 02:47:41,986 — app.log — INFO — Creating dash helper vars
+2020-12-06 02:47:41,990 — app.log — INFO — Creating dash cards
+2020-12-06 02:47:41,995 — app.log — INFO — Creating dash tabs
+2020-12-06 02:47:42,004 — app.log — INFO — Creating dash layout
+2020-12-06 02:47:42,007 — app.log — INFO — Creating dash callbacks
+2020-12-06 02:47:42,007 — app.log — INFO — Running dash server
+2020-12-06 03:04:39,963 — app.log — INFO — Creating chart 12: Rt by province

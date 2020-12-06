@@ -314,7 +314,7 @@ fig_rt = fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(
 logger.info('Reading Rt for provinces')
 final_results = pd.read_csv('./dash_data/r0_provinces_r0.csv')
 
-mr = final_results.groupby(level=0)[['Estimated', 'High_90', 'Low_90']].last()
+mr = final_results.loc[final_results['date'] == final_results['date'].max(), ['province', 'Estimated', 'High_90', 'Low_90']]
 
 mr['diff_up'] = mr['High_90'] - mr['Estimated']
 mr['diff_down'] = mr['Estimated'] - mr['Low_90']
@@ -328,7 +328,7 @@ mr.loc[mr.status=="0", 'colors'] = 'grey'
 
 
 fig_rt_province_yesterday = go.Figure()
-fig_rt_province_yesterday.add_trace(go.Bar(x=mr.index, y=mr.Estimated, marker_color=mr.colors, 
+fig_rt_province_yesterday.add_trace(go.Bar(x=mr.province, y=mr.Estimated, marker_color=mr.colors, 
                           error_y=dict(type='data', array=mr.diff_up, arrayminus=mr.diff_down)))
 fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the last daily update')
 #fig_rt_province_yesterday.show()
@@ -369,8 +369,7 @@ def generate_rt_by_province(provinces, final_results):
                                 marker_color=subset.Estimated, marker_colorscale='RdYlBu_r', marker_line_width=1.2,
                                 marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'), row=row_num, col=col_num)
 
-    fig_rt_province.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> by province",
-                                      height=4000, showlegend=False)
+    fig_rt_province.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> by province", height=4000, showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     return fig_rt_province
 
 
@@ -381,9 +380,10 @@ logger.info('Reading ARIMA')
 
 
 ts_data = covid_pop.reset_index()[['date', 'province', 'ALL', 'new_cases']].rename(columns={'ALL':'total_cases'})
-#ts_data.head()
 
-
+ts_data_r0 = final_results[['province', 'date', 'Estimated']].rename(columns={'Estimated':'r0'})
+ts_data_r0.date = pd.to_datetime(ts_data_r0.date)
+ts_data = pd.merge(ts_data, ts_data_r0, on=['date','province'])
 
 def split(ts, forecast_days=15):
     #size = int(len(ts) * math.log(0.80))
@@ -396,14 +396,15 @@ def mape(y1, y_pred):
     y1, y_pred = np.array(y1), np.array(y_pred)
     return np.mean(np.abs((y1 - y_pred) / y1)) * 100
 
+
 arima_provinces_df = pd.read_csv('./dash_data/arima_provinces.csv')
 
 def arima_chart(province):
     arima_filtered = arima_provinces_df.loc[arima_provinces_df.province == province]
     fig_arima = go.Figure()
-    fig_arima.add_trace(go.Scatter(x=arima_filtered.date[:-15], y=arima_filtered.values[:-15], name='Training data', mode='lines'))
-    fig_arima.add_trace(go.Scatter(x=arima_filtered.date[-15:], y=arima_filtered.values[-15:], name='Testing data', mode='lines'))
-    fig_arima.add_trace(go.Scatter(x=arima_filtered.date[-15:], y=arima_filtered.pred[-15:], name='Forecast', mode='lines'))
+    fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][:-15], y=arima_filtered['value'][:-15], name='Training data', mode='lines'))
+    fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][-15:], y=arima_filtered['value'][-15:], name='Testing data', mode='lines'))
+    fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][-15:], y=arima_filtered['pred'][-15:], name='Forecast', mode='lines'))
     fig_arima.update_layout(title = f'True vs Predicted values for total cases (7 days rolling mean) in {province} for 15 days', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     arima_error = arima_filtered['error'].values[0]
     return fig_arima, arima_error
@@ -557,7 +558,7 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
         x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
         y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
     )
-    fig_exp_smoothing_triple.update_layout(title=f'Holt-Winters (triple) exponential smoothing for {"new cases" if column == "new_cases" else "total cases"} in {province} for {forecast_days} days')
+    fig_exp_smoothing_triple.update_layout(title=f'Holt-Winters (triple) exponential smoothing for {"new cases" if column == "new_cases" else "total cases" if column == "total_cases" else "reproduction number"} in {province} for {forecast_days} days')
     return fig_exp_smoothing_triple, pred_triple_error
 
 
@@ -805,7 +806,7 @@ tabs = html.Div([
                 children = [
                     html.Br(),
                     html.Br(),
-                    html.P("Estimated reproduction number"),
+                    html.P("The estimated daily reproduction number represents how many people are directly infected by 1 infectious person per each day. Ideally, we want this number to be lower than 1. Otherwise, the disease is spreading linearly (=1) or exponentially (>1)."),
                     html.Br(),
                     dcc.Graph(figure=fig_rt),
                     html.Br(),
@@ -893,7 +894,8 @@ tabs = html.Div([
                                 className='dropdown',
                                 options=[
                                     {'label': 'Total cases', 'value': 'total_cases'},
-                                    {'label': 'New cases', 'value': 'new_cases'}
+                                    {'label': 'New cases', 'value': 'new_cases'},
+                                    {'label': 'Reproduction number', 'value': 'r0'}
                                 ],
                                 placeholder='Select a variable to be predicted',
                                 value='total_cases',
