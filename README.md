@@ -1,5 +1,12 @@
 # COVID-19 in Bulgaria
 
+## How to run
+Run execute.py locally. It downloads the latest data, does some processing (90 mins) and creates some files in dash_data folder.
+Then deploy to heroku:
+git push heroku master
+It will push everything to heroku, which will run app.py to read the dash_data files, draw charts and create a dashboard.
+Open https://covid-bulgaria-smule.herokuapp.com to see the result.
+
 ## Business understanding
 The SARS-CoV-2 pandemic is making a huge impact on the worldwide industry, society and everyday life. The consequences of the coronavirus disease (COVID-19) outbreak are unprecedented and felt around the world. The world of work is being profoundly affected by the pandemic. In addition to the threat to public health, the economic and social disruption threatens the long-term livelihoods and wellbeing of millions. The pandemic is heavily affecting labour markets, economies and enterprises, including global supply chains, leading to widespread business and social disruptions.
 

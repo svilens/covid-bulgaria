@@ -2,8 +2,8 @@ import os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
-GOOGLE_CHROME_BIN = '/app/.apt/usr/bin/google_chrome'
-CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+GOOGLE_CHROME_BIN = '/app/.apt/usr/bin/google_chrome' # REQUIRED FOR HEROKU
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver' # REQUIRED FOR HEROKU
 
 def backup_existing_file(filename):
     # if the file already exists
@@ -35,9 +35,9 @@ def firefox_driver(download_dir, driver_dir):
 
 def chrome_driver(download_dir, driver_dir):
     options = webdriver.ChromeOptions()
-    options.binary_location=str(os.environ.get('GOOGLE_CHROME_BIN')) #heroku
-    options.add_argument('--disable-gpu') #heroku
-    options.add_argument('--no-sandbox') #heroku
+    #options.binary_location=str(os.environ.get('GOOGLE_CHROME_BIN')) # REQUIRED FOR HEROKU
+    #options.add_argument('--disable-gpu') # REQUIRED FOR HEROKU
+    #options.add_argument('--no-sandbox') # REQUIRED FOR HEROKU
     options.add_argument("browser.download.folderList=2");
     options.add_argument("browser.helperApps.alwaysAsk.force=False");
     options.add_argument("browser.download.manager.showWhenStarting=False");
@@ -48,9 +48,8 @@ def chrome_driver(download_dir, driver_dir):
     options.add_argument("--proxy-server='direct://'");
     options.add_argument("--proxy-bypass-list=*");
     options.headless = True
-    #return webdriver.Chrome(chrome_options=options, executable_path=driver_dir)
-    #return webdriver.Chrome(chrome_options=options, executable_path=str(os.environ.get('CHROMEDRIVER_PATH'))) #heroku
-    return webdriver.Chrome(chrome_options=options, executable_path=CHROMEDRIVER_PATH) #heroku
+    return webdriver.Chrome(chrome_options=options, executable_path=driver_dir)
+    #return webdriver.Chrome(chrome_options=options, executable_path=CHROMEDRIVER_PATH) # REQUIRED FOR HEROKU
 
 
 download_dir = os.getcwd() + '\\data\\'

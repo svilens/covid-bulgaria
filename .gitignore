@@ -1,0 +1,6 @@
+temp-plot.html
+
+__pycache__/
+
+.ipynb_checkpoints/
+geckodriver.log

@@ -1,26 +1,41 @@
-from logging_func import *
 import geopandas as gpd
 import pandas as pd
-import numpy as np
 from datetime import datetime
 
 # from external modules
+from download_data import *
 from read_spatial import *
 from read_covid import *
 from read_nsi import *
 
-logger = get_logger_app('app')
-logger.info('Starting the process')
+covid_files = ['Обща статистика за разпространението.csv', 'Разпределение по дата и по области.csv',
+               'Разпределение по дата и по възрастови групи.csv']
 
-logger.info('Reading general stats')
+for filename in covid_files:
+    backup_existing_file(filename)
+
+print(f'{datetime.now().strftime("%Y-%m-%d %H:%m")} - The backup is done!')
+
+covid_urls = ['https://data.egov.bg/data/resourceView/e59f95dd-afde-43af-83c8-ea2916badd19', # general
+              'https://data.egov.bg/data/resourceView/cb5d7df0-3066-4d7a-b4a1-ac26525e0f0c', # province
+              'https://data.egov.bg/data/resourceView/8f62cfcf-a979-46d4-8317-4e1ab9cbd6a8'] # age bands
+
+#for url in covid_urls:
+#    download_files(url, "chrome")
+download_files(covid_urls[0], "chrome")
+download_files(covid_urls[1], "chrome")
+download_files(covid_urls[2], "chrome")
+    
+print(f'{datetime.now().strftime("%Y-%m-%d %H:%m")} - Finished downloading!')
+
+print('reading general stats')
 covid_general = read_covid_general('./data/Обща статистика за разпространението.csv', 'Дата')
-#covid_general.head()
+covid_general.head()
 
 import plotly.graph_objects as go
 import plotly.io as pio
 pio.templates.default = "plotly_dark"
 
-logger.info('Creating chart 1: Cumulative cases over time')
 fig_gen_stats = go.Figure()
 fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_cases, name='Confirmed'))
 fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.active_cases, line=dict(color='yellow'), name='Active'))
@@ -37,7 +52,7 @@ covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases']
 covid_general_weekly = covid_general_weekly[1:-1]
 
 
-logger.info('Creating chart 2: Cases per week')
+print('charting weekly stats')
 from plotly.subplots import make_subplots
 
 fig_gen_stats_weekly = make_subplots(specs=[[{"secondary_y": True}]])
@@ -51,7 +66,7 @@ fig_gen_stats_weekly.update_yaxes(title_text="Deaths / recoveries", secondary_y=
 #fig_gen_stats_weekly.show()
 fig_gen_stats_weekly = fig_gen_stats_weekly.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
-logger.info('Creating chart 3: New cases weekly % change')
+
 fig_gen_stats_weekly_new_pct = go.Figure()
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases_pct_change[1:], line=dict(color='orange'), line_shape='spline', name='Confirmed % change'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[25, 25], y=[-0.2,0.5],
@@ -69,7 +84,6 @@ fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly %
 fig_gen_stats_weekly_new_pct = fig_gen_stats_weekly_new_pct.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 4: New cases per week + summer events')
 fig_gen_stats_weekly_events = go.Figure()
 fig_gen_stats_weekly_events.add_trace(go.Scatter(x=covid_general_weekly.index[1:], 
                                                  y=covid_general_weekly.new_cases[1:],
@@ -91,7 +105,6 @@ fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
 fig_gen_stats_weekly_events = fig_gen_stats_weekly_events.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Calculating rates')
 covid_general['total_cases_7days_ago'] = covid_general['total_cases'].shift(periods=7)
 covid_general['total_cases_14days_ago'] = covid_general['total_cases'].shift(periods=14)
 covid_general['death_rate'] = (covid_general['total_deaths'] / covid_general['total_cases_14days_ago']).round(4)
@@ -100,8 +113,8 @@ covid_general['hospitalized_rate'] = (covid_general['hospitalized'] / covid_gene
 covid_general['intensive_care_rate'] = (covid_general['intensive_care'] / covid_general['hospitalized']).round(4)
 covid_general['tests_positive_rate'] = (covid_general['new_cases'] / covid_general['daily_tests']).round(4)
 
+print('charting rates')
 
-logger.info('Creating chart 5: Rates')
 fig_rates_mort_rec = go.Figure()
 fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.death_rate,
                                line_shape='spline', line=dict(color='red'), name='Mortality rate'))
@@ -121,12 +134,16 @@ fig_rates_positive_tests.add_trace(go.Scatter(x=covid_general.date, y=covid_gene
                                line_shape='spline', line=dict(color='cyan'), name='Tests positive rate'))
 fig_rates_positive_tests.update_layout(title="COVID-19 positive tests rate")
 
+#fig_rates_mort_rec.show()
+#fig_rates_hospitalized.show()
+#fig_rates_positive_tests.show()
+
 # for the dashboard
 for f in [fig_rates_mort_rec, fig_rates_hospitalized, fig_rates_positive_tests]:
     f.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+print('reading spatial data')
 
-logger.info('Reading spatial data')
 geodf = read_spatial_data('./shape/BGR_adm1.shp', codes_spatial)
 covid_by_province = read_covid_by_province('./data/Разпределение по дата и по области.csv', date_col='Дата')
 pop_by_province = read_population_data('./data/Pop_6.1.1_Pop_DR.xls', worksheet_name='2019',
@@ -145,10 +162,10 @@ covid_pop_sorted = covid_pop.sort_values(by=['date', 'ALL'])
 covid_pop_sorted['day'] = covid_pop_sorted.date.apply(lambda x: (x - min(covid_pop_sorted.date)).days + 1)
 
 covid_yesterday = gpd.GeoDataFrame(covid_pop.loc[covid_pop.date == max(covid_pop.date)])
+#from plotly.offline import download_plotlyjs, init_notebook_mode, plot
 import plotly.express as px
+#init_notebook_mode()
 
-
-logger.info('Creating chart 6: Provinces map - total cases per 100k pop')
 fig_yesterday_map_total = px.choropleth_mapbox(
     covid_yesterday,
     geojson=covid_yesterday.geometry,
@@ -168,7 +185,6 @@ fig_yesterday_map_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, templat
 fig_yesterday_map_total = fig_yesterday_map_total.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 7: Provinces map - new cases per 100k pop')
 fig_yesterday_map_new = px.choropleth_mapbox(
     covid_yesterday,
     geojson=covid_yesterday.geometry,
@@ -188,11 +204,11 @@ fig_yesterday_map_new.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template=
 fig_yesterday_map_new = fig_yesterday_map_new.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Reading age bands data')
-covid_by_age_band = (pd.read_csv('./data/Разпределение по дата и по възрастови групи.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'}))
+covid_by_age_band = (pd.read_csv('./data/Разпределение по дата и по възрастови групи.csv', parse_dates=['Дата'])
+                     .rename(columns={'Дата':'date'}))
+covid_by_age_band.head()
 
-
-logger.info('Creating chart 8: Cumulative cases by age band')
+print('charting age bands')
 age_band_colors = ['green', 'cyan', 'magenta', 'ghostwhite', 'coral', 'royalblue', 'darkred', 'orange', 'brown']
 
 fig_age = go.Figure()
@@ -217,14 +233,49 @@ fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)
 fig_age = fig_age.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Starting Rt processing')
+print('starting r0')
+
+import pandas as pd
+import numpy as np
+
+from matplotlib import pyplot as plt
+from matplotlib.dates import date2num, num2date
+from matplotlib import dates as mdates
+from matplotlib import ticker
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
+
+from scipy import stats as sps
+from scipy.interpolate import interp1d
+
+#from IPython.display import clear_output
+#%config InlineBackend.figure_format = 'retina'
 
 provinces = covid_pop_sorted[['province', 'date', 'ALL']].groupby(['province','date']).ALL.sum()
+provinces.head()
 
-orig_bg = pd.read_csv('./dash_data/r0_bg_original.csv')
-smoothed_bg = pd.read_csv('./dash_data/r0_bg_smoothed.csv')
 
-logger.info('Creating chart 9: Smoothed new cases - BG')
+bg_total_new = provinces.groupby('date').sum()
+bg_total_new.head()
+
+
+def prepare_cases(cases):
+    new_cases = cases.diff()
+
+    smoothed = new_cases.rolling(9,
+        win_type='gaussian',
+        min_periods=1,
+        center=True).mean(std=3).round()
+    
+    idx_start = np.searchsorted(smoothed, 10)
+    smoothed = smoothed.iloc[idx_start:]
+    original = new_cases.loc[smoothed.index]
+    
+    return original, smoothed
+
+
+orig_bg, smoothed_bg = prepare_cases(bg_total_new)
+
 fig_new_bg = go.Figure()
 fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset_index()['ALL'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
@@ -234,10 +285,9 @@ fig_new_bg.update_layout(title='Daily new cases in Bulgaria')
 #fig_new_bg.show()
 fig_new_bg = fig_new_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
 
-
-logger.info('Creating chart 10: Smoothed new cases - provinces')
 # create subplots structure
 fig_new_by_province = make_subplots(
                             rows=int(len(provinces_list)/2),
@@ -245,13 +295,10 @@ fig_new_by_province = make_subplots(
                             subplot_titles = [f"{province}" for province in provinces_list]
                         )
 
-original_provinces = pd.read_csv('./dash_data/r0_provinces_original.csv')
-smoothed_provinces = pd.read_csv('./dash_data/r0_provinces_smoothed.csv')
-
 # add charts for provinces
 for i, province in list(enumerate(provinces_list)):
-    original = original_provinces.loc[original_provinces.province == province]
-    smoothed = smoothed_provinces.loc[smoothed_provinces.province == province]
+    cases = provinces.xs(province).rename(f"{province} cases")
+    original, smoothed = prepare_cases(cases)
 
     i += 1
     import math
@@ -261,10 +308,10 @@ for i, province in list(enumerate(provinces_list)):
     else:
         col_num = 2
 
-    fig_new_by_province.add_trace(go.Scatter(x=original['date'], y=original['new_cases'],
+    fig_new_by_province.add_trace(go.Scatter(x=original.reset_index()['date'], y=original.reset_index()[f'{province} cases'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'),
                                   row=row_num, col=col_num)
-    fig_new_by_province.add_trace(go.Scatter(x=smoothed['date'], y=smoothed['new_cases'],
+    fig_new_by_province.add_trace(go.Scatter(x=smoothed.reset_index()['date'], y=smoothed.reset_index()[f'{province} cases'],
                                       mode='lines', line=dict(width=3), name='Smoothed'),
                                   row=row_num, col=col_num)
     fig_new_by_province.update_layout(title='Daily new cases by province', height=3200, showlegend=False)
@@ -273,15 +320,133 @@ for i, province in list(enumerate(provinces_list)):
 fig_new_by_province = fig_new_by_province.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 11: Rt for BG')
-result_bg = pd.read_csv('./dash_data/r0_bg_r0.csv')
+# We create an array for every possible value of Rt
+R_T_MAX = 12
+r_t_range = np.linspace(0, R_T_MAX, R_T_MAX*100+1)
 
-index_bg = result_bg['date']
-values_bg = result_bg['Estimated']
+# Gamma is 1/serial interval
+# https://wwwnc.cdc.gov/eid/article/26/7/20-0282_article
+# https://www.nejm.org/doi/full/10.1056/NEJMoa2001316
+GAMMA = 1/7
 
-from scipy import stats as sps
-from scipy.interpolate import interp1d
-from matplotlib.dates import date2num, num2date
+
+def get_posteriors(sr, sigma=0.15):
+
+    # (1) Calculate Lambda
+    lam = sr[:-1].values * np.exp(GAMMA * (r_t_range[:, None] - 1))
+
+    
+    # (2) Calculate each day's likelihood
+    likelihoods = pd.DataFrame(
+        data = sps.poisson.pmf(sr[1:].values, lam),
+        index = r_t_range,
+        columns = sr.index[1:])
+    
+    # (3) Create the Gaussian Matrix
+    process_matrix = sps.norm(loc=r_t_range,
+                              scale=sigma
+                             ).pdf(r_t_range[:, None]) 
+
+    # (3a) Normalize all rows to sum to 1
+    process_matrix /= process_matrix.sum(axis=0)
+    
+    # (4) Calculate the initial prior
+    prior0 = sps.gamma(a=4).pdf(r_t_range)
+    prior0 /= prior0.sum()
+
+    # Create a DataFrame that will hold our posteriors for each day
+    # Insert our prior as the first posterior.
+    posteriors = pd.DataFrame(
+        index=r_t_range,
+        columns=sr.index,
+        data={sr.index[0]: prior0}
+    )
+    
+    # We said we'd keep track of the sum of the log of the probability
+    # of the data for maximum likelihood calculation.
+    log_likelihood = 0.0
+
+    # (5) Iteratively apply Bayes' rule
+    for previous_day, current_day in zip(sr.index[:-1], sr.index[1:]):
+
+        #(5a) Calculate the new prior
+        current_prior = process_matrix @ posteriors[previous_day]
+        
+        #(5b) Calculate the numerator of Bayes' Rule: P(k|R_t)P(R_t)
+        numerator = likelihoods[current_day] * current_prior
+        
+        #(5c) Calcluate the denominator of Bayes' Rule P(k)
+        denominator = np.sum(numerator)
+        
+        # Execute full Bayes' Rule
+        posteriors[current_day] = numerator/denominator
+        
+        # Add to the running sum of log likelihoods
+        log_likelihood += np.log(denominator)
+    
+    return posteriors, log_likelihood
+
+
+sigmas = np.linspace(1/100, 1, 100)
+result_bg = {}
+ # Holds all posteriors with every given value of sigma
+result_bg['posteriors'] = []
+
+# Holds the log likelihood across all k for each value of sigma
+result_bg['log_likelihoods'] = []
+
+for sigma in sigmas:
+    posteriors, log_likelihood = get_posteriors(smoothed_bg, sigma=sigma)
+    result_bg['posteriors'].append(posteriors)
+    result_bg['log_likelihoods'].append(log_likelihood)
+    
+# Each index of this array holds the total of the log likelihoods for the corresponding index of the sigmas array.
+total_log_likelihoods_bg = np.zeros_like(sigmas)
+
+# Loop through each state's results and add the log likelihoods to the running total.
+for result in result_bg.items():
+    total_log_likelihoods_bg += result_bg['log_likelihoods']
+
+# Select the index with the largest log likelihood total
+max_likelihood_index_bg = total_log_likelihoods_bg.argmax()
+
+# Select the value that has the highest log likelihood
+sigma_bg = sigmas[max_likelihood_index_bg]
+
+
+posteriors_bg, log_likelihood_bg = get_posteriors(smoothed_bg, sigma=sigma_bg)
+
+def highest_density_interval(pmf, p=.9):
+    # If we pass a DataFrame, just call this recursively on the columns
+    if(isinstance(pmf, pd.DataFrame)):
+        return pd.DataFrame([highest_density_interval(pmf[col], p=p) for col in pmf],
+                            index=pmf.columns)
+    
+    cumsum = np.cumsum(pmf.values)
+    best = None
+    for i, value in enumerate(cumsum):
+        for j, high_value in enumerate(cumsum[i+1:]):
+            if (high_value-value > p) and (not best or j<best[1]-best[0]):
+                best = (i, i+j+1)
+                break
+            
+    low = pmf.index[best[0]]
+    high = pmf.index[best[1]]
+    return pd.Series([low, high], index=[f'Low_{p*100:.0f}', f'High_{p*100:.0f}'])
+
+# Note that this takes a while to execute - it's not the most efficient algorithm
+hdis_bg = highest_density_interval(posteriors_bg, p=.9)
+
+most_likely_bg = posteriors_bg.idxmax().rename('Estimated')
+
+# Look into why you shift -1
+result_bg = pd.concat([most_likely_bg, hdis_bg], axis=1)
+
+result_bg.tail()
+
+
+index_bg = result_bg['Estimated'].index.get_level_values('date')
+values_bg = result_bg['Estimated'].values
 
 lowfn_bg = interp1d(date2num(index_bg),
                      result_bg['Low_90'].values,
@@ -293,8 +458,8 @@ highfn_bg = interp1d(date2num(index_bg),
                       bounds_error=False,
                       fill_value='extrapolate')
 
-extended_bg = pd.date_range(start=index_bg.values[0],
-                             end=index_bg.values[-1])
+extended_bg = pd.date_range(start=index_bg[0],
+                             end=index_bg[-1])
 
 fig_rt = go.Figure()
 fig_rt.add_trace(go.Scatter(x=index_bg, y=lowfn_bg(date2num(extended_bg)),
@@ -311,8 +476,68 @@ fig_rt.show()
 fig_rt = fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Reading Rt for provinces')
-final_results = pd.read_csv('./dash_data/r0_provinces_r0.csv')
+print('calculating r0 for provinces')
+
+sigmas = np.linspace(1/20, 1, 20)
+
+provinces_to_process = provinces
+
+results = {}
+
+for province_name, cases in provinces_to_process.groupby(level='province'):
+
+    new, smoothed = prepare_cases(cases)
+    
+    result = {}
+    
+    # Holds all posteriors with every given value of sigma
+    result['posteriors'] = []
+    
+    # Holds the log likelihood across all k for each value of sigma
+    result['log_likelihoods'] = []
+    
+    for sigma in sigmas:
+        posteriors, log_likelihood = get_posteriors(smoothed, sigma=sigma)
+        result['posteriors'].append(posteriors)
+        result['log_likelihoods'].append(log_likelihood)
+    
+    # Store all results keyed off of province name
+    results[province_name] = result
+#    clear_output(wait=True)
+
+print('Done.')
+
+# Each index of this array holds the total of the log likelihoods for the corresponding index of the sigmas array.
+total_log_likelihoods = np.zeros_like(sigmas)
+
+# Loop through each state's results and add the log likelihoods to the running total.
+for province_name, result in results.items():
+    total_log_likelihoods += result['log_likelihoods']
+
+# Select the index with the largest log likelihood total
+max_likelihood_index = total_log_likelihoods.argmax()
+
+# Select the value that has the highest log likelihood
+sigma = sigmas[max_likelihood_index]
+
+
+final_results = None
+
+for province_name, result in results.items():
+    print(province_name)
+    posteriors = result['posteriors'][max_likelihood_index]
+    hdis_90 = highest_density_interval(posteriors, p=.9)
+    hdis_50 = highest_density_interval(posteriors, p=.5)
+    most_likely = posteriors.idxmax().rename('Estimated')
+    result = pd.concat([most_likely, hdis_90, hdis_50], axis=1)
+    if final_results is None:
+        final_results = result
+    else:
+        final_results = pd.concat([final_results, result])
+    #clear_output(wait=True)
+
+print('Done.')
+
 
 mr = final_results.groupby(level=0)[['Estimated', 'High_90', 'Low_90']].last()
 
@@ -334,12 +559,11 @@ fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the
 #fig_rt_province_yesterday.show()
 fig_rt_province_yesterday = fig_rt_province_yesterday.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
-
-logger.info('Creating chart 12: Rt by province')
+print('charting r0 provinces')
 
 def generate_rt_by_province(provinces, final_results):
     provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
-    data = final_results#.reset_index()
+    data = final_results.reset_index()
     # create base subplot
     fig_rt_province = make_subplots(
                                 rows=int(len(provinces_list)/2),
@@ -375,13 +599,53 @@ def generate_rt_by_province(provinces, final_results):
 
 
 fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
+#fig_rt_province_actual.show()
 
+print('starting arima')
 
-logger.info('Reading ARIMA')
-
+import itertools
+import pandas as pd
+import seaborn as sns
+import math
+import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+from statsmodels.tsa.arima_model import ARIMA
+#%matplotlib inline
+#import warnings
+#warnings.simplefilter('ignore')
 
 ts_data = covid_pop.reset_index()[['date', 'province', 'ALL', 'new_cases']].rename(columns={'ALL':'total_cases'})
 #ts_data.head()
+
+#Function for making a time series on a province and plotting the rolled mean and standard deviation
+def roll(ts_data, region, column='total_cases'):
+    test_s=ts_data.loc[(ts_data['province']==region)]  
+    test_s=test_s[['date',column]]
+    test_s=test_s.set_index('date')
+    test_s.astype('int64')
+    a=len(test_s.loc[(test_s[column]>=10)])
+    test_s=test_s[-a:]
+    return (test_s.rolling(window=7,center=False).mean().dropna())
+
+
+def rollPlot(ts_data, region, column='total_cases'):
+    test_s=ts_data.loc[(ts_data['province']==region)]  
+    test_s=test_s[['date',column]]
+    test_s=test_s.set_index('date')
+    test_s.astype('int64')
+    a=len(test_s.loc[(test_s[column]>=10)])
+    test_s=test_s[-a:]
+    plt.figure(figsize=(16,6))
+    plt.plot(test_s.rolling(window=7,center=False).mean().dropna(),label='Rolling Mean')
+    plt.plot(test_s[column], label = 'Total cases')
+    plt.plot(test_s.rolling(window=7,center=False).std(),label='Rolling std')
+    plt.legend()
+    plt.title('Cases distribution in %s with rolling mean and standard' %region)
+    plt.xticks([])
 
 
 
@@ -396,36 +660,108 @@ def mape(y1, y_pred):
     y1, y_pred = np.array(y1), np.array(y_pred)
     return np.mean(np.abs((y1 - y_pred) / y1)) * 100
 
-arima_provinces_df = pd.read_csv('./dash_data/arima_provinces.csv')
+def arima_province(ts_data, province, column='total_cases', forecast_days=15):
+    rolling = roll(ts_data, province, column)
+    train, test = split(rolling.values, forecast_days)
+    p=d=q=range(0,7)
+    a=99999
+    pdq=list(itertools.product(p,d,q))
+    
+    #Determining the best parameters
+    for var in pdq:
+        try:
+            model = ARIMA(train, order=var)
+            result = model.fit()
+            if (result.aic<=a) :
+                a=result.aic
+                param=var
+        except:
+            continue
+        
+    #Modeling
+    model = ARIMA(train, order=param)
+    result = model.fit()
+    
+    #import matplotlib as mpl
+    #with mpl.rc_context():
+        #mpl.rc("figure", figsize=(12,5))
+        #result.plot_predict(start=int(len(train) * 0.7), end=int(len(train) * 1.2))
+        #plt.savefig(f"assets/arima_forecast_{province}.png", transparent=True)
+    
+    pred=result.forecast(steps=len(test))[0]
+    #Printing the error metrics
+    #print(result.summary())
+    model_error = mape(test,pred)
+    #print('\nMean absolute percentage error: %f'%model_error)
+    #Plotting results
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=rolling[:len(train)].index, y=rolling[column][:len(train)], name='History', mode='lines'))
+    fig.add_trace(go.Scatter(x=rolling[-len(test):].index, y=rolling[column][-len(test):], name='Actual', mode='lines'))
+    fig.add_trace(go.Scatter(x=rolling[-len(test):].index, y=pred, name='Forecast', mode='lines'))
+    fig.update_layout(title = f'True vs Predicted values for {"new cases" if column=="new_cases" else "total cases"} (7 days rolling mean) in {province} for {forecast_days} days')
+    #fig.show()
 
-def arima_chart(province):
-    arima_filtered = arima_provinces_df.loc[arima_provinces_df.province == province]
-    fig_arima = go.Figure()
-    fig_arima.add_trace(go.Scatter(x=arima_filtered.date[:-15], y=arima_filtered.values[:-15], name='Training data', mode='lines'))
-    fig_arima.add_trace(go.Scatter(x=arima_filtered.date[-15:], y=arima_filtered.values[-15:], name='Testing data', mode='lines'))
-    fig_arima.add_trace(go.Scatter(x=arima_filtered.date[-15:], y=arima_filtered.pred[-15:], name='Forecast', mode='lines'))
-    fig_arima.update_layout(title = f'True vs Predicted values for total cases (7 days rolling mean) in {province} for 15 days', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-    arima_error = arima_filtered['error'].values[0]
-    return fig_arima, arima_error
+    return (pred, result, fig, model_error)
+
+print('calculating arima for provinces')
+
+from datetime import datetime
+start = datetime.now()
+arima_provinces = {}
+for province in ts_data['province'].unique():
+    print(province)
+    data = ts_data.loc[ts_data['province'] == province]
+    arima_results = arima_province(data, province, 'total_cases')
+    arima_provinces[province+'_summary'] = arima_results[1].summary()
+    arima_provinces[province+'_figure'] = arima_results[2]
+    arima_provinces[province+'_error'] = arima_results[3]
+#clear_output(wait=True)
+print(f'runtime: {datetime.now() - start}')
 
 
-######## EXPONENTIAL SMOOTHING ##########
+df = result_bg[['Estimated']].rename(columns={'Estimated':'data'})
+#df.head()
 
-df = result_bg.set_index('date')[['Estimated']].rename(columns={'Estimated':'data'})
+
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
 
 train = df.iloc[:-10, :]
 test = df.iloc[-10:, :]
 pred = test.copy()
-
+df.plot(figsize=(12,3));
+plt.title('Rt');
 
 df['z_data'] = (df['data'] - df.data.rolling(window=12).mean()) / df.data.rolling(window=12).std()
 df['zp_data'] = df['z_data'] - df['z_data'].shift(12)
 
-logger.info('Starting Double exponential smoothing (Holt)')
+def plot_rolling(df):
+    fig, ax = plt.subplots(3,figsize=(12, 9))
+    ax[0].plot(df.index, df.data, label='raw data')
+    ax[0].plot(df.data.rolling(window=12).mean(), label="rolling mean");
+    ax[0].plot(df.data.rolling(window=12).std(), label="rolling std (x10)");
+    ax[0].legend()
+
+    ax[1].plot(df.index, df.z_data, label="de-trended data")
+    ax[1].plot(df.z_data.rolling(window=12).mean(), label="rolling mean");
+    ax[1].plot(df.z_data.rolling(window=12).std(), label="rolling std (x10)");
+    ax[1].legend()
+
+    ax[2].plot(df.index, df.zp_data, label="12 lag differenced de-trended data")
+    ax[2].plot(df.zp_data.rolling(window=12).mean(), label="rolling mean");
+    ax[2].plot(df.zp_data.rolling(window=12).std(), label="rolling std (x10)");
+    ax[2].legend()
+
+    plt.tight_layout()
+    fig.autofmt_xdate()
+    
+plot_rolling(df)
+
+print('holt')
 
 from statsmodels.tsa.holtwinters import Holt
 
-df.index = pd.to_datetime(df.index)
 df = df.resample("D").sum()
 train = df.iloc[:-15]
 test = df.iloc[-15:]
@@ -444,7 +780,6 @@ pred2_double = fit2_double.forecast(15)
 fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
 pred3_double = fit3_double.forecast(15)
 
-logger.info('Creating chart 13: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
 fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index, y=df.data, name='actual data'))
 
@@ -500,7 +835,7 @@ def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     return fig_exp_smoothing_double
 
 
-logger.info('Starting Triple exponential smoothing (Holt-Winters)')
+print('holt-winters')
 
 from statsmodels.tsa.holtwinters import ExponentialSmoothing as HWES
 
@@ -510,14 +845,13 @@ model_triple = HWES(train.data, seasonal_periods=7, trend='add', seasonal='mul')
 fitted_triple = model_triple.fit(optimized=True, use_brute=True)
 
 #print out the training summary
-#print(fitted_triple.summary())
+print(fitted_triple.summary())
 
 #create an out of sample forcast for the next steps beyond the final data point in the training data set
 pred_triple = fitted_triple.forecast(steps=15)
 
-#print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
+print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
 
-logger.info('Creating chart 14: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Training data', mode='lines'))
@@ -561,7 +895,7 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     return fig_exp_smoothing_triple, pred_triple_error
 
 
-logger.info('Running dash')
+print('starting dash')
 
 import dash
 import dash_core_components as dcc
@@ -571,7 +905,6 @@ import dash_bootstrap_components as dbc
 
 app = dash.Dash(name='COVID-19 in Bulgaria', external_stylesheets=[dbc.themes.DARKLY])
 
-logger.info('Creating dash helper vars')
 # daily figures for the cards
 new_t = covid_general.new_cases.tail(1).values[0]
 new_t_minus_1 = covid_general.new_cases.tail(2).head(1).values[0]
@@ -599,7 +932,6 @@ intensive_care_change_t_minus_1 = covid_general.intensive_care.tail(2).head(1).v
 intensive_care_change_t_perc_dod = abs((intensive_care_change_t - intensive_care_change_t_minus_1)/(intensive_care_change_t_minus_1+0.1)) * (-1 if intensive_care_change_t < intensive_care_change_t_minus_1 else 1)
 
 
-logger.info('Creating dash cards')
 cards = dbc.CardDeck(className="carddeck", children=[
             dbc.Card([
                 dbc.CardBody(
@@ -718,7 +1050,6 @@ cards = dbc.CardDeck(className="carddeck", children=[
         ])
 
 
-logger.info('Creating dash tabs')
 tabs = html.Div([
     dcc.Tabs(
         id = 'tabs-css',
@@ -956,7 +1287,7 @@ tabs = html.Div([
 ])
 
 
-logger.info('Creating dash layout')
+
 app.layout = html.Div([
     html.H1(children='COVID-19 in Bulgaria'),
     html.P(f"Data version: {covid_general.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}"),
@@ -965,7 +1296,6 @@ app.layout = html.Div([
 ])
 
 
-logger.info('Creating dash callbacks')
 #Callbacks
 @app.callback(
     [
@@ -977,10 +1307,9 @@ logger.info('Creating dash callbacks')
         dash.dependencies.Input('province-dropdown-arima', 'value')
     ])
 def update_arima_output_province(province):
-    arima_result = arima_chart(province)
     return (
-        arima_result[0],
-        [f"Mean absolute percentage error: {arima_result[1].round(2)}"]
+        arima_provinces.get(province+'_figure').update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'),
+        [f"Mean absolute percentage error: {arima_provinces.get(province+'_error').round(2)}"]
         #[pprint.pprint(str(arima_provinces.get(province+'_summary')), width=100)]
     )
 
@@ -1002,11 +1331,10 @@ def update_triple_output_province(province, variable, forecast_length):
     )
 
 
-logger.info('Running dash server')
 server = app.server
 
-#if __name__ == '__main__':
-#    app.run_server(debug=True)
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
 
 
