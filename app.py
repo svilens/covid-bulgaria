@@ -383,7 +383,7 @@ ts_data = covid_pop.reset_index()[['date', 'province', 'ALL', 'new_cases']].rena
 
 ts_data_r0 = final_results[['province', 'date', 'Estimated']].rename(columns={'Estimated':'r0'})
 ts_data_r0.date = pd.to_datetime(ts_data_r0.date)
-ts_data = pd.merge(ts_data, ts_data_r0, on=['date','province'])
+ts_data = pd.merge(ts_data, ts_data_r0, how='left', on=['date','province'])
 
 def split(ts, forecast_days=15):
     #size = int(len(ts) * math.log(0.80))
@@ -902,14 +902,14 @@ tabs = html.Div([
                                 ],
                                 placeholder='Select a variable to be predicted',
                                 value='total_cases',
-                                style=dict(width='200%')
+                                style=dict(width='160%')
                             ),
                             dcc.Input(
                                 id='forecast-length-input',
                                 className='dropdown',
                                 type='number',
                                 placeholder='Forecast period (days)',
-                                style=dict(width='25%'),
+                                style=dict(width='20%'),
                                 value=15, min=1, max=100, step=1,
                                 debounce=True # press Enter to send the input
                             )
