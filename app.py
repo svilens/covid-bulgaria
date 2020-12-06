@@ -392,9 +392,9 @@ def split(ts, forecast_days=15):
     test = ts[size:]
     return(train,test)
 
-def mape(y1, y_pred): 
-    y1, y_pred = np.array(y1), np.array(y_pred)
-    return np.mean(np.abs((y1 - y_pred) / y1)) * 100
+def mape(y_true, y_pred): 
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 
 
 arima_provinces_df = pd.read_csv('./dash_data/arima_provinces.csv')
@@ -899,14 +899,14 @@ tabs = html.Div([
                                 ],
                                 placeholder='Select a variable to be predicted',
                                 value='total_cases',
-                                style=dict(width='140%')
+                                style=dict(width='170%')
                             ),
                             dcc.Input(
                                 id='forecast-length-input',
                                 className='dropdown',
                                 type='number',
                                 placeholder='Forecast period (days)',
-                                style=dict(width='20%'),
+                                style=dict(width='25%'),
                                 value=15, min=1, max=100, step=1,
                                 debounce=True # press Enter to send the input
                             )
@@ -1005,6 +1005,7 @@ def update_triple_output_province(province, variable, forecast_length):
 
 
 logger.info('Running dash server')
+app.title('COVID-19 in Bulgaria')
 server = app.server
 
 if __name__ == '__main__':
