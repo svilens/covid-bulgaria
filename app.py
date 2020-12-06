@@ -12,6 +12,9 @@ from read_nsi import *
 logger = get_logger_app('app')
 logger.info('Starting the process')
 
+
+####### GENERAL STATS #######
+
 logger.info('Reading general stats')
 covid_general = read_covid_general('./data/Обща статистика за разпространението.csv', 'Дата')
 #covid_general.head()
@@ -19,6 +22,7 @@ covid_general = read_covid_general('./data/Обща статистика за р
 import plotly.graph_objects as go
 import plotly.io as pio
 pio.templates.default = "plotly_dark"
+
 
 logger.info('Creating chart 1: Cumulative cases over time')
 fig_gen_stats = go.Figure()
@@ -91,6 +95,8 @@ fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
 fig_gen_stats_weekly_events = fig_gen_stats_weekly_events.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
+### Rates
+
 logger.info('Calculating rates')
 covid_general['total_cases_7days_ago'] = covid_general['total_cases'].shift(periods=7)
 covid_general['total_cases_14days_ago'] = covid_general['total_cases'].shift(periods=14)
@@ -125,6 +131,8 @@ fig_rates_positive_tests.update_layout(title="COVID-19 positive tests rate")
 for f in [fig_rates_mort_rec, fig_rates_hospitalized, fig_rates_positive_tests]:
     f.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+
+### Map provinces
 
 logger.info('Reading spatial data')
 geodf = read_spatial_data('./shape/BGR_adm1.shp', codes_spatial)
@@ -188,6 +196,8 @@ fig_yesterday_map_new.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template=
 fig_yesterday_map_new = fig_yesterday_map_new.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
+### Age bands
+
 logger.info('Reading age bands data')
 covid_by_age_band = (pd.read_csv('./data/Разпределение по дата и по възрастови групи.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'}))
 
@@ -216,6 +226,8 @@ fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)
 #fig_age.show()
 fig_age = fig_age.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+
+####### REPRODUCTION NUMBER #######
 
 logger.info('Starting Rt processing')
 
@@ -273,6 +285,8 @@ for i, province in list(enumerate(provinces_list)):
 fig_new_by_province = fig_new_by_province.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
+### Rt for BG
+
 logger.info('Creating chart 11: Rt for BG')
 result_bg = pd.read_csv('./dash_data/r0_bg_r0.csv')
 
@@ -310,6 +324,8 @@ fig_rt.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> for
 fig_rt.show()
 fig_rt = fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+
+### Rt by province ###
 
 logger.info('Reading Rt for provinces')
 final_results = pd.read_csv('./dash_data/r0_provinces_r0.csv')
@@ -376,8 +392,9 @@ def generate_rt_by_province(provinces, final_results):
 fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 
 
-logger.info('Reading ARIMA')
+####### ARIMA #######
 
+logger.info('Reading ARIMA')
 
 ts_data = covid_pop.reset_index()[['date', 'province', 'ALL', 'new_cases']].rename(columns={'ALL':'total_cases'})
 
@@ -536,7 +553,7 @@ fig_exp_smoothing_triple = fig_exp_smoothing_triple.update_layout(paper_bgcolor=
 def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
     df = ts_data.set_index('date')
     # replace zeros with 0.1 as the multiplicative seasonal element o HWES requires strictly positive values
-    df = df.loc[df['province'] == province].replace(0,0.1).dropna()
+    df = df.loc[((df['province'] == province) & (df[column].notnull()))].replace(0,0.1)
     df = df.resample("D").sum()
     
     train = df.iloc[:-forecast_days]
