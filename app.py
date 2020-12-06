@@ -881,6 +881,7 @@ tabs = html.Div([
                     html.Br(),
                     html.Br(),
                     dcc.Markdown("You can use the options below to select your desired **province**, **variable** and **forecast period** and create live predictions."),
+                    html.P("Note that the reproduction number might not be a good choice for modelling for some provinces, if we don't have long enough history with 10+ confirmed cases per day for that province."),
                     html.Div([
                         html.Div(className='dropdown', children=[
                             dcc.Dropdown(
@@ -901,7 +902,7 @@ tabs = html.Div([
                                 ],
                                 placeholder='Select a variable to be predicted',
                                 value='total_cases',
-                                style=dict(width='170%')
+                                style=dict(width='200%')
                             ),
                             dcc.Input(
                                 id='forecast-length-input',
