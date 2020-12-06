@@ -890,7 +890,7 @@ tabs = html.Div([
                                 options=[{'label':p, 'value':p} for p in ts_data['province'].unique()],
                                 placeholder='Select a province',
                                 value='Sofiya-Grad',
-                                style=dict(width='200%')
+                                style=dict(width='140%')
                             ),
                             dcc.Dropdown(
                                 id='variable-dropdown',
@@ -902,7 +902,7 @@ tabs = html.Div([
                                 ],
                                 placeholder='Select a variable to be predicted',
                                 value='total_cases',
-                                style=dict(width='240%')
+                                style=dict(width='200%')
                             ),
                             dcc.Input(
                                 id='forecast-length-input',
