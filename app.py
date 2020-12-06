@@ -562,7 +562,7 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     return fig_exp_smoothing_triple, pred_triple_error
 
 
-logger.info('Running dash')
+logger.info('Creating dash structure')
 
 import dash
 import dash_core_components as dcc
@@ -571,6 +571,7 @@ import dash_bootstrap_components as dbc
 
 
 app = dash.Dash(name='COVID-19 in Bulgaria', external_stylesheets=[dbc.themes.DARKLY])
+app.title = 'COVID-19 in Bulgaria'
 
 logger.info('Creating dash helper vars')
 # daily figures for the cards
@@ -814,6 +815,7 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_rt_province_yesterday),
                     html.Br(),
                     html.Br(),
+                    html.P('Below is a chart showing the daily reproduction number by province. Note that each chart is covering a different period of time, becase for each province we pick the start date as the moment when we have started to constantly see 10+ daily confirmed cases.'),
                     dcc.Graph(figure=fig_rt_province_actual)
                 ]
             ),
@@ -1005,7 +1007,7 @@ def update_triple_output_province(province, variable, forecast_length):
 
 
 logger.info('Running dash server')
-app.title('COVID-19 in Bulgaria')
+
 server = app.server
 
 if __name__ == '__main__':
