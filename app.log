@@ -1,0 +1,115 @@
+2020-12-06 02:40:45,912 — app.log — INFO — Starting the process
+2020-12-06 02:40:45,917 — app.log — INFO — Reading general stats
+2020-12-06 02:40:47,757 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2020-12-06 02:40:48,082 — app.log — INFO — Creating chart 2: Cases per week
+2020-12-06 02:40:48,348 — app.log — INFO — Creating chart 3: New cases weekly % change
+2020-12-06 02:40:48,581 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2020-12-06 02:40:48,818 — app.log — INFO — Calculating rates
+2020-12-06 02:40:48,826 — app.log — INFO — Creating chart 5: Rates
+2020-12-06 02:40:49,509 — app.log — INFO — Reading spatial data
+2020-12-06 02:41:31,762 — app.log — INFO — Creating chart 6: Provinces map - total cases per 100k pop
+2020-12-06 02:41:33,123 — app.log — INFO — Creating chart 7: Provinces map - new cases per 100k pop
+2020-12-06 02:41:34,594 — app.log — INFO — Reading age bands data
+2020-12-06 02:41:34,601 — app.log — INFO — Creating chart 8: Cumulative cases by age band
+2020-12-06 02:41:35,096 — app.log — INFO — Starting Rt processing
+2020-12-06 02:41:35,111 — app.log — INFO — Creating chart 9: Smoothed new cases - BG
+2020-12-06 02:41:35,315 — app.log — INFO — Creating chart 10: Smoothed new cases - provinces
+2020-12-06 02:41:36,694 — app.log — INFO — Creating chart 11: Rt for BG
+2020-12-06 02:41:37,375 — app.log — INFO — Reading Rt for provinces
+2020-12-06 02:41:37,935 — app.log — INFO — Creating chart 12: Rt by province
+2020-12-06 02:41:39,444 — app.log — INFO — Reading ARIMA
+2020-12-06 02:41:39,470 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2020-12-06 02:41:39,633 — app.log — INFO — Creating chart 13: Double exp smoothing
+2020-12-06 02:41:40,135 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2020-12-06 02:41:40,468 — app.log — INFO — Creating chart 14: Triple exp smoothing
+2020-12-06 02:41:40,713 — app.log — INFO — Running dash
+2020-12-06 02:41:41,015 — app.log — INFO — Creating dash helper vars
+2020-12-06 02:41:41,019 — app.log — INFO — Creating dash cards
+2020-12-06 02:41:41,024 — app.log — INFO — Creating dash tabs
+2020-12-06 02:41:41,034 — app.log — INFO — Creating dash layout
+2020-12-06 02:41:41,036 — app.log — INFO — Creating dash callbacks
+2020-12-06 02:41:41,037 — app.log — INFO — Running dash server
+2020-12-06 02:41:41,771 — app.log — INFO — Starting the process
+2020-12-06 02:41:41,771 — app.log — INFO — Reading general stats
+2020-12-06 02:41:44,118 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2020-12-06 02:41:44,367 — app.log — INFO — Creating chart 2: Cases per week
+2020-12-06 02:41:44,690 — app.log — INFO — Creating chart 3: New cases weekly % change
+2020-12-06 02:41:44,923 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2020-12-06 02:41:45,240 — app.log — INFO — Calculating rates
+2020-12-06 02:41:45,246 — app.log — INFO — Creating chart 5: Rates
+2020-12-06 02:41:45,839 — app.log — INFO — Reading spatial data
+2020-12-06 02:42:31,368 — app.log — INFO — Creating chart 6: Provinces map - total cases per 100k pop
+2020-12-06 02:42:32,864 — app.log — INFO — Creating chart 7: Provinces map - new cases per 100k pop
+2020-12-06 02:42:34,267 — app.log — INFO — Reading age bands data
+2020-12-06 02:42:34,272 — app.log — INFO — Creating chart 8: Cumulative cases by age band
+2020-12-06 02:42:34,782 — app.log — INFO — Starting Rt processing
+2020-12-06 02:42:34,794 — app.log — INFO — Creating chart 9: Smoothed new cases - BG
+2020-12-06 02:42:35,136 — app.log — INFO — Creating chart 10: Smoothed new cases - provinces
+2020-12-06 02:42:36,512 — app.log — INFO — Creating chart 11: Rt for BG
+2020-12-06 02:42:38,744 — app.log — INFO — Reading Rt for provinces
+2020-12-06 02:42:39,329 — app.log — INFO — Creating chart 12: Rt by province
+2020-12-06 02:42:41,428 — app.log — INFO — Reading ARIMA
+2020-12-06 02:42:41,453 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2020-12-06 02:42:41,614 — app.log — INFO — Creating chart 13: Double exp smoothing
+2020-12-06 02:42:42,848 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2020-12-06 02:42:43,291 — app.log — INFO — Creating chart 14: Triple exp smoothing
+2020-12-06 02:42:44,875 — app.log — INFO — Running dash
+2020-12-06 02:42:45,362 — app.log — INFO — Creating dash helper vars
+2020-12-06 02:42:45,365 — app.log — INFO — Creating dash cards
+2020-12-06 02:42:45,372 — app.log — INFO — Creating dash tabs
+2020-12-06 02:42:45,381 — app.log — INFO — Creating dash layout
+2020-12-06 02:42:45,382 — app.log — INFO — Creating dash callbacks
+2020-12-06 02:42:45,383 — app.log — INFO — Running dash server
+2020-12-06 02:43:11,856 — app.log — INFO — Starting the process
+2020-12-06 02:43:11,857 — app.log — INFO — Reading general stats
+2020-12-06 02:43:12,004 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2020-12-06 02:43:12,313 — app.log — INFO — Creating chart 2: Cases per week
+2020-12-06 02:43:12,629 — app.log — INFO — Creating chart 3: New cases weekly % change
+2020-12-06 02:43:12,866 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2020-12-06 02:43:13,111 — app.log — INFO — Calculating rates
+2020-12-06 02:43:13,121 — app.log — INFO — Creating chart 5: Rates
+2020-12-06 02:43:13,960 — app.log — INFO — Reading spatial data
+2020-12-06 02:44:00,625 — app.log — INFO — Creating chart 6: Provinces map - total cases per 100k pop
+2020-12-06 02:44:02,066 — app.log — INFO — Creating chart 7: Provinces map - new cases per 100k pop
+2020-12-06 02:44:03,449 — app.log — INFO — Reading age bands data
+2020-12-06 02:44:03,458 — app.log — INFO — Creating chart 8: Cumulative cases by age band
+2020-12-06 02:44:03,961 — app.log — INFO — Starting Rt processing
+2020-12-06 02:44:03,975 — app.log — INFO — Creating chart 9: Smoothed new cases - BG
+2020-12-06 02:44:04,177 — app.log — INFO — Creating chart 10: Smoothed new cases - provinces
+2020-12-06 02:44:05,749 — app.log — INFO — Creating chart 11: Rt for BG
+2020-12-06 02:44:06,013 — app.log — INFO — Reading Rt for provinces
+2020-12-06 02:44:06,425 — app.log — INFO — Creating chart 12: Rt by province
+2020-12-06 02:44:08,021 — app.log — INFO — Reading ARIMA
+2020-12-06 02:44:08,047 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2020-12-06 02:44:08,139 — app.log — INFO — Creating chart 13: Double exp smoothing
+2020-12-06 02:44:08,563 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2020-12-06 02:44:08,977 — app.log — INFO — Creating chart 14: Triple exp smoothing
+2020-12-06 02:44:09,261 — app.log — INFO — Running dash
+2020-12-06 02:44:09,281 — app.log — INFO — Creating dash helper vars
+2020-12-06 02:44:09,291 — app.log — INFO — Creating dash cards
+2020-12-06 02:44:09,296 — app.log — INFO — Creating dash tabs
+2020-12-06 02:44:09,310 — app.log — INFO — Creating dash layout
+2020-12-06 02:44:09,315 — app.log — INFO — Creating dash callbacks
+2020-12-06 02:44:09,321 — app.log — INFO — Running dash server
+2020-12-06 02:44:10,250 — app.log — INFO — Starting the process
+2020-12-06 02:44:10,250 — app.log — INFO — Reading general stats
+2020-12-06 02:44:12,967 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2020-12-06 02:44:13,215 — app.log — INFO — Creating chart 2: Cases per week
+2020-12-06 02:44:13,537 — app.log — INFO — Creating chart 3: New cases weekly % change
+2020-12-06 02:44:13,776 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2020-12-06 02:44:14,120 — app.log — INFO — Calculating rates
+2020-12-06 02:44:14,140 — app.log — INFO — Creating chart 5: Rates
+2020-12-06 02:44:14,885 — app.log — INFO — Reading spatial data
+2020-12-06 02:45:00,468 — app.log — INFO — Creating chart 6: Provinces map - total cases per 100k pop
+2020-12-06 02:45:02,168 — app.log — INFO — Creating chart 7: Provinces map - new cases per 100k pop
+2020-12-06 02:45:03,798 — app.log — INFO — Reading age bands data
+2020-12-06 02:45:03,804 — app.log — INFO — Creating chart 8: Cumulative cases by age band
+2020-12-06 02:45:04,339 — app.log — INFO — Starting Rt processing
+2020-12-06 02:45:04,351 — app.log — INFO — Creating chart 9: Smoothed new cases - BG
+2020-12-06 02:45:04,695 — app.log — INFO — Creating chart 10: Smoothed new cases - provinces
+2020-12-06 02:45:06,232 — app.log — INFO — Creating chart 11: Rt for BG
+2020-12-06 02:45:07,887 — app.log — INFO — Reading Rt for provinces
+2020-12-06 02:45:08,603 — app.log — INFO — Creating chart 12: Rt by province
+2020-12-06 02:45:10,653 — app.log — INFO — Reading ARIMA
+2020-12-06 02:45:10,677 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2020-12-06 02:45:10,836 — app.log — INFO — Creating chart 13: Double exp smoothing

@@ -1005,8 +1005,8 @@ def update_triple_output_province(province, variable, forecast_length):
 logger.info('Running dash server')
 server = app.server
 
-#if __name__ == '__main__':
-#    app.run_server(debug=True)
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
 
 
