@@ -55,3 +55,4 @@ urllib3==1.26.2
 Werkzeug==1.0.1
 zope.interface==5.2.0
 xlrd==1.2.0
+newrelic
