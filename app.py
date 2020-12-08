@@ -609,14 +609,12 @@ app.index_string = '''
         {%css%}
     </head>
     <body>
-        <div>Header</div>
         {%app_entry%}
         <footer>
             {%config%}
             {%scripts%}
             {%renderer%}
         </footer>
-        <div>Footer</div>
     </body>
 </html>
 '''
