@@ -464,10 +464,10 @@ pred3_double = fit3_double.forecast(15)
 
 logger.info('Creating chart 13: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
-fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index, y=df.data, name='actual data'))
+fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='actual data'))
 
 for p, f, c in zip((pred1_double, pred2_double, pred3_double),(fit1_double, fit2_double, fit3_double),('coral','yellow','cyan')):
-    fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index, y=f.fittedvalues, marker_color=c, mode='lines',
+    fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index[30:], y=f.fittedvalues[30:], marker_color=c, mode='lines',
                             name=f"alpha={str(f.params['smoothing_level'])[:4]}, beta={str(f.params['smoothing_trend'])[:4]}")
     )
     fig_exp_smoothing_double.add_trace(go.Scatter(
@@ -589,6 +589,38 @@ import dash_bootstrap_components as dbc
 
 app = dash.Dash(name='COVID-19 in Bulgaria', external_stylesheets=[dbc.themes.DARKLY])
 app.title = 'COVID-19 in Bulgaria'
+
+app.index_string = '''
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FCPJC5BDW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-2FCPJC5BDW');
+        </script>
+        {%metas%}
+        <title>{%title%}</title>
+        {%favicon%}
+        {%css%}
+    </head>
+    <body>
+        <div>Header</div>
+        {%app_entry%}
+        <footer>
+            {%config%}
+            {%scripts%}
+            {%renderer%}
+        </footer>
+        <div>Footer</div>
+    </body>
+</html>
+'''
+
 
 logger.info('Creating dash helper vars')
 # daily figures for the cards
@@ -926,8 +958,8 @@ tabs = html.Div([
                     html.Br(),
                     html.P("Below are some generic examples with the results of double and triple exponential smoothing models predicting the reproduction number Rt at a national level."),
                     html.Br(),
-                    html.H4("Double exponential smoothing"),
                     html.Br(),
+                    html.H4("Double exponential smoothing"),
                     html.Br(),
                     dcc.Graph(figure=fig_exp_smoothing_double),
                     html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred1_double).round(2)} (alpha={str(fit1_double.params['smoothing_level'])[:4]}, beta={str(fit1_double.params['smoothing_trend'])[:4]})"),
@@ -936,7 +968,6 @@ tabs = html.Div([
                     html.Br(),
                     html.Br(),
                     html.H4("Triple exponential smoothing"),
-                    html.Br(),
                     html.Br(),
                     dcc.Graph(figure=fig_exp_smoothing_triple),
                     html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}"),
