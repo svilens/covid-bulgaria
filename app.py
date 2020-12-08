@@ -545,7 +545,7 @@ fig_exp_smoothing_triple.add_trace(go.Scatter(
     x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
     y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
 )
-fig_exp_smoothing_triple.update_layout(title='Holt-Winters (triple) exponential smoothing for R<sub>t</sub> in Bulgaria')
+fig_exp_smoothing_triple.update_layout(title="Holt-Winters' (triple) exponential smoothing for R<sub>t</sub> in Bulgaria")
 fig_exp_smoothing_triple.show()
 fig_exp_smoothing_triple = fig_exp_smoothing_triple.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
@@ -764,7 +764,7 @@ tabs = html.Div([
                     html.H4("Cases on a weekly basis"),
                     html.Br(),
                     dcc.Graph(figure=fig_gen_stats_weekly),
-                    html.P("The weekly cases distribution chart above shows that the number of new confirmed cases per week was relatively stable during the summer (week 25 - week 40), but drastically started to increase in the early October. Although the number of cases is currently at its highest level ever, the exponential growth seems to be ended by the end of November. The other good news is that the number of new recoveries have also increased greatly and are still following their exponential trend. Unfortunately, the number of new death cases are also making a new record in each of the past 6 weeks.")
+                    html.P("The weekly cases distribution chart above shows that the number of new confirmed cases per week was relatively stable during the summer (week 25 - week 40), but drastically started to increase in the early October. Although the number of cases is currently at its highest level ever, the exponential growth seems to be ended by the end of November. The other good news is that the number of new recoveries have also increased greatly and are still following their exponential trend. Unfortunately, the number of new death cases are also making a new record in each of the past 8 weeks.")
                 ]
             ),
             dcc.Tab(
@@ -843,7 +843,7 @@ tabs = html.Div([
                 children = [
                     html.Br(),
                     html.Br(),
-                    html.P("The ARIMA model was usedto predict the 7-days rolling mean number of the total confirmed cases."),
+                    html.P("The ARIMA model was used to predict the 7-days rolling mean number of the total confirmed cases."),
                     html.Br(),
                     dcc.Markdown("You can use the dropdown below to select your desired **province** and create live predictions using ARIMA model."),
                     html.Div([
@@ -877,28 +877,10 @@ tabs = html.Div([
                 children = [
                     html.Br(),
                     html.Br(),
-                    html.P("The exponential smoothing models were used to predict the value of the reproduction number Rt at a national level."),
+                    html.P("The exponential smoothing models can be used to predict the value of the daily total cases, new cases or the reproduction number Rt by province."),
                     html.Br(),
-                    html.Br(),
-                    html.H4("Double exponential smoothing"),
-                    html.Br(),
-                    dcc.Graph(figure=fig_exp_smoothing_double),
-                    html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred1_double).round(2)} (alpha={str(fit1_double.params['smoothing_level'])[:4]}, beta={str(fit1_double.params['smoothing_trend'])[:4]})"),
-                    html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred2_double).round(2)} (alpha={str(fit2_double.params['smoothing_level'])[:4]}, beta={str(fit2_double.params['smoothing_trend'])[:4]})"),
-                    html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred3_double).round(2)} (alpha={str(fit3_double.params['smoothing_level'])[:4]}, beta={str(fit3_double.params['smoothing_trend'])[:4]})"),
-                    html.Br(),
-                    html.Br(),
-                    html.H4("Triple exponential smoothing"),
-                    html.Br(),
-                    dcc.Graph(figure=fig_exp_smoothing_triple),
-                    html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}"),
-                    html.Br(),
-                    html.Br(),
-                    html.H4("Custom modelling"),
-                    html.Br(),
-                    html.Br(),
-                    dcc.Markdown("You can use the options below to select your desired **province**, **variable** and **forecast period** and create live predictions."),
-                    html.P("Note that the reproduction number might not be a good choice for modelling for some provinces, if we don't have long enough history with 10+ confirmed cases per day for that province."),
+                    dcc.Markdown("You can use the options below to select your desired **province**, **variable** and **forecast period** and create live predictions using triple exponential smoothing model."),
+                    html.P("Note that the reproduction number might not be a good choice for some provinces, for which we don't have long enough history with 10+ confirmed cases per day."),
                     html.Div([
                         html.Div(className='dropdown', children=[
                             dcc.Dropdown(
@@ -940,7 +922,25 @@ tabs = html.Div([
                             ),
                             html.H5(id="custom-triple-output-error")
                         ])
-                    ])
+                    ]),
+                    html.Br(),
+                    html.P("Below are some generic examples with the results of double and triple exponential smoothing models predicting the reproduction number Rt at a national level."),
+                    html.Br(),
+                    html.H4("Double exponential smoothing"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_exp_smoothing_double),
+                    html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred1_double).round(2)} (alpha={str(fit1_double.params['smoothing_level'])[:4]}, beta={str(fit1_double.params['smoothing_trend'])[:4]})"),
+                    html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred2_double).round(2)} (alpha={str(fit2_double.params['smoothing_level'])[:4]}, beta={str(fit2_double.params['smoothing_trend'])[:4]})"),
+                    html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred3_double).round(2)} (alpha={str(fit3_double.params['smoothing_level'])[:4]}, beta={str(fit3_double.params['smoothing_trend'])[:4]})"),
+                    html.Br(),
+                    html.Br(),
+                    html.H4("Triple exponential smoothing"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_exp_smoothing_triple),
+                    html.P(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}"),
+                    html.Br()
                 ]
             ),
             dcc.Tab(
