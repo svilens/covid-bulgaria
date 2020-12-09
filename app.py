@@ -539,8 +539,8 @@ logger.info('Creating chart 14: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Training data', mode='lines'))
-fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test.data, name='Testing data', mode='lines'))
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=fitted_triple.fittedvalues[30:], name='Model fit', mode='lines', marker_color='lime'))
+fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test.data, name='Testing data', mode='lines', marker_color='coral'))
 fig_exp_smoothing_triple.add_trace(go.Scatter(
     x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
     y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
