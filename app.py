@@ -419,8 +419,8 @@ arima_provinces_df = pd.read_csv('./dash_data/arima_provinces.csv')
 def arima_chart(province):
     arima_filtered = arima_provinces_df.loc[arima_provinces_df.province == province]
     fig_arima = go.Figure()
-    fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][:-15], y=arima_filtered['value'][:-15], name='Training data', mode='lines'))
-    fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][-15:], y=arima_filtered['value'][-15:], name='Testing data', mode='lines'))
+    fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][:-15], y=arima_filtered['value'][:-15], name='Historical data', mode='lines'))
+    fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][-15:], y=arima_filtered['value'][-15:], name='Validation data', mode='lines'))
     fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][-15:], y=arima_filtered['pred'][-15:], name='Forecast', mode='lines'))
     fig_arima.update_layout(title = f'True vs Predicted values for total cases (7 days rolling mean) in {province} for 15 days', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     arima_error = arima_filtered['error'].values[0]
@@ -464,7 +464,7 @@ pred3_double = fit3_double.forecast(15)
 
 logger.info('Creating chart 13: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
-fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='actual data'))
+fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='Historical data'))
 
 for p, f, c in zip((pred1_double, pred2_double, pred3_double),(fit1_double, fit2_double, fit3_double),('coral','yellow','cyan')):
     fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index[30:], y=f.fittedvalues[30:], marker_color=c, mode='lines',
@@ -501,8 +501,8 @@ def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     pred3 = fit3.forecast(15)
 
     fig_exp_smoothing_double = go.Figure()
-    fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index, y=train[column], name='Training data', mode='lines'))
-    fig_exp_smoothing_double.add_trace(go.Scatter(x=test.index, y=test[column], name='Testing data', mode='lines', marker_color='coral'))
+    fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index, y=train[column], name='Historical data', mode='lines'))
+    fig_exp_smoothing_double.add_trace(go.Scatter(x=test.index, y=test[column], name='Validation data', mode='lines', marker_color='coral'))
 
     for p, f, c in zip((pred1, pred2, pred3),(fit1, fit2, fit3),('darkcyan','gold','cyan')):
         fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index, y=f.fittedvalues, marker_color=c, mode='lines',
@@ -538,9 +538,9 @@ pred_triple = fitted_triple.forecast(steps=15)
 logger.info('Creating chart 14: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
-fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Training data', mode='lines'))
+fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Historical data', mode='lines'))
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=fitted_triple.fittedvalues[30:], name='Model fit', mode='lines', marker_color='lime'))
-fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test.data, name='Testing data', mode='lines', marker_color='coral'))
+fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test.data, name='Validation data', mode='lines', marker_color='coral'))
 fig_exp_smoothing_triple.add_trace(go.Scatter(
     x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
     y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
@@ -568,9 +568,9 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
 
     #plot the training data, the test data and the forecast on the same plot
     fig_exp_smoothing_triple = go.Figure()
-    fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train[column][30:], name='Training data', mode='lines'))
+    fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train[column][30:], name='Historical data', mode='lines'))
     fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=fitted_triple.fittedvalues[30:], name='Model fit', mode='lines', marker_color='lime'))
-    fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test[column], name='Testing data', mode='lines', marker_color='coral'))
+    fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test[column], name='Validation data', mode='lines', marker_color='coral'))
     fig_exp_smoothing_triple.add_trace(go.Scatter(
         x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
         y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
