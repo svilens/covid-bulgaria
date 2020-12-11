@@ -180,7 +180,7 @@ fig_yesterday_map_new = px.choropleth_mapbox(
     color_continuous_scale='Burgyl',
     hover_name='province',
     labels={'new_per_100k':'infections<br>per 100k pop'},
-    title=f"New cases by province for {covid_yesterday.date.max().strftime('%d %b %Y')}",
+    title=f"New daily cases per 100,000 population by province",
     center={'lat': 42.734189, 'lon': 25.1635087},
     mapbox_style='carto-darkmatter',
     opacity=1,
@@ -199,7 +199,7 @@ fig_yesterday_map_active = px.choropleth_mapbox(
     color_continuous_scale='Burgyl',
     hover_name='province',
     labels={'active_per_100k':'active cases<br>per 100k pop'},
-    title=f"Currently active cases by province for {covid_yesterday.date.max().strftime('%d %b %Y')}",
+    title=f"Currently active cases per 100,000 population by province",
     center={'lat': 42.734189, 'lon': 25.1635087},
     mapbox_style='carto-darkmatter',
     opacity=1,
@@ -294,7 +294,7 @@ for col in covid_by_age_band_diff_smoothed.columns:
     fig_age_diff.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed.index, y=covid_by_age_band_diff_smoothed[col], mode='lines', line_shape='spline',
                                  line=dict(color=age_band_colors[i]), name=col))
     i+=1
-fig_age_diff.update_layout(title='New confirmed cases by age band (smoothed figures)')
+fig_age_diff.update_layout(title='New confirmed cases per day by age band (smoothed figures)')
 fig_age_diff.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -372,7 +372,6 @@ fig_rt.add_trace(go.Scatter(x=index_bg, y=values_bg, mode='markers+lines', line=
                             marker_color=values_bg, marker_colorscale='RdYlBu_r', marker_line_width=1.2,
                             marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'))
 fig_rt.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> for Bulgaria", showlegend=False)
-fig_rt.show()
 fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -398,7 +397,6 @@ fig_rt_province_yesterday = go.Figure()
 fig_rt_province_yesterday.add_trace(go.Bar(x=mr.province, y=mr.Estimated, marker_color=mr.colors, 
                           error_y=dict(type='data', array=mr.diff_up, arrayminus=mr.diff_down)))
 fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the last daily update')
-#fig_rt_province_yesterday.show()
 fig_rt_province_yesterday.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -528,7 +526,6 @@ for p, f, c in zip((pred1_double, pred2_double, pred3_double),(fit1_double, fit2
     print(f"\nMean absolute percentage error: {mape(test['data'].values,p).round(2)} (alpha={str(f.params['smoothing_level'])[:4]}, beta={str(f.params['smoothing_trend'])[:4]})")
 
 fig_exp_smoothing_double.update_layout(title="Holt's (double) exponential smoothing for R<sub>t</sub> in Bulgaria")
-fig_exp_smoothing_double.show()
 fig_exp_smoothing_double.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -597,7 +594,6 @@ fig_exp_smoothing_triple.add_trace(go.Scatter(
     y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
 )
 fig_exp_smoothing_triple.update_layout(title="Holt-Winters' (triple) exponential smoothing for R<sub>t</sub> in Bulgaria")
-fig_exp_smoothing_triple.show()
 fig_exp_smoothing_triple.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -862,13 +858,13 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_yesterday_map_new),
                     html.Br(),
                     html.Br(),
-                    html.P("Provinces, color-coded according to the number of total confirmed cases per 100,000 population:"),
-                    dcc.Graph(figure=fig_yesterday_map_total),
-                    html.Br(),
-                    html.Br(),
                     html.P(f"Provinces, color-coded according to the number of the currently active cases per 100,000 population:"),
                     html.Br(),
                     dcc.Graph(figure=fig_yesterday_map_active),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Provinces, color-coded according to the number of total confirmed cases per 100,000 population:"),
+                    dcc.Graph(figure=fig_yesterday_map_total),
                     html.Br(),
                     html.Br(),
                     dcc.Graph(figure=fig_new_by_province)
@@ -1067,9 +1063,12 @@ tabs = html.Div([
 logger.info('Creating dash layout')
 app.layout = html.Div([
     html.H1(children='COVID-19 in Bulgaria'),
-    html.P(f"Data version: {covid_general.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}"),
+    html.P(f"Last update: {covid_general.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}", style={'textAlign':'left', 'padding-left':'10px', 'color':'red'}),
     cards,
-    tabs
+    tabs,
+    html.Small("Designed by"),
+    html.Small("Data from COVID-19"),
+    html.Small("Updated daily")
 ])
 
 
@@ -1116,6 +1115,3 @@ server = app.server
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-
-
