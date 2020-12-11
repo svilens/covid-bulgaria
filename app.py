@@ -1,13 +1,13 @@
-from logging_func import *
+from func_logging import *
 import geopandas as gpd
 import pandas as pd
 import numpy as np
 from datetime import datetime
 
 # from external modules
-from read_spatial import *
-from read_covid import *
-from read_nsi import *
+from func_read_spatial import *
+from func_read_covid import *
+from func_read_nsi import *
 
 logger = get_logger_app('app')
 logger.info('Starting the process')

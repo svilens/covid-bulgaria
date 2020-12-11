@@ -949,8 +949,9 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
 
 logger.info('Starting git push')
 from func_git import *
-git_push = git_push_automation()
-git_push_h = git_push_heroku('./.git', 'daily update')
+git_push_result = git_push_automation()
+logger.info(git_push_result)
+
 
 logger.info('FINISHED! Starting dash...')
 
