@@ -47,7 +47,7 @@ fig_gen_stats_weekly = make_subplots(specs=[[{"secondary_y": True}]])
 fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases[1:], name='New confirmed cases'), secondary_y=False)
 fig_gen_stats_weekly.add_trace(go.Bar(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_deaths[1:], name='New death cases'), secondary_y=True)
 fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_recoveries[1:], name='New recoveriers'), secondary_y=True)
-fig_gen_stats_weekly.update_layout(title = 'New cases per week')
+fig_gen_stats_weekly.update_layout(title = 'New cases per week (current week not included)')
 fig_gen_stats_weekly.update_xaxes(title_text="week number")
 fig_gen_stats_weekly.update_yaxes(title_text="Confirmed cases", secondary_y=False)
 fig_gen_stats_weekly.update_yaxes(title_text="Deaths / recoveries", secondary_y=True)
@@ -253,7 +253,7 @@ fig_new_bg = go.Figure()
 fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset_index()['ALL'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_new_bg.add_trace(go.Scatter(x=smoothed_bg.reset_index()['date'], y=smoothed_bg.reset_index()['ALL'],
-                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='steelblue'))
+                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='gold'))
 fig_new_bg.update_layout(title='Daily new cases in Bulgaria')
 fig_new_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
@@ -265,7 +265,7 @@ fig_recovered_bg = go.Figure()
 fig_recovered_bg.add_trace(go.Scatter(x=orig_recovered_bg.reset_index()['date'], y=orig_recovered_bg.reset_index()['total_recoveries'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['date'], y=smoothed_recovered_bg.reset_index()['total_recoveries'],
-                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='green'))
+                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='lime'))
 fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria')
 fig_recovered_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
@@ -292,7 +292,7 @@ fig_age_diff = go.Figure()
 i=0
 for col in covid_by_age_band_diff_smoothed.columns:
     fig_age_diff.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed.index, y=covid_by_age_band_diff_smoothed[col], mode='lines', line_shape='spline',
-                                 line=dict(width=3, color=age_band_colors[i]), name=col))
+                                 line=dict(color=age_band_colors[i]), name=col))
     i+=1
 fig_age_diff.update_layout(title='New confirmed cases by age band (smoothed figures)')
 fig_age_diff.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
@@ -840,11 +840,8 @@ tabs = html.Div([
                     html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
                     dcc.Graph(figure=fig_new_bg),
-                    html.Br(),
                     dcc.Graph(figure=fig_recovered_bg),
-                    html.Br(),
                     dcc.Graph(figure=fig_deaths_bg),
-                    html.Br(),
                     dcc.Graph(figure=fig_age_diff),
                     html.Br(),
                     html.Br(),
@@ -861,19 +858,17 @@ tabs = html.Div([
                 children = [
                     html.Br(),
                     html.Br(),
-                    html.P("Provinces, color-coded according to the number of total confirmed cases per 100,000 population:"),
+                    html.P(f"Provinces, color-coded according to the number of the new confirmed cases for the last daily update per 100,000 population:"),
+                    dcc.Graph(figure=fig_yesterday_map_new),
                     html.Br(),
+                    html.Br(),
+                    html.P("Provinces, color-coded according to the number of total confirmed cases per 100,000 population:"),
                     dcc.Graph(figure=fig_yesterday_map_total),
                     html.Br(),
                     html.Br(),
                     html.P(f"Provinces, color-coded according to the number of the currently active cases per 100,000 population:"),
                     html.Br(),
                     dcc.Graph(figure=fig_yesterday_map_active),
-                    html.Br(),
-                    html.Br(),
-                    html.P(f"Provinces, color-coded according to the number of the new confirmed cases for the last daily update per 100,000 population:"),
-                    html.Br(),
-                    dcc.Graph(figure=fig_yesterday_map_new),
                     html.Br(),
                     html.Br(),
                     dcc.Graph(figure=fig_new_by_province)

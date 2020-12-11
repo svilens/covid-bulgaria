@@ -295,10 +295,10 @@ fig_recovered_bg = go.Figure()
 fig_recovered_bg.add_trace(go.Scatter(x=orig_recovered_bg.reset_index()['date'], y=orig_recovered_bg.reset_index()['total_recoveries'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['date'], y=smoothed_recovered_bg.reset_index()['total_recoveries'],
-                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='green'))
+                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='lime'))
 fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria')
 fig_recovered_bg = fig_recovered_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
+plot(fig_recovered_bg)
 
 # smoothed deaths
 bg_deaths = covid_general[['date', 'total_deaths']].groupby('date')['total_deaths'].sum()
