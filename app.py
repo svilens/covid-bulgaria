@@ -31,8 +31,7 @@ fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.active_
 fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_recoveries, line=dict(color='green'), name='Recovered'))
 fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_deaths, line=dict(color='red'), name='Deaths'))
 fig_gen_stats.update_layout(title='Number of cases over time (cumulative)')
-#fig_gen_stats.show()
-fig_gen_stats = fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 covid_general['week'] = covid_general.date.dt.isocalendar().week
 covid_general_weekly = covid_general.groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
@@ -52,8 +51,7 @@ fig_gen_stats_weekly.update_layout(title = 'New cases per week')
 fig_gen_stats_weekly.update_xaxes(title_text="week number")
 fig_gen_stats_weekly.update_yaxes(title_text="Confirmed cases", secondary_y=False)
 fig_gen_stats_weekly.update_yaxes(title_text="Deaths / recoveries", secondary_y=True)
-#fig_gen_stats_weekly.show()
-fig_gen_stats_weekly = fig_gen_stats_weekly.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats_weekly.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 logger.info('Creating chart 3: New cases weekly % change')
 fig_gen_stats_weekly_new_pct = go.Figure()
@@ -69,8 +67,7 @@ fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[36, 36], y=[-0.2,0.5],
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[38, 38], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
 fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change')
-#fig_gen_stats_weekly_new_pct.show()
-fig_gen_stats_weekly_new_pct = fig_gen_stats_weekly_new_pct.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats_weekly_new_pct.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 4: New cases per week + summer events')
@@ -91,8 +88,7 @@ fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[38, 38], y=[0,10000],
 fig_gen_stats_weekly_events.update_layout(title='New confirmed cases per week + summer events')
 fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
 fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
-#fig_gen_stats_weekly_events.show()
-fig_gen_stats_weekly_events = fig_gen_stats_weekly_events.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats_weekly_events.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Rates
@@ -172,8 +168,7 @@ fig_yesterday_map_total = px.choropleth_mapbox(
     zoom=6
 )
 fig_yesterday_map_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-#fig_yesterday_map_total.show()
-fig_yesterday_map_total = fig_yesterday_map_total.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_yesterday_map_total.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 7: Provinces map - new cases per 100k pop')
@@ -192,8 +187,26 @@ fig_yesterday_map_new = px.choropleth_mapbox(
     zoom=6
 )
 fig_yesterday_map_new.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-#fig_yesterday_map_new.show()
-fig_yesterday_map_new = fig_yesterday_map_new.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_yesterday_map_new.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+logger.info('Creating chart 8: Provinces map - active cases per 100k pop')
+fig_yesterday_map_active = px.choropleth_mapbox(
+    covid_yesterday,
+    geojson=covid_yesterday.geometry,
+    locations=covid_yesterday.index,
+    color='active_per_100k',
+    color_continuous_scale='Burgyl',
+    hover_name='province',
+    labels={'active_per_100k':'active cases<br>per 100k pop'},
+    title=f"Currently active cases by province for {covid_yesterday.date.max().strftime('%d %b %Y')}",
+    center={'lat': 42.734189, 'lon': 25.1635087},
+    mapbox_style='carto-darkmatter',
+    opacity=1,
+    zoom=6
+)
+fig_yesterday_map_active.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
+fig_yesterday_map_active.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Age bands
@@ -202,7 +215,7 @@ logger.info('Reading age bands data')
 covid_by_age_band = (pd.read_csv('./data/Разпределение по дата и по възрастови групи.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'}))
 
 
-logger.info('Creating chart 8: Cumulative cases by age band')
+logger.info('Creating chart 9: Cumulative cases by age band')
 age_band_colors = ['green', 'cyan', 'magenta', 'ghostwhite', 'coral', 'royalblue', 'darkred', 'orange', 'brown']
 
 fig_age = go.Figure()
@@ -223,8 +236,7 @@ fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,2), pd.Timestamp(2020,9,2)],
                              mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='white'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='white'))
-#fig_age.show()
-fig_age = fig_age.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_age.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ####### REPRODUCTION NUMBER #######
@@ -236,20 +248,60 @@ provinces = covid_pop_sorted[['province', 'date', 'ALL']].groupby(['province','d
 orig_bg = pd.read_csv('./dash_data/r0_bg_original.csv')
 smoothed_bg = pd.read_csv('./dash_data/r0_bg_smoothed.csv')
 
-logger.info('Creating chart 9: Smoothed new cases - BG')
+logger.info('Creating chart 10: Smoothed new cases - BG')
 fig_new_bg = go.Figure()
 fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset_index()['ALL'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_new_bg.add_trace(go.Scatter(x=smoothed_bg.reset_index()['date'], y=smoothed_bg.reset_index()['ALL'],
-                                      mode='lines', line=dict(width=3), name='Smoothed'))
+                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='steelblue'))
 fig_new_bg.update_layout(title='Daily new cases in Bulgaria')
-#fig_new_bg.show()
-fig_new_bg = fig_new_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_new_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+
+logger.info('Creating chart 11: Smoothed recoveries - BG')
+orig_recovered_bg = pd.read_csv('./dash_data/r0_bg_original_recovered.csv')
+smoothed_recovered_bg = pd.read_csv('./dash_data/r0_bg_smoothed_recovered.csv')
+fig_recovered_bg = go.Figure()
+fig_recovered_bg.add_trace(go.Scatter(x=orig_recovered_bg.reset_index()['date'], y=orig_recovered_bg.reset_index()['total_recoveries'],
+                                      mode='lines', line=dict(dash='dot'), name='Actual'))
+fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['date'], y=smoothed_recovered_bg.reset_index()['total_recoveries'],
+                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='green'))
+fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria')
+fig_recovered_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+logger.info('Creating chart 12: Smoothed deaths - BG')
+orig_deaths_bg = pd.read_csv('./dash_data/r0_bg_original_deaths.csv')
+smoothed_deaths_bg = pd.read_csv('./dash_data/r0_bg_smoothed_deaths.csv')
+fig_deaths_bg = go.Figure()
+fig_deaths_bg.add_trace(go.Scatter(x=orig_deaths_bg.reset_index()['date'], y=orig_deaths_bg.reset_index()['total_deaths'],
+                                      mode='lines', line=dict(dash='dot'), name='Actual'))
+fig_deaths_bg.add_trace(go.Scatter(x=smoothed_deaths_bg.reset_index()['date'], y=smoothed_deaths_bg.reset_index()['total_deaths'],
+                                      mode='lines', line=dict(width=3), name='Smoothed'))
+fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria')
+fig_deaths_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+logger.info('Creating chart 13: Smoothed new cases - BG - age bands')
+covid_by_age_band_diff_smoothed = covid_by_age_band.set_index('date').diff().rolling(9,
+        win_type='gaussian',
+        min_periods=1,
+        center=True).mean(std=3).round()
+
+fig_age_diff = go.Figure()
+i=0
+for col in covid_by_age_band_diff_smoothed.columns:
+    fig_age_diff.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed.index, y=covid_by_age_band_diff_smoothed[col], mode='lines', line_shape='spline',
+                                 line=dict(width=3, color=age_band_colors[i]), name=col))
+    i+=1
+fig_age_diff.update_layout(title='New confirmed cases by age band (smoothed figures)')
+fig_age_diff.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+
+logger.info('Creating chart 14: Smoothed new cases - provinces')
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
 
-
-logger.info('Creating chart 10: Smoothed new cases - provinces')
 # create subplots structure
 fig_new_by_province = make_subplots(
                             rows=int(len(provinces_list)/2),
@@ -281,13 +333,12 @@ for i, province in list(enumerate(provinces_list)):
                                   row=row_num, col=col_num)
     fig_new_by_province.update_layout(title='Daily new cases by province', height=3200, showlegend=False)
 
-#fig_new_by_province.show()
-fig_new_by_province = fig_new_by_province.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_new_by_province.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Rt for BG
 
-logger.info('Creating chart 11: Rt for BG')
+logger.info('Creating chart 15: Rt for BG')
 result_bg = pd.read_csv('./dash_data/r0_bg_r0.csv')
 
 index_bg = result_bg['date']
@@ -322,7 +373,7 @@ fig_rt.add_trace(go.Scatter(x=index_bg, y=values_bg, mode='markers+lines', line=
                             marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'))
 fig_rt.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> for Bulgaria", showlegend=False)
 fig_rt.show()
-fig_rt = fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Rt by province ###
@@ -348,10 +399,10 @@ fig_rt_province_yesterday.add_trace(go.Bar(x=mr.province, y=mr.Estimated, marker
                           error_y=dict(type='data', array=mr.diff_up, arrayminus=mr.diff_down)))
 fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the last daily update')
 #fig_rt_province_yesterday.show()
-fig_rt_province_yesterday = fig_rt_province_yesterday.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_rt_province_yesterday.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 12: Rt by province')
+logger.info('Creating chart 16: Rt by province')
 
 def generate_rt_by_province(provinces, final_results):
     provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
@@ -462,7 +513,7 @@ pred2_double = fit2_double.forecast(15)
 fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
 pred3_double = fit3_double.forecast(15)
 
-logger.info('Creating chart 13: Double exp smoothing')
+logger.info('Creating chart 17: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
 fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='Historical data'))
 
@@ -478,7 +529,7 @@ for p, f, c in zip((pred1_double, pred2_double, pred3_double),(fit1_double, fit2
 
 fig_exp_smoothing_double.update_layout(title="Holt's (double) exponential smoothing for R<sub>t</sub> in Bulgaria")
 fig_exp_smoothing_double.show()
-fig_exp_smoothing_double = fig_exp_smoothing_double.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_exp_smoothing_double.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
@@ -535,7 +586,7 @@ pred_triple = fitted_triple.forecast(steps=15)
 
 #print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
 
-logger.info('Creating chart 14: Triple exp smoothing')
+logger.info('Creating chart 18: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Historical data', mode='lines'))
@@ -547,7 +598,7 @@ fig_exp_smoothing_triple.add_trace(go.Scatter(
 )
 fig_exp_smoothing_triple.update_layout(title="Holt-Winters' (triple) exponential smoothing for R<sub>t</sub> in Bulgaria")
 fig_exp_smoothing_triple.show()
-fig_exp_smoothing_triple = fig_exp_smoothing_triple.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_exp_smoothing_triple.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
@@ -786,9 +837,15 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_gen_stats),
                     html.Br(),
                     html.Br(),
-                    html.H4("Confirmed cases on a daily basis"),
+                    html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
                     dcc.Graph(figure=fig_new_bg),
+                    html.Br(),
+                    dcc.Graph(figure=fig_recovered_bg),
+                    html.Br(),
+                    dcc.Graph(figure=fig_deaths_bg),
+                    html.Br(),
+                    dcc.Graph(figure=fig_age_diff),
                     html.Br(),
                     html.Br(),
                     html.H4("Cases on a weekly basis"),
@@ -804,12 +861,17 @@ tabs = html.Div([
                 children = [
                     html.Br(),
                     html.Br(),
-                    html.P("Bulgarian provinces, color-coded according to the number of total confirmed cases per 100,000 population."),
+                    html.P("Provinces, color-coded according to the number of total confirmed cases per 100,000 population:"),
                     html.Br(),
                     dcc.Graph(figure=fig_yesterday_map_total),
                     html.Br(),
                     html.Br(),
-                    html.P(f"Provinces, color-coded according to the number of the new confirmed cases for {covid_yesterday.date.max().strftime('%d %b %Y')}:"),
+                    html.P(f"Provinces, color-coded according to the number of the currently active cases per 100,000 population:"),
+                    html.Br(),
+                    dcc.Graph(figure=fig_yesterday_map_active),
+                    html.Br(),
+                    html.Br(),
+                    html.P(f"Provinces, color-coded according to the number of the new confirmed cases for the last daily update per 100,000 population:"),
                     html.Br(),
                     dcc.Graph(figure=fig_yesterday_map_new),
                     html.Br(),

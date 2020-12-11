@@ -66,3 +66,30 @@
 2020-12-10 16:20:46,445 — __main__ — INFO — holt
 2020-12-10 16:20:47,745 — __main__ — INFO — holt-winters
 2020-12-10 16:20:49,628 — __main__ — INFO — starting dash
+2020-12-11 02:59:14,147 — __main__ — INFO — The backup is done!
+2020-12-11 02:59:54,218 — __main__ — INFO — Finished downloading!
+2020-12-11 02:59:54,220 — __main__ — INFO — reading general stats
+2020-12-11 02:59:56,388 — __main__ — INFO — charting weekly stats
+2020-12-11 02:59:57,222 — __main__ — INFO — charting rates
+2020-12-11 02:59:57,830 — __main__ — INFO — reading spatial data
+2020-12-11 03:00:51,083 — __main__ — INFO — charting age bands
+2020-12-11 03:00:51,911 — __main__ — INFO — starting r0
+2020-12-11 03:03:38,359 — __main__ — INFO — calculating r0 for provinces
+2020-12-11 04:27:37,398 — __main__ — INFO — The backup is done!
+2020-12-11 04:31:35,193 — __main__ — INFO — The backup is done!
+2020-12-11 04:32:17,498 — __main__ — INFO — Finished downloading!
+2020-12-11 04:32:17,500 — __main__ — INFO — reading general stats
+2020-12-11 04:32:17,920 — __main__ — INFO — charting weekly stats
+2020-12-11 04:32:18,634 — __main__ — INFO — charting rates
+2020-12-11 04:32:19,472 — __main__ — INFO — reading spatial data
+2020-12-11 04:33:08,046 — __main__ — INFO — charting age bands
+2020-12-11 04:33:08,540 — __main__ — INFO — starting r0
+2020-12-11 04:36:02,333 — __main__ — INFO — calculating r0 for provinces
+2020-12-11 05:03:34,237 — __main__ — INFO — provinces R0 runtime: 0:22:22.053761
+2020-12-11 05:03:34,489 — __main__ — INFO — charting r0 provinces
+2020-12-11 05:03:37,276 — __main__ — INFO — starting arima
+2020-12-11 05:03:37,714 — __main__ — INFO — calculating arima for provinces
+2020-12-11 05:49:52,371 — __main__ — INFO — Provinces ARIMA runtime: 0:46:14.655702
+2020-12-11 05:49:52,846 — __main__ — INFO — holt
+2020-12-11 05:49:53,302 — __main__ — INFO — holt-winters
+2020-12-11 05:49:53,919 — __main__ — INFO — starting git push
