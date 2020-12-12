@@ -232,7 +232,6 @@ fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,2), pd.Timestamp(2020,9,2)],
                              mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='white'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='white'))
-#fig_age.show()
 fig_age = fig_age.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -298,7 +297,7 @@ fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['dat
                                       mode='lines', line=dict(width=3), name='Smoothed', marker_color='lime'))
 fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria')
 fig_recovered_bg = fig_recovered_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-plot(fig_recovered_bg)
+
 
 # smoothed deaths
 bg_deaths = covid_general[['date', 'total_deaths']].groupby('date')['total_deaths'].sum()
@@ -324,9 +323,25 @@ fig_age_diff = go.Figure()
 i=0
 for col in covid_by_age_band_diff_smoothed.columns:
     fig_age_diff.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed.index, y=covid_by_age_band_diff_smoothed[col], mode='lines', line_shape='spline',
-                                 line=dict(width=3, color=age_band_colors[i]), name=col))
+                                 line=dict(color=age_band_colors[i]), name=col))
     i+=1
 fig_age_diff.update_layout(title='New confirmed cases by age band (smoothed figures)')
+
+
+# age band new cases per 100k pop
+pop_by_age_band = read_nsi_age_bands('./data/Pop_6.1.2_Pop_DR.xls', worksheet_name='2019', col_num=2, col_names=['age_band', 'pop'], skip=5, rows_needed=22)
+covid_by_age_band_diff_smoothed_per100k = covid_by_age_band_diff_smoothed.copy()
+for col in covid_by_age_band_diff_smoothed_per100k.columns:
+    covid_by_age_band_diff_smoothed_per100k[col] = (100000*covid_by_age_band_diff_smoothed_per100k[col]/pop_by_age_band.loc[pop_by_age_band.covid_age_band == col, 'pop'].values).round(0)
+    
+fig_age_per100k = go.Figure()
+i=0
+for col in covid_by_age_band_diff_smoothed_per100k.columns:
+    fig_age_per100k.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed_per100k.index, y=covid_by_age_band_diff_smoothed_per100k[col], mode='lines', line_shape='spline',
+                                 line=dict(width=2, color=age_band_colors[i]), name=col))
+    i+=1
+fig_age_per100k.update_layout(title='New confirmed daily cases by age band per 100,000 population (smoothed figures)')
+
 
 
 # provinces

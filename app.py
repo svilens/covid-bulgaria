@@ -298,8 +298,23 @@ fig_age_diff.update_layout(title='New confirmed cases per day by age band (smoot
 fig_age_diff.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
+logger.info("Creating chart 14: Smoothed new cases - BG - age bands per 100,000 pop")
+pop_by_age_band = read_nsi_age_bands('./data/Pop_6.1.2_Pop_DR.xls', worksheet_name='2019', col_num=2, col_names=['age_band', 'pop'], skip=5, rows_needed=22)
+covid_by_age_band_diff_smoothed_per100k = covid_by_age_band_diff_smoothed.copy()
+for col in covid_by_age_band_diff_smoothed_per100k.columns:
+    covid_by_age_band_diff_smoothed_per100k[col] = (100000*covid_by_age_band_diff_smoothed_per100k[col]/pop_by_age_band.loc[pop_by_age_band.covid_age_band == col, 'pop'].values).round(0)
+    
+fig_age_per100k = go.Figure()
+i=0
+for col in covid_by_age_band_diff_smoothed_per100k.columns:
+    fig_age_per100k.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed_per100k.index, y=covid_by_age_band_diff_smoothed_per100k[col], mode='lines', line_shape='spline',
+                                 line=dict(color=age_band_colors[i]), name=col))
+    i+=1
+fig_age_per100k.update_layout(title='New confirmed daily cases by age band per 100,000 population (smoothed figures)')
+fig_age_per100k.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
-logger.info('Creating chart 14: Smoothed new cases - provinces')
+
+logger.info('Creating chart 15: Smoothed new cases - provinces')
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
 
 # create subplots structure
@@ -338,7 +353,7 @@ fig_new_by_province.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='r
 
 ### Rt for BG
 
-logger.info('Creating chart 15: Rt for BG')
+logger.info('Creating chart 16: Rt for BG')
 result_bg = pd.read_csv('./dash_data/r0_bg_r0.csv')
 
 index_bg = result_bg['date']
@@ -400,7 +415,7 @@ fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the
 fig_rt_province_yesterday.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 16: Rt by province')
+logger.info('Creating chart 17: Rt by province')
 
 def generate_rt_by_province(provinces, final_results):
     provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
@@ -511,7 +526,7 @@ pred2_double = fit2_double.forecast(15)
 fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
 pred3_double = fit3_double.forecast(15)
 
-logger.info('Creating chart 17: Double exp smoothing')
+logger.info('Creating chart 18: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
 fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='Historical data'))
 
@@ -583,7 +598,7 @@ pred_triple = fitted_triple.forecast(steps=15)
 
 #print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
 
-logger.info('Creating chart 18: Triple exp smoothing')
+logger.info('Creating chart 19: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Historical data', mode='lines'))
@@ -832,14 +847,17 @@ tabs = html.Div([
                     html.Br(),
                     dcc.Graph(figure=fig_gen_stats),
                     html.Br(),
-                    html.Br(),
                     html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
                     dcc.Graph(figure=fig_new_bg),
                     dcc.Graph(figure=fig_recovered_bg),
                     dcc.Graph(figure=fig_deaths_bg),
-                    dcc.Graph(figure=fig_age_diff),
                     html.Br(),
+                    html.H4("Smoothed number of cases by age bands"),
+                    html.Br(),
+                    dcc.Graph(figure=fig_age_diff),
+                    html.P("The figure for the age bands above is no respecter of the proportion of each age band from the total population. Therefore, we can calculate the new cases by each age band per 100,000 population of that age band, which can be a better indicatior for the infectivity rate across different age bands. It clearly shows the higher infection risk for middle-aged and older people, compared to the younger generation:"),
+                    dcc.Graph(figure=fig_age_per100k),
                     html.Br(),
                     html.H4("Cases on a weekly basis"),
                     html.Br(),
@@ -1059,6 +1077,25 @@ tabs = html.Div([
     )
 ])
 
+footer = html.Div([
+    html.Small("Data sources: "),
+    html.Small("COVID-19 data from "),
+    html.Small(html.A("Open Data Portal", href="https://data.egov.bg/covid-19?section=8&subsection=16&item=36", target="_blank")),
+    html.Small(" - Spatial data from "),
+    html.Small(html.A("DIVA GIS", href="https://www.diva-gis.org/gdata", target="_blank")),
+    html.Small(" - Demographic data from "),
+    html.Small(html.A("NSI", href="https://www.nsi.bg/bg/content/2975/население-по-области-общини-местоживеене-и-пол", target="_blank")),
+    html.Small(html.Br()),
+    html.Small("Designed by "),
+    html.Small(html.A("Svilen Stefanov", href="https://www.linkedin.com/in/svilen-stefanov/", target="_blank")),
+    html.Small(" and "),
+    html.Small(html.A("Ivaylo Stoyanov", href="https://www.linkedin.com/in/ivaylo-stoyanov-0124b2119/", target="_blank")),
+    html.Small(", inspired by "),
+    html.Small(html.A("Martin Boyanov", href="https://www.linkedin.com/in/martin-boyanov-1ab2124a/", target="_blank")),
+    html.Br(),
+    html.Small("Updated daily")
+])
+
 
 logger.info('Creating dash layout')
 app.layout = html.Div([
@@ -1066,9 +1103,7 @@ app.layout = html.Div([
     html.P(f"Last update: {covid_general.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}", style={'textAlign':'left', 'padding-left':'10px', 'color':'red'}),
     cards,
     tabs,
-    html.Small("Designed by"),
-    html.Small("Data from COVID-19"),
-    html.Small("Updated daily")
+    footer
 ])
 
 
