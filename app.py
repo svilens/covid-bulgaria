@@ -136,23 +136,31 @@ covid_by_province = read_covid_by_province('./data/Разпределение п
 pop_by_province = read_population_data('./data/Pop_6.1.1_Pop_DR.xls', worksheet_name='2019',
                                            col_num=2, col_names=['municipality','pop'],
                                            skip=5, codes=codes_pop)
+
 covid_pop = (covid_by_province.set_index('code')
                            .join(pop_by_province.set_index('code'))
-                           .join(geodf.set_index('code')))
-covid_pop['new_per_100k'] = (100000*covid_pop['new_cases']/covid_pop['pop']).round(2)
-covid_pop['total_per_100k'] = (100000*covid_pop['ALL']/covid_pop['pop']).round(2)
-covid_pop['active_per_100k'] = (100000*covid_pop['ACT']/covid_pop['pop']).round(2)
-covid_pop = gpd.GeoDataFrame(covid_pop)
+                           .join(geodf[['code','province']].set_index('code'))
+            )
+covid_pop['new_per_100k'] = (100000*covid_pop['new_cases']/covid_pop['pop']).round(0)
+covid_pop['total_per_100k'] = (100000*covid_pop['ALL']/covid_pop['pop']).round(0)
+covid_pop['active_per_100k'] = (100000*covid_pop['ACT']/covid_pop['pop']).round(0)
+#covid_pop = gpd.GeoDataFrame(covid_pop)
 
 covid_pop_sorted = covid_pop.sort_values(by=['date', 'ALL'])
 # animation frame parameter should be string or int
-covid_pop_sorted['day'] = covid_pop_sorted.date.apply(lambda x: (x - min(covid_pop_sorted.date)).days + 1)
+#covid_pop_sorted['day'] = covid_pop_sorted.date.apply(lambda x: (x - min(covid_pop_sorted.date)).days + 1)
 
-covid_yesterday = gpd.GeoDataFrame(covid_pop.loc[covid_pop.date == max(covid_pop.date)])
-import plotly.express as px
+geodf['geometry'] = geodf['geometry'].simplify(tolerance=0.00001, preserve_topology=True)
+
+covid_yesterday = gpd.GeoDataFrame(
+        covid_pop.loc[covid_pop.date == max(covid_pop.date)]
+        .rename(columns={'ALL':'total cases', 'ACT':'active cases', 'new_cases':'new cases'})
+        .join(geodf[['code','geometry']].set_index('code'))
+        )
 
 
 logger.info('Creating chart 6: Provinces map - total cases per 100k pop')
+import plotly.express as px
 fig_yesterday_map_total = px.choropleth_mapbox(
     covid_yesterday,
     geojson=covid_yesterday.geometry,
@@ -160,11 +168,12 @@ fig_yesterday_map_total = px.choropleth_mapbox(
     color='total_per_100k',
     color_continuous_scale='Burgyl',
     hover_name='province',
+    hover_data=['total cases'],
     labels={'total_per_100k':'total infections<br>per 100k pop'},
     title='Total confirmed cases per 100,000 population by province',
     center={'lat': 42.734189, 'lon': 25.1635087},
     mapbox_style='carto-darkmatter',
-    opacity=1,
+    opacity=0.85,
     zoom=6
 )
 fig_yesterday_map_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
@@ -179,7 +188,8 @@ fig_yesterday_map_new = px.choropleth_mapbox(
     color='new_per_100k',
     color_continuous_scale='Burgyl',
     hover_name='province',
-    labels={'new_per_100k':'infections<br>per 100k pop'},
+    hover_data=['new cases'],
+    labels={'new_per_100k':'new infections<br>per 100k pop'},
     title=f"New daily cases per 100,000 population by province",
     center={'lat': 42.734189, 'lon': 25.1635087},
     mapbox_style='carto-darkmatter',
@@ -198,7 +208,8 @@ fig_yesterday_map_active = px.choropleth_mapbox(
     color='active_per_100k',
     color_continuous_scale='Burgyl',
     hover_name='province',
-    labels={'active_per_100k':'active cases<br>per 100k pop'},
+    hover_data=['active cases'],
+    labels={'active_per_100k':'active infections<br>per 100k pop'},
     title=f"Currently active cases per 100,000 population by province",
     center={'lat': 42.734189, 'lon': 25.1635087},
     mapbox_style='carto-darkmatter',
@@ -500,7 +511,7 @@ test = df.iloc[-10:, :]
 pred = test.copy()
 
 
-df['z_data'] = (df['data'] - df.data.rolling(window=12).mean()) / df.data.rolling(window=12).std()
+df['z_data'] = (df['data'] - df.data.rolling(window=12).mean()) / df['data'].rolling(window=12).std()
 df['zp_data'] = df['z_data'] - df['z_data'].shift(12)
 
 logger.info('Starting Double exponential smoothing (Holt)')
@@ -1077,30 +1088,29 @@ tabs = html.Div([
     )
 ])
 
-footer = html.Div([
-    html.Small("Data sources: "),
-    html.Small("COVID-19 data from "),
-    html.Small(html.A("Open Data Portal", href="https://data.egov.bg/covid-19?section=8&subsection=16&item=36", target="_blank")),
-    html.Small(" - Spatial data from "),
-    html.Small(html.A("DIVA GIS", href="https://www.diva-gis.org/gdata", target="_blank")),
-    html.Small(" - Demographic data from "),
-    html.Small(html.A("NSI", href="https://www.nsi.bg/bg/content/2975/население-по-области-общини-местоживеене-и-пол", target="_blank")),
-    html.Small(html.Br()),
-    html.Small("Designed by "),
-    html.Small(html.A("Svilen Stefanov", href="https://www.linkedin.com/in/svilen-stefanov/", target="_blank")),
-    html.Small(" and "),
-    html.Small(html.A("Ivaylo Stoyanov", href="https://www.linkedin.com/in/ivaylo-stoyanov-0124b2119/", target="_blank")),
-    html.Small(", inspired by "),
-    html.Small(html.A("Martin Boyanov", href="https://www.linkedin.com/in/martin-boyanov-1ab2124a/", target="_blank")),
-    html.Br(),
-    html.Small("Updated daily")
-])
+footer = html.Div(
+    [
+        html.Small("Data sources: COVID-19 data from "),
+        html.Small(html.A("Open Data Portal", href="https://data.egov.bg/covid-19?section=8&subsection=16&item=36", target="_blank")),
+        html.Small(" • Spatial data from "),
+        html.Small(html.A("DIVA GIS", href="https://www.diva-gis.org/gdata", target="_blank")),
+        html.Small(" • Demographic data from "),
+        html.Small(html.A("NSI", href="https://www.nsi.bg/bg/content/2974/население", target="_blank")),
+        html.Br(),
+        html.Small("Designed by "),
+        html.Small(html.A("Svilen Stefanov", href="https://www.linkedin.com/in/svilen-stefanov/", target="_blank")),
+        html.Small(" and "),
+        html.Small(html.A("Ivaylo Stoyanov", href="https://www.linkedin.com/in/ivaylo-stoyanov-0124b2119/", target="_blank")),
+        html.Small(", inspired by "),
+        html.Small(html.A("Martin Boyanov", href="https://www.linkedin.com/in/martin-boyanov-1ab2124a/", target="_blank"))
+    ], style={'font-style':'italic', 'padding-left':'10px'}
+)
 
 
 logger.info('Creating dash layout')
 app.layout = html.Div([
-    html.H1(children='COVID-19 in Bulgaria'),
-    html.P(f"Last update: {covid_general.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}", style={'textAlign':'left', 'padding-left':'10px', 'color':'red'}),
+    html.H1(children='COVID-19 in Bulgaria', style={'padding-left':'5px'}),
+    html.P(f"Last update: {covid_general.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}", style={'textAlign':'left', 'padding-left':'15px', 'color':'gold', 'font-style':'italic'}),
     cards,
     tabs,
     footer

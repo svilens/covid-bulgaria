@@ -9,6 +9,7 @@ from func_read_covid import *
 from func_read_nsi import *
 from func_logging import *
 
+global_start = datetime.now()
 logger = get_logger(__name__)
 logger.info('STARTED')
 
@@ -47,7 +48,6 @@ fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.active_
 fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_recoveries, line=dict(color='green'), name='Recovered'))
 fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_deaths, line=dict(color='red'), name='Deaths'))
 fig_gen_stats.update_layout(title='Number of cases over time (cumulative)')
-#fig_gen_stats.show()
 fig_gen_stats = fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 covid_general['week'] = covid_general.date.dt.isocalendar().week
@@ -68,7 +68,6 @@ fig_gen_stats_weekly.update_layout(title = 'New cases per week')
 fig_gen_stats_weekly.update_xaxes(title_text="week number")
 fig_gen_stats_weekly.update_yaxes(title_text="Confirmed cases", secondary_y=False)
 fig_gen_stats_weekly.update_yaxes(title_text="Deaths / recoveries", secondary_y=True)
-#fig_gen_stats_weekly.show()
 fig_gen_stats_weekly = fig_gen_stats_weekly.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -85,7 +84,6 @@ fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[36, 36], y=[-0.2,0.5],
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[38, 38], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
 fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change')
-#fig_gen_stats_weekly_new_pct.show()
 fig_gen_stats_weekly_new_pct = fig_gen_stats_weekly_new_pct.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -106,7 +104,6 @@ fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[38, 38], y=[0,10000],
 fig_gen_stats_weekly_events.update_layout(title='New confirmed cases per week + summer events')
 fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
 fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
-#fig_gen_stats_weekly_events.show()
 fig_gen_stats_weekly_events = fig_gen_stats_weekly_events.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -152,7 +149,8 @@ pop_by_province = read_population_data('./data/Pop_6.1.1_Pop_DR.xls', worksheet_
                                            skip=5, codes=codes_pop)
 covid_pop = (covid_by_province.set_index('code')
                            .join(pop_by_province.set_index('code'))
-                           .join(geodf.set_index('code')))
+                           .join(geodf[['code','province']].set_index('code'))
+            )
 covid_pop['new_per_100k'] = (100000*covid_pop['new_cases']/covid_pop['pop']).round(2)
 covid_pop['total_per_100k'] = (100000*covid_pop['ALL']/covid_pop['pop']).round(2)
 covid_pop['active_per_100k'] = (100000*covid_pop['ACT']/covid_pop['pop']).round(2)
@@ -162,10 +160,16 @@ covid_pop.reset_index()[['date', 'province', 'ALL', 'new_cases']].rename(columns
 
 covid_pop_sorted = covid_pop.sort_values(by=['date', 'ALL'])
 # animation frame parameter should be string or int
-covid_pop_sorted['day'] = covid_pop_sorted.date.apply(lambda x: (x - min(covid_pop_sorted.date)).days + 1)
+#covid_pop_sorted['day'] = covid_pop_sorted.date.apply(lambda x: (x - min(covid_pop_sorted.date)).days + 1)
 
-covid_yesterday = gpd.GeoDataFrame(covid_pop.loc[covid_pop.date == max(covid_pop.date)])
-#from plotly.offline import download_plotlyjs, init_notebook_mode, plot
+geodf['geometry'] = geodf['geometry'].simplify(tolerance=0.00001, preserve_topology=True)
+
+covid_yesterday = gpd.GeoDataFrame(
+        covid_pop.loc[covid_pop.date == max(covid_pop.date)]
+        .rename(columns={'ALL':'total cases', 'ACT':'active cases', 'new_cases':'new cases'})
+        .join(geodf[['code','geometry']].set_index('code'))
+        )
+
 import plotly.express as px
 #init_notebook_mode()
 
@@ -184,7 +188,6 @@ fig_yesterday_map_total = px.choropleth_mapbox(
     zoom=6
 )
 fig_yesterday_map_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-#fig_yesterday_map_total.show()
 fig_yesterday_map_total = fig_yesterday_map_total.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -203,7 +206,6 @@ fig_yesterday_map_new = px.choropleth_mapbox(
     zoom=6
 )
 fig_yesterday_map_new.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-#fig_yesterday_map_new.show()
 fig_yesterday_map_new = fig_yesterday_map_new.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -391,7 +393,6 @@ for i, province in list(enumerate(provinces_list)):
                                   row=row_num, col=col_num)
     fig_new_by_province.update_layout(title='Daily new cases by province', height=3200, showlegend=False)
 
-#fig_new_by_province.show()
 fig_new_by_province = fig_new_by_province.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -548,7 +549,6 @@ fig_rt.add_trace(go.Scatter(x=index_bg, y=values_bg, mode='markers+lines', line=
                             marker_color=values_bg, marker_colorscale='RdYlBu_r', marker_line_width=1.2,
                             marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'))
 fig_rt.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> for Bulgaria", showlegend=False)
-fig_rt.show()
 fig_rt = fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -744,7 +744,7 @@ def arima_province(ts_data, province, column='total_cases', forecast_days=15):
         
     #Modeling
     model = ARIMA(train, order=param)
-    result = model.fit()
+    result = model.fit(disp=0)
     
     #import matplotlib as mpl
     #with mpl.rc_context():
@@ -763,13 +763,11 @@ def arima_province(ts_data, province, column='total_cases', forecast_days=15):
     #fig.add_trace(go.Scatter(x=rolling[-len(test):].index, y=rolling[column][-len(test):], name='Actual', mode='lines'))
     #fig.add_trace(go.Scatter(x=rolling[-len(test):].index, y=pred, name='Forecast', mode='lines'))
     #fig.update_layout(title = f'True vs Predicted values for {"new cases" if column=="new_cases" else "total cases"} (7 days rolling mean) in {province} for {forecast_days} days')
-    #fig.show()
 
     return (pred, result, fig, model_error, rolling.index, rolling[column])
 
 logger.info('Getting ARIMA predictions for provinces')
 
-from datetime import datetime
 start = datetime.now()
 arima_provinces_df = pd.DataFrame()
 
@@ -861,7 +859,6 @@ for p, f, c in zip((pred1_double, pred2_double, pred3_double),(fit1_double, fit2
     print(f"\nMean absolute percentage error: {mape(test['data'].values,p).round(2)} (alpha={str(f.params['smoothing_level'])[:4]}, beta={str(f.params['smoothing_trend'])[:4]})")
 
 fig_exp_smoothing_double.update_layout(title="Holt's (double) exponential smoothing for R<sub>t</sub> in Bulgaria")
-fig_exp_smoothing_double.show()
 fig_exp_smoothing_double = fig_exp_smoothing_double.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -929,7 +926,6 @@ fig_exp_smoothing_triple.add_trace(go.Scatter(
     y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
 )
 fig_exp_smoothing_triple.update_layout(title='Holt-Winters (triple) exponential smoothing for R<sub>t</sub> in Bulgaria')
-fig_exp_smoothing_triple.show()
 fig_exp_smoothing_triple = fig_exp_smoothing_triple.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -961,7 +957,7 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     fig_exp_smoothing_triple.update_layout(title=f'Holt-Winters (triple) exponential smoothing for {"new cases" if column == "new_cases" else "total cases"} in {province} for {forecast_days} days')
     return fig_exp_smoothing_triple, pred_triple_error
 
-
+logger.info(f'Processing is done. Total runtime: {datetime.now() - global_start}')
 logger.info('Starting git push')
 from func_git import *
 git_push_result = git_push_automation()
@@ -970,8 +966,9 @@ logger.info(git_push_result)
 
 logger.info('FINISHED! Starting dash...')
 
+
 import app as appscript
-app.run_server(debug=True)
+#app.run_server(debug=True)
 
 
 
