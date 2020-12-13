@@ -17,7 +17,6 @@ logger.info('Starting the process')
 
 logger.info('Reading general stats')
 covid_general = read_covid_general('./data/Обща статистика за разпространението.csv', 'Дата')
-#covid_general.head()
 
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -47,7 +46,7 @@ fig_gen_stats_weekly = make_subplots(specs=[[{"secondary_y": True}]])
 fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases[1:], name='New confirmed cases'), secondary_y=False)
 fig_gen_stats_weekly.add_trace(go.Bar(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_deaths[1:], name='New death cases'), secondary_y=True)
 fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_recoveries[1:], name='New recoveriers'), secondary_y=True)
-fig_gen_stats_weekly.update_layout(title = 'New cases per week (current week not included)')
+fig_gen_stats_weekly.update_layout(title = 'New cases per week (the current week is not included)')
 fig_gen_stats_weekly.update_xaxes(title_text="week number")
 fig_gen_stats_weekly.update_yaxes(title_text="Confirmed cases", secondary_y=False)
 fig_gen_stats_weekly.update_yaxes(title_text="Deaths / recoveries", secondary_y=True)
@@ -66,8 +65,7 @@ fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[36, 36], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='brown'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[38, 38], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
-fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change')
-fig_gen_stats_weekly_new_pct.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 4: New cases per week + summer events')
@@ -85,10 +83,9 @@ fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[36, 36], y=[0,10000],
                              mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='purple'))
 fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[38, 38], y=[0,10000],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
-fig_gen_stats_weekly_events.update_layout(title='New confirmed cases per week + summer events')
+fig_gen_stats_weekly_events.update_layout(title='New confirmed cases per week + summer events', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
 fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
-fig_gen_stats_weekly_events.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Rates
@@ -161,6 +158,7 @@ covid_yesterday = gpd.GeoDataFrame(
 
 logger.info('Creating chart 6: Provinces map - total cases per 100k pop')
 import plotly.express as px
+
 fig_yesterday_map_total = px.choropleth_mapbox(
     covid_yesterday,
     geojson=covid_yesterday.geometry,
@@ -176,8 +174,7 @@ fig_yesterday_map_total = px.choropleth_mapbox(
     opacity=0.85,
     zoom=6
 )
-fig_yesterday_map_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-fig_yesterday_map_total.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_yesterday_map_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 7: Provinces map - new cases per 100k pop')
@@ -196,8 +193,7 @@ fig_yesterday_map_new = px.choropleth_mapbox(
     opacity=1,
     zoom=6
 )
-fig_yesterday_map_new.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-fig_yesterday_map_new.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_yesterday_map_new.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 8: Provinces map - active cases per 100k pop')
@@ -216,8 +212,7 @@ fig_yesterday_map_active = px.choropleth_mapbox(
     opacity=1,
     zoom=6
 )
-fig_yesterday_map_active.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-fig_yesterday_map_active.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_yesterday_map_active.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Age bands
@@ -235,7 +230,7 @@ for col in covid_by_age_band.columns[1:]:
     fig_age.add_trace(go.Scatter(x=covid_by_age_band['date'], y=covid_by_age_band[col], mode='lines',
                                  line=dict(width=3, color=age_band_colors[i]), name=col))
     i+=1
-fig_age.update_layout(title='Total cases over time by age band', template='plotly_dark')
+fig_age.update_layout(title='Total cases over time by age band', template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,6,15), pd.Timestamp(2020,6,15)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
@@ -247,7 +242,6 @@ fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,2), pd.Timestamp(2020,9,2)],
                              mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='white'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='white'))
-fig_age.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ####### REPRODUCTION NUMBER #######
@@ -265,8 +259,7 @@ fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_new_bg.add_trace(go.Scatter(x=smoothed_bg.reset_index()['date'], y=smoothed_bg.reset_index()['ALL'],
                                       mode='lines', line=dict(width=3), name='Smoothed', marker_color='gold'))
-fig_new_bg.update_layout(title='Daily new cases in Bulgaria')
-fig_new_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_new_bg.update_layout(title='Daily new cases in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 11: Smoothed recoveries - BG')
@@ -277,8 +270,7 @@ fig_recovered_bg.add_trace(go.Scatter(x=orig_recovered_bg.reset_index()['date'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['date'], y=smoothed_recovered_bg.reset_index()['total_recoveries'],
                                       mode='lines', line=dict(width=3), name='Smoothed', marker_color='lime'))
-fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria')
-fig_recovered_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 12: Smoothed deaths - BG')
@@ -289,8 +281,7 @@ fig_deaths_bg.add_trace(go.Scatter(x=orig_deaths_bg.reset_index()['date'], y=ori
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_deaths_bg.add_trace(go.Scatter(x=smoothed_deaths_bg.reset_index()['date'], y=smoothed_deaths_bg.reset_index()['total_deaths'],
                                       mode='lines', line=dict(width=3), name='Smoothed'))
-fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria')
-fig_deaths_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 13: Smoothed new cases - BG - age bands')
@@ -305,8 +296,7 @@ for col in covid_by_age_band_diff_smoothed.columns:
     fig_age_diff.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed.index, y=covid_by_age_band_diff_smoothed[col], mode='lines', line_shape='spline',
                                  line=dict(color=age_band_colors[i]), name=col))
     i+=1
-fig_age_diff.update_layout(title='New confirmed cases per day by age band (smoothed figures)')
-fig_age_diff.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_age_diff.update_layout(title='New confirmed cases per day by age band (smoothed figures)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info("Creating chart 14: Smoothed new cases - BG - age bands per 100,000 pop")
@@ -321,8 +311,7 @@ for col in covid_by_age_band_diff_smoothed_per100k.columns:
     fig_age_per100k.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed_per100k.index, y=covid_by_age_band_diff_smoothed_per100k[col], mode='lines', line_shape='spline',
                                  line=dict(color=age_band_colors[i]), name=col))
     i+=1
-fig_age_per100k.update_layout(title='New confirmed daily cases by age band per 100,000 population (smoothed figures)')
-fig_age_per100k.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_age_per100k.update_layout(title='New confirmed daily cases by age band per 100,000 population (smoothed figures)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 15: Smoothed new cases - provinces')
@@ -357,9 +346,8 @@ for i, province in list(enumerate(provinces_list)):
     fig_new_by_province.add_trace(go.Scatter(x=smoothed['date'], y=smoothed['new_cases'],
                                       mode='lines', line=dict(width=3), name='Smoothed'),
                                   row=row_num, col=col_num)
-    fig_new_by_province.update_layout(title='Daily new cases by province', height=3200, showlegend=False)
 
-fig_new_by_province.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_new_by_province.update_layout(title='Daily new cases by province', height=3200, showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Rt for BG
@@ -397,8 +385,7 @@ fig_rt.add_trace(go.Scatter(x=index_bg, y=highfn_bg(date2num(extended_bg)),
 fig_rt.add_trace(go.Scatter(x=index_bg, y=values_bg, mode='markers+lines', line=dict(width=0.3, dash='dot'), line_shape='spline',
                             marker_color=values_bg, marker_colorscale='RdYlBu_r', marker_line_width=1.2,
                             marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'))
-fig_rt.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> for Bulgaria", showlegend=False)
-fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_rt.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> for Bulgaria", showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Rt by province ###
@@ -422,8 +409,7 @@ mr.loc[mr.status=="0", 'colors'] = 'grey'
 fig_rt_province_yesterday = go.Figure()
 fig_rt_province_yesterday.add_trace(go.Bar(x=mr.province, y=mr.Estimated, marker_color=mr.colors, 
                           error_y=dict(type='data', array=mr.diff_up, arrayminus=mr.diff_down)))
-fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the last daily update')
-fig_rt_province_yesterday.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the last daily update', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 17: Rt by province')
@@ -474,7 +460,7 @@ logger.info('Reading ARIMA')
 ts_data = covid_pop.reset_index()[['date', 'province', 'ALL', 'new_cases']].rename(columns={'ALL':'total_cases'})
 
 ts_data_r0 = final_results[['province', 'date', 'Estimated']].rename(columns={'Estimated':'r0'})
-ts_data_r0.date = pd.to_datetime(ts_data_r0.date)
+ts_data_r0['date'] = pd.to_datetime(ts_data_r0.date)
 ts_data = pd.merge(ts_data, ts_data_r0, how='left', on=['date','province'])
 
 def split(ts, forecast_days=15):
@@ -505,13 +491,7 @@ def arima_chart(province):
 ######## EXPONENTIAL SMOOTHING ##########
 
 df = result_bg.set_index('date')[['Estimated']].rename(columns={'Estimated':'data'})
-
-train = df.iloc[:-10, :]
-test = df.iloc[-10:, :]
-pred = test.copy()
-
-
-df['z_data'] = (df['data'] - df.data.rolling(window=12).mean()) / df['data'].rolling(window=12).std()
+df['z_data'] = (df['data'] - df['data'].rolling(window=12).mean()) / df['data'].rolling(window=12).std()
 df['zp_data'] = df['z_data'] - df['z_data'].shift(12)
 
 logger.info('Starting Double exponential smoothing (Holt)')
@@ -551,8 +531,7 @@ for p, f, c in zip((pred1_double, pred2_double, pred3_double),(fit1_double, fit2
     )
     print(f"\nMean absolute percentage error: {mape(test['data'].values,p).round(2)} (alpha={str(f.params['smoothing_level'])[:4]}, beta={str(f.params['smoothing_trend'])[:4]})")
 
-fig_exp_smoothing_double.update_layout(title="Holt's (double) exponential smoothing for R<sub>t</sub> in Bulgaria")
-fig_exp_smoothing_double.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_exp_smoothing_double.update_layout(title="Holt's (double) exponential smoothing for R<sub>t</sub> in Bulgaria", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
@@ -596,7 +575,6 @@ logger.info('Starting Triple exponential smoothing (Holt-Winters)')
 
 from statsmodels.tsa.holtwinters import ExponentialSmoothing as HWES
 
-
 #build and train the model on the training data
 model_triple = HWES(train.data, seasonal_periods=7, trend='add', seasonal='mul')
 fitted_triple = model_triple.fit(optimized=True, use_brute=True)
@@ -619,8 +597,7 @@ fig_exp_smoothing_triple.add_trace(go.Scatter(
     x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
     y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
 )
-fig_exp_smoothing_triple.update_layout(title="Holt-Winters' (triple) exponential smoothing for R<sub>t</sub> in Bulgaria")
-fig_exp_smoothing_triple.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_exp_smoothing_triple.update_layout(title="Holt-Winters' (triple) exponential smoothing for R<sub>t</sub> in Bulgaria", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
@@ -839,6 +816,16 @@ cards = dbc.CardDeck(className="carddeck", children=[
             ])
         ])
 
+daily_summary = html.Div(
+    [
+     dcc.Markdown(f"The number of **new confirmed cases** from the last daily update is **{new_t:,}** and the number of **recovered cases** is **{recoveries_t:,}**. Yesterday **{deaths_t:,}** infected people have lost their lives, which adds up to {covid_general.total_deaths.tail(1).values[0]:,} total death cases since the start of the pandemic. The total number of people with **currently active infections has {'increased' if new_t > recoveries_t else 'decreased'} with {abs(new_t - recoveries_t - deaths_t):,}** and is now {active_t:,}, which is {active_t / pop_by_province['pop'].sum():.2%} of the Bulgarian population, or {int((100000*active_t / pop_by_province['pop'].sum()).round(0)):,} infected people per 100,000 population."),
+    dcc.Markdown(f"The number of **hospitalized patients has {'increased' if hospitalized_change_t > 0 else 'decreased'} with {abs(hospitalized_change_t):,}** and now stands at {hospitalized_t:,}, which is {hospitalized_t / active_t:.2%} of the currently active cases. The number of **patients in intensive care units has {'increased' if intensive_care_change_t > 0 else 'decreased'} with {intensive_care_change_t:,} and is now {intensive_care_t:,}**, which is {intensive_care_t / hospitalized_t:.2%} of the currently hospitalized patients, or {intensive_care_t / active_t:.2%} of the total active cases."),
+    dcc.Markdown(f"The provinces with the highest number of new cases are {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[0]):,}), {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[1]):,}) and {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[2]):,}). In terms of new daily cases per 100,000 population, the leading provinces are **{covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[1]):,}) and {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[2]):,})**. Still, the top 3 provinces that need special attention with highest number of active infections per 100,000 population are **{covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[1]):,}) and {covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[2]):,})**."),
+    dcc.Markdown(f"The **reproduction number** from the last day on a national level is **{values_bg.values[-1]}**, which means that the overall spread of the disease is {'decreasing decisively' if values_bg.values[-1] < 0.5 else 'well under control' if values_bg.values[-1] < 0.75 else 'under control' if values_bg.values[-1] < 0.95 else 'continuing to grow almost linearly' if values_bg.values[-1] < 1.05 else 'slightly not under control' if values_bg.values[-1] < 1.25 else 'continuing to increase and is not under control' if values_bg.values[-1] < 1.5 else 'growing up at a very fast pace'}, i.e. 100 infectious people are directly spreading the disease to {int(100*values_bg.values[-1])} other people."),
+    dcc.Markdown(f"The provinces with **the highest reproduction number** as of yesterday are **{mr.sort_values(by='Estimated').province.values[-1]} ({mr.sort_values(by='Estimated').Estimated.values[-1]:.2f}), {mr.sort_values(by='Estimated').province.values[-2]} ({mr.sort_values(by='Estimated').Estimated.values[-2]:.2f}) and {mr.sort_values(by='Estimated').province.values[-3]} ({mr.sort_values(by='Estimated').Estimated.values[-3]:.2f})**. On the other hand, the provinces where the disease is spreading at the slowest pace are **{mr.sort_values(by='Estimated').province.values[0]} ({mr.sort_values(by='Estimated').Estimated.values[0]:.2f}), {mr.sort_values(by='Estimated').province.values[1]} ({mr.sort_values(by='Estimated').Estimated.values[1]:.2f}) and {mr.sort_values(by='Estimated').province.values[2]} ({mr.sort_values(by='Estimated').Estimated.values[2]:.2f})**.")
+    ]
+)
+
 
 logger.info('Creating dash tabs')
 tabs = html.Div([
@@ -852,6 +839,11 @@ tabs = html.Div([
                 className = "custom-tab",
                 selected_className = "custom-tab--selected",
                 children = [
+                    html.Br(),
+                    html.Br(),
+                    html.H4("Daily summary"),
+                    html.Br(),
+                    daily_summary,
                     html.Br(),
                     html.Br(),
                     html.H4("Cases over time (cumulative figures)"),
@@ -883,11 +875,12 @@ tabs = html.Div([
                 children = [
                     html.Br(),
                     html.Br(),
-                    html.P(f"Provinces, color-coded according to the number of the new confirmed cases for the last daily update per 100,000 population:"),
+                    html.P(f"The provinces with the highest number of new cases are {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[0]):,}), {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[1]):,}) and {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[2]):,}). In terms of new daily cases per 100,000 population, the leading provinces are {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[1]):,}) and {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[2]):,})."),
+                    html.Br(),
                     dcc.Graph(figure=fig_yesterday_map_new),
                     html.Br(),
                     html.Br(),
-                    html.P(f"Provinces, color-coded according to the number of the currently active cases per 100,000 population:"),
+                    html.P(f"Still, the top 3 provinces that need special attention with highest number of active infections per 100,000 population are {covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[1]):,}) and {covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[2]):,})."),
                     html.Br(),
                     dcc.Graph(figure=fig_yesterday_map_active),
                     html.Br(),
@@ -938,9 +931,12 @@ tabs = html.Div([
                     html.Br(),
                     html.P("The estimated daily reproduction number represents how many people are directly infected by 1 infectious person per each day. Ideally, we want this number to be lower than 1. Otherwise, the disease is spreading linearly (=1) or exponentially (>1)."),
                     html.Br(),
+                    dcc.Markdown(f"The reproduction number from the last day on a national level is **{values_bg.values[-1]}**, which means that the overall spread of the disease is **{'decreasing decisively' if values_bg.values[-1] < 0.5 else 'well under control' if values_bg.values[-1] < 0.75 else 'under control' if values_bg.values[-1] < 0.95 else 'continuing to grow almost linearly' if values_bg.values[-1] < 1.05 else 'slightly not under control' if values_bg.values[-1] < 1.25 else 'continuing to increase and is not under control' if values_bg.values[-1] < 1.5 else 'growing up at a very fast pace'}**, i.e. 100 infectious people are directly spreading the disease to {int(100*values_bg.values[-1])} other people."),
+                    html.Br(),
                     dcc.Graph(figure=fig_rt),
                     html.Br(),
                     html.Br(),
+                    dcc.Markdown(f"The provinces with the highest reproduction number as of yesterday are **{mr.sort_values(by='Estimated').province.values[-1]} ({mr.sort_values(by='Estimated').Estimated.values[-1]:.2f}), {mr.sort_values(by='Estimated').province.values[-2]} ({mr.sort_values(by='Estimated').Estimated.values[-2]:.2f}) and {mr.sort_values(by='Estimated').province.values[-3]} ({mr.sort_values(by='Estimated').Estimated.values[-3]:.2f})**. On the other hand, the provinces where the disease is spreading at the slowest pace are **{mr.sort_values(by='Estimated').province.values[0]} ({mr.sort_values(by='Estimated').Estimated.values[0]:.2f}), {mr.sort_values(by='Estimated').province.values[1]} ({mr.sort_values(by='Estimated').Estimated.values[1]:.2f}) and {mr.sort_values(by='Estimated').province.values[2]} ({mr.sort_values(by='Estimated').Estimated.values[2]:.2f})**."),
                     dcc.Graph(figure=fig_rt_province_yesterday),
                     html.Br(),
                     html.Br(),
