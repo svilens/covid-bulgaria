@@ -98,7 +98,7 @@ covid_general['recovery_rate'] = (covid_general['total_recoveries'] / covid_gene
 covid_general['hospitalized_rate'] = (covid_general['hospitalized'] / covid_general['active_cases']).round(4)
 covid_general['intensive_care_rate'] = (covid_general['intensive_care'] / covid_general['hospitalized']).round(4)
 covid_general['tests_positive_rate'] = (covid_general['new_cases'] / covid_general['daily_tests']).round(4)
-covid_geeral['death_rate_v2'] = (covid_general['total_deaths'] / (covid_general['total_deaths'] + covid_general['total_recoveries'])).round(4)
+covid_general['death_rate_v2'] = (covid_general['total_deaths'] / (covid_general['total_deaths'] + covid_general['total_recoveries'])).round(4)
 covid_general['recovery_rate_v2'] = (covid_general['total_recoveries'] / (covid_general['total_deaths'] + covid_general['total_recoveries'])).round(4)
 
 

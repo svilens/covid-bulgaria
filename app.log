@@ -17,3 +17,12 @@
 2020-12-15 01:43:16,690 — __main__ — INFO — Holt-Winter's model
 2020-12-15 01:43:17,266 — __main__ — INFO — Processing is done. Total runtime: 1:11:19.829792
 2020-12-15 01:43:17,266 — __main__ — INFO — Starting git push
+2020-12-15 01:45:05,100 — __main__ — INFO — Pushed to Heroku
+2020-12-15 01:45:05,101 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-15 01:47:05,980 — app.log — INFO — Starting the process
+2020-12-15 01:47:05,989 — app.log — INFO — Reading general stats
+2020-12-15 01:47:08,265 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2020-12-15 01:47:08,540 — app.log — INFO — Creating chart 2: Cases per week
+2020-12-15 01:47:08,873 — app.log — INFO — Creating chart 3: New cases weekly % change
+2020-12-15 01:47:09,107 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2020-12-15 01:47:09,344 — app.log — INFO — Calculating rates
