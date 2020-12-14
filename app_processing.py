@@ -1,6 +1,8 @@
 import geopandas as gpd
 import pandas as pd
 from datetime import datetime
+import warnings
+warnings.simplefilter('ignore')
 
 # from external modules
 from func_download_data import *
@@ -680,9 +682,6 @@ import statsmodels.api as sm
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.tsa.arima_model import ARIMA
-#%matplotlib inline
-import warnings
-warnings.simplefilter('ignore')
 
 
 ts_data = pd.read_csv('./dash_data/ts_data.csv')
@@ -967,7 +966,7 @@ logger.info(git_push_result)
 logger.info('FINISHED! Starting dash...')
 
 
-import app as appscript
+#import app as appscript
 #app.run_server(debug=True)
 
 

@@ -98,6 +98,8 @@ covid_general['recovery_rate'] = (covid_general['total_recoveries'] / covid_gene
 covid_general['hospitalized_rate'] = (covid_general['hospitalized'] / covid_general['active_cases']).round(4)
 covid_general['intensive_care_rate'] = (covid_general['intensive_care'] / covid_general['hospitalized']).round(4)
 covid_general['tests_positive_rate'] = (covid_general['new_cases'] / covid_general['daily_tests']).round(4)
+covid_geeral['death_rate_v2'] = (covid_general['total_deaths'] / (covid_general['total_deaths'] + covid_general['total_recoveries'])).round(4)
+covid_general['recovery_rate_v2'] = (covid_general['total_recoveries'] / (covid_general['total_deaths'] + covid_general['total_recoveries'])).round(4)
 
 
 logger.info('Creating chart 5: Rates')
@@ -106,7 +108,16 @@ fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.de
                                line_shape='spline', line=dict(color='red'), name='Mortality rate'))
 fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.recovery_rate,
                                line_shape='spline', line=dict(color='green'), name='Recovery rate', visible='legendonly'))
-fig_rates_mort_rec.update_layout(title='COVID-19 mortality and recovery rates over time')
+fig_rates_mort_rec.update_layout(title='COVID-19 mortality and recovery rates (based on confirmed cases by 14 days ago)')
+
+fig_rates_mort_rec_v2 = go.Figure()
+fig_rates_mort_rec_v2.add_trace(go.Scatter(x=covid_general.date, y=covid_general.death_rate_v2,
+                               line_shape='spline', line=dict(color='red'), name='Mortality rate'))
+fig_rates_mort_rec_v2.add_trace(go.Scatter(x=covid_general.date, y=covid_general.recovery_rate_v2,
+                               line_shape='spline', line=dict(color='green'), name='Recovery rate', visible='legendonly'))
+fig_rates_mort_rec_v2.update_layout(title='COVID-19 mortality and recovery rates (based on closed cases)')
+plot(fig_rates_mort_rec_v2)
+
 
 fig_rates_hospitalized = go.Figure()
 fig_rates_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.hospitalized_rate,
@@ -121,7 +132,7 @@ fig_rates_positive_tests.add_trace(go.Scatter(x=covid_general.date, y=covid_gene
 fig_rates_positive_tests.update_layout(title="COVID-19 positive tests rate")
 
 # for the dashboard
-for f in [fig_rates_mort_rec, fig_rates_hospitalized, fig_rates_positive_tests]:
+for f in [fig_rates_mort_rec, fig_rates_mort_rec_v2, fig_rates_hospitalized, fig_rates_positive_tests]:
     f.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -258,7 +269,7 @@ fig_new_bg = go.Figure()
 fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset_index()['ALL'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_new_bg.add_trace(go.Scatter(x=smoothed_bg.reset_index()['date'], y=smoothed_bg.reset_index()['ALL'],
-                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='gold'))
+                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='royalblue'))
 fig_new_bg.update_layout(title='Daily new cases in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -269,7 +280,7 @@ fig_recovered_bg = go.Figure()
 fig_recovered_bg.add_trace(go.Scatter(x=orig_recovered_bg.reset_index()['date'], y=orig_recovered_bg.reset_index()['total_recoveries'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
 fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['date'], y=smoothed_recovered_bg.reset_index()['total_recoveries'],
-                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='lime'))
+                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='green'))
 fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -347,7 +358,7 @@ for i, province in list(enumerate(provinces_list)):
                                       mode='lines', line=dict(width=3), name='Smoothed'),
                                   row=row_num, col=col_num)
 
-fig_new_by_province.update_layout(title='Daily new cases by province', height=3200, showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_new_by_province.update_layout(title='Daily new cases by province (smoothed figures)', height=3200, showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 ### Rt for BG
@@ -820,7 +831,7 @@ daily_summary = html.Div(
     [
     dcc.Markdown(f"The number of **new confirmed cases** from the last daily update is **{new_t:,}** and the **recovered cases** are **{recoveries_t:,}**. Yesterday **{deaths_t:,}** infected people have lost their lives, which adds up to {covid_general.total_deaths.tail(1).values[0]:,} total death cases since the start of the pandemic. The total number of people with **currently active infections has {'increased' if new_t > recoveries_t else 'decreased'} with {abs(new_t - recoveries_t - deaths_t):,}** and is now {active_t:,}, which is {active_t / pop_by_province['pop'].sum():.2%} of the total population in Bulgaria, or {int((100000*active_t / pop_by_province['pop'].sum()).round(0)):,} infected people per 100,000 population."),
     dcc.Markdown(f"The number of **hospitalized patients has {'increased' if hospitalized_change_t > 0 else 'decreased'} with {abs(hospitalized_change_t):,}** and now stands at {hospitalized_t:,}, which is {hospitalized_t / active_t:.2%} of the currently active cases. The number of **patients in intensive care units has {'increased' if intensive_care_change_t > 0 else 'decreased'} with {intensive_care_change_t:,} and is now {intensive_care_t:,}**, which is {intensive_care_t / hospitalized_t:.2%} of the currently hospitalized patients, or {intensive_care_t / active_t:.2%} of the total active cases."),
-    dcc.Markdown(f"The provinces with the highest number of new cases are {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[0]):,}), {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[1]):,}) and {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[2]):,}). In terms of new daily cases per 100,000 population, the leading provinces are **{covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[1]):,}) and {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[2]):,})**. Still, the top 3 provinces that need special attention with highest number of active infections per 100,000 population are **{covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[1]):,})** and **{covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[2]):,})**."),
+    dcc.Markdown(f"The provinces with the highest number of new cases are {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[0]):,}), {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[1]):,}) and {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[2]):,}). In terms of new daily cases per 100,000 population, the leading provinces for the last day are **{covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[1]):,}) and {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[2]):,})**. Still, the top 3 provinces that need special attention with highest number of active infections per 100,000 population are **{covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[1]):,})** and **{covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[2]):,})**."),
     dcc.Markdown(f"The **reproduction number** from the last day on a national level is **{values_bg.values[-1]}**, which means that the overall spread of the disease is {'decreasing decisively' if values_bg.values[-1] < 0.5 else 'well under control' if values_bg.values[-1] < 0.75 else 'under control' if values_bg.values[-1] < 0.95 else 'continuing to grow almost linearly' if values_bg.values[-1] < 1.05 else 'slightly not under control' if values_bg.values[-1] < 1.25 else 'continuing to increase and is not under control' if values_bg.values[-1] < 1.5 else 'growing up at a very fast pace'}, i.e. 100 infectious people are directly infecting other {int(100*values_bg.values[-1])} people."),
     dcc.Markdown(f"The provinces with **the highest reproduction number** as of yesterday are **{mr.sort_values(by='Estimated').province.values[-1]} ({mr.sort_values(by='Estimated').Estimated.values[-1]:.2f}), {mr.sort_values(by='Estimated').province.values[-2]} ({mr.sort_values(by='Estimated').Estimated.values[-2]:.2f})** and **{mr.sort_values(by='Estimated').province.values[-3]} ({mr.sort_values(by='Estimated').Estimated.values[-3]:.2f})**. On the other hand, the provinces where the disease is spreading at the slowest pace are **{mr.sort_values(by='Estimated').province.values[0]} ({mr.sort_values(by='Estimated').Estimated.values[0]:.2f}), {mr.sort_values(by='Estimated').province.values[1]} ({mr.sort_values(by='Estimated').Estimated.values[1]:.2f})** and **{mr.sort_values(by='Estimated').province.values[2]} ({mr.sort_values(by='Estimated').Estimated.values[2]:.2f})**.")
     ]
@@ -875,7 +886,7 @@ tabs = html.Div([
                 children = [
                     html.Br(),
                     html.Br(),
-                    html.P(f"The provinces with the highest number of new cases are {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[0]):,}), {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[1]):,}) and {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[2]):,}). In terms of new daily cases per 100,000 population, the leading provinces are {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[1]):,}) and {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[2]):,})."),
+                    html.P(f"The provinces with the highest number of new cases are {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[0]):,}), {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[1]):,}) and {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[2]):,}). In terms of new daily cases per 100,000 population, the leading provinces for the last day are {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[1]):,}) and {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[2]):,})."),
                     html.Br(),
                     dcc.Graph(figure=fig_yesterday_map_new),
                     html.Br(),
@@ -885,7 +896,7 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_yesterday_map_active),
                     html.Br(),
                     html.Br(),
-                    html.P("Provinces, color-coded according to the number of total confirmed cases per 100,000 population:"),
+                    html.P("Below the provinces are color-coded according to the number of total confirmed cases per 100,000 population. This map isn't as important as the other two above for the spread of the disease, because part of the historical confirmed cases are already 'closed'."),
                     dcc.Graph(figure=fig_yesterday_map_total),
                     html.Br(),
                     html.Br(),
@@ -905,6 +916,11 @@ tabs = html.Div([
                     html.H6("The mortality and recovery rates are calculated as the total number of deaths/recoveries for the respective date divided by the total number of confirmed cases 14 days before that date. This is needed in order to take into account the long incubation period and the time needed for the infection end with a fatal result, or for the immune system to overcome the disease."),
                     html.Br(),
                     dcc.Graph(figure=fig_rates_mort_rec),
+                    html.Br(),
+                    html.Br(),
+                    html.H6("Another approach for mortality/recovery rates is to divide them by the number of 'closed' cases (the sum of total deaths and recoveries)."),
+                    html.Br(),
+                    dcc.Graph(figure=fig_rates_mort_rec_v2),
                     html.Br(),
                     html.Br(),
                     html.H4("Hospitalized rate and intensive care unit rate"),
