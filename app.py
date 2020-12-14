@@ -116,7 +116,6 @@ fig_rates_mort_rec_v2.add_trace(go.Scatter(x=covid_general.date, y=covid_general
 fig_rates_mort_rec_v2.add_trace(go.Scatter(x=covid_general.date, y=covid_general.recovery_rate_v2,
                                line_shape='spline', line=dict(color='green'), name='Recovery rate', visible='legendonly'))
 fig_rates_mort_rec_v2.update_layout(title='COVID-19 mortality and recovery rates (based on closed cases)')
-plot(fig_rates_mort_rec_v2)
 
 
 fig_rates_hospitalized = go.Figure()
