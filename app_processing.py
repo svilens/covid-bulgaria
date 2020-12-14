@@ -735,7 +735,7 @@ def arima_province(ts_data, province, column='total_cases', forecast_days=15):
     for var in pdq:
         try:
             model = ARIMA(train, order=var)
-            result = model.fit()
+            result = model.fit(disp=0)
             if (result.aic<=a) :
                 a=result.aic
                 param=var
