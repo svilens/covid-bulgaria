@@ -647,7 +647,19 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 
 
-app = dash.Dash(name='COVID-19 in Bulgaria', external_stylesheets=[dbc.themes.DARKLY])
+app = dash.Dash(
+    name='COVID-19 in Bulgaria',
+    external_stylesheets=[dbc.themes.DARKLY],
+    meta_tags = [
+        {
+            "name": "description",
+            "content": "Live coronavirus statistics for Bulgaria on both national and province level. Daily updated visualizations showing confirmed COVID-19 cases, recovered, death and currently active cases, COVID-19 spread by province, by age band, real-time reproduction number by province, recovery and death rates (potentially caused by SARS-COV-2), hospitalized patients, patients in intensive care units. Also allows the user to create predictions for the future cases on a province level, using ARIMA model or triple exponential smoothing. Актуална статистика за случаите на коронавирус в България - на национално и областно ниво. Визуализациите се обновяват ежедневно и включват нови случаи, излекувани, хоспитализирани, смъртни случаи."
+        },
+        {
+            "name": "viewport", "content": "width=device-width, initial-scale=1.0"
+        }
+    ]
+)
 app.title = 'COVID-19 in Bulgaria'
 
 app.index_string = '''
