@@ -1,8 +1,8 @@
 import logging
 import sys
-from logging.handlers import TimedRotatingFileHandler
+from logging.handlers import TimedRotatingFileHandler, FileHandler
 
-LOG_FILE = "Logs.log"
+LOG_FILE = "app.log"
 FORMATTER = logging.Formatter("%(asctime)s — %(name)s — %(levelname)s — %(message)s")
 
 def get_console_handler():
@@ -11,7 +11,8 @@ def get_console_handler():
     return console_handler
 
 def get_file_handler():
-    file_handler = TimedRotatingFileHandler('app.log', when='midnight')
+    #file_handler = TimedRotatingFileHandler(LOG_FILE, when='midnight')
+    file_handler = FileHandler(LOG_FILE, mode='a')
     file_handler.setFormatter(FORMATTER)
     return file_handler
 
