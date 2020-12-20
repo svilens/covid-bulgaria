@@ -21,6 +21,7 @@ covid_general = read_covid_general('./data/Обща статистика за р
 import plotly.graph_objects as go
 import plotly.io as pio
 pio.templates.default = "plotly_dark"
+from plotly.offline import plot
 
 
 logger.info('Creating chart 1: Cumulative cases over time')
@@ -32,25 +33,37 @@ fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_d
 fig_gen_stats.update_layout(title='Number of cases over time (cumulative)')
 fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
-covid_general['week'] = covid_general.date.dt.isocalendar().week
-covid_general_weekly = covid_general.groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
-covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
-# removing the first week as it starts on Saturday, and the last week, as it would be incomplete in most cases
-covid_general_weekly = covid_general_weekly[1:-1]
-
 
 logger.info('Creating chart 2: Cases per week')
+
+covid_general['week'] = covid_general['date'].dt.isocalendar().week
+covid_general_weekly = covid_general.groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
+covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
+
+# getting the current day to calculate projected values for the current week
+last_day_num = covid_general['date'].dt.isocalendar().day.values[-1]
+# projected current week confirmed cases
+covid_general_weekly.iloc[-1,0] = round(covid_general_weekly.iloc[-1,0] * [24.9 if x==1 else 5.4 if x==2 else 2.6 if x==3 else 1.8 if x==4 else 1.4 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
+# projected current week death cases
+covid_general_weekly.iloc[-1,1] = round(covid_general_weekly.iloc[-1,1] * [14.7 if x==1 else 3.6 if x==2 else 2.2 if x==3 else 1.6 if x==4 else 1.3 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
+# projected current week recovered cases
+covid_general_weekly.iloc[-1,2] = round(covid_general_weekly.iloc[-1,2] * [12.7 if x==1 else 4.3 if x==2 else 2.5 if x==3 else 1.8 if x==4 else 1.3 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
+
+# removing the first week as it starts on Saturday
+covid_general_weekly = covid_general_weekly[1:]
+
 from plotly.subplots import make_subplots
 
 fig_gen_stats_weekly = make_subplots(specs=[[{"secondary_y": True}]])
-fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases[1:], name='New confirmed cases'), secondary_y=True)
+fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases[1:], name='New confirmed cases', line_shape='spline'), secondary_y=True)
 fig_gen_stats_weekly.add_trace(go.Bar(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_deaths[1:], name='New death cases'), secondary_y=False)
-fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_recoveries[1:], name='New recoveriers'), secondary_y=True)
-fig_gen_stats_weekly.update_layout(title = 'New cases per week (the current week is not included)')
+fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_recoveries[1:], name='New recoveries', line_shape='spline'), secondary_y=True)
+fig_gen_stats_weekly.update_layout(title = 'New cases per week (projected estimations for the current week)')
 fig_gen_stats_weekly.update_xaxes(title_text="week number")
 fig_gen_stats_weekly.update_yaxes(title_text="Confirmed/recovered", secondary_y=True)
 fig_gen_stats_weekly.update_yaxes(title_text="Deaths", secondary_y=False)
 fig_gen_stats_weekly.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
 
 logger.info('Creating chart 3: New cases weekly % change')
 fig_gen_stats_weekly_new_pct = go.Figure()
@@ -65,6 +78,8 @@ fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[36, 36], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='brown'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[38, 38], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
+fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[48, 48], y=[-0.2,0.5],
+                             mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
 fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -88,6 +103,27 @@ fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
 fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
 
 
+logger.info('Creating chart 5: New cases per week, events and second lockdown)
+fig_gen_stats_weekly_events_2 = go.Figure()
+fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=covid_general_weekly.index[1:], 
+                                                 y=covid_general_weekly.new_cases[1:],
+                                                 name='New confirmed cases'))
+fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[25, 25], y=[0,20000],
+                             mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
+fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[27, 27], y=[0,20000],
+                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='yellow'))
+fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[28, 28], y=[0,20000],
+                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
+fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[36, 36], y=[0,20000],
+                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='purple'))
+fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[38, 38], y=[0,20000],
+                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
+fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[48, 48], y=[0,20000],
+                             mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
+fig_gen_stats_weekly_events_2.update_layout(title='New confirmed cases per week + summer events + second lockdown', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats_weekly_events_2.update_xaxes(range=[24, covid_general_weekly.index[-1]])
+
+
 ### Rates
 
 logger.info('Calculating rates')
@@ -102,7 +138,7 @@ covid_general['death_rate_v2'] = (covid_general['total_deaths'] / (covid_general
 covid_general['recovery_rate_v2'] = (covid_general['total_recoveries'] / (covid_general['total_deaths'] + covid_general['total_recoveries'])).round(4)
 
 
-logger.info('Creating chart 5: Rates')
+logger.info('Creating chart 6: Rates')
 fig_rates_mort_rec = go.Figure()
 fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.death_rate,
                                line_shape='spline', line=dict(color='red'), name='Mortality rate'))
@@ -166,7 +202,7 @@ covid_yesterday = gpd.GeoDataFrame(
         )
 
 
-logger.info('Creating chart 6: Provinces map - total cases per 100k pop')
+logger.info('Creating chart 7: Provinces map - total cases per 100k pop')
 import plotly.express as px
 
 fig_yesterday_map_total = px.choropleth_mapbox(
@@ -187,7 +223,7 @@ fig_yesterday_map_total = px.choropleth_mapbox(
 fig_yesterday_map_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 7: Provinces map - new cases per 100k pop')
+logger.info('Creating chart 8: Provinces map - new cases per 100k pop')
 fig_yesterday_map_new = px.choropleth_mapbox(
     covid_yesterday,
     geojson=covid_yesterday.geometry,
@@ -206,7 +242,7 @@ fig_yesterday_map_new = px.choropleth_mapbox(
 fig_yesterday_map_new.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 8: Provinces map - active cases per 100k pop')
+logger.info('Creating chart 9: Provinces map - active cases per 100k pop')
 fig_yesterday_map_active = px.choropleth_mapbox(
     covid_yesterday,
     geojson=covid_yesterday.geometry,
@@ -231,7 +267,7 @@ logger.info('Reading age bands data')
 covid_by_age_band = (pd.read_csv('./data/Разпределение по дата и по възрастови групи.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'}))
 
 
-logger.info('Creating chart 9: Cumulative cases by age band')
+logger.info('Creating chart 10: Cumulative cases by age band')
 age_band_colors = ['green', 'cyan', 'magenta', 'ghostwhite', 'coral', 'royalblue', 'darkred', 'orange', 'brown']
 
 fig_age = go.Figure()
@@ -252,6 +288,8 @@ fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,2), pd.Timestamp(2020,9,2)],
                              mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='white'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='white'))
+fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,11,28), pd.Timestamp(2020,11,28)], y=[-1500,5000],
+                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='white'))
 
 
 ####### REPRODUCTION NUMBER #######
@@ -263,7 +301,7 @@ provinces = covid_pop_sorted[['province', 'date', 'ALL']].groupby(['province','d
 orig_bg = pd.read_csv('./dash_data/r0_bg_original.csv')
 smoothed_bg = pd.read_csv('./dash_data/r0_bg_smoothed.csv')
 
-logger.info('Creating chart 10: Smoothed new cases - BG')
+logger.info('Creating chart 11: Smoothed new cases - BG')
 fig_new_bg = go.Figure()
 fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset_index()['ALL'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
@@ -272,7 +310,7 @@ fig_new_bg.add_trace(go.Scatter(x=smoothed_bg.reset_index()['date'], y=smoothed_
 fig_new_bg.update_layout(title='Daily new cases in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 11: Smoothed recoveries - BG')
+logger.info('Creating chart 12: Smoothed recoveries - BG')
 orig_recovered_bg = pd.read_csv('./dash_data/r0_bg_original_recovered.csv')
 smoothed_recovered_bg = pd.read_csv('./dash_data/r0_bg_smoothed_recovered.csv')
 fig_recovered_bg = go.Figure()
@@ -283,7 +321,7 @@ fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['dat
 fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 12: Smoothed deaths - BG')
+logger.info('Creating chart 13: Smoothed deaths - BG')
 orig_deaths_bg = pd.read_csv('./dash_data/r0_bg_original_deaths.csv')
 smoothed_deaths_bg = pd.read_csv('./dash_data/r0_bg_smoothed_deaths.csv')
 fig_deaths_bg = go.Figure()
@@ -294,7 +332,7 @@ fig_deaths_bg.add_trace(go.Scatter(x=smoothed_deaths_bg.reset_index()['date'], y
 fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 13: Smoothed new cases - BG - age bands')
+logger.info('Creating chart 14: Smoothed new cases - BG - age bands')
 covid_by_age_band_diff_smoothed = covid_by_age_band.set_index('date').diff().rolling(9,
         win_type='gaussian',
         min_periods=1,
@@ -309,7 +347,7 @@ for col in covid_by_age_band_diff_smoothed.columns:
 fig_age_diff.update_layout(title='New confirmed cases per day by age band (smoothed figures)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info("Creating chart 14: Smoothed new cases - BG - age bands per 100,000 pop")
+logger.info("Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop")
 pop_by_age_band = read_nsi_age_bands('./data/Pop_6.1.2_Pop_DR.xls', worksheet_name='2019', col_num=2, col_names=['age_band', 'pop'], skip=5, rows_needed=22)
 covid_by_age_band_diff_smoothed_per100k = covid_by_age_band_diff_smoothed.copy()
 for col in covid_by_age_band_diff_smoothed_per100k.columns:
@@ -324,7 +362,7 @@ for col in covid_by_age_band_diff_smoothed_per100k.columns:
 fig_age_per100k.update_layout(title='New confirmed daily cases by age band per 100,000 population (smoothed figures)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 15: Smoothed new cases - provinces')
+logger.info('Creating chart 16: Smoothed new cases - provinces')
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
 
 # create subplots structure
@@ -362,7 +400,7 @@ fig_new_by_province.update_layout(title='Daily new cases by province (smoothed f
 
 ### Rt for BG
 
-logger.info('Creating chart 16: Rt for BG')
+logger.info('Creating chart 17: Rt for BG')
 result_bg = pd.read_csv('./dash_data/r0_bg_r0.csv')
 
 index_bg = result_bg['date']
@@ -422,7 +460,7 @@ fig_rt_province_yesterday.add_trace(go.Bar(x=mr.province, y=mr.Estimated, marker
 fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the last daily update', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 17: Rt by province')
+logger.info('Creating chart 18: Rt by province')
 
 def generate_rt_by_province(provinces, final_results):
     provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
@@ -527,7 +565,7 @@ pred2_double = fit2_double.forecast(15)
 fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
 pred3_double = fit3_double.forecast(15)
 
-logger.info('Creating chart 18: Double exp smoothing')
+logger.info('Creating chart 19: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
 fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='Historical data'))
 
@@ -597,7 +635,7 @@ pred_triple = fitted_triple.forecast(steps=15)
 
 #print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
 
-logger.info('Creating chart 19: Triple exp smoothing')
+logger.info('Creating chart 20: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Historical data', mode='lines'))
@@ -1086,7 +1124,7 @@ tabs = html.Div([
                     html.Br(),
                     html.H4("Did the crowded events  during the summer had any effect on the number of new cases?"),
                     html.Br(),
-                    html.P("Five major dates were selected: the end of the first lockdown, when the borders with Greece were re-opened (15th June); the football cup final with 20,000 spectators on the stands (1st July); the beginning of the anti-government protests (11th July); the first mass anti-government protest (2nd September); the school opening (15th September)."),
+                    html.P("Five major dates were selected: the end of the first lockdown, when the borders with Greece were re-opened (15th June); the football cup final with 20,000 spectators on the stands (1st July); the beginning of the anti-government protests (11th July); the first mass anti-government protest (2nd September); the school opening (15th September). The second lockdown date was also added (28th November)."),
                     html.Br(),
                     html.P("The first chart shows that despite the high activity during the summer (summer holidays, mass events, daily protests), there was very little or no immediate effect on the number of new confirmed cases."),
                     html.P("It is expected to have a few (2-4) weeks lag between the event and the result, but still the only major increase of the confirmed cases began almost a month after the school opening, and there was no other change that can be associated with the other mass events."),
@@ -1104,7 +1142,8 @@ tabs = html.Div([
                     html.Br(),
                     html.P("Above we can see some significant increase of the new cases in the beginning of the period, after opening the borders with Greece. However, the reason for the increase in the next few weeks could probably be due to the requirement for a negative PCR test result for the people who were travelling abroad - then, many people had to undergo test because they were asked to, part of them have received a positive result, but otherwise they wouldn't have tested themselves, and therefore they would have been left out of the statistics. The conclusion here is that in the beginning of the period, the growth of the new cases might have been caused by the bureaucratic requirement for a negative PCR test."),
                     html.P("There isn't any significant change in the new cases after the other public events, except the schools opening. It might have caused persistent spread of the disease over the students, and therefore to their parents and relatives. The schools opening is not a one-time event and, unlike the other events, it is carried out indoors, which could potentially increase the infectivity. Also, the younger people might often be asymptomatic, which can make them unaware that they might be spreading the virus. Figure 2 also shows that in the second half of November, when many schools turned to a home-based education, the spread of the disease has lost its momentum. Therefore, the schools opening is a potential root cause for the increased number of cases, that could be investigated further."),
-                    html.P("Another potential reason that could have played part in the increased cases in October is the change in the weather conditions. However, it will be difficult to explain why the virus infectivity has lost its momentum at the end of November - unless it is caused by government measures and restrictions.")
+                    html.P("Another potential reason that could have played part in the increased cases in October is the change in the weather conditions. However, it will be difficult to explain why the virus infectivity has lost its momentum at the end of November. This could probably be due to various government measures and restrictions - it is also obvious how much has decreased the weekly confirmed cases just two weeks after the second lockdown:"),
+                    dcc.Graph(figure=fig_gen_stats_weekly_events_2)
                 ]
             ),
         ]
