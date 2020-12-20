@@ -103,7 +103,7 @@ fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
 fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
 
 
-logger.info('Creating chart 5: New cases per week, events and second lockdown)
+logger.info('Creating chart 5: New cases per week, events and second lockdown')
 fig_gen_stats_weekly_events_2 = go.Figure()
 fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=covid_general_weekly.index[1:], 
                                                  y=covid_general_weekly.new_cases[1:],
