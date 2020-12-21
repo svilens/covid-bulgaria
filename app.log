@@ -138,3 +138,24 @@
 2020-12-21 14:08:42,527 — __main__ — INFO — Holt-Winter's model
 2020-12-21 14:08:43,151 — __main__ — INFO — Processing is done. Total runtime: 1:45:01.975452
 2020-12-21 14:08:43,151 — __main__ — INFO — Starting git push
+2020-12-21 14:10:28,605 — __main__ — INFO — Pushed to Heroku
+2020-12-21 14:10:28,605 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-21 23:39:13,789 — __main__ — INFO — STARTED
+2020-12-21 23:39:13,791 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-21 23:39:56,068 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-21 23:39:56,069 — __main__ — INFO — Reading general stats file
+2020-12-21 23:39:58,740 — __main__ — INFO — Charting weekly stats
+2020-12-21 23:39:59,538 — __main__ — INFO — Charting rates
+2020-12-21 23:40:00,131 — __main__ — INFO — Reading spatial data file
+2020-12-21 23:40:03,663 — __main__ — INFO — Charting age bands
+2020-12-21 23:40:04,153 — __main__ — INFO — Starting Rt processing
+2020-12-21 23:43:04,174 — __main__ — INFO — Calculating Rt for provinces
+2020-12-22 00:11:06,900 — __main__ — INFO — Provinces Rt runtime: 0:22:39.149739
+2020-12-22 00:11:07,146 — __main__ — INFO — Charting Rt for provinces
+2020-12-22 00:11:09,113 — __main__ — INFO — Starting ARIMA
+2020-12-22 00:11:12,395 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-22 00:56:54,021 — __main__ — INFO — Provinces ARIMA runtime: 0:45:41.625812
+2020-12-22 00:56:54,894 — __main__ — INFO — Holt's model
+2020-12-22 00:56:55,252 — __main__ — INFO — Holt-Winter's model
+2020-12-22 00:56:55,931 — __main__ — INFO — Processing is done. Total runtime: 1:17:42.141659
+2020-12-22 00:56:55,931 — __main__ — INFO — Starting git push
