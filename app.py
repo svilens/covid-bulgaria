@@ -75,7 +75,7 @@ fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[27, 27], y=[-0.2,0.5],
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[28, 28], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[36, 36], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='brown'))
+                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='purple'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[38, 38], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[48, 48], y=[-0.2,0.5],
@@ -281,15 +281,15 @@ fig_age.update_layout(title='Total cases over time by age band', template='plotl
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,6,15), pd.Timestamp(2020,6,15)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,7,1), pd.Timestamp(2020,7,1)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='white'))
+                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='yellow'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,7,11), pd.Timestamp(2020,7,11)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='white'))
+                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,2), pd.Timestamp(2020,9,2)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='white'))
+                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='grey'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='white'))
+                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,11,28), pd.Timestamp(2020,11,28)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='white'))
+                             mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
 
 
 ####### REPRODUCTION NUMBER #######
