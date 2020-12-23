@@ -201,3 +201,5 @@
 2020-12-23 12:06:55,883 — __main__ — INFO — Holt-Winter's model
 2020-12-23 12:06:56,444 — __main__ — INFO — Processing is done. Total runtime: 1:31:41.983696
 2020-12-23 12:06:56,445 — __main__ — INFO — Starting git push
+2020-12-23 12:08:47,488 — __main__ — INFO — Pushed to Heroku
+2020-12-23 12:08:47,489 — __main__ — INFO — FINISHED! Starting dash...

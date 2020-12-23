@@ -700,18 +700,21 @@ app = dash.Dash(
 )
 app.title = 'COVID-19 in Bulgaria'
 
+# real domain G-XW4L84LCB7
+# heroku domain G-2FCPJC5BDW
+
 app.index_string = '''
 <!DOCTYPE html>
 <html>
     <head>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FCPJC5BDW"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XW4L84LCB7"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-2FCPJC5BDW');
+          gtag('config', 'G-XW4L84LCB7');
         </script>
         {%metas%}
         <title>{%title%}</title>
