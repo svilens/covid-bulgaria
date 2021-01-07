@@ -60,6 +60,9 @@ chromedriver_dir = './tools/chromedriver.exe'
 def download_files(url, driver_engine, download_dir=download_dir):
 	# driver_engine could be "firefox" or "chrome"
     import time
+    from datetime import datetime
+    
+    current_date = datetime.now().date().strftime(format='%Y-%m-%d')
 
     if driver_engine == "firefox":
         driver_dir = geckodriver_dir
@@ -73,11 +76,17 @@ def download_files(url, driver_engine, download_dir=download_dir):
         command_result = driver.execute("send_command", params)
 
     driver.get(url)
-    time.sleep(2)
-    download_button = driver.find_element_by_xpath('//button[@name="download"]')
-    download_button.click()
-    time.sleep(2)
-    file_description = driver.find_element_by_xpath("//div[@class='col-xs-12 p-l-r-none']//h2[1]").text
-    print(f'The most recent file "{file_description}" was downloaded.')
-    time.sleep(1)
-    driver.quit()
+    time.sleep(2)   
+    last_update = driver.find_element_by_xpath("//div[@class='info-bar-sm col-sm-12 col-xs-12 p-l-none p-h-sm']//ul[1]").text.split('\n')[2][18:28]
+    
+    if last_update == current_date:
+        download_button = driver.find_element_by_xpath('//button[@name="download"]')
+        download_button.click()
+        time.sleep(2)
+        file_description = driver.find_element_by_xpath("//div[@class='col-xs-12 p-l-r-none']//h2[1]").text
+        message = f'The most recent file "{file_description}" was downloaded.'
+        driver.quit()
+        return message
+    else:
+        message = 'STOP'
+        return message        

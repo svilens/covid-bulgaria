@@ -13,7 +13,8 @@ def get_console_handler():
 
 def get_file_handler():
     #file_handler = TimedRotatingFileHandler(LOG_FILE, when='midnight')
-    file_handler = FileHandler(LOG_FILE, mode='a')
+    file_handler = TimedRotatingFileHandler(LOG_FILE, when='D', interval=7)
+    #file_handler = FileHandler(LOG_FILE, mode='a')
     file_handler.setFormatter(FORMATTER)
     return file_handler
 

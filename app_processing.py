@@ -29,7 +29,11 @@ covid_urls = ['https://data.egov.bg/data/resourceView/e59f95dd-afde-43af-83c8-ea
 
 #for url in covid_urls:
 #    download_files(url, "chrome")
-download_files(covid_urls[0], "chrome")
+check_src = download_files(covid_urls[0], "chrome")
+if check_src == 'STOP':
+    logger.info('Source data modified date is different than the current date. Check if the source is up to date. Process terminated!')
+    import sys
+    sys.exit()
 download_files(covid_urls[1], "chrome")
 download_files(covid_urls[2], "chrome")
 
@@ -765,7 +769,11 @@ def arima_province(ts_data, province, column='total_cases', forecast_days=15):
 
     return (pred, result, fig, model_error, rolling.index, rolling[column])
 
+
 logger.info('Getting ARIMA predictions for provinces')
+
+from statsmodels.tools.sm_exceptions import ConvergenceWarning
+warnings.simplefilter('ignore', ConvergenceWarning)
 
 start = datetime.now()
 arima_provinces_df = pd.DataFrame()

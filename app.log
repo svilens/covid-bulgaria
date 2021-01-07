@@ -277,3 +277,691 @@
 2020-12-23 14:28:50,206 — app.log — INFO — Creating dash layout
 2020-12-23 14:28:50,207 — app.log — INFO — Creating dash callbacks
 2020-12-23 14:28:50,207 — app.log — INFO — Running dash server
+2020-12-24 01:13:28,589 — __main__ — INFO — STARTED
+2020-12-24 01:13:28,612 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-24 01:14:09,527 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-24 01:14:09,528 — __main__ — INFO — Reading general stats file
+2020-12-24 01:14:12,156 — __main__ — INFO — Charting weekly stats
+2020-12-24 01:14:13,003 — __main__ — INFO — Charting rates
+2020-12-24 01:14:13,584 — __main__ — INFO — Reading spatial data file
+2020-12-24 01:14:17,476 — __main__ — INFO — Charting age bands
+2020-12-24 01:14:17,966 — __main__ — INFO — Starting Rt processing
+2020-12-24 01:17:29,577 — __main__ — INFO — Calculating Rt for provinces
+2020-12-24 01:50:16,657 — __main__ — INFO — Provinces Rt runtime: 0:25:21.397019
+2020-12-24 01:50:16,905 — __main__ — INFO — Charting Rt for provinces
+2020-12-24 01:50:18,858 — __main__ — INFO — Starting ARIMA
+2020-12-24 01:50:22,239 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-24 02:51:43,427 — __main__ — INFO — STARTED
+2020-12-24 02:52:08,981 — __main__ — INFO — STARTED
+2020-12-24 02:52:08,985 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-24 02:52:26,826 — __main__ — INFO — STARTED
+2020-12-24 02:52:26,827 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-24 02:52:33,423 — __main__ — INFO — Source data modified date is different than the current date. Check if the source is up to date. Process terminated!
+2020-12-24 18:34:14,397 — __main__ — INFO — STARTED
+2020-12-24 18:34:14,398 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-24 18:34:21,758 — __main__ — INFO — STARTED
+2020-12-24 18:34:21,759 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-24 18:34:39,585 — __main__ — INFO — STARTED
+2020-12-24 18:34:39,618 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-24 18:35:25,316 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-24 18:35:25,317 — __main__ — INFO — Reading general stats file
+2020-12-24 18:35:31,187 — __main__ — INFO — Charting weekly stats
+2020-12-24 18:35:32,018 — __main__ — INFO — Charting rates
+2020-12-24 18:35:32,613 — __main__ — INFO — Reading spatial data file
+2020-12-24 18:35:36,690 — __main__ — INFO — Charting age bands
+2020-12-24 18:35:37,198 — __main__ — INFO — Starting Rt processing
+2020-12-24 18:39:18,481 — __main__ — INFO — Calculating Rt for provinces
+2020-12-24 19:04:52,949 — __main__ — INFO — STARTED
+2020-12-24 19:04:52,953 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-24 19:04:54,001 — __main__ — INFO — STARTED
+2020-12-24 19:04:54,020 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-24 19:10:06,893 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-24 19:10:06,893 — __main__ — INFO — Reading general stats file
+2020-12-24 19:10:11,100 — __main__ — INFO — Provinces Rt runtime: 0:25:26.735325
+2020-12-24 19:10:11,704 — __main__ — INFO — Charting Rt for provinces
+2020-12-24 19:10:12,399 — __main__ — INFO — Charting weekly stats
+2020-12-24 19:10:14,096 — __main__ — INFO — Charting rates
+2020-12-24 19:10:15,294 — __main__ — INFO — Reading spatial data file
+2020-12-24 19:10:15,300 — __main__ — INFO — Starting ARIMA
+2020-12-24 19:10:18,753 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-24 19:10:18,753 — __main__ — INFO — Reading general stats file
+2020-12-24 19:10:19,078 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-24 19:10:19,460 — __main__ — INFO — Charting age bands
+2020-12-24 19:10:22,998 — __main__ — INFO — Charting weekly stats
+2020-12-24 19:10:23,930 — __main__ — INFO — Charting rates
+2020-12-24 19:10:24,614 — __main__ — INFO — Reading spatial data file
+2020-12-24 19:10:28,743 — __main__ — INFO — Charting age bands
+2020-12-24 19:57:19,940 — __main__ — INFO — Provinces ARIMA runtime: 0:47:00.860344
+2020-12-24 19:57:20,840 — __main__ — INFO — Holt's model
+2020-12-24 19:57:21,199 — __main__ — INFO — Holt-Winter's model
+2020-12-24 19:57:21,777 — __main__ — INFO — Processing is done. Total runtime: 1:22:42.192821
+2020-12-24 19:57:21,778 — __main__ — INFO — Starting git push
+2020-12-24 19:59:18,803 — __main__ — INFO — Pushed to Heroku
+2020-12-24 19:59:18,804 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-25 04:15:20,523 — __main__ — INFO — STARTED
+2020-12-25 04:15:20,525 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-25 04:16:08,863 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-25 04:16:08,864 — __main__ — INFO — Reading general stats file
+2020-12-25 04:16:11,635 — __main__ — INFO — Charting weekly stats
+2020-12-25 04:16:12,742 — __main__ — INFO — Charting rates
+2020-12-25 04:16:13,401 — __main__ — INFO — Reading spatial data file
+2020-12-25 04:16:17,153 — __main__ — INFO — Charting age bands
+2020-12-25 04:16:17,657 — __main__ — INFO — Starting Rt processing
+2020-12-25 04:19:19,530 — __main__ — INFO — Calculating Rt for provinces
+2020-12-25 04:45:17,057 — __main__ — INFO — STARTED
+2020-12-25 04:45:17,060 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-25 04:45:19,307 — __main__ — INFO — STARTED
+2020-12-25 04:45:19,307 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-25 04:45:19,973 — __main__ — INFO — STARTED
+2020-12-25 04:45:19,973 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-25 04:46:13,673 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-25 04:46:13,673 — __main__ — INFO — Reading general stats file
+2020-12-25 04:46:15,162 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-25 04:46:15,162 — __main__ — INFO — Reading general stats file
+2020-12-25 04:46:16,635 — __main__ — INFO — Charting weekly stats
+2020-12-25 04:46:17,451 — __main__ — INFO — Charting rates
+2020-12-25 04:46:18,059 — __main__ — INFO — Reading spatial data file
+2020-12-25 04:46:19,458 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-25 04:46:19,458 — __main__ — INFO — Reading general stats file
+2020-12-25 04:46:20,472 — __main__ — INFO — Charting weekly stats
+2020-12-25 04:46:22,224 — __main__ — INFO — Charting rates
+2020-12-25 04:46:23,401 — __main__ — INFO — Reading spatial data file
+2020-12-25 04:46:23,919 — __main__ — INFO — Charting age bands
+2020-12-25 04:46:24,744 — __main__ — INFO — Charting weekly stats
+2020-12-25 04:46:24,957 — __main__ — INFO — Starting Rt processing
+2020-12-25 04:46:26,389 — __main__ — INFO — Charting rates
+2020-12-25 04:46:27,604 — __main__ — INFO — Reading spatial data file
+2020-12-25 04:46:30,695 — __main__ — INFO — Charting age bands
+2020-12-25 04:46:31,677 — __main__ — INFO — Starting Rt processing
+2020-12-25 04:46:34,824 — __main__ — INFO — Charting age bands
+2020-12-25 04:46:35,856 — __main__ — INFO — Starting Rt processing
+2020-12-25 04:50:45,989 — __main__ — INFO — Provinces Rt runtime: 0:26:01.146292
+2020-12-25 04:50:46,352 — __main__ — INFO — Charting Rt for provinces
+2020-12-25 04:50:48,780 — __main__ — INFO — Starting ARIMA
+2020-12-25 04:50:49,350 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-25 04:54:23,064 — __main__ — INFO — Calculating Rt for provinces
+2020-12-25 04:55:22,746 — __main__ — INFO — Calculating Rt for provinces
+2020-12-25 04:55:45,502 — __main__ — INFO — Calculating Rt for provinces
+2020-12-25 05:46:19,908 — __main__ — INFO — Provinces Rt runtime: 0:40:42.777719
+2020-12-25 05:46:20,823 — __main__ — INFO — Charting Rt for provinces
+2020-12-25 05:46:25,974 — __main__ — INFO — Starting ARIMA
+2020-12-25 05:46:27,250 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-25 05:57:45,998 — __main__ — INFO — Provinces Rt runtime: 0:44:22.647295
+2020-12-25 05:57:46,530 — __main__ — INFO — Charting Rt for provinces
+2020-12-25 05:57:49,947 — __main__ — INFO — Starting ARIMA
+2020-12-25 05:57:50,813 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-25 06:00:17,597 — __main__ — INFO — Provinces Rt runtime: 0:46:24.302253
+2020-12-25 06:00:17,852 — __main__ — INFO — Charting Rt for provinces
+2020-12-25 06:00:19,647 — __main__ — INFO — Starting ARIMA
+2020-12-25 06:00:20,088 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-25 07:42:27,951 — __main__ — INFO — Provinces ARIMA runtime: 1:56:00.701129
+2020-12-25 07:42:30,128 — __main__ — INFO — Holt's model
+2020-12-25 07:42:30,543 — __main__ — INFO — Holt-Winter's model
+2020-12-25 07:42:31,141 — __main__ — INFO — Processing is done. Total runtime: 2:57:11.835106
+2020-12-25 07:42:31,141 — __main__ — INFO — Starting git push
+2020-12-25 07:44:20,140 — __main__ — INFO — Pushed to Heroku
+2020-12-25 07:44:20,140 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-25 08:37:41,785 — __main__ — INFO — Provinces ARIMA runtime: 3:46:52.434586
+2020-12-25 08:37:42,821 — __main__ — INFO — Holt's model
+2020-12-25 08:37:43,195 — __main__ — INFO — Holt-Winter's model
+2020-12-25 08:37:43,828 — __main__ — INFO — Processing is done. Total runtime: 4:22:23.305465
+2020-12-25 08:37:43,828 — __main__ — INFO — Starting git push
+2020-12-25 08:38:39,799 — __main__ — INFO — Provinces ARIMA runtime: 2:38:19.711353
+2020-12-25 08:38:40,446 — __main__ — INFO — Holt's model
+2020-12-25 08:38:40,806 — __main__ — INFO — Holt-Winter's model
+2020-12-25 08:38:41,388 — __main__ — INFO — Processing is done. Total runtime: 3:53:21.415835
+2020-12-25 08:38:41,388 — __main__ — INFO — Starting git push
+2020-12-25 08:38:57,208 — __main__ — INFO — Provinces ARIMA runtime: 2:41:06.394886
+2020-12-25 08:38:57,887 — __main__ — INFO — Holt's model
+2020-12-25 08:38:58,246 — __main__ — INFO — Holt-Winter's model
+2020-12-25 08:38:58,834 — __main__ — INFO — Processing is done. Total runtime: 3:53:41.776999
+2020-12-25 08:38:58,834 — __main__ — INFO — Starting git push
+2020-12-25 08:39:37,625 — __main__ — INFO — Pushed to Heroku
+2020-12-25 08:39:37,626 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-25 08:40:43,595 — __main__ — INFO — Pushed to Heroku
+2020-12-25 08:40:43,596 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-25 08:40:57,021 — __main__ — INFO — Pushed to Heroku
+2020-12-25 08:40:57,022 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-26 00:30:03,548 — __main__ — INFO — STARTED
+2020-12-26 00:30:03,553 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-26 00:30:42,310 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-26 00:30:42,311 — __main__ — INFO — Reading general stats file
+2020-12-26 00:30:45,616 — __main__ — INFO — Charting weekly stats
+2020-12-26 00:30:46,415 — __main__ — INFO — Charting rates
+2020-12-26 00:30:46,995 — __main__ — INFO — Reading spatial data file
+2020-12-26 00:30:51,383 — __main__ — INFO — Charting age bands
+2020-12-26 00:30:51,877 — __main__ — INFO — Starting Rt processing
+2020-12-26 00:33:50,891 — __main__ — INFO — Calculating Rt for provinces
+2020-12-26 01:03:38,576 — __main__ — INFO — Provinces Rt runtime: 0:24:26.347870
+2020-12-26 01:03:38,819 — __main__ — INFO — Charting Rt for provinces
+2020-12-26 01:03:40,505 — __main__ — INFO — Starting ARIMA
+2020-12-26 01:03:40,935 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-26 01:49:38,971 — __main__ — INFO — Provinces ARIMA runtime: 0:45:58.034751
+2020-12-26 01:49:39,482 — __main__ — INFO — Holt's model
+2020-12-26 01:49:39,841 — __main__ — INFO — Holt-Winter's model
+2020-12-26 01:49:40,423 — __main__ — INFO — Processing is done. Total runtime: 1:19:36.875222
+2020-12-26 01:49:40,424 — __main__ — INFO — Starting git push
+2020-12-26 01:51:27,392 — __main__ — INFO — Pushed to Heroku
+2020-12-26 01:51:27,392 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-28 00:43:26,539 — __main__ — INFO — STARTED
+2020-12-28 00:43:26,543 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-28 00:44:31,767 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-28 00:44:31,770 — __main__ — INFO — Reading general stats file
+2020-12-28 00:44:38,968 — __main__ — INFO — Charting weekly stats
+2020-12-28 00:44:40,079 — __main__ — INFO — Charting rates
+2020-12-28 00:44:40,821 — __main__ — INFO — Reading spatial data file
+2020-12-28 00:44:46,974 — __main__ — INFO — Charting age bands
+2020-12-28 00:44:47,540 — __main__ — INFO — Starting Rt processing
+2020-12-28 00:51:12,761 — __main__ — INFO — Calculating Rt for provinces
+2020-12-28 01:22:29,002 — __main__ — INFO — Provinces Rt runtime: 0:25:01.502637
+2020-12-28 01:22:29,267 — __main__ — INFO — Charting Rt for provinces
+2020-12-28 01:22:30,936 — __main__ — INFO — Starting ARIMA
+2020-12-28 01:22:33,947 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-28 02:10:11,435 — __main__ — INFO — Provinces ARIMA runtime: 0:47:37.488219
+2020-12-28 02:10:12,761 — __main__ — INFO — Holt's model
+2020-12-28 02:10:13,120 — __main__ — INFO — Holt-Winter's model
+2020-12-28 02:10:14,150 — __main__ — INFO — Processing is done. Total runtime: 1:26:47.610575
+2020-12-28 02:10:14,150 — __main__ — INFO — Starting git push
+2020-12-28 02:10:17,956 — __main__ — INFO — Git automation failed
+2020-12-28 02:10:17,956 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-29 10:56:41,415 — __main__ — INFO — STARTED
+2020-12-29 10:56:41,493 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-29 10:57:43,363 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-29 10:57:43,364 — __main__ — INFO — Reading general stats file
+2020-12-29 10:57:51,157 — __main__ — INFO — Charting weekly stats
+2020-12-29 10:57:51,995 — __main__ — INFO — Charting rates
+2020-12-29 10:57:52,583 — __main__ — INFO — Reading spatial data file
+2020-12-29 11:06:06,949 — __main__ — INFO — STARTED
+2020-12-29 11:06:06,955 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-29 11:06:43,746 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-29 11:06:43,746 — __main__ — INFO — Reading general stats file
+2020-12-29 11:06:47,462 — __main__ — INFO — Charting weekly stats
+2020-12-29 11:06:48,352 — __main__ — INFO — Charting rates
+2020-12-29 11:06:48,949 — __main__ — INFO — Reading spatial data file
+2020-12-29 11:06:52,551 — __main__ — INFO — Charting age bands
+2020-12-29 11:06:53,051 — __main__ — INFO — Starting Rt processing
+2020-12-29 11:10:23,739 — __main__ — INFO — Calculating Rt for provinces
+2020-12-29 11:42:32,446 — __main__ — INFO — Provinces Rt runtime: 0:26:23.440568
+2020-12-29 11:42:32,670 — __main__ — INFO — Charting Rt for provinces
+2020-12-29 11:42:34,364 — __main__ — INFO — Starting ARIMA
+2020-12-29 11:42:35,105 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-29 12:28:38,355 — __main__ — INFO — Provinces ARIMA runtime: 0:46:03.249049
+2020-12-29 12:28:39,012 — __main__ — INFO — Holt's model
+2020-12-29 12:28:39,371 — __main__ — INFO — Holt-Winter's model
+2020-12-29 12:28:40,338 — __main__ — INFO — Processing is done. Total runtime: 1:22:33.389317
+2020-12-29 12:28:40,338 — __main__ — INFO — Starting git push
+2020-12-29 12:30:44,986 — __main__ — INFO — Pushed to Heroku
+2020-12-29 12:30:44,987 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-29 12:55:37,988 — __main__ — INFO — STARTED
+2020-12-29 12:56:54,491 — __main__ — INFO — Charting weekly stats
+2020-12-29 12:56:55,315 — __main__ — INFO — Charting rates
+2020-12-29 12:56:56,006 — __main__ — INFO — Reading spatial data file
+2020-12-29 12:56:59,429 — __main__ — INFO — Charting age bands
+2020-12-29 12:56:59,937 — __main__ — INFO — Starting Rt processing
+2020-12-31 00:30:16,261 — __main__ — INFO — STARTED
+2020-12-31 01:00:34,008 — __main__ — INFO — STARTED
+2020-12-31 01:01:00,443 — __main__ — INFO — STARTED
+2020-12-31 01:01:00,481 — __main__ — INFO — COVID-19 files backup is done!
+2020-12-31 01:01:40,943 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2020-12-31 01:01:40,943 — __main__ — INFO — Reading general stats file
+2020-12-31 01:01:47,666 — __main__ — INFO — Charting weekly stats
+2020-12-31 01:01:49,041 — __main__ — INFO — Charting rates
+2020-12-31 01:01:50,000 — __main__ — INFO — Reading spatial data file
+2020-12-31 01:01:54,649 — __main__ — INFO — Charting age bands
+2020-12-31 01:01:55,252 — __main__ — INFO — Starting Rt processing
+2020-12-31 01:05:52,103 — __main__ — INFO — Calculating Rt for provinces
+2020-12-31 01:48:43,029 — __main__ — INFO — Provinces Rt runtime: 0:35:07.868563
+2020-12-31 01:48:43,264 — __main__ — INFO — Charting Rt for provinces
+2020-12-31 01:48:45,039 — __main__ — INFO — Starting ARIMA
+2020-12-31 01:48:45,788 — __main__ — INFO — Getting ARIMA predictions for provinces
+2020-12-31 03:12:47,453 — __main__ — INFO — Provinces ARIMA runtime: 1:24:01.665367
+2020-12-31 03:12:48,494 — __main__ — INFO — Holt's model
+2020-12-31 03:12:49,607 — __main__ — INFO — Holt-Winter's model
+2020-12-31 03:12:50,413 — __main__ — INFO — Processing is done. Total runtime: 2:11:49.969424
+2020-12-31 03:12:50,413 — __main__ — INFO — Starting git push
+2020-12-31 03:14:45,475 — __main__ — INFO — Pushed to Heroku
+2020-12-31 03:14:45,476 — __main__ — INFO — FINISHED! Starting dash...
+2020-12-31 11:20:42,336 — __main__ — INFO — STARTED
+2021-01-01 01:55:24,399 — __main__ — INFO — STARTED
+2021-01-01 01:55:24,744 — __main__ — INFO — COVID-19 files backup is done!
+2021-01-01 01:56:18,179 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2021-01-01 01:56:18,179 — __main__ — INFO — Reading general stats file
+2021-01-01 01:56:22,034 — __main__ — INFO — Charting weekly stats
+2021-01-01 01:56:22,936 — __main__ — INFO — Charting rates
+2021-01-01 01:56:23,575 — __main__ — INFO — Reading spatial data file
+2021-01-01 01:56:28,719 — __main__ — INFO — Charting age bands
+2021-01-01 01:56:29,455 — __main__ — INFO — Starting Rt processing
+2021-01-01 02:00:00,153 — __main__ — INFO — Calculating Rt for provinces
+2021-01-01 02:35:40,616 — __main__ — INFO — Provinces Rt runtime: 0:28:53.318088
+2021-01-01 02:35:40,846 — __main__ — INFO — Charting Rt for provinces
+2021-01-01 02:35:42,565 — __main__ — INFO — Starting ARIMA
+2021-01-01 02:35:43,285 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-01 03:32:06,557 — __main__ — INFO — Provinces ARIMA runtime: 0:56:23.270725
+2021-01-01 03:32:07,555 — __main__ — INFO — Holt's model
+2021-01-01 03:32:08,320 — __main__ — INFO — Holt-Winter's model
+2021-01-01 03:32:08,881 — __main__ — INFO — Processing is done. Total runtime: 1:36:44.482499
+2021-01-01 03:32:08,881 — __main__ — INFO — Starting git push
+2021-01-01 03:34:07,163 — __main__ — INFO — Pushed to Heroku
+2021-01-01 03:34:07,163 — __main__ — INFO — FINISHED! Starting dash...
+2021-01-02 02:51:02,835 — __main__ — INFO — STARTED
+2021-01-02 02:51:02,840 — __main__ — INFO — COVID-19 files backup is done!
+2021-01-02 02:51:41,905 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2021-01-02 02:51:41,906 — __main__ — INFO — Reading general stats file
+2021-01-02 02:51:44,856 — __main__ — INFO — Charting weekly stats
+2021-01-02 02:51:45,667 — __main__ — INFO — Charting rates
+2021-01-02 02:51:46,267 — __main__ — INFO — Reading spatial data file
+2021-01-02 02:51:49,830 — __main__ — INFO — Charting age bands
+2021-01-02 02:51:50,330 — __main__ — INFO — Starting Rt processing
+2021-01-02 02:55:04,809 — __main__ — INFO — Calculating Rt for provinces
+2021-01-02 03:28:02,023 — __main__ — INFO — Provinces Rt runtime: 0:26:51.310649
+2021-01-02 03:28:02,257 — __main__ — INFO — Charting Rt for provinces
+2021-01-02 03:28:03,958 — __main__ — INFO — Starting ARIMA
+2021-01-02 03:28:04,395 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-02 04:16:39,681 — __main__ — INFO — Provinces ARIMA runtime: 0:48:35.286320
+2021-01-02 04:16:40,196 — __main__ — INFO — Holt's model
+2021-01-02 04:16:40,944 — __main__ — INFO — Holt-Winter's model
+2021-01-02 04:16:41,506 — __main__ — INFO — Processing is done. Total runtime: 1:25:38.671145
+2021-01-02 04:16:41,522 — __main__ — INFO — Starting git push
+2021-01-02 04:18:31,096 — __main__ — INFO — Pushed to Heroku
+2021-01-02 04:18:31,096 — __main__ — INFO — FINISHED! Starting dash...
+2021-01-03 01:39:35,843 — __main__ — INFO — STARTED
+2021-01-03 01:39:35,847 — __main__ — INFO — COVID-19 files backup is done!
+2021-01-03 01:40:14,371 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2021-01-03 01:40:14,372 — __main__ — INFO — Reading general stats file
+2021-01-03 01:40:17,383 — __main__ — INFO — Charting weekly stats
+2021-01-03 01:40:18,221 — __main__ — INFO — Charting rates
+2021-01-03 01:40:18,836 — __main__ — INFO — Reading spatial data file
+2021-01-03 01:40:22,654 — __main__ — INFO — Charting age bands
+2021-01-03 01:40:23,165 — __main__ — INFO — Starting Rt processing
+2021-01-03 01:44:58,879 — __main__ — INFO — Calculating Rt for provinces
+2021-01-03 02:20:52,155 — __main__ — INFO — Provinces Rt runtime: 0:28:44.258622
+2021-01-03 02:20:52,413 — __main__ — INFO — Charting Rt for provinces
+2021-01-03 02:20:54,159 — __main__ — INFO — Starting ARIMA
+2021-01-03 02:20:54,929 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-03 03:13:11,439 — __main__ — INFO — Provinces ARIMA runtime: 0:52:16.508398
+2021-01-03 03:13:11,973 — __main__ — INFO — Holt's model
+2021-01-03 03:13:12,803 — __main__ — INFO — Holt-Winter's model
+2021-01-03 03:13:13,404 — __main__ — INFO — Processing is done. Total runtime: 1:33:37.561307
+2021-01-03 03:13:13,404 — __main__ — INFO — Starting git push
+2021-01-03 03:15:16,818 — __main__ — INFO — Pushed to Heroku
+2021-01-03 03:15:16,819 — __main__ — INFO — FINISHED! Starting dash...
+2021-01-04 11:50:57,147 — __main__ — INFO — STARTED
+2021-01-04 11:50:57,162 — __main__ — INFO — COVID-19 files backup is done!
+2021-01-04 11:51:34,279 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2021-01-04 11:51:34,279 — __main__ — INFO — Reading general stats file
+2021-01-04 11:51:37,087 — __main__ — INFO — Charting weekly stats
+2021-01-04 11:51:37,883 — __main__ — INFO — Charting rates
+2021-01-04 11:51:38,476 — __main__ — INFO — Reading spatial data file
+2021-01-04 11:51:41,955 — __main__ — INFO — Charting age bands
+2021-01-04 11:51:42,438 — __main__ — INFO — Starting Rt processing
+2021-01-04 11:54:51,027 — __main__ — INFO — Calculating Rt for provinces
+2021-01-04 12:28:00,998 — __main__ — INFO — Provinces Rt runtime: 0:27:22.511285
+2021-01-04 12:28:01,232 — __main__ — INFO — Charting Rt for provinces
+2021-01-04 12:28:02,963 — __main__ — INFO — Starting ARIMA
+2021-01-04 12:28:03,650 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-04 13:18:17,216 — __main__ — INFO — Provinces ARIMA runtime: 0:50:13.566493
+2021-01-04 13:18:17,715 — __main__ — INFO — Holt's model
+2021-01-04 13:18:18,448 — __main__ — INFO — Holt-Winter's model
+2021-01-04 13:18:19,041 — __main__ — INFO — Processing is done. Total runtime: 1:27:21.894500
+2021-01-04 13:18:19,041 — __main__ — INFO — Starting git push
+2021-01-04 13:20:02,766 — __main__ — INFO — Pushed to Heroku
+2021-01-04 13:20:02,766 — __main__ — INFO — FINISHED! Starting dash...
+2021-01-05 16:31:26,262 — __main__ — INFO — STARTED
+2021-01-05 16:31:26,267 — __main__ — INFO — COVID-19 files backup is done!
+2021-01-05 16:32:09,206 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2021-01-05 16:32:09,207 — __main__ — INFO — Reading general stats file
+2021-01-05 16:32:12,471 — __main__ — INFO — Charting weekly stats
+2021-01-05 16:32:13,299 — __main__ — INFO — Charting rates
+2021-01-05 16:32:13,896 — __main__ — INFO — Reading spatial data file
+2021-01-05 16:32:18,170 — __main__ — INFO — Charting age bands
+2021-01-05 16:32:19,403 — __main__ — INFO — Starting Rt processing
+2021-01-05 16:36:10,715 — __main__ — INFO — Calculating Rt for provinces
+2021-01-05 17:09:43,913 — __main__ — INFO — Provinces Rt runtime: 0:27:36.464744
+2021-01-05 17:09:44,135 — __main__ — INFO — Charting Rt for provinces
+2021-01-05 17:09:47,630 — __main__ — INFO — Starting ARIMA
+2021-01-05 17:09:48,348 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-05 18:30:37,179 — __main__ — INFO — Provinces ARIMA runtime: 1:20:48.830962
+2021-01-05 18:30:37,861 — __main__ — INFO — Holt's model
+2021-01-05 18:30:38,750 — __main__ — INFO — Holt-Winter's model
+2021-01-05 18:30:39,532 — __main__ — INFO — Processing is done. Total runtime: 1:59:13.270768
+2021-01-05 18:30:39,533 — __main__ — INFO — Starting git push
+2021-01-05 18:32:34,886 — __main__ — INFO — Pushed to Heroku
+2021-01-05 18:32:34,887 — __main__ — INFO — FINISHED! Starting dash...
+2021-01-06 10:39:09,566 — __main__ — INFO — STARTED
+2021-01-06 10:39:09,575 — __main__ — INFO — COVID-19 files backup is done!
+2021-01-06 10:39:46,115 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2021-01-06 10:39:46,116 — __main__ — INFO — Reading general stats file
+2021-01-06 10:39:49,777 — __main__ — INFO — Charting weekly stats
+2021-01-06 10:39:50,574 — __main__ — INFO — Charting rates
+2021-01-06 10:39:51,156 — __main__ — INFO — Reading spatial data file
+2021-01-06 10:39:54,752 — __main__ — INFO — Charting age bands
+2021-01-06 10:39:55,240 — __main__ — INFO — Starting Rt processing
+2021-01-06 10:43:06,722 — __main__ — INFO — Calculating Rt for provinces
+2021-01-06 11:17:23,410 — __main__ — INFO — Provinces Rt runtime: 0:28:09.646642
+2021-01-06 11:17:23,637 — __main__ — INFO — Charting Rt for provinces
+2021-01-06 11:17:25,338 — __main__ — INFO — Starting ARIMA
+2021-01-06 11:17:26,221 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-06 12:41:13,194 — __main__ — INFO — Provinces ARIMA runtime: 1:23:46.971526
+2021-01-06 12:41:13,712 — __main__ — INFO — Holt's model
+2021-01-06 12:41:14,490 — __main__ — INFO — Holt-Winter's model
+2021-01-06 12:41:15,071 — __main__ — INFO — Processing is done. Total runtime: 2:02:05.505995
+2021-01-06 12:41:15,071 — __main__ — INFO — Starting git push
+2021-01-06 12:43:02,604 — __main__ — INFO — Pushed to Heroku
+2021-01-06 12:43:02,604 — __main__ — INFO — FINISHED! Starting dash...
+2021-01-07 00:30:01,739 — __main__ — INFO — STARTED
+2021-01-07 00:30:01,744 — __main__ — INFO — COVID-19 files backup is done!
+2021-01-07 00:30:39,529 — __main__ — INFO — Finished downloading the new COVID-19 files!
+2021-01-07 00:30:39,530 — __main__ — INFO — Reading general stats file
+2021-01-07 00:30:42,541 — __main__ — INFO — Charting weekly stats
+2021-01-07 00:30:43,358 — __main__ — INFO — Charting rates
+2021-01-07 00:30:43,958 — __main__ — INFO — Reading spatial data file
+2021-01-07 00:30:47,494 — __main__ — INFO — Charting age bands
+2021-01-07 00:30:47,989 — __main__ — INFO — Starting Rt processing
+2021-01-07 00:34:01,159 — __main__ — INFO — Calculating Rt for provinces
+2021-01-07 01:09:57,661 — __main__ — INFO — Provinces Rt runtime: 0:29:51.536471
+2021-01-07 01:09:57,921 — __main__ — INFO — Charting Rt for provinces
+2021-01-07 01:09:59,681 — __main__ — INFO — Starting ARIMA
+2021-01-07 01:10:00,545 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-07 02:01:14,607 — __main__ — INFO — Provinces ARIMA runtime: 0:51:14.060826
+2021-01-07 02:01:15,624 — __main__ — INFO — Holt's model
+2021-01-07 02:01:15,995 — __main__ — INFO — Holt-Winter's model
+2021-01-07 02:01:16,564 — __main__ — INFO — Processing is done. Total runtime: 1:31:14.826142
+2021-01-07 02:01:16,564 — __main__ — INFO — Starting git push
+2021-01-07 02:03:08,419 — __main__ — INFO — Pushed to Heroku
+2021-01-07 02:03:08,419 — __main__ — INFO — FINISHED! Starting dash...
+2021-01-08 01:14:07,796 — app.log — INFO — Starting the process
+2021-01-08 01:14:07,797 — app.log — INFO — Reading general stats
+2021-01-08 01:14:10,436 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-08 01:14:10,671 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-08 01:14:11,008 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-08 01:14:11,257 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-08 01:14:11,570 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-08 01:14:11,902 — app.log — INFO — Calculating rates
+2021-01-08 01:14:11,911 — app.log — INFO — Creating chart 6: Rates
+2021-01-08 01:14:12,795 — app.log — INFO — Reading spatial data
+2021-01-08 01:14:13,349 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-08 01:14:14,710 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-08 01:14:16,068 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-08 01:14:17,312 — app.log — INFO — Reading age bands data
+2021-01-08 01:14:17,318 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-08 01:14:17,986 — app.log — INFO — Starting Rt processing
+2021-01-08 01:14:18,000 — app.log — INFO — Creating chart 11: Smoothed new cases - BG
+2021-01-08 01:14:18,196 — app.log — INFO — Creating chart 12: Smoothed recoveries - BG
+2021-01-08 01:14:18,394 — app.log — INFO — Creating chart 13: Smoothed deaths - BG
+2021-01-08 01:14:18,595 — app.log — INFO — Creating chart 14: Smoothed new cases - BG - age bands
+2021-01-08 01:14:19,508 — app.log — INFO — Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-08 01:14:20,030 — app.log — INFO — Creating chart 16: Smoothed new cases - provinces
+2021-01-08 01:14:21,208 — app.log — INFO — Creating chart 17: Rt for BG
+2021-01-08 01:14:21,693 — app.log — INFO — Reading Rt for provinces
+2021-01-08 01:14:21,888 — app.log — INFO — Creating chart 18: Rt by province
+2021-01-08 01:14:23,418 — app.log — INFO — Reading ARIMA
+2021-01-08 01:14:23,458 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-08 01:14:23,629 — app.log — INFO — Creating chart 19: Double exp smoothing
+2021-01-08 01:14:24,120 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-08 01:14:24,452 — app.log — INFO — Creating chart 20: Triple exp smoothing
+2021-01-08 01:14:24,673 — app.log — INFO — Creating dash structure
+2021-01-08 01:14:25,333 — app.log — INFO — Creating dash helper vars
+2021-01-08 01:14:25,336 — app.log — INFO — Creating dash cards
+2021-01-08 01:14:25,378 — app.log — INFO — Creating dash tabs
+2021-01-08 01:14:25,426 — app.log — INFO — Creating dash layout
+2021-01-08 01:14:25,427 — app.log — INFO — Creating dash callbacks
+2021-01-08 01:14:25,428 — app.log — INFO — Running dash server
+2021-01-08 01:14:26,224 — app.log — INFO — Starting the process
+2021-01-08 01:14:26,224 — app.log — INFO — Reading general stats
+2021-01-08 01:14:28,849 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-08 01:14:29,080 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-08 01:14:29,419 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-08 01:14:29,670 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-08 01:14:29,985 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-08 01:14:30,238 — app.log — INFO — Calculating rates
+2021-01-08 01:14:30,248 — app.log — INFO — Creating chart 6: Rates
+2021-01-08 01:14:31,134 — app.log — INFO — Reading spatial data
+2021-01-08 01:14:31,693 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-08 01:14:33,059 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-08 01:14:34,452 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-08 01:14:35,717 — app.log — INFO — Reading age bands data
+2021-01-08 01:14:35,722 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-08 01:14:36,390 — app.log — INFO — Starting Rt processing
+2021-01-08 01:14:36,405 — app.log — INFO — Creating chart 11: Smoothed new cases - BG
+2021-01-08 01:14:36,602 — app.log — INFO — Creating chart 12: Smoothed recoveries - BG
+2021-01-08 01:14:36,800 — app.log — INFO — Creating chart 13: Smoothed deaths - BG
+2021-01-08 01:14:37,005 — app.log — INFO — Creating chart 14: Smoothed new cases - BG - age bands
+2021-01-08 01:14:37,884 — app.log — INFO — Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-08 01:14:38,421 — app.log — INFO — Creating chart 16: Smoothed new cases - provinces
+2021-01-08 01:14:39,609 — app.log — INFO — Creating chart 17: Rt for BG
+2021-01-08 01:14:40,089 — app.log — INFO — Reading Rt for provinces
+2021-01-08 01:14:40,290 — app.log — INFO — Creating chart 18: Rt by province
+2021-01-08 01:14:41,836 — app.log — INFO — Reading ARIMA
+2021-01-08 01:14:41,876 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-08 01:14:42,045 — app.log — INFO — Creating chart 19: Double exp smoothing
+2021-01-08 01:14:42,540 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-08 01:14:42,871 — app.log — INFO — Creating chart 20: Triple exp smoothing
+2021-01-08 01:14:43,097 — app.log — INFO — Creating dash structure
+2021-01-08 01:14:43,436 — app.log — INFO — Creating dash helper vars
+2021-01-08 01:14:43,439 — app.log — INFO — Creating dash cards
+2021-01-08 01:14:43,482 — app.log — INFO — Creating dash tabs
+2021-01-08 01:14:43,533 — app.log — INFO — Creating dash layout
+2021-01-08 01:14:43,535 — app.log — INFO — Creating dash callbacks
+2021-01-08 01:14:43,535 — app.log — INFO — Running dash server
+2021-01-08 01:15:55,777 — app.log — INFO — Starting the process
+2021-01-08 01:15:55,777 — app.log — INFO — Reading general stats
+2021-01-08 01:15:58,430 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-08 01:15:58,699 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-08 01:15:59,102 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-08 01:15:59,366 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-08 01:15:59,688 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-08 01:15:59,946 — app.log — INFO — Calculating rates
+2021-01-08 01:15:59,956 — app.log — INFO — Creating chart 6: Rates
+2021-01-08 01:16:00,909 — app.log — INFO — Reading spatial data
+2021-01-08 01:16:01,464 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-08 01:16:03,298 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-08 01:16:05,038 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-08 01:16:06,306 — app.log — INFO — Reading age bands data
+2021-01-08 01:16:06,311 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-08 01:16:06,987 — app.log — INFO — Starting Rt processing
+2021-01-08 01:16:07,001 — app.log — INFO — Creating chart 11: Smoothed new cases - BG
+2021-01-08 01:16:07,194 — app.log — INFO — Creating chart 12: Smoothed recoveries - BG
+2021-01-08 01:16:07,393 — app.log — INFO — Creating chart 13: Smoothed deaths - BG
+2021-01-08 01:16:07,599 — app.log — INFO — Creating chart 14: Smoothed new cases - BG - age bands
+2021-01-08 01:16:08,474 — app.log — INFO — Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-08 01:16:08,999 — app.log — INFO — Creating chart 16: Smoothed new cases - provinces
+2021-01-08 01:16:10,349 — app.log — INFO — Creating chart 17: Rt for BG
+2021-01-08 01:16:10,979 — app.log — INFO — Reading Rt for provinces
+2021-01-08 01:16:11,202 — app.log — INFO — Creating chart 18: Rt by province
+2021-01-08 01:16:12,743 — app.log — INFO — Reading ARIMA
+2021-01-08 01:16:12,781 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-08 01:16:12,952 — app.log — INFO — Creating chart 19: Double exp smoothing
+2021-01-08 01:16:13,447 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-08 01:16:13,776 — app.log — INFO — Creating chart 20: Triple exp smoothing
+2021-01-08 01:16:13,999 — app.log — INFO — Creating dash structure
+2021-01-08 01:16:14,338 — app.log — INFO — Creating dash helper vars
+2021-01-08 01:16:14,341 — app.log — INFO — Creating dash cards
+2021-01-08 01:16:14,383 — app.log — INFO — Creating dash tabs
+2021-01-08 01:16:14,431 — app.log — INFO — Creating dash layout
+2021-01-08 01:16:14,432 — app.log — INFO — Creating dash callbacks
+2021-01-08 01:16:14,433 — app.log — INFO — Running dash server
+2021-01-08 01:19:05,831 — app.log — INFO — Starting the process
+2021-01-08 01:19:05,831 — app.log — INFO — Reading general stats
+2021-01-08 01:19:08,466 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-08 01:19:08,700 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-08 01:19:09,037 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-08 01:19:09,292 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-08 01:19:09,604 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-08 01:19:09,859 — app.log — INFO — Calculating rates
+2021-01-08 01:19:09,868 — app.log — INFO — Creating chart 6: Rates
+2021-01-08 01:19:10,758 — app.log — INFO — Reading spatial data
+2021-01-08 01:19:11,317 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-08 01:19:12,686 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-08 01:19:14,052 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-08 01:19:15,301 — app.log — INFO — Reading age bands data
+2021-01-08 01:19:15,306 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-08 01:19:15,973 — app.log — INFO — Starting Rt processing
+2021-01-08 01:19:15,985 — app.log — INFO — Creating chart 11: Smoothed new cases - BG
+2021-01-08 01:19:16,182 — app.log — INFO — Creating chart 12: Smoothed recoveries - BG
+2021-01-08 01:19:16,383 — app.log — INFO — Creating chart 13: Smoothed deaths - BG
+2021-01-08 01:19:16,584 — app.log — INFO — Creating chart 14: Smoothed new cases - BG - age bands
+2021-01-08 01:19:17,462 — app.log — INFO — Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-08 01:19:17,989 — app.log — INFO — Creating chart 16: Smoothed new cases - provinces
+2021-01-08 01:19:19,174 — app.log — INFO — Creating chart 17: Rt for BG
+2021-01-08 01:19:19,659 — app.log — INFO — Reading Rt for provinces
+2021-01-08 01:19:19,856 — app.log — INFO — Creating chart 18: Rt by province
+2021-01-08 01:19:21,391 — app.log — INFO — Reading ARIMA
+2021-01-08 01:19:21,428 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-08 01:19:21,602 — app.log — INFO — Creating chart 19: Double exp smoothing
+2021-01-08 01:19:22,093 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-08 01:19:22,424 — app.log — INFO — Creating chart 20: Triple exp smoothing
+2021-01-08 01:19:22,650 — app.log — INFO — Creating dash structure
+2021-01-08 01:19:22,979 — app.log — INFO — Creating dash helper vars
+2021-01-08 01:19:22,983 — app.log — INFO — Creating dash cards
+2021-01-08 01:19:23,025 — app.log — INFO — Creating dash tabs
+2021-01-08 01:19:23,071 — app.log — INFO — Creating dash layout
+2021-01-08 01:19:23,073 — app.log — INFO — Creating dash callbacks
+2021-01-08 01:19:23,073 — app.log — INFO — Running dash server
+2021-01-08 01:20:34,108 — app.log — INFO — Starting the process
+2021-01-08 01:20:34,109 — app.log — INFO — Reading general stats
+2021-01-08 01:20:36,722 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-08 01:20:36,954 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-08 01:20:37,290 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-08 01:20:37,564 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-08 01:20:37,876 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-08 01:20:38,132 — app.log — INFO — Calculating rates
+2021-01-08 01:20:38,141 — app.log — INFO — Creating chart 6: Rates
+2021-01-08 01:20:39,021 — app.log — INFO — Reading spatial data
+2021-01-08 01:20:39,576 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-08 01:20:40,934 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-08 01:20:42,298 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-08 01:20:43,546 — app.log — INFO — Reading age bands data
+2021-01-08 01:20:43,551 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-08 01:20:44,215 — app.log — INFO — Starting Rt processing
+2021-01-08 01:20:44,227 — app.log — INFO — Creating chart 11: Smoothed new cases - BG
+2021-01-08 01:20:44,421 — app.log — INFO — Creating chart 12: Smoothed recoveries - BG
+2021-01-08 01:20:44,623 — app.log — INFO — Creating chart 13: Smoothed deaths - BG
+2021-01-08 01:20:44,820 — app.log — INFO — Creating chart 14: Smoothed new cases - BG - age bands
+2021-01-08 01:20:45,697 — app.log — INFO — Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-08 01:20:46,222 — app.log — INFO — Creating chart 16: Smoothed new cases - provinces
+2021-01-08 01:20:47,400 — app.log — INFO — Creating chart 17: Rt for BG
+2021-01-08 01:20:47,878 — app.log — INFO — Reading Rt for provinces
+2021-01-08 01:20:48,075 — app.log — INFO — Creating chart 18: Rt by province
+2021-01-08 01:20:49,592 — app.log — INFO — Reading ARIMA
+2021-01-08 01:20:49,628 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-08 01:20:49,800 — app.log — INFO — Creating chart 19: Double exp smoothing
+2021-01-08 01:20:50,287 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-08 01:20:50,618 — app.log — INFO — Creating chart 20: Triple exp smoothing
+2021-01-08 01:20:50,837 — app.log — INFO — Creating dash structure
+2021-01-08 01:20:51,170 — app.log — INFO — Creating dash helper vars
+2021-01-08 01:20:51,173 — app.log — INFO — Creating dash cards
+2021-01-08 01:20:51,214 — app.log — INFO — Creating dash tabs
+2021-01-08 01:20:51,259 — app.log — INFO — Creating dash layout
+2021-01-08 01:20:51,260 — app.log — INFO — Creating dash callbacks
+2021-01-08 01:20:51,261 — app.log — INFO — Running dash server
+2021-01-08 01:28:56,073 — app.log — INFO — Starting the process
+2021-01-08 01:28:56,073 — app.log — INFO — Reading general stats
+2021-01-08 01:28:58,788 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-08 01:28:59,023 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-08 01:28:59,365 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-08 01:28:59,617 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-08 01:28:59,929 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-08 01:29:00,183 — app.log — INFO — Calculating rates
+2021-01-08 01:29:00,193 — app.log — INFO — Creating chart 6: Rates
+2021-01-08 01:29:01,085 — app.log — INFO — Reading spatial data
+2021-01-08 01:29:01,643 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-08 01:29:03,012 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-08 01:29:04,381 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-08 01:29:05,757 — app.log — INFO — Reading age bands data
+2021-01-08 01:29:05,763 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-08 01:29:06,462 — app.log — INFO — Starting Rt processing
+2021-01-08 01:29:06,475 — app.log — INFO — Creating chart 11: Smoothed new cases - BG
+2021-01-08 01:29:06,672 — app.log — INFO — Creating chart 12: Smoothed recoveries - BG
+2021-01-08 01:29:06,874 — app.log — INFO — Creating chart 13: Smoothed deaths - BG
+2021-01-08 01:29:07,076 — app.log — INFO — Creating chart 14: Smoothed new cases - BG - age bands
+2021-01-08 01:29:08,073 — app.log — INFO — Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-08 01:29:08,627 — app.log — INFO — Creating chart 16: Smoothed new cases - provinces
+2021-01-08 01:29:09,850 — app.log — INFO — Creating chart 17: Rt for BG
+2021-01-08 01:29:10,373 — app.log — INFO — Reading Rt for provinces
+2021-01-08 01:29:10,576 — app.log — INFO — Creating chart 18: Rt by province
+2021-01-08 01:29:12,114 — app.log — INFO — Reading ARIMA
+2021-01-08 01:29:12,151 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-08 01:29:12,320 — app.log — INFO — Creating chart 19: Double exp smoothing
+2021-01-08 01:29:12,812 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-08 01:29:13,147 — app.log — INFO — Creating chart 20: Triple exp smoothing
+2021-01-08 01:29:13,368 — app.log — INFO — Creating dash structure
+2021-01-08 01:29:13,702 — app.log — INFO — Creating dash helper vars
+2021-01-08 01:29:13,705 — app.log — INFO — Creating dash cards
+2021-01-08 01:29:13,747 — app.log — INFO — Creating dash tabs
+2021-01-08 01:29:13,793 — app.log — INFO — Creating dash layout
+2021-01-08 01:29:13,795 — app.log — INFO — Creating dash callbacks
+2021-01-08 01:29:13,795 — app.log — INFO — Running dash server
+2021-01-08 01:29:55,091 — app.log — INFO — Starting the process
+2021-01-08 01:29:55,092 — app.log — INFO — Reading general stats
+2021-01-08 01:29:57,765 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-08 01:29:57,994 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-08 01:29:58,334 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-08 01:29:58,585 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-08 01:29:58,894 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-08 01:29:59,148 — app.log — INFO — Calculating rates
+2021-01-08 01:29:59,158 — app.log — INFO — Creating chart 6: Rates
+2021-01-08 01:30:00,036 — app.log — INFO — Reading spatial data
+2021-01-08 01:30:00,598 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-08 01:30:02,042 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-08 01:30:03,435 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-08 01:30:04,741 — app.log — INFO — Reading age bands data
+2021-01-08 01:30:04,747 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-08 01:30:05,416 — app.log — INFO — Starting Rt processing
+2021-01-08 01:30:05,430 — app.log — INFO — Creating chart 11: Smoothed new cases - BG
+2021-01-08 01:30:05,626 — app.log — INFO — Creating chart 12: Smoothed recoveries - BG
+2021-01-08 01:30:05,826 — app.log — INFO — Creating chart 13: Smoothed deaths - BG
+2021-01-08 01:30:06,025 — app.log — INFO — Creating chart 14: Smoothed new cases - BG - age bands
+2021-01-08 01:30:06,903 — app.log — INFO — Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-08 01:30:07,435 — app.log — INFO — Creating chart 16: Smoothed new cases - provinces
+2021-01-08 01:30:08,605 — app.log — INFO — Creating chart 17: Rt for BG
+2021-01-08 01:30:09,084 — app.log — INFO — Reading Rt for provinces
+2021-01-08 01:30:09,279 — app.log — INFO — Creating chart 18: Rt by province
+2021-01-08 01:30:10,797 — app.log — INFO — Reading ARIMA
+2021-01-08 01:30:10,834 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-08 01:30:11,003 — app.log — INFO — Creating chart 19: Double exp smoothing
+2021-01-08 01:30:11,494 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-08 01:30:11,828 — app.log — INFO — Creating chart 20: Triple exp smoothing
+2021-01-08 01:30:12,044 — app.log — INFO — Creating dash structure
+2021-01-08 01:30:12,374 — app.log — INFO — Creating dash helper vars
+2021-01-08 01:30:12,377 — app.log — INFO — Creating dash cards
+2021-01-08 01:30:12,418 — app.log — INFO — Creating dash tabs
+2021-01-08 01:30:12,466 — app.log — INFO — Creating dash layout
+2021-01-08 01:30:12,468 — app.log — INFO — Creating dash callbacks
+2021-01-08 01:30:12,468 — app.log — INFO — Running dash server
+2021-01-08 01:30:41,103 — app.log — INFO — Starting the process
+2021-01-08 01:30:41,103 — app.log — INFO — Reading general stats
+2021-01-08 01:30:43,798 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-08 01:30:44,035 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-08 01:30:44,374 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-08 01:30:44,622 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-08 01:30:44,934 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-08 01:30:45,187 — app.log — INFO — Calculating rates
+2021-01-08 01:30:45,196 — app.log — INFO — Creating chart 6: Rates
+2021-01-08 01:30:46,083 — app.log — INFO — Reading spatial data
+2021-01-08 01:30:46,643 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-08 01:30:48,001 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-08 01:30:49,439 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-08 01:30:50,827 — app.log — INFO — Reading age bands data
+2021-01-08 01:30:50,832 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-08 01:30:51,498 — app.log — INFO — Starting Rt processing
+2021-01-08 01:30:51,511 — app.log — INFO — Creating chart 11: Smoothed new cases - BG
+2021-01-08 01:30:51,706 — app.log — INFO — Creating chart 12: Smoothed recoveries - BG
+2021-01-08 01:30:51,905 — app.log — INFO — Creating chart 13: Smoothed deaths - BG
+2021-01-08 01:30:52,107 — app.log — INFO — Creating chart 14: Smoothed new cases - BG - age bands
+2021-01-08 01:30:52,988 — app.log — INFO — Creating chart 15: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-08 01:30:53,519 — app.log — INFO — Creating chart 16: Smoothed new cases - provinces
+2021-01-08 01:30:54,701 — app.log — INFO — Creating chart 17: Rt for BG
+2021-01-08 01:30:55,189 — app.log — INFO — Reading Rt for provinces
+2021-01-08 01:30:55,388 — app.log — INFO — Creating chart 18: Rt by province
+2021-01-08 01:30:56,946 — app.log — INFO — Reading ARIMA
+2021-01-08 01:30:56,993 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-08 01:30:57,246 — app.log — INFO — Creating chart 19: Double exp smoothing
+2021-01-08 01:30:57,800 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-08 01:30:58,135 — app.log — INFO — Creating chart 20: Triple exp smoothing
+2021-01-08 01:30:58,359 — app.log — INFO — Creating dash structure
+2021-01-08 01:30:58,741 — app.log — INFO — Creating dash helper vars
+2021-01-08 01:30:58,744 — app.log — INFO — Creating dash cards
+2021-01-08 01:30:58,791 — app.log — INFO — Creating dash tabs
+2021-01-08 01:30:58,847 — app.log — INFO — Creating dash layout
+2021-01-08 01:30:58,848 — app.log — INFO — Creating dash callbacks
+2021-01-08 01:30:58,849 — app.log — INFO — Running dash server

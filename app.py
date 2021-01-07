@@ -37,17 +37,20 @@ fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,
 logger.info('Creating chart 2: Cases per week')
 
 covid_general['week'] = covid_general['date'].dt.isocalendar().week
-covid_general_weekly = covid_general.groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
+covid_general_weekly = covid_general.loc[covid_general.date < datetime(2021,1,1), :].groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
 covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
 
-# getting the current day to calculate projected values for the current week
-last_day_num = covid_general['date'].dt.isocalendar().day.values[-1]
-# projected current week confirmed cases
-covid_general_weekly.iloc[-1,0] = round(covid_general_weekly.iloc[-1,0] * [24.9 if x==1 else 5.4 if x==2 else 2.6 if x==3 else 1.8 if x==4 else 1.4 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
-# projected current week death cases
-covid_general_weekly.iloc[-1,1] = round(covid_general_weekly.iloc[-1,1] * [14.7 if x==1 else 3.6 if x==2 else 2.2 if x==3 else 1.6 if x==4 else 1.3 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
-# projected current week recovered cases
-covid_general_weekly.iloc[-1,2] = round(covid_general_weekly.iloc[-1,2] * [12.7 if x==1 else 4.3 if x==2 else 2.5 if x==3 else 1.8 if x==4 else 1.3 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
+if covid_general_weekly.iloc[-1,0] != 53:
+    pass
+else:
+    # getting the current day to calculate projected values for the current week
+    last_day_num = covid_general['date'].dt.isocalendar().day.values[-1]
+    # projected current week confirmed cases
+    covid_general_weekly.iloc[-1,0] = round(covid_general_weekly.iloc[-1,0] * [24.9 if x==1 else 5.4 if x==2 else 2.6 if x==3 else 1.8 if x==4 else 1.4 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
+    # projected current week death cases
+    covid_general_weekly.iloc[-1,1] = round(covid_general_weekly.iloc[-1,1] * [14.7 if x==1 else 3.6 if x==2 else 2.2 if x==3 else 1.6 if x==4 else 1.3 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
+    # projected current week recovered cases
+    covid_general_weekly.iloc[-1,2] = round(covid_general_weekly.iloc[-1,2] * [12.7 if x==1 else 4.3 if x==2 else 2.5 if x==3 else 1.8 if x==4 else 1.3 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
 
 # removing the first week as it starts on Saturday
 covid_general_weekly = covid_general_weekly[1:]
@@ -75,11 +78,13 @@ fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[27, 27], y=[-0.2,0.5],
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[28, 28], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[36, 36], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='purple'))
+                             mode='lines', line=dict(dash='dash'), name='First mass protest', marker_color='grey'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[38, 38], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[48, 48], y=[-0.2,0.5],
                              mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
+fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[52, 52], y=[-0.2,0.5],
+                             mode='lines', line=dict(dash='dash'), name='Antigen tests', marker_color='orange'))
 fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -95,9 +100,10 @@ fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[27, 27], y=[0,10000],
 fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[28, 28], y=[0,10000],
                              mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
 fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[36, 36], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='purple'))
+                             mode='lines', line=dict(dash='dash'), name='First mass protest', marker_color='grey'))
 fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[38, 38], y=[0,10000],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
+
 fig_gen_stats_weekly_events.update_layout(title='New confirmed cases per week + summer events', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
 fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
@@ -115,11 +121,13 @@ fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[27, 27], y=[0,20000],
 fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[28, 28], y=[0,20000],
                              mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
 fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[36, 36], y=[0,20000],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='purple'))
+                             mode='lines', line=dict(dash='dash'), name='First mass protest', marker_color='grey'))
 fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[38, 38], y=[0,20000],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
 fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[48, 48], y=[0,20000],
                              mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
+fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[52, 52], y=[0,20000],
+                             mode='lines', line=dict(dash='dash'), name='Antigen tests', marker_color='orange'))
 fig_gen_stats_weekly_events_2.update_layout(title='New confirmed cases per week + summer events + second lockdown', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats_weekly_events_2.update_xaxes(range=[24, covid_general_weekly.index[-1]])
 
@@ -285,11 +293,13 @@ fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,7,1), pd.Timestamp(2020,7,1)],
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,7,11), pd.Timestamp(2020,7,11)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,2), pd.Timestamp(2020,9,2)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='grey'))
+                             mode='lines', line=dict(dash='dash'), name='First mass protest', marker_color='grey'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
 fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,11,28), pd.Timestamp(2020,11,28)], y=[-1500,5000],
                              mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
+fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,12,24), pd.Timestamp(2020,12,24)], y=[-1500,5000],
+                             mode='lines', line=dict(dash='dash'), name='Antigen tests', marker_color='orange'))
 
 
 ####### REPRODUCTION NUMBER #######
@@ -431,7 +441,7 @@ fig_rt.add_trace(go.Scatter(x=index_bg, y=highfn_bg(date2num(extended_bg)),
                             fill='tonexty', mode='none', fillcolor="rgba(65,65,65,1)", line_shape='spline',
                             name="High density interval"))
 fig_rt.add_trace(go.Scatter(x=index_bg, y=values_bg, mode='markers+lines', line=dict(width=0.3, dash='dot'), line_shape='spline',
-                            marker_color=values_bg, marker_colorscale='RdYlBu_r', marker_line_width=1.2,
+                            marker_color=values_bg, marker_colorscale='RdYlGn_r', marker_line_width=1.2,
                             marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'))
 fig_rt.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> for Bulgaria", showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
@@ -491,7 +501,7 @@ def generate_rt_by_province(provinces, final_results):
                                 name="High density interval"), row=row_num, col=col_num)
         fig_rt_province.add_trace(go.Scatter(x=subset.date, y=subset.Estimated, mode='markers+lines',
                                 line=dict(width=0.3, dash='dot'), line_shape='spline',
-                                marker_color=subset.Estimated, marker_colorscale='RdYlBu_r', marker_line_width=1.2,
+                                marker_color=subset.Estimated, marker_colorscale='RdYlGn_r', marker_line_width=1.2,
                                 marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'), row=row_num, col=col_num)
 
     fig_rt_province.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> by province", height=4000, showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
@@ -691,11 +701,15 @@ app = dash.Dash(
     meta_tags = [
         {
             "name": "description",
-            "content": "Live coronavirus statistics for Bulgaria on both national and province level. Daily updated visualizations showing confirmed COVID-19 cases, recovered, death and currently active cases, COVID-19 spread by province, by age band, real-time reproduction number by province, recovery and death rates (potentially caused by SARS-COV-2), hospitalized patients, patients in intensive care units. Also allows the user to create predictions for the future cases on a province level, using ARIMA model or triple exponential smoothing. Актуална статистика за случаите на коронавирус в България - на национално и областно ниво. Визуализациите се обновяват ежедневно и включват нови случаи, излекувани, хоспитализирани, смъртни случаи."
+            "content": "Live coronavirus statistics for Bulgaria on both national and province level. Daily updated visualizations showing confirmed COVID-19 cases, recovered, death and currently active cases, COVID-19 spread by province, by age band, real-time reproduction number by province, recovery and death rates (potentially caused by SARS-CoV-2), hospitalized patients, patients in intensive care units. Also allows the user to create predictions for the future cases on a province level, using ARIMA model or triple exponential smoothing."
         },
         {
-            "name": "viewport", "content": "width=device-width, initial-scale=1.0"
+            "name": "desc",
+            "content": "Актуална статистика за случаите на коронавирус в България - на национално и областно ниво. Визуализациите се обновяват ежедневно и включват нови случаи, излекувани, хоспитализирани, смъртни случаи."
         }
+        #{
+        #    "name": "viewport", "content": "width=device-width, initial-scale=1.0"
+        #}
     ]
 )
 app.title = 'COVID-19 in Bulgaria'
@@ -882,9 +896,9 @@ cards = dbc.CardDeck(className="carddeck", children=[
 daily_summary = html.Div(
     [
     dcc.Markdown(f"The number of **new confirmed cases** from the last daily update is **{new_t:,}** and the **recovered cases** are **{recoveries_t:,}**. Yesterday **{deaths_t:,}** infected people have lost their lives, which adds up to {covid_general.total_deaths.tail(1).values[0]:,} total death cases since the start of the pandemic. The total number of people with **currently active infections has {'increased' if new_t > recoveries_t else 'decreased'} with {abs(new_t - recoveries_t - deaths_t):,}** and is now {active_t:,}, which is {active_t / pop_by_province['pop'].sum():.2%} of the total population in Bulgaria, or {int((100000*active_t / pop_by_province['pop'].sum()).round(0)):,} infected people per 100,000 population."),
-    dcc.Markdown(f"The number of **hospitalized patients has {'increased' if hospitalized_change_t > 0 else 'decreased'} with {abs(hospitalized_change_t):,}** and now stands at {hospitalized_t:,}, which is {hospitalized_t / active_t:.2%} of the currently active cases. The number of **patients in intensive care units has {'increased' if intensive_care_change_t > 0 else 'decreased'} with {intensive_care_change_t:,} and is now {intensive_care_t:,}**, which is {intensive_care_t / hospitalized_t:.2%} of the currently hospitalized patients, or {intensive_care_t / active_t:.2%} of the total active cases."),
+    dcc.Markdown(f"The number of **hospitalized patients has {'increased' if hospitalized_change_t > 0 else 'decreased'} with {abs(hospitalized_change_t):,}** and now stands at {hospitalized_t:,}, which is {hospitalized_t / active_t:.2%} of the currently active cases. The number of **patients in intensive care units has {'increased' if intensive_care_change_t > 0 else 'decreased'} with {abs(intensive_care_change_t):,} and is now {intensive_care_t:,}**, which is {intensive_care_t / hospitalized_t:.2%} of the currently hospitalized patients, or {intensive_care_t / active_t:.2%} of the total active cases."),
     dcc.Markdown(f"The provinces with the highest number of new cases are {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[0]):,}), {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[1]):,}) and {covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new cases',ascending=False).head(3)['new cases'].values[2]):,}). In terms of new daily cases per 100,000 population, the leading provinces for the last day are **{covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[1]):,})** and **{covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='new_per_100k',ascending=False).head(3)['new_per_100k'].values[2]):,})**. Still, the top 3 provinces that need special attention with highest number of active infections per 100,000 population are **{covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[0]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[0]):,}), {covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[1]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[1]):,})** and **{covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['province'].values[2]} ({int(covid_yesterday.sort_values(by='active_per_100k',ascending=False).head(3)['active_per_100k'].values[2]):,})**."),
-    dcc.Markdown(f"The **reproduction number** from the last day on a national level is **{round(values_bg.values[-1],2)}**, which means that the overall spread of the disease is {'decreasing decisively' if values_bg.values[-1] < 0.5 else 'well under control' if values_bg.values[-1] < 0.75 else 'under control' if values_bg.values[-1] < 0.95 else 'continuing to grow almost linearly' if values_bg.values[-1] < 1.05 else 'slightly not under control' if values_bg.values[-1] < 1.25 else 'continuing to increase and is not under control' if values_bg.values[-1] < 1.5 else 'growing up at a very fast pace'}, i.e. 100 infectious people are directly infecting other {int(100*values_bg.values[-1])} people."),
+    dcc.Markdown(f"The **reproduction number** from the last day on a national level is **{round(values_bg.values[-1],2)}**, which means that the overall spread of the disease is **{'decreasing decisively' if values_bg.values[-1] < 0.5 else 'well under control' if values_bg.values[-1] < 0.75 else 'under control' if values_bg.values[-1] < 0.95 else 'continuing to grow almost linearly' if values_bg.values[-1] < 1.05 else 'slightly not under control' if values_bg.values[-1] < 1.25 else 'continuing to increase and is not under control' if values_bg.values[-1] < 1.5 else 'growing up at a very fast pace'}**, i.e. 100 infectious people are directly infecting other {int(100*values_bg.values[-1])} people."),
     dcc.Markdown(f"The provinces with **the highest reproduction number** as of yesterday are **{mr.sort_values(by='Estimated').province.values[-1]} ({mr.sort_values(by='Estimated').Estimated.values[-1]:.2f}), {mr.sort_values(by='Estimated').province.values[-2]} ({mr.sort_values(by='Estimated').Estimated.values[-2]:.2f})** and **{mr.sort_values(by='Estimated').province.values[-3]} ({mr.sort_values(by='Estimated').Estimated.values[-3]:.2f})**. On the other hand, the provinces where the disease is spreading at the slowest pace are **{mr.sort_values(by='Estimated').province.values[0]} ({mr.sort_values(by='Estimated').Estimated.values[0]:.2f}), {mr.sort_values(by='Estimated').province.values[1]} ({mr.sort_values(by='Estimated').Estimated.values[1]:.2f})** and **{mr.sort_values(by='Estimated').province.values[2]} ({mr.sort_values(by='Estimated').Estimated.values[2]:.2f})**.")
     ]
 )
@@ -928,7 +942,7 @@ tabs = html.Div([
                     html.H4("Cases on a weekly basis"),
                     html.Br(),
                     dcc.Graph(figure=fig_gen_stats_weekly),
-                    html.P("The weekly cases distribution chart above shows that the number of new confirmed cases per week was relatively stable during the summer (week 25 - week 40), but drastically started to increase in the early October. Although the number of cases is currently at its highest level ever, the exponential growth seems to be ended by the end of November. The other good news is that the number of new recoveries have also increased greatly and are still following their exponential trend. The number of new death cases have made a new weekly records for 8 consecutive weeks, but that tendency has ended in mid-December.")
+                    html.P("The weekly cases distribution chart above shows that the number of new confirmed cases per week was relatively stable during the summer (week 25 - week 40), but drastically started to increase in the early October (week 40). The number of new cases per week reached its peak about mid November (week 47), but then started to decrease. About that time the number of new recoveries have also started to increase greatly and although they lost some momentum, the recoveries surpassed the new cases per week before mid December (week 50). On the bad side, between mid October and early December (weeks 42-49), the number of new death cases were breaking the all-time record for 8 consecutive weeks, but that tendency ended in mid-December (week 52).")
                 ]
             ),
             dcc.Tab(
@@ -991,13 +1005,17 @@ tabs = html.Div([
                 ]
             ),
             dcc.Tab(
-                label = "Rt",
+                label = "Reproduction",
                 className = "custom-tab",
                 selected_className = "custom-tab--selected",
                 children = [
                     html.Br(),
                     html.Br(),
                     html.P("The estimated daily reproduction number represents how many people are directly infected by 1 infectious person per each day. Ideally, we want this number to be lower than 1. Otherwise, the disease is spreading linearly (=1) or exponentially (>1)."),
+                    html.Div([
+                    	html.Small("The calculation of Rt is done using the algorithm proposed by Kevin Systrom, "),
+                    	html.Small(html.A('which can be found here.', href='https://github.com/k-sys/covid-19/blob/master/Realtime%20R0.ipynb', target='_blank'))
+                    ], style={'font-size':'19px'}),
                     html.Br(),
                     dcc.Markdown(f"The reproduction number from the last day on a national level is **{round(values_bg.values[-1],2)}**, which means that the overall spread of the disease is **{'decreasing decisively' if values_bg.values[-1] < 0.5 else 'well under control' if values_bg.values[-1] < 0.75 else 'under control' if values_bg.values[-1] < 0.95 else 'continuing to grow almost linearly' if values_bg.values[-1] < 1.05 else 'slightly not under control' if values_bg.values[-1] < 1.25 else 'continuing to increase and is not under control' if values_bg.values[-1] < 1.5 else 'growing up at a very fast pace'}**, i.e. 100 infectious people are directly spreading the disease to {int(100*values_bg.values[-1])} other people."),
                     html.Br(),
@@ -1127,7 +1145,7 @@ tabs = html.Div([
                     html.Br(),
                     html.H4("Did the crowded events  during the summer had any effect on the number of new cases?"),
                     html.Br(),
-                    html.P("Five major dates were selected: the end of the first lockdown, when the borders with Greece were re-opened (15th June); the football cup final with 20,000 spectators on the stands (1st July); the beginning of the anti-government protests (11th July); the first mass anti-government protest (2nd September); the school opening (15th September). The second lockdown date was also added (28th November)."),
+                    html.P("Five major dates were selected: the end of the first lockdown, when the borders with Greece were re-opened (15th June); the football cup final with 20,000 spectators on the stands (1st July); the beginning of the anti-government protests (11th July); the first mass anti-government protest (2nd September); the school opening (15th September). The second lockdown date was also added (28th November 2020), as well as the date since the Antigen tests started to get into the official statistics (24th December 2020)."),
                     html.Br(),
                     html.P("The first chart shows that despite the high activity during the summer (summer holidays, mass events, daily protests), there was very little or no immediate effect on the number of new confirmed cases."),
                     html.P("It is expected to have a few (2-4) weeks lag between the event and the result, but still the only major increase of the confirmed cases began almost a month after the school opening, and there was no other change that can be associated with the other mass events."),
