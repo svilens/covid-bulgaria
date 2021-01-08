@@ -1185,7 +1185,9 @@ footer = html.Div(
         html.Small(" and "),
         html.Small(html.A("Ivaylo Stoyanov", href="https://www.linkedin.com/in/ivaylo-stoyanov-0124b2119/", target="_blank")),
         html.Small(", inspired by "),
-        html.Small(html.A("Martin Boyanov", href="https://www.linkedin.com/in/martin-boyanov-1ab2124a/", target="_blank"))
+        html.Small(html.A("Martin Boyanov", href="https://www.linkedin.com/in/martin-boyanov-1ab2124a/", target="_blank")),
+        html.Br(),
+        html.Small(html.A("Source code", href="https://github.com/svilens/covid-bulgaria/", target="_blank")),
     ], style={'font-style':'italic', 'padding-left':'10px'}
 )
 
@@ -1200,8 +1202,8 @@ app.layout = html.Div([
 ])
 
 
-logger.info('Creating dash callbacks')
 #Callbacks
+logger.info('Creating dash callbacks')
 @app.callback(
     [
         dash.dependencies.Output('custom-arima-output', 'figure'),
