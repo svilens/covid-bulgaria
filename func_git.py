@@ -6,7 +6,8 @@ def git_push_automation():
         #logger.info("cp", cp)
         cmd.run('git add -A', check=True, shell=True)
         cmd.run('git commit -m "daily update"', check=True, shell=True)
-        cmd.run("git push heroku master", check=True, shell=True)
+        #cmd.run("git push heroku master", check=True, shell=True)
+        cmd.run("git push", check=True, shell=True)
         return ("Pushed to Heroku")
     except:
         return ("Git automation failed")

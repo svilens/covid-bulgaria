@@ -989,3 +989,5 @@
 2021-01-08 10:54:16,688 — __main__ — INFO — Holt-Winter's model
 2021-01-08 10:54:17,281 — __main__ — INFO — Processing is done. Total runtime: 1:26:27.623216
 2021-01-08 10:54:17,281 — __main__ — INFO — Starting git push
+2021-01-08 10:54:17,702 — __main__ — INFO — Git automation failed
+2021-01-08 10:54:17,702 — __main__ — INFO — FINISHED! Starting dash...
