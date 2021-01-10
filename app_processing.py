@@ -5,7 +5,7 @@ import warnings
 warnings.simplefilter('ignore')
 
 # from external modules
-from func_download_data import *
+from func_download_data_api import *
 from func_read_spatial import *
 from func_read_covid import *
 from func_read_nsi import *
@@ -15,32 +15,20 @@ global_start = datetime.now()
 logger = get_logger(__name__)
 logger.info('STARTED')
 
-covid_files = ['Обща статистика за разпространението.csv', 'Разпределение по дата и по области.csv',
-               'Разпределение по дата и по възрастови групи.csv']
 
-for filename in covid_files:
-    backup_existing_file(filename)
-
-logger.info('COVID-19 files backup is done!')
-
-covid_urls = ['https://data.egov.bg/data/resourceView/e59f95dd-afde-43af-83c8-ea2916badd19', # general
-              'https://data.egov.bg/data/resourceView/cb5d7df0-3066-4d7a-b4a1-ac26525e0f0c', # province
-              'https://data.egov.bg/data/resourceView/8f62cfcf-a979-46d4-8317-4e1ab9cbd6a8'] # age bands
-
-#for url in covid_urls:
-#    download_files(url, "chrome")
-check_src = download_files(covid_urls[0], "chrome")
-if check_src == 'STOP':
-    logger.info('Source data modified date is different than the current date. Check if the source is up to date. Process terminated!')
-    import sys
+# Download data
+api_request = get_covid_data()
+if api_request == 'old':
+    logger.info('The last date on the source data is different than the current date. Check if the source has been updated today. Process terminated!')
     sys.exit()
-download_files(covid_urls[1], "chrome")
-download_files(covid_urls[2], "chrome")
+elif api_request == 'error':
+    logger.info('There was an error while communicating with the API. Process terminated!')
+    sys.exit()
 
-logger.info('Finished downloading the new COVID-19 files!')
+logger.info('Finished downloading the new COVID-19 data!')
 
 logger.info('Reading general stats file')
-covid_general = read_covid_general('./data/Обща статистика за разпространението.csv', 'Дата')
+covid_general = read_covid_general('./data/COVID_general.csv', 'Дата')
 covid_general.head()
 
 import plotly.graph_objects as go
@@ -149,7 +137,7 @@ for f in [fig_rates_mort_rec, fig_rates_hospitalized, fig_rates_positive_tests]:
 logger.info('Reading spatial data file')
 
 geodf = read_spatial_data('./shape/BGR_adm1.shp', codes_spatial)
-covid_by_province = read_covid_by_province('./data/Разпределение по дата и по области.csv', date_col='Дата')
+covid_by_province = read_covid_by_province('./data/COVID_provinces.csv', date_col='Дата')
 pop_by_province = read_population_data('./data/Pop_6.1.1_Pop_DR.xls', worksheet_name='2019',
                                            col_num=2, col_names=['municipality','pop'],
                                            skip=5, codes=codes_pop)
@@ -216,7 +204,7 @@ fig_yesterday_map_new = fig_yesterday_map_new.update_layout(paper_bgcolor='rgba(
 
 
 logger.info('Charting age bands')
-covid_by_age_band = (pd.read_csv('./data/Разпределение по дата и по възрастови групи.csv', parse_dates=['Дата'])
+covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата'])
                      .rename(columns={'Дата':'date'}))
 covid_by_age_band.head()
 

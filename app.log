@@ -991,3 +991,45 @@
 2021-01-08 10:54:17,281 — __main__ — INFO — Starting git push
 2021-01-08 10:54:17,702 — __main__ — INFO — Git automation failed
 2021-01-08 10:54:17,702 — __main__ — INFO — FINISHED! Starting dash...
+2021-01-11 01:10:18,039 — __main__ — INFO — STARTED
+2021-01-11 01:10:18,358 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 01:10:18,360 — __main__ — INFO — Reading general stats file
+2021-01-11 01:10:21,367 — __main__ — INFO — Charting weekly stats
+2021-01-11 01:10:22,222 — __main__ — INFO — Charting rates
+2021-01-11 01:10:22,893 — __main__ — INFO — Reading spatial data file
+2021-01-11 01:12:52,972 — __main__ — INFO — STARTED
+2021-01-11 01:12:53,202 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 01:12:53,204 — __main__ — INFO — Reading general stats file
+2021-01-11 01:12:53,709 — __main__ — INFO — Charting weekly stats
+2021-01-11 01:12:54,451 — __main__ — INFO — Charting rates
+2021-01-11 01:12:55,206 — __main__ — INFO — Reading spatial data file
+2021-01-11 01:12:58,727 — __main__ — INFO — Charting age bands
+2021-01-11 01:12:59,276 — __main__ — INFO — Starting Rt processing
+2021-01-11 01:14:36,294 — __main__ — INFO — STARTED
+2021-01-11 01:14:36,782 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 01:14:36,783 — __main__ — INFO — Reading general stats file
+2021-01-11 01:14:39,518 — __main__ — INFO — Charting weekly stats
+2021-01-11 01:21:53,777 — __main__ — INFO — STARTED
+2021-01-11 01:21:54,811 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 01:21:54,813 — __main__ — INFO — Reading general stats file
+2021-01-11 01:21:55,223 — __main__ — INFO — Charting weekly stats
+2021-01-11 01:21:56,075 — __main__ — INFO — Charting rates
+2021-01-11 01:21:56,791 — __main__ — INFO — Reading spatial data file
+2021-01-11 01:22:00,355 — __main__ — INFO — Charting age bands
+2021-01-11 01:26:24,723 — __main__ — INFO — STARTED
+2021-01-11 01:26:26,037 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 01:26:26,039 — __main__ — INFO — Reading general stats file
+2021-01-11 01:28:40,465 — __main__ — INFO — STARTED
+2021-01-11 01:28:55,463 — __main__ — INFO — STARTED
+2021-01-11 01:30:06,948 — __main__ — INFO — STARTED
+2021-01-11 01:30:08,070 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 01:30:08,072 — __main__ — INFO — Reading general stats file
+2021-01-11 01:30:36,445 — __main__ — INFO — STARTED
+2021-01-11 01:30:53,882 — __main__ — INFO — STARTED
+2021-01-11 01:30:54,861 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 01:30:54,863 — __main__ — INFO — Reading general stats file
+2021-01-11 01:30:57,313 — __main__ — INFO — Charting weekly stats
+2021-01-11 01:30:58,160 — __main__ — INFO — Charting rates
+2021-01-11 01:30:58,776 — __main__ — INFO — Reading spatial data file
+2021-01-11 01:31:02,269 — __main__ — INFO — Charting age bands
+2021-01-11 01:31:02,924 — __main__ — INFO — Starting Rt processing

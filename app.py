@@ -16,7 +16,7 @@ logger.info('Starting the process')
 ####### GENERAL STATS #######
 
 logger.info('Reading general stats')
-covid_general = read_covid_general('./data/Обща статистика за разпространението.csv', 'Дата')
+covid_general = read_covid_general('./data/COVID_general.csv', 'Дата')
 
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -183,7 +183,7 @@ for f in [fig_rates_mort_rec, fig_rates_mort_rec_v2, fig_rates_hospitalized, fig
 
 logger.info('Reading spatial data')
 geodf = read_spatial_data('./shape/BGR_adm1.shp', codes_spatial)
-covid_by_province = read_covid_by_province('./data/Разпределение по дата и по области.csv', date_col='Дата')
+covid_by_province = read_covid_by_province('./data/COVID_provinces.csv', date_col='Дата')
 pop_by_province = read_population_data('./data/Pop_6.1.1_Pop_DR.xls', worksheet_name='2019',
                                            col_num=2, col_names=['municipality','pop'],
                                            skip=5, codes=codes_pop)
@@ -272,7 +272,7 @@ fig_yesterday_map_active.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, templa
 ### Age bands
 
 logger.info('Reading age bands data')
-covid_by_age_band = (pd.read_csv('./data/Разпределение по дата и по възрастови групи.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'}))
+covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'}))
 
 
 logger.info('Creating chart 10: Cumulative cases by age band')
