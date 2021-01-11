@@ -27,79 +27,14 @@ elif api_request == 'error':
 
 logger.info('Finished downloading the new COVID-19 data!')
 
+
 logger.info('Reading general stats file')
 covid_general = read_covid_general('./data/COVID_general.csv', 'Дата')
-covid_general.head()
-
-import plotly.graph_objects as go
-import plotly.io as pio
-pio.templates.default = "plotly_dark"
-from plotly.offline import plot
-
-fig_gen_stats = go.Figure()
-fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_cases, name='Confirmed'))
-fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.active_cases, line=dict(color='yellow'), name='Active'))
-fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_recoveries, line=dict(color='green'), name='Recovered'))
-fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_deaths, line=dict(color='red'), name='Deaths'))
-fig_gen_stats.update_layout(title='Number of cases over time (cumulative)')
-fig_gen_stats = fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
 covid_general['week'] = covid_general.date.dt.isocalendar().week
 covid_general_weekly = covid_general.groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
 covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
 # removing the first week as it starts on Saturday, and the last week, as it would be incomplete in most cases
 covid_general_weekly = covid_general_weekly[1:-1]
-
-
-logger.info('Charting weekly stats')
-from plotly.subplots import make_subplots
-
-fig_gen_stats_weekly = make_subplots(specs=[[{"secondary_y": True}]])
-fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases[1:], name='New confirmed cases'), secondary_y=False)
-fig_gen_stats_weekly.add_trace(go.Bar(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_deaths[1:], name='New death cases'), secondary_y=True)
-fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_recoveries[1:], name='New recoveriers'), secondary_y=True)
-fig_gen_stats_weekly.update_layout(title = 'New cases per week')
-fig_gen_stats_weekly.update_xaxes(title_text="week number")
-fig_gen_stats_weekly.update_yaxes(title_text="Confirmed cases", secondary_y=False)
-fig_gen_stats_weekly.update_yaxes(title_text="Deaths / recoveries", secondary_y=True)
-fig_gen_stats_weekly = fig_gen_stats_weekly.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
-
-fig_gen_stats_weekly_new_pct = go.Figure()
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases_pct_change[1:], line=dict(color='orange'), line_shape='spline', name='Confirmed % change'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[25, 25], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[27, 27], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='yellow'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[28, 28], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[36, 36], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='brown'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[38, 38], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
-fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change')
-fig_gen_stats_weekly_new_pct = fig_gen_stats_weekly_new_pct.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
-
-fig_gen_stats_weekly_events = go.Figure()
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=covid_general_weekly.index[1:], 
-                                                 y=covid_general_weekly.new_cases[1:],
-                                                 name='New confirmed cases'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[25, 25], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[27, 27], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='yellow'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[28, 28], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[36, 36], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='purple'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[38, 38], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
-fig_gen_stats_weekly_events.update_layout(title='New confirmed cases per week + summer events')
-fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
-fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
-fig_gen_stats_weekly_events = fig_gen_stats_weekly_events.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
 
 covid_general['total_cases_7days_ago'] = covid_general['total_cases'].shift(periods=7)
 covid_general['total_cases_14days_ago'] = covid_general['total_cases'].shift(periods=14)
@@ -108,30 +43,6 @@ covid_general['recovery_rate'] = (covid_general['total_recoveries'] / covid_gene
 covid_general['hospitalized_rate'] = (covid_general['hospitalized'] / covid_general['active_cases']).round(4)
 covid_general['intensive_care_rate'] = (covid_general['intensive_care'] / covid_general['hospitalized']).round(4)
 covid_general['tests_positive_rate'] = (covid_general['new_cases'] / covid_general['daily_tests']).round(4)
-
-logger.info('Charting rates')
-
-fig_rates_mort_rec = go.Figure()
-fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.death_rate,
-                               line_shape='spline', line=dict(color='red'), name='Mortality rate'))
-fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.recovery_rate,
-                               line_shape='spline', line=dict(color='green'), name='Recovery rate', visible='legendonly'))
-fig_rates_mort_rec.update_layout(title='COVID-19 mortality and recovery rates over time')
-
-fig_rates_hospitalized = go.Figure()
-fig_rates_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.hospitalized_rate,
-                               line_shape='spline', line=dict(color='yellow'), name='Hospitalized rate'))
-fig_rates_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.intensive_care_rate,
-                               line_shape='spline', line=dict(color='orange'), name='Intensive care rate'))
-fig_rates_hospitalized.update_layout(title="COVID-19 hospitalized and intensive care rates over time")
-
-fig_rates_positive_tests = go.Figure()
-fig_rates_positive_tests.add_trace(go.Scatter(x=covid_general.date, y=covid_general.tests_positive_rate,
-                               line_shape='spline', line=dict(color='cyan'), name='Tests positive rate'))
-fig_rates_positive_tests.update_layout(title="COVID-19 positive tests rate")
-# for the dashboard
-for f in [fig_rates_mort_rec, fig_rates_hospitalized, fig_rates_positive_tests]:
-    f.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Reading spatial data file')
@@ -153,8 +64,7 @@ covid_pop = gpd.GeoDataFrame(covid_pop)
 covid_pop.reset_index()[['date', 'province', 'ALL', 'new_cases']].rename(columns={'ALL':'total_cases'}).to_csv('./dash_data/ts_data.csv', header=True)
 
 covid_pop_sorted = covid_pop.sort_values(by=['date', 'ALL'])
-# animation frame parameter should be string or int
-#covid_pop_sorted['day'] = covid_pop_sorted.date.apply(lambda x: (x - min(covid_pop_sorted.date)).days + 1)
+
 
 geodf['geometry'] = geodf['geometry'].simplify(tolerance=0.00001, preserve_topology=True)
 
@@ -164,71 +74,10 @@ covid_yesterday = gpd.GeoDataFrame(
         .join(geodf[['code','geometry']].set_index('code'))
         )
 
-import plotly.express as px
-#init_notebook_mode()
-
-fig_yesterday_map_total = px.choropleth_mapbox(
-    covid_yesterday,
-    geojson=covid_yesterday.geometry,
-    locations=covid_yesterday.index,
-    color='total_per_100k',
-    color_continuous_scale='Burgyl',
-    hover_name='province',
-    labels={'total_per_100k':'total infections<br>per 100k pop'},
-    title='Total confirmed cases per 100,000 population by province',
-    center={'lat': 42.734189, 'lon': 25.1635087},
-    mapbox_style='carto-darkmatter',
-    opacity=1,
-    zoom=6
-)
-fig_yesterday_map_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-fig_yesterday_map_total = fig_yesterday_map_total.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
-
-fig_yesterday_map_new = px.choropleth_mapbox(
-    covid_yesterday,
-    geojson=covid_yesterday.geometry,
-    locations=covid_yesterday.index,
-    color='new_per_100k',
-    color_continuous_scale='Burgyl',
-    hover_name='province',
-    labels={'new_per_100k':'infections<br>per 100k pop'},
-    title=f"New cases by province for {covid_yesterday.date.max().strftime('%d %b %Y')}",
-    center={'lat': 42.734189, 'lon': 25.1635087},
-    mapbox_style='carto-darkmatter',
-    opacity=1,
-    zoom=6
-)
-fig_yesterday_map_new.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark')
-fig_yesterday_map_new = fig_yesterday_map_new.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
 
 logger.info('Charting age bands')
 covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата'])
                      .rename(columns={'Дата':'date'}))
-covid_by_age_band.head()
-
-age_band_colors = ['green', 'cyan', 'magenta', 'ghostwhite', 'coral', 'royalblue', 'darkred', 'orange', 'brown']
-
-fig_age = go.Figure()
-i=0
-for col in covid_by_age_band.columns[1:]:
-    fig_age.add_trace(go.Scatter(x=covid_by_age_band['date'], y=covid_by_age_band[col], mode='lines',
-                                 line=dict(width=3, color=age_band_colors[i]), name=col))
-    i+=1
-fig_age.update_layout(title='Total cases over time by age band', template='plotly_dark')
-
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,6,15), pd.Timestamp(2020,6,15)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,7,1), pd.Timestamp(2020,7,1)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='white'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,7,11), pd.Timestamp(2020,7,11)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='white'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,2), pd.Timestamp(2020,9,2)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='1st mass protest', marker_color='white'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='white'))
-fig_age = fig_age.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Starting Rt processing')
@@ -247,10 +96,8 @@ from scipy import stats as sps
 from scipy.interpolate import interp1d
 
 provinces = covid_pop_sorted[['province', 'date', 'ALL']].groupby(['province','date']).ALL.sum()
-provinces.head()
 
 bg_total_new = provinces.groupby('date').sum()
-bg_total_new.head()
 
 def prepare_cases(cases):
     new_cases = cases.diff()
@@ -271,28 +118,12 @@ orig_bg, smoothed_bg = prepare_cases(bg_total_new)
 orig_bg.to_csv('./dash_data/r0_bg_original.csv', header=True)
 smoothed_bg.to_csv('./dash_data/r0_bg_smoothed.csv', header=True)
 
-fig_new_bg = go.Figure()
-fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset_index()['ALL'],
-                                      mode='lines', line=dict(dash='dot'), name='Actual'))
-fig_new_bg.add_trace(go.Scatter(x=smoothed_bg.reset_index()['date'], y=smoothed_bg.reset_index()['ALL'],
-                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='steelblue'))
-fig_new_bg.update_layout(title='Daily new cases in Bulgaria')
-fig_new_bg = fig_new_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
 
 # smoothed new recoveries
 bg_recovered = covid_general[['date', 'total_recoveries']].groupby('date')['total_recoveries'].sum()
 orig_recovered_bg, smoothed_recovered_bg = prepare_cases(bg_recovered)
 orig_recovered_bg.to_csv('./dash_data/r0_bg_original_recovered.csv', header=True)
 smoothed_recovered_bg.to_csv('./dash_data/r0_bg_smoothed_recovered.csv', header=True)
-
-fig_recovered_bg = go.Figure()
-fig_recovered_bg.add_trace(go.Scatter(x=orig_recovered_bg.reset_index()['date'], y=orig_recovered_bg.reset_index()['total_recoveries'],
-                                      mode='lines', line=dict(dash='dot'), name='Actual'))
-fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['date'], y=smoothed_recovered_bg.reset_index()['total_recoveries'],
-                                      mode='lines', line=dict(width=3), name='Smoothed', marker_color='lime'))
-fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria')
-fig_recovered_bg = fig_recovered_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 # smoothed deaths
@@ -301,13 +132,6 @@ orig_deaths_bg, smoothed_deaths_bg = prepare_cases(bg_deaths)
 orig_deaths_bg.to_csv('./dash_data/r0_bg_original_deaths.csv', header=True)
 smoothed_deaths_bg.to_csv('./dash_data/r0_bg_smoothed_deaths.csv', header=True)
 
-fig_deaths_bg = go.Figure()
-fig_deaths_bg.add_trace(go.Scatter(x=orig_deaths_bg.reset_index()['date'], y=orig_deaths_bg.reset_index()['total_deaths'],
-                                      mode='lines', line=dict(dash='dot'), name='Actual'))
-fig_deaths_bg.add_trace(go.Scatter(x=smoothed_deaths_bg.reset_index()['date'], y=smoothed_deaths_bg.reset_index()['total_deaths'],
-                                      mode='lines', line=dict(width=3), name='Smoothed'))
-fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria')
-fig_deaths_bg = fig_deaths_bg.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 # smoothed new cases by age band
 covid_by_age_band_diff_smoothed = covid_by_age_band.set_index('date').diff().rolling(9,
@@ -315,41 +139,17 @@ covid_by_age_band_diff_smoothed = covid_by_age_band.set_index('date').diff().rol
         min_periods=1,
         center=True).mean(std=3).round()
 
-fig_age_diff = go.Figure()
-i=0
-for col in covid_by_age_band_diff_smoothed.columns:
-    fig_age_diff.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed.index, y=covid_by_age_band_diff_smoothed[col], mode='lines', line_shape='spline',
-                                 line=dict(color=age_band_colors[i]), name=col))
-    i+=1
-fig_age_diff.update_layout(title='New confirmed cases by age band (smoothed figures)')
-
 
 # age band new cases per 100k pop
 pop_by_age_band = read_nsi_age_bands('./data/Pop_6.1.2_Pop_DR.xls', worksheet_name='2019', col_num=2, col_names=['age_band', 'pop'], skip=5, rows_needed=22)
 covid_by_age_band_diff_smoothed_per100k = covid_by_age_band_diff_smoothed.copy()
 for col in covid_by_age_band_diff_smoothed_per100k.columns:
     covid_by_age_band_diff_smoothed_per100k[col] = (100000*covid_by_age_band_diff_smoothed_per100k[col]/pop_by_age_band.loc[pop_by_age_band.covid_age_band == col, 'pop'].values).round(0)
-    
-fig_age_per100k = go.Figure()
-i=0
-for col in covid_by_age_band_diff_smoothed_per100k.columns:
-    fig_age_per100k.add_trace(go.Scatter(x=covid_by_age_band_diff_smoothed_per100k.index, y=covid_by_age_band_diff_smoothed_per100k[col], mode='lines', line_shape='spline',
-                                 line=dict(width=2, color=age_band_colors[i]), name=col))
-    i+=1
-fig_age_per100k.update_layout(title='New confirmed daily cases by age band per 100,000 population (smoothed figures)')
-
 
 
 # provinces
-
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
 
-# create subplots structure
-fig_new_by_province = make_subplots(
-                            rows=int(len(provinces_list)/2),
-                            cols=2,
-                            subplot_titles = [f"{province}" for province in provinces_list]
-                        )
 r0_provinces_original = pd.DataFrame()
 r0_provinces_smoothed = pd.DataFrame()
 
@@ -368,26 +168,6 @@ for i, province in list(enumerate(provinces_list)):
     
 r0_provinces_original.to_csv('./dash_data/r0_provinces_original.csv', header=True)
 r0_provinces_smoothed.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
-    
-
-for i, province in list(enumerate(provinces_list)):
-    i += 1
-    import math
-    row_num = math.ceil(i/2)
-    if i % 2 != 0:
-        col_num = 1
-    else:
-        col_num = 2
-
-    fig_new_by_province.add_trace(go.Scatter(x=r0_provinces_original.reset_index()['date'], y=r0_provinces_original['new_cases'],
-                                      mode='lines', line=dict(dash='dot'), name='Actual'),
-                                  row=row_num, col=col_num)
-    fig_new_by_province.add_trace(go.Scatter(x=r0_provinces_smoothed.reset_index()['date'], y=r0_provinces_smoothed['new_cases'],
-                                      mode='lines', line=dict(width=3), name='Smoothed'),
-                                  row=row_num, col=col_num)
-    fig_new_by_province.update_layout(title='Daily new cases by province', height=3200, showlegend=False)
-
-fig_new_by_province = fig_new_by_province.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 # We create an array for every possible value of Rt
@@ -461,7 +241,6 @@ sigmas = np.linspace(1/100, 1, 100)
 result_bg = {}
  # Holds all posteriors with every given value of sigma
 result_bg['posteriors'] = []
-
 # Holds the log likelihood across all k for each value of sigma
 result_bg['log_likelihoods'] = []
 
@@ -482,7 +261,6 @@ max_likelihood_index_bg = total_log_likelihoods_bg.argmax()
 
 # Select the value that has the highest log likelihood
 sigma_bg = sigmas[max_likelihood_index_bg]
-
 
 posteriors_bg, log_likelihood_bg = get_posteriors(smoothed_bg, sigma=sigma_bg)
 
@@ -512,8 +290,6 @@ most_likely_bg = posteriors_bg.idxmax().rename('Estimated')
 # Look into why you shift -1
 result_bg = pd.concat([most_likely_bg, hdis_bg], axis=1)
 
-result_bg.tail()
-
 result_bg.to_csv('./dash_data/r0_bg_r0.csv', header=True)
 
 index_bg = result_bg['Estimated'].index.get_level_values('date')
@@ -531,19 +307,6 @@ highfn_bg = interp1d(date2num(index_bg),
 
 extended_bg = pd.date_range(start=index_bg[0],
                              end=index_bg[-1])
-
-fig_rt = go.Figure()
-fig_rt.add_trace(go.Scatter(x=index_bg, y=lowfn_bg(date2num(extended_bg)),
-                            fill='none', mode='lines', line_color="rgba(38,38,38,0.9)", line_shape='spline',
-                            name="Low density interval"))
-fig_rt.add_trace(go.Scatter(x=index_bg, y=highfn_bg(date2num(extended_bg)),
-                            fill='tonexty', mode='none', fillcolor="rgba(65,65,65,1)", line_shape='spline',
-                            name="High density interval"))
-fig_rt.add_trace(go.Scatter(x=index_bg, y=values_bg, mode='markers+lines', line=dict(width=0.3, dash='dot'), line_shape='spline',
-                            marker_color=values_bg, marker_colorscale='RdYlBu_r', marker_line_width=1.2,
-                            marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'))
-fig_rt.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> for Bulgaria", showlegend=False)
-fig_rt = fig_rt.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Calculating Rt for provinces')
@@ -595,9 +358,8 @@ for province_name, result in results.items():
         final_results = result
     else:
         final_results = pd.concat([final_results, result])
-    #clear_output(wait=True)
-logger.info(f'Provinces Rt runtime: {datetime.now() - start}')
 
+logger.info(f'Provinces Rt runtime: {datetime.now() - start}')
 
 final_results.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
 
@@ -613,53 +375,6 @@ mr_colors = ['green', 'crimson']
 mr['colors'] = np.select(mr_conditions, mr_colors)
 mr.loc[mr.status=="0", 'colors'] = 'grey'
 
-
-fig_rt_province_yesterday = go.Figure()
-fig_rt_province_yesterday.add_trace(go.Bar(x=mr.index, y=mr.Estimated, marker_color=mr.colors, 
-                          error_y=dict(type='data', array=mr.diff_up, arrayminus=mr.diff_down)))
-fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the last daily update')
-fig_rt_province_yesterday.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
-logger.info('Charting Rt for provinces')
-
-def generate_rt_by_province(provinces, final_results):
-    provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
-    data = final_results.reset_index()
-    # create base subplot
-    fig_rt_province = make_subplots(
-                                rows=int(len(provinces_list)/2),
-                                cols=2,
-                                subplot_titles=[province for province in provinces_list],
-                            )
-    # calculate figures for provinces
-    for i, province in list(enumerate(provinces_list)):
-        subset = data.loc[data.province==province]
-
-    # add charts for provinces
-        i += 1
-        row_num = math.ceil(i/2)
-        if i % 2 != 0:
-            col_num = 1
-        else:
-            col_num = 2
-
-        fig_rt_province.add_trace(go.Scatter(x=subset.date, y=subset.Low_90,
-                                fill='none', mode='lines', line_color="rgba(38,38,38,0.9)", line_shape='spline',
-                                name="Low density interval"), row=row_num, col=col_num)
-        fig_rt_province.add_trace(go.Scatter(x=subset.date, y=subset.High_90,
-                                fill='tonexty', mode='none', fillcolor="rgba(65,65,65,1)", line_shape='spline',
-                                name="High density interval"), row=row_num, col=col_num)
-        fig_rt_province.add_trace(go.Scatter(x=subset.date, y=subset.Estimated, mode='markers+lines',
-                                line=dict(width=0.3, dash='dot'), line_shape='spline',
-                                marker_color=subset.Estimated, marker_colorscale='RdYlBu_r', marker_line_width=1.2,
-                                marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'), row=row_num, col=col_num)
-
-    fig_rt_province.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> by province",
-                                      height=4000, showlegend=False)
-    return fig_rt_province
-
-
-fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 
 logger.info('Starting ARIMA')
 
@@ -677,7 +392,6 @@ from statsmodels.tsa.arima_model import ARIMA
 
 
 ts_data = pd.read_csv('./dash_data/ts_data.csv')
-#ts_data.head()
 
 #Function for making a time series on a province and plotting the rolled mean and standard deviation
 def roll(ts_data, region, column='total_cases'):
@@ -688,21 +402,6 @@ def roll(ts_data, region, column='total_cases'):
     a=len(test_s.loc[(test_s[column]>=10)])
     test_s=test_s[-a:]
     return (test_s.rolling(window=7,center=False).mean().dropna())
-
-def rollPlot(ts_data, region, column='total_cases'):
-    test_s=ts_data.loc[(ts_data['province']==region)]  
-    test_s=test_s[['date',column]]
-    test_s=test_s.set_index('date')
-    test_s.astype('int64')
-    a=len(test_s.loc[(test_s[column]>=10)])
-    test_s=test_s[-a:]
-    plt.figure(figsize=(16,6))
-    plt.plot(test_s.rolling(window=7,center=False).mean().dropna(),label='Rolling Mean')
-    plt.plot(test_s[column], label = 'Total cases')
-    plt.plot(test_s.rolling(window=7,center=False).std(),label='Rolling std')
-    plt.legend()
-    plt.title('Cases distribution in %s with rolling mean and standard' %region)
-    plt.xticks([])
 
 def split(ts, forecast_days=15):
     #size = int(len(ts) * math.log(0.80))
@@ -737,33 +436,21 @@ def arima_province(ts_data, province, column='total_cases', forecast_days=15):
     model = ARIMA(train, order=param)
     result = model.fit(disp=0)
     
-    #import matplotlib as mpl
-    #with mpl.rc_context():
-        #mpl.rc("figure", figsize=(12,5))
-        #result.plot_predict(start=int(len(train) * 0.7), end=int(len(train) * 1.2))
-        #plt.savefig(f"assets/arima_forecast_{province}.png", transparent=True)
-    
     pred=result.forecast(steps=len(test))[0]
     #Printing the error metrics
-    #print(result.summary())
     model_error = mape(test,pred)
-    #print('\nMean absolute percentage error: %f'%model_error)
     #Plotting results
     fig = go.Figure()
-    #fig.add_trace(go.Scatter(x=rolling[:len(train)].index, y=rolling[column][:len(train)], name='History', mode='lines'))
-    #fig.add_trace(go.Scatter(x=rolling[-len(test):].index, y=rolling[column][-len(test):], name='Actual', mode='lines'))
-    #fig.add_trace(go.Scatter(x=rolling[-len(test):].index, y=pred, name='Forecast', mode='lines'))
-    #fig.update_layout(title = f'True vs Predicted values for {"new cases" if column=="new_cases" else "total cases"} (7 days rolling mean) in {province} for {forecast_days} days')
 
     return (pred, result, fig, model_error, rolling.index, rolling[column])
 
 
 logger.info('Getting ARIMA predictions for provinces')
 
-from statsmodels.tools.sm_exceptions import ConvergenceWarning
-warnings.simplefilter('ignore', ConvergenceWarning)
+#from statsmodels.tools.sm_exceptions import ConvergenceWarning
+#warnings.simplefilter('ignore', ConvergenceWarning)
 
-start = datetime.now()
+start_arima = datetime.now()
 arima_provinces_df = pd.DataFrame()
 
 for province in ts_data['province'].unique():
@@ -777,180 +464,9 @@ for province in ts_data['province'].unique():
     arima_temp_df = pd.DataFrame({'date':arima_indexes, 'province':province, 'pred':arima_preds, 'error':arima_errors, 'value':arima_true_values})
     arima_provinces_df = pd.concat([arima_provinces_df, arima_temp_df])
 
-logger.info(f'Provinces ARIMA runtime: {datetime.now() - start}')
+logger.info(f'Provinces ARIMA runtime: {datetime.now() - start_arima}')
 
 arima_provinces_df.to_csv('./dash_data/arima_provinces.csv', header=True)
-
-
-df = result_bg[['Estimated']].rename(columns={'Estimated':'data'})
-
-import matplotlib.dates as mdates
-
-
-train = df.iloc[:-10, :]
-test = df.iloc[-10:, :]
-pred = test.copy()
-df.plot(figsize=(12,3));
-plt.title('Rt');
-
-df['z_data'] = (df['data'] - df.data.rolling(window=12).mean()) / df.data.rolling(window=12).std()
-df['zp_data'] = df['z_data'] - df['z_data'].shift(12)
-
-def plot_rolling(df):
-    fig, ax = plt.subplots(3,figsize=(12, 9))
-    ax[0].plot(df.index, df.data, label='raw data')
-    ax[0].plot(df.data.rolling(window=12).mean(), label="rolling mean");
-    ax[0].plot(df.data.rolling(window=12).std(), label="rolling std (x10)");
-    ax[0].legend()
-
-    ax[1].plot(df.index, df.z_data, label="de-trended data")
-    ax[1].plot(df.z_data.rolling(window=12).mean(), label="rolling mean");
-    ax[1].plot(df.z_data.rolling(window=12).std(), label="rolling std (x10)");
-    ax[1].legend()
-
-    ax[2].plot(df.index, df.zp_data, label="12 lag differenced de-trended data")
-    ax[2].plot(df.zp_data.rolling(window=12).mean(), label="rolling mean");
-    ax[2].plot(df.zp_data.rolling(window=12).std(), label="rolling std (x10)");
-    ax[2].legend()
-
-    plt.tight_layout()
-    fig.autofmt_xdate()
-    
-plot_rolling(df)
-
-logger.info("Holt's model")
-
-from statsmodels.tsa.holtwinters import Holt
-
-df = df.resample("D").sum()
-train = df.iloc[:-15]
-test = df.iloc[-15:]
-train.index = pd.to_datetime(train.index)
-test.index = pd.to_datetime(test.index)
-pred = test.copy()
-
-    
-model_double = Holt(np.asarray(train['data']))
-model_double._index = pd.to_datetime(train.index)
-
-fit1_double = model_double.fit(smoothing_level=.3, smoothing_trend=.05)
-pred1_double = fit1_double.forecast(15)
-fit2_double = model_double.fit(optimized=True)
-pred2_double = fit2_double.forecast(15)
-fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
-pred3_double = fit3_double.forecast(15)
-
-fig_exp_smoothing_double = go.Figure()
-fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index, y=df.data, name='actual data'))
-
-for p, f, c in zip((pred1_double, pred2_double, pred3_double),(fit1_double, fit2_double, fit3_double),('coral','yellow','cyan')):
-    fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index, y=f.fittedvalues, marker_color=c, mode='lines',
-                            name=f"alpha={str(f.params['smoothing_level'])[:4]}, beta={str(f.params['smoothing_trend'])[:4]}")
-    )
-    fig_exp_smoothing_double.add_trace(go.Scatter(
-        x=pd.date_range(start=test.index.min(), periods=len(test) + len(p)),
-        y=p, marker_color=c, mode='lines', showlegend=False)
-    )
-    print(f"\nMean absolute percentage error: {mape(test['data'].values,p).round(2)} (alpha={str(f.params['smoothing_level'])[:4]}, beta={str(f.params['smoothing_trend'])[:4]})")
-
-fig_exp_smoothing_double.update_layout(title="Holt's (double) exponential smoothing for R<sub>t</sub> in Bulgaria")
-fig_exp_smoothing_double = fig_exp_smoothing_double.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
-
-def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
-    df = ts_data.set_index('date')
-    df = df.loc[df['province'] == province]
-    df = df.resample("D").sum()
-    
-    train = df.iloc[:-forecast_days]
-    test = df.iloc[-forecast_days:]
-    pred = test.copy()
-    
-    model = Holt(np.asarray(train[column].values))
-    model._index = pd.to_datetime(train.index)
-
-    fit1 = model.fit(smoothing_level=.3, smoothing_trend=.05)
-    pred1 = fit1.forecast(15)
-    fit2 = model.fit(optimized=True)
-    pred2 = fit2.forecast(15)
-    fit3 = model.fit(smoothing_level=.3, smoothing_trend=.2)
-    pred3 = fit3.forecast(15)
-
-    fig_exp_smoothing_double = go.Figure()
-    fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index, y=train[column], name='Training data', mode='lines'))
-    fig_exp_smoothing_double.add_trace(go.Scatter(x=test.index, y=test[column], name='Testing data', mode='lines', marker_color='coral'))
-
-    for p, f, c in zip((pred1, pred2, pred3),(fit1, fit2, fit3),('darkcyan','gold','cyan')):
-        fig_exp_smoothing_double.add_trace(go.Scatter(x=train.index, y=f.fittedvalues, marker_color=c, mode='lines',
-                                name=f"alpha={str(f.params['smoothing_level'])[:4]}, beta={str(f.params['smoothing_trend'])[:4]}")
-        )
-        fig_exp_smoothing_double.add_trace(go.Scatter(
-            x=pd.date_range(start=test.index.min(), periods=len(test) + len(p)),
-            y=p, marker_color=c, mode='lines', showlegend=False)
-        )
-        print(f"\nMean absolute percentage error: {mape(test[column].values,p).round(2)} (alpha={str(f.params['smoothing_level'])[:4]}, beta={str(f.params['smoothing_trend'])[:4]})")
-
-    fig_exp_smoothing_double.update_layout(title=f"Holt (double) exponential smoothing for {'new cases' if column == 'new_cases' else 'total cases'} in {province}")
-    return fig_exp_smoothing_double
-
-
-logger.info("Holt-Winter's model")
-
-from statsmodels.tsa.holtwinters import ExponentialSmoothing as HWES
-
-
-#build and train the model on the training data
-model_triple = HWES(train.data, seasonal_periods=7, trend='add', seasonal='mul')
-fitted_triple = model_triple.fit(optimized=True, use_brute=True)
-
-#print out the training summary
-print(fitted_triple.summary())
-
-#create an out of sample forcast for the next steps beyond the final data point in the training data set
-pred_triple = fitted_triple.forecast(steps=15)
-
-print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
-
-#plot the training data, the test data and the forecast on the same plot
-fig_exp_smoothing_triple = go.Figure()
-fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Training data', mode='lines'))
-fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test.data, name='Testing data', mode='lines'))
-fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=fitted_triple.fittedvalues[30:], name='Model fit', mode='lines', marker_color='lime'))
-fig_exp_smoothing_triple.add_trace(go.Scatter(
-    x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
-    y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
-)
-fig_exp_smoothing_triple.update_layout(title='Holt-Winters (triple) exponential smoothing for R<sub>t</sub> in Bulgaria')
-fig_exp_smoothing_triple = fig_exp_smoothing_triple.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
-
-def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
-    df = ts_data.set_index('date')
-    # replace zeros with 0.1 as the multiplicative seasonal element o HWES requires strictly positive values
-    df = df.loc[df['province'] == province].replace(0,0.1)
-    df = df.resample("D").sum()
-    
-    train = df.iloc[:-forecast_days]
-    test = df.iloc[-forecast_days:]
-    pred = test.copy()
-    
-    model_triple = HWES(train[column], seasonal_periods=7, trend='add', seasonal='mul')
-    fitted_triple = model_triple.fit(optimized=True, use_brute=True)
-    pred_triple = fitted_triple.forecast(steps=forecast_days)
-    pred_triple_error = mape(test[column].values,pred_triple).round(2)
-    print(f"\nMean absolute percentage error: {pred_triple_error}")
-
-    #plot the training data, the test data and the forecast on the same plot
-    fig_exp_smoothing_triple = go.Figure()
-    fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train[column][30:], name='Training data', mode='lines'))
-    fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=fitted_triple.fittedvalues[30:], name='Model fit', mode='lines', marker_color='lime'))
-    fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test[column], name='Testing data', mode='lines', marker_color='coral'))
-    fig_exp_smoothing_triple.add_trace(go.Scatter(
-        x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
-        y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
-    )
-    fig_exp_smoothing_triple.update_layout(title=f'Holt-Winters (triple) exponential smoothing for {"new cases" if column == "new_cases" else "total cases"} in {province} for {forecast_days} days')
-    return fig_exp_smoothing_triple, pred_triple_error
 
 logger.info(f'Processing is done. Total runtime: {datetime.now() - global_start}')
 logger.info('Starting git push')
@@ -958,12 +474,4 @@ from func_git import *
 git_push_result = git_push_automation()
 logger.info(git_push_result)
 
-
-logger.info('FINISHED! Starting dash...')
-
-
-#import app as appscript
-#app.run_server(debug=True)
-
-
-
+logger.info('FINISHED!')
