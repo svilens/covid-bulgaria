@@ -1033,3 +1033,22 @@
 2021-01-11 01:30:58,776 — __main__ — INFO — Reading spatial data file
 2021-01-11 01:31:02,269 — __main__ — INFO — Charting age bands
 2021-01-11 01:31:02,924 — __main__ — INFO — Starting Rt processing
+2021-01-11 03:41:55,543 — __main__ — INFO — STARTED
+2021-01-11 03:42:32,890 — __main__ — INFO — STARTED
+2021-01-11 03:42:34,519 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 03:42:34,520 — __main__ — INFO — Reading general stats file
+2021-01-11 03:42:37,490 — __main__ — INFO — Charting weekly stats
+2021-01-11 03:42:38,285 — __main__ — INFO — Charting rates
+2021-01-11 03:42:38,869 — __main__ — INFO — Reading spatial data file
+2021-01-11 03:42:42,403 — __main__ — INFO — Charting age bands
+2021-01-11 03:42:42,918 — __main__ — INFO — Starting Rt processing
+2021-01-11 03:46:26,397 — __main__ — INFO — Calculating Rt for provinces
+2021-01-11 04:21:37,520 — __main__ — INFO — Provinces Rt runtime: 0:28:16.710046
+2021-01-11 04:21:37,960 — __main__ — INFO — Charting Rt for provinces
+2021-01-11 04:21:39,681 — __main__ — INFO — Starting ARIMA
+2021-01-11 04:21:40,448 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-11 05:16:40,178 — __main__ — INFO — Provinces ARIMA runtime: 0:54:59.729734
+2021-01-11 05:16:40,708 — __main__ — INFO — Holt's model
+2021-01-11 05:16:41,071 — __main__ — INFO — Holt-Winter's model
+2021-01-11 05:16:41,640 — __main__ — INFO — Processing is done. Total runtime: 1:34:08.751090
+2021-01-11 05:16:41,640 — __main__ — INFO — Starting git push

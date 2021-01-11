@@ -5,6 +5,7 @@ import json
 import pandas as pd
 from pandas import json_normalize
 from datetime import datetime
+import pytz
 
 # backup files
 def backup_existing_file(filename):
@@ -57,7 +58,7 @@ def get_covid_data():
             df.columns = data_json_normalized.iloc[0,:].values
             
             # check if the source data has been updated today
-            if df.iloc[-1,0] == datetime.now().strftime(format='%Y/%m/%d'):
+            if df.iloc[-1,0] == datetime.now(pytz.timezone('Europe/Sofia')).strftime(format='%Y/%m/%d'):
                 # backup the existing file and save the newest data
                 backup_existing_file(resources[resource_key][1])
                 df.to_csv(os.getcwd() + '\\data\\' + resources[resource_key][1], header=True, encoding='utf-8', index=False)
