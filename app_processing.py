@@ -15,7 +15,7 @@ global_start = datetime.now()
 logger = get_logger(__name__)
 logger.info('STARTED')
 
-
+"""
 # Download data
 api_request = get_covid_data()
 if api_request == 'old':
@@ -237,7 +237,7 @@ def get_posteriors(sr, sigma=0.15):
     return posteriors, log_likelihood
 
 
-sigmas = np.linspace(1/100, 1, 100)
+sigmas = np.linspace(1/15, 1, 15)
 result_bg = {}
  # Holds all posteriors with every given value of sigma
 result_bg['posteriors'] = []
@@ -311,7 +311,7 @@ extended_bg = pd.date_range(start=index_bg[0],
 
 logger.info('Calculating Rt for provinces')
 
-sigmas = np.linspace(1/20, 1, 20)
+sigmas = np.linspace(1/15, 1, 15)
 
 provinces_to_process = provinces
 
@@ -380,11 +380,11 @@ logger.info('Starting ARIMA')
 
 import itertools
 import pandas as pd
-import seaborn as sns
+#import seaborn as sns
 import math
 import matplotlib
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
@@ -440,7 +440,8 @@ def arima_province(ts_data, province, column='total_cases', forecast_days=15):
     #Printing the error metrics
     model_error = mape(test,pred)
     #Plotting results
-    fig = go.Figure()
+    #fig = go.Figure()
+    fig = None
 
     return (pred, result, fig, model_error, rolling.index, rolling[column])
 
@@ -449,6 +450,7 @@ logger.info('Getting ARIMA predictions for provinces')
 
 #from statsmodels.tools.sm_exceptions import ConvergenceWarning
 #warnings.simplefilter('ignore', ConvergenceWarning)
+warnings.simplefilter('ignore')
 
 start_arima = datetime.now()
 arima_provinces_df = pd.DataFrame()
@@ -467,7 +469,7 @@ for province in ts_data['province'].unique():
 logger.info(f'Provinces ARIMA runtime: {datetime.now() - start_arima}')
 
 arima_provinces_df.to_csv('./dash_data/arima_provinces.csv', header=True)
-
+"""
 logger.info(f'Processing is done. Total runtime: {datetime.now() - global_start}')
 logger.info('Starting git push')
 from func_git import *
