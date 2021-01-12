@@ -461,7 +461,7 @@ mr_values = ['Likely under control', 'Likely not under control']
 mr['status'] = np.select(mr_conditions, mr_values)
 mr_colors = ['green', 'crimson']
 mr['colors'] = np.select(mr_conditions, mr_colors)
-mr.loc[mr.status=="0", 'colors'] = 'grey'
+mr.loc[mr.status=="0", 'colors'] = 'gold'
 
 
 fig_rt_province_yesterday = go.Figure()

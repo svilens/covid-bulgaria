@@ -7,6 +7,7 @@ from pandas import json_normalize
 from datetime import datetime
 import pytz
 
+
 # backup files
 def backup_existing_file(filename):
     # if the file already exists

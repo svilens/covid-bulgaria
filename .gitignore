@@ -4,5 +4,6 @@ __pycache__/
 
 .ipynb_checkpoints/
 geckodriver.log
-app.lo*
+app.log
+cron.log
 *.bat

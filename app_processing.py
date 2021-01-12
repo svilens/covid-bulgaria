@@ -15,7 +15,7 @@ global_start = datetime.now()
 logger = get_logger(__name__)
 logger.info('STARTED')
 
-"""
+
 # Download data
 api_request = get_covid_data()
 if api_request == 'old':
@@ -75,7 +75,7 @@ covid_yesterday = gpd.GeoDataFrame(
         )
 
 
-logger.info('Charting age bands')
+logger.info('Reading age bands')
 covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата'])
                      .rename(columns={'Дата':'date'}))
 
@@ -113,13 +113,14 @@ def prepare_cases(cases):
     
     return original, smoothed
 
-
+logger.info('preparing smoothed new cases for Bulgaria')
 orig_bg, smoothed_bg = prepare_cases(bg_total_new)
 orig_bg.to_csv('./dash_data/r0_bg_original.csv', header=True)
 smoothed_bg.to_csv('./dash_data/r0_bg_smoothed.csv', header=True)
 
 
 # smoothed new recoveries
+logger.info('preparing smoothed recovered cases for Bulgaria')
 bg_recovered = covid_general[['date', 'total_recoveries']].groupby('date')['total_recoveries'].sum()
 orig_recovered_bg, smoothed_recovered_bg = prepare_cases(bg_recovered)
 orig_recovered_bg.to_csv('./dash_data/r0_bg_original_recovered.csv', header=True)
@@ -127,6 +128,7 @@ smoothed_recovered_bg.to_csv('./dash_data/r0_bg_smoothed_recovered.csv', header=
 
 
 # smoothed deaths
+logger.info('preparing smoothed death cases for Bulgaria')
 bg_deaths = covid_general[['date', 'total_deaths']].groupby('date')['total_deaths'].sum()
 orig_deaths_bg, smoothed_deaths_bg = prepare_cases(bg_deaths)
 orig_deaths_bg.to_csv('./dash_data/r0_bg_original_deaths.csv', header=True)
@@ -134,6 +136,7 @@ smoothed_deaths_bg.to_csv('./dash_data/r0_bg_smoothed_deaths.csv', header=True)
 
 
 # smoothed new cases by age band
+logger.info('preparing smoothed cases by age band for Bulgaria')
 covid_by_age_band_diff_smoothed = covid_by_age_band.set_index('date').diff().rolling(9,
         win_type='gaussian',
         min_periods=1,
@@ -146,9 +149,10 @@ covid_by_age_band_diff_smoothed_per100k = covid_by_age_band_diff_smoothed.copy()
 for col in covid_by_age_band_diff_smoothed_per100k.columns:
     covid_by_age_band_diff_smoothed_per100k[col] = (100000*covid_by_age_band_diff_smoothed_per100k[col]/pop_by_age_band.loc[pop_by_age_band.covid_age_band == col, 'pop'].values).round(0)
 
-
+logger.info('preparing smoothed cases by province')
 # provinces
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
+
 
 r0_provinces_original = pd.DataFrame()
 r0_provinces_smoothed = pd.DataFrame()
@@ -237,6 +241,7 @@ def get_posteriors(sr, sigma=0.15):
     return posteriors, log_likelihood
 
 
+logger.info('preparing posteriors for Bulgaria')
 sigmas = np.linspace(1/15, 1, 15)
 result_bg = {}
  # Holds all posteriors with every given value of sigma
@@ -262,6 +267,7 @@ max_likelihood_index_bg = total_log_likelihoods_bg.argmax()
 # Select the value that has the highest log likelihood
 sigma_bg = sigmas[max_likelihood_index_bg]
 
+logger.info('calculating Rt for Bulgaria')
 posteriors_bg, log_likelihood_bg = get_posteriors(smoothed_bg, sigma=sigma_bg)
 
 def highest_density_interval(pmf, p=.9):
@@ -318,6 +324,7 @@ provinces_to_process = provinces
 results = {}
 
 for province_name, cases in provinces_to_process.groupby(level='province'):
+    print(f'processing province: {province_name}')
     new, smoothed = prepare_cases(cases)
     result = {}
     # Holds all posteriors with every given value of sigma
@@ -346,6 +353,8 @@ sigma = sigmas[max_likelihood_index]
 
 start = datetime.now()
 final_results = None
+
+logger.info('calculating final Rt by province')
 
 for province_name, result in results.items():
     print(province_name)
@@ -469,7 +478,7 @@ for province in ts_data['province'].unique():
 logger.info(f'Provinces ARIMA runtime: {datetime.now() - start_arima}')
 
 arima_provinces_df.to_csv('./dash_data/arima_provinces.csv', header=True)
-"""
+
 logger.info(f'Processing is done. Total runtime: {datetime.now() - global_start}')
 logger.info('Starting git push')
 from func_git import *

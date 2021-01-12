@@ -1104,3 +1104,18 @@
 2021-01-11 22:45:28,168 — __main__ — INFO — STARTED
 2021-01-11 22:45:28,168 — __main__ — INFO — Processing is done. Total runtime: 0:00:00.000713
 2021-01-11 22:45:28,168 — __main__ — INFO — Starting git push
+2021-01-11 22:45:31,601 — __main__ — INFO — Pushed to Heroku
+2021-01-11 22:45:31,602 — __main__ — INFO — FINISHED!
+2021-01-11 23:22:01,565 — __main__ — INFO — STARTED
+2021-01-11 23:22:05,130 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-11 23:22:05,130 — __main__ — INFO — Reading general stats file
+2021-01-11 23:22:05,149 — __main__ — INFO — Reading spatial data file
+2021-01-11 23:22:05,635 — __main__ — INFO — Charting age bands
+2021-01-11 23:22:05,639 — __main__ — INFO — Starting Rt processing
+2021-01-11 23:23:09,767 — __main__ — INFO — Calculating Rt for provinces
+2021-01-11 23:49:40,411 — __main__ — INFO — Provinces Rt runtime: 0:23:20.341612
+2021-01-11 23:49:40,439 — __main__ — INFO — Starting ARIMA
+2021-01-11 23:49:40,894 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-12 00:29:48,719 — __main__ — INFO — Provinces ARIMA runtime: 0:40:07.825290
+2021-01-12 00:29:48,754 — __main__ — INFO — Processing is done. Total runtime: 1:07:47.190133
+2021-01-12 00:29:48,754 — __main__ — INFO — Starting git push
