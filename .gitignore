@@ -3,7 +3,5 @@ temp-plot.html
 __pycache__/
 
 .ipynb_checkpoints/
-geckodriver.log
-app.log
-cron.log
+*.log
 *.bat
