@@ -36,11 +36,17 @@ fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,
 
 logger.info('Creating chart 2: Cases per week')
 
-covid_general['week'] = covid_general['date'].dt.isocalendar().week
-covid_general_weekly = covid_general.loc[covid_general.date < datetime(2021,1,1), :].groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
+#covid_general['week'] = covid_general['date'].dt.isocalendar().week
+epoch = pd.Timestamp("2019-12-30") # continue the week number count when the year changes
+covid_general['day_name'] = covid_general['date'].dt.day_name()
+covid_general['week'] = (np.where(covid_general.date.astype("datetime64").le(epoch),
+                               covid_general.date.dt.isocalendar().week,
+                               covid_general.date.sub(epoch).dt.days//7+1)
+)
+covid_general_weekly = covid_general.groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
 covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
 
-if covid_general_weekly.iloc[-1,0] != 53:
+if covid_general_weekly.iloc[-1,0] == 53:
     pass
 else:
     # getting the current day to calculate projected values for the current week

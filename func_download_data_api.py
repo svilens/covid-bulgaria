@@ -7,19 +7,25 @@ from pandas import json_normalize
 from datetime import datetime
 import pytz
 
+# check if the process needs running
+df_current = pd.read_csv(os.path.join(os.getcwd() + '/data/COVID_general.csv'))
+if df_current.iloc[-1,0] == datetime.now(pytz.timezone('Europe/Sofia')).strftime(format='%Y/%m/%d'):
+    print('The current data is already up-to-date! Process terminated.')
+    sys.exit()
+
 
 # backup files
 def backup_existing_file(filename):
     # if the file already exists
-    if os.path.isfile(os.path.join(os.getcwd() + '\\data\\' + filename)):
+    if os.path.isfile(os.path.join(os.getcwd() + '/data/' + filename)):
         # if a backup_ of the file exists, delete it
-        if os.path.isfile(os.path.join(os.getcwd() + '\\data\\backup_' + filename)):
-            os.remove(os.path.join(os.getcwd() + '\\data\\backup_' + filename))
+        if os.path.isfile(os.path.join(os.getcwd() + '/data/backup_' + filename)):
+            os.remove(os.path.join(os.getcwd() + '/data/backup_' + filename))
             print(f'The previous backup of {filename} is not needed and was deleted.')
         # rename the current file, adding a 'backup_' prefix
         os.rename(
-            os.path.join(os.getcwd() + '\\data\\' + filename), 
-            os.path.join(os.getcwd() + '\\data\\backup_' + filename)
+            os.path.join(os.getcwd() + '/data/' + filename), 
+            os.path.join(os.getcwd() + '/data/backup_' + filename)
         )
         print(f'Backed up existing file: {filename}')
 
@@ -62,7 +68,7 @@ def get_covid_data():
             if df.iloc[-1,0] == datetime.now(pytz.timezone('Europe/Sofia')).strftime(format='%Y/%m/%d'):
                 # backup the existing file and save the newest data
                 backup_existing_file(resources[resource_key][1])
-                df.to_csv(os.getcwd() + '\\data\\' + resources[resource_key][1], header=True, encoding='utf-8', index=False)
+                df.to_csv(os.getcwd() + '/data/' + resources[resource_key][1], header=True, encoding='utf-8', index=False)
                 print(f'Saved newest data file: {resources[resource_key][1]}')
             else:
                 return 'old'
