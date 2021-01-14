@@ -1176,3 +1176,26 @@
 2021-01-13 23:32:35,029 — __main__ — INFO — Provinces ARIMA runtime: 0:39:05.522203
 2021-01-13 23:32:35,061 — __main__ — INFO — Processing is done. Total runtime: 1:07:33.086805
 2021-01-13 23:32:35,061 — __main__ — INFO — Starting git push
+2021-01-13 23:32:35,602 — __main__ — INFO — Git automation failed
+2021-01-13 23:32:35,602 — __main__ — INFO — FINISHED!
+2021-01-14 22:25:02,216 — __main__ — INFO — STARTED
+2021-01-14 22:25:05,847 — __main__ — INFO — Finished downloading the new COVID-19 data!
+2021-01-14 22:25:05,847 — __main__ — INFO — Reading general stats file
+2021-01-14 22:25:05,869 — __main__ — INFO — Reading spatial data file
+2021-01-14 22:25:06,407 — __main__ — INFO — Reading age bands
+2021-01-14 22:25:06,411 — __main__ — INFO — Starting Rt processing
+2021-01-14 22:25:07,414 — __main__ — INFO — preparing smoothed new cases for Bulgaria
+2021-01-14 22:25:07,475 — __main__ — INFO — preparing smoothed recovered cases for Bulgaria
+2021-01-14 22:25:07,485 — __main__ — INFO — preparing smoothed death cases for Bulgaria
+2021-01-14 22:25:07,493 — __main__ — INFO — preparing smoothed cases by age band for Bulgaria
+2021-01-14 22:25:07,664 — __main__ — INFO — preparing smoothed cases by province
+2021-01-14 22:25:07,881 — __main__ — INFO — preparing posteriors for Bulgaria
+2021-01-14 22:25:19,565 — __main__ — INFO — calculating Rt for Bulgaria
+2021-01-14 22:26:12,274 — __main__ — INFO — Calculating Rt for provinces
+2021-01-14 22:29:29,873 — __main__ — INFO — calculating final Rt by province
+2021-01-14 22:53:32,923 — __main__ — INFO — Provinces Rt runtime: 0:24:03.055037
+2021-01-14 22:53:32,967 — __main__ — INFO — Starting ARIMA
+2021-01-14 22:53:33,620 — __main__ — INFO — Getting ARIMA predictions for provinces
+2021-01-14 23:33:12,537 — __main__ — INFO — Provinces ARIMA runtime: 0:39:38.916990
+2021-01-14 23:33:12,569 — __main__ — INFO — Processing is done. Total runtime: 1:08:10.354076
+2021-01-14 23:33:12,570 — __main__ — INFO — Starting git push
