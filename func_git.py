@@ -14,19 +14,19 @@ def git_push_automation():
     
 
 # below not used currently 
-from git import Repo
+#from git import Repo
 
-def git_push_heroku(path, commit_message):
-    try:
-        repo = Repo(path)
-        repo.git.add(update=True)
-        repo.index.commit(commit_message)
-        origin = repo.remote(name='heroku master')
-        origin.push()
-        result_message = "Pushed to Heroku"
-    except:
-        result_message = 'Some error occured while pushing'
-    return result_message
+#def git_push_heroku(path, commit_message):
+#    try:
+#        repo = Repo(path)
+#        repo.git.add(update=True)
+#        repo.index.commit(commit_message)
+#        origin = repo.remote(name='heroku master')
+#        origin.push()
+#        result_message = "Pushed to Heroku"
+#    except:
+#        result_message = 'Some error occured while pushing'
+#    return result_message
 
 path = './.git'
 commit_message = 'daily update'
