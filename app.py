@@ -391,6 +391,14 @@ fig_tests_sankey = go.Figure(
 ).update_layout(title_text='Tests by type since 24th Dec 2020 - Sankey diagram', font_size=12, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
+logger.info('Creating chart 14: Hospitalized patients')
+
+fig_hospitalized = make_subplots(specs=[[{"secondary_y": True}]])
+fig_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.hospitalized, name='Hospitalized'), secondary_y=False)
+fig_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.intensive_care, name='intensive care units'), secondary_y=True)
+fig_hospitalized.update_yaxes(title_text="Hospitalized patients", secondary_y=False)
+fig_hospitalized.update_yaxes(title_text="Patients in intensive care units", secondary_y=True)
+fig_hospitalized.update_layout(title="Currently hospitalized patients by date", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 ####### REPRODUCTION NUMBER #######
 
 logger.info('Starting Rt processing')
@@ -401,7 +409,7 @@ orig_bg = pd.read_csv('./dash_data/r0_bg_original.csv')
 smoothed_bg = pd.read_csv('./dash_data/r0_bg_smoothed.csv')
 
 
-logger.info('Creating chart 14: Smoothed new cases - BG')
+logger.info('Creating chart 15: Smoothed new cases - BG')
 fig_new_bg = go.Figure()
 fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset_index()['ALL'],
                                       mode='lines', line=dict(dash='dot'), name='Actual'))
@@ -410,7 +418,7 @@ fig_new_bg.add_trace(go.Scatter(x=smoothed_bg.reset_index()['date'], y=smoothed_
 fig_new_bg.update_layout(title='Daily new cases in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 15: Smoothed recoveries - BG')
+logger.info('Creating chart 16: Smoothed recoveries - BG')
 orig_recovered_bg = pd.read_csv('./dash_data/r0_bg_original_recovered.csv')
 smoothed_recovered_bg = pd.read_csv('./dash_data/r0_bg_smoothed_recovered.csv')
 fig_recovered_bg = go.Figure()
@@ -421,7 +429,7 @@ fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['dat
 fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 16: Smoothed deaths - BG')
+logger.info('Creating chart 17: Smoothed deaths - BG')
 orig_deaths_bg = pd.read_csv('./dash_data/r0_bg_original_deaths.csv')
 smoothed_deaths_bg = pd.read_csv('./dash_data/r0_bg_smoothed_deaths.csv')
 fig_deaths_bg = go.Figure()
@@ -432,7 +440,7 @@ fig_deaths_bg.add_trace(go.Scatter(x=smoothed_deaths_bg.reset_index()['date'], y
 fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 17: Smoothed new cases - BG - age bands')
+logger.info('Creating chart 18: Smoothed new cases - BG - age bands')
 covid_by_age_band_diff_smoothed = covid_by_age_band.set_index('date').diff().rolling(9,
         win_type='gaussian',
         min_periods=1,
@@ -447,7 +455,7 @@ for col in covid_by_age_band_diff_smoothed.columns:
 fig_age_diff.update_layout(title='New confirmed cases per day by age band (smoothed figures)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info("Creating chart 18: Smoothed new cases - BG - age bands per 100,000 pop")
+logger.info("Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop")
 pop_by_age_band = read_nsi_age_bands('./data/Pop_6.1.2_Pop_DR.xls', worksheet_name='2019', col_num=2, col_names=['age_band', 'pop'], skip=5, rows_needed=22)
 covid_by_age_band_diff_smoothed_per100k = covid_by_age_band_diff_smoothed.copy()
 for col in covid_by_age_band_diff_smoothed_per100k.columns:
@@ -462,7 +470,7 @@ for col in covid_by_age_band_diff_smoothed_per100k.columns:
 fig_age_per100k.update_layout(title='New confirmed daily cases by age band per 100,000 population (smoothed figures)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 19: Smoothed new cases - provinces')
+logger.info('Creating chart 20: Smoothed new cases - provinces')
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
 
 # create subplots structure
@@ -500,7 +508,7 @@ fig_new_by_province.update_layout(title='Daily new cases by province (smoothed f
 
 ### Rt for BG
 
-logger.info('Creating chart 20: Rt for BG')
+logger.info('Creating chart 21: Rt for BG')
 result_bg = pd.read_csv('./dash_data/r0_bg_r0.csv')
 
 index_bg = result_bg['date']
@@ -560,7 +568,7 @@ fig_rt_province_yesterday.add_trace(go.Bar(x=mr.province, y=mr.Estimated, marker
 fig_rt_province_yesterday.update_layout(title='R<sub>t</sub> by province for the last daily update', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 21: Rt by province')
+logger.info('Creating chart 22: Rt by province')
 
 def generate_rt_by_province(provinces, final_results):
     provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
@@ -665,7 +673,7 @@ pred2_double = fit2_double.forecast(15)
 fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
 pred3_double = fit3_double.forecast(15)
 
-logger.info('Creating chart 22: Double exp smoothing')
+logger.info('Creating chart 23: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
 fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='Historical data'))
 
@@ -735,7 +743,7 @@ pred_triple = fitted_triple.forecast(steps=15)
 
 #print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
 
-logger.info('Creating chart 23: Triple exp smoothing')
+logger.info('Creating chart 24: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Historical data', mode='lines'))
@@ -1016,6 +1024,7 @@ tabs = html.Div([
                     html.H4("Cases over time (cumulative figures)"),
                     html.Br(),
                     dcc.Graph(figure=fig_gen_stats),
+                    dcc.Graph(figure=fig_hospitalized),
                     html.Br(),
                     html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
