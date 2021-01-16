@@ -37,3 +37,28 @@ def read_covid_general(path, date_col):
     covid_selected = covid_general_data[['date', 'daily_tests', 'active_cases', 'total_cases', 'new_cases', 'hospitalized', 'intensive_care',
                                          'total_recoveries', 'new_recoveries', 'total_deaths', 'new_deaths']]
     return covid_selected
+
+
+def read_covid_tests(path, date_col):
+    tests = pd.read_csv(path, parse_dates=[date_col]).rename(columns={
+        date_col:'date',
+        'Общо тестове':'total_tests',
+        'PCR тестове':'total_tests_pcr',
+        'Антигени тестове':'total_tests_antigen',
+        'Общо тестове за денонощие':'new_tests',
+        'PCR тестове за денонощие':'new_pcr',
+        'Антигени тестове за денонощие':'new_antigen',
+        'Установени случаи общо':'total_positive',
+        'Установени случаи чрез PCR':'total_positive_pcr',
+        'Установени случаи чрез антиген':'total_positive_antigen',
+        'Установени случаи за денонощие':'new_positive',
+        'Установени случаи за денонощие чрез PCR':'new_positive_pcr',
+        'Установени случаи за денонощие чрез антиген':'new_positive_antigen'
+        }
+    )
+
+    tests['pos_rate_pcr'] = (100*tests['new_positive_pcr'] / tests['new_pcr']).round(2)
+    tests['pos_rate_antigen'] = (100*tests['new_positive_antigen'] / tests['new_antigen']).round(2)
+    return tests
+
+
