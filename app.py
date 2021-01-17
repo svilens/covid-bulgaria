@@ -67,6 +67,11 @@ fig_gen_stats_weekly = make_subplots(specs=[[{"secondary_y": True}]])
 fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases[1:], name='New confirmed cases', line_shape='spline'), secondary_y=True)
 fig_gen_stats_weekly.add_trace(go.Bar(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_deaths[1:], name='New death cases'), secondary_y=False)
 fig_gen_stats_weekly.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_recoveries[1:], name='New recoveries', line_shape='spline'), secondary_y=True)
+fig_gen_stats_weekly.add_annotation(
+    x=53, y=530, text="New Year",
+    showarrow=True, arrowhead=2, arrowsize=1, arrowwidth=2,
+    arrowcolor='orange', font=dict(color='orange', size=15),
+    ax=0, ay=-100)
 fig_gen_stats_weekly.update_layout(title = 'New cases per week (projected estimations for the current week)')
 fig_gen_stats_weekly.update_xaxes(title_text="week number")
 fig_gen_stats_weekly.update_yaxes(title_text="Confirmed/recovered", secondary_y=True)
@@ -77,20 +82,41 @@ fig_gen_stats_weekly.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='
 logger.info('Creating chart 3: New cases weekly % change')
 fig_gen_stats_weekly_new_pct = go.Figure()
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=covid_general_weekly.index[1:], y=covid_general_weekly.new_cases_pct_change[1:], line=dict(color='orange'), line_shape='spline', name='Confirmed % change'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[25, 25], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[27, 27], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='yellow'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[28, 28], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[36, 36], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='First mass protest', marker_color='grey'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[38, 38], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[48, 48], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
-fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(x=[52, 52], y=[-0.2,0.5],
-                             mode='lines', line=dict(dash='dash'), name='Antigen tests', marker_color='orange'))
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=25, y=0.08, text="Borders reopening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='ivory', font=dict(color='ivory'),
+    ax=20, ay=50)
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=27, y=0.41, text="Football cup final",
+    showarrow=True, arrowhead=1,
+    arrowcolor='cornflowerblue', font=dict(color='cornflowerblue'),
+    ax=-30)
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=28, y=0.43, text="Start of protests",
+    showarrow=True, arrowhead=1,
+    arrowcolor='cyan', font=dict(color='cyan'),
+    ax=20, ay=-50)
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=36, y=-0.04, text="First mass protest",
+    showarrow=True, arrowhead=1,
+    arrowcolor='lime', font=dict(color='lime'),
+    ay=-50)
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=38, y=0.12, text="Schools opening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='red', font=dict(color='red'),
+    ay=-70)
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=48, y=-0.08, text="Second lockdown",
+    showarrow=True, arrowhead=1,
+    arrowcolor='yellow', font=dict(color='yellow'),
+    ax=30, ay=-50)
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=52, y=-0.49   , text="Antigen tests",
+    showarrow=True, arrowhead=1,
+    arrowcolor='orange', font=dict(color='orange'),
+    ay=20)
 fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -99,17 +125,27 @@ fig_gen_stats_weekly_events = go.Figure()
 fig_gen_stats_weekly_events.add_trace(go.Scatter(x=covid_general_weekly.index[1:], 
                                                  y=covid_general_weekly.new_cases[1:],
                                                  name='New confirmed cases'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[25, 25], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[27, 27], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='yellow'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[28, 28], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[36, 36], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='First mass protest', marker_color='grey'))
-fig_gen_stats_weekly_events.add_trace(go.Scatter(x=[38, 38], y=[0,10000],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
-
+fig_gen_stats_weekly_events.add_annotation(
+    x=25, y=626, text="Borders reopening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='ivory', font=dict(color='ivory'),
+    ax=10)
+fig_gen_stats_weekly_events.add_annotation(
+    x=27, y=1072, text="Football cup final",
+    showarrow=True, arrowhead=1,
+    arrowcolor='cornflowerblue', font=dict(color='cornflowerblue'))
+fig_gen_stats_weekly_events.add_annotation(
+    x=28, y=1518, text="Start of protests",
+    showarrow=True, arrowhead=1,
+    arrowcolor='cyan', font=dict(color='cyan'))
+fig_gen_stats_weekly_events.add_annotation(
+    x=36, y=906, text="First mass protest",
+    showarrow=True, arrowhead=1,
+    arrowcolor='lime', font=dict(color='lime'))
+fig_gen_stats_weekly_events.add_annotation(
+    x=38, y=948, text="Schools opening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='red', font=dict(color='red'))
 fig_gen_stats_weekly_events.update_layout(title='New confirmed cases per week + summer events', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
 fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
@@ -120,20 +156,40 @@ fig_gen_stats_weekly_events_2 = go.Figure()
 fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=covid_general_weekly.index[1:], 
                                                  y=covid_general_weekly.new_cases[1:],
                                                  name='New confirmed cases'))
-fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[25, 25], y=[0,20000],
-                             mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
-fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[27, 27], y=[0,20000],
-                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='yellow'))
-fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[28, 28], y=[0,20000],
-                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
-fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[36, 36], y=[0,20000],
-                             mode='lines', line=dict(dash='dash'), name='First mass protest', marker_color='grey'))
-fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[38, 38], y=[0,20000],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
-fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[48, 48], y=[0,20000],
-                             mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
-fig_gen_stats_weekly_events_2.add_trace(go.Scatter(x=[52, 52], y=[0,20000],
-                             mode='lines', line=dict(dash='dash'), name='Antigen tests', marker_color='orange'))
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=25, y=706, text="Borders reopening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='ivory', font=dict(color='ivory'),
+    ax=10)
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=27, y=1152, text="Football cup final",
+    showarrow=True, arrowhead=1,
+    arrowcolor='cornflowerblue', font=dict(color='cornflowerblue'),
+    ax=-4, ay=-50)
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=28, y=1598, text="Start of protests",
+    showarrow=True, arrowhead=1,
+    arrowcolor='cyan', font=dict(color='cyan'),
+    ax=25, ay=-70)
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=36, y=986, text="First mass protest",
+    showarrow=True, arrowhead=1,
+    arrowcolor='lime', font=dict(color='lime'))
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=38, y=1028, text="Schools opening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='red', font=dict(color='red'),
+    ay=-50)
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=48, y=21150, text="Second lockdown",
+    showarrow=True, arrowhead=1,
+    arrowcolor='yellow', font=dict(color='yellow'),
+    ax=30, ay=-30)
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=52, y=6255, text="Antigen tests",
+    showarrow=True, arrowhead=1,
+    arrowcolor='orange', font=dict(color='orange'),
+    ay=50)
 fig_gen_stats_weekly_events_2.update_layout(title='New confirmed cases per week + summer events + second lockdown', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats_weekly_events_2.update_xaxes(range=[24, covid_general_weekly.index[-1]])
 
@@ -292,20 +348,39 @@ for col in covid_by_age_band.columns[1:]:
     i+=1
 fig_age.update_layout(title='Total cases over time by age band', template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,6,15), pd.Timestamp(2020,6,15)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Borders reopening', marker_color='white'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,7,1), pd.Timestamp(2020,7,1)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Football Cup final', marker_color='yellow'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,7,11), pd.Timestamp(2020,7,11)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Start of protests', marker_color='cyan'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,2), pd.Timestamp(2020,9,2)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='First mass protest', marker_color='grey'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,9,15), pd.Timestamp(2020,9,15)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Schools opening', marker_color='red'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,11,28), pd.Timestamp(2020,11,28)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Second lockdown', marker_color='brown'))
-fig_age.add_trace(go.Scatter(x=[pd.Timestamp(2020,12,24), pd.Timestamp(2020,12,24)], y=[-1500,5000],
-                             mode='lines', line=dict(dash='dash'), name='Antigen tests', marker_color='orange'))
+fig_age.add_annotation(
+    x=pd.Timestamp(2020,6,15), y=0, text="Borders reopening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='ivory', font=dict(color='ivory'))
+fig_age.add_annotation(
+    x=pd.Timestamp(2020,7,1), y=0, text="Football cup final",
+    showarrow=True, arrowhead=1,
+    arrowcolor='cornflowerblue', font=dict(color='cornflowerblue'),
+    ay=-40, yshift=10)
+fig_age.add_annotation(
+    x=pd.Timestamp(2020,7,11), y=0, text="Start of protests",
+    showarrow=True, arrowhead=1,
+    arrowcolor='cyan', font=dict(color='cyan'),
+    ax=20, ay=-60, yshift=10)
+fig_age.add_annotation(
+    x=pd.Timestamp(2020,9,2), y=2500, text="First mass protest",
+    showarrow=True, arrowhead=1,
+    arrowcolor='lime', font=dict(color='lime'),
+    ay=-40)
+fig_age.add_annotation(
+    x=pd.Timestamp(2020,9,15), y=3000, text="Schools opening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='red', font=dict(color='red'),
+    ay=-60)
+fig_age.add_annotation(
+    x=pd.Timestamp(2020,11,28), y=0, text="Second lockdown",
+    showarrow=True, arrowhead=1,
+    arrowcolor='yellow', font=dict(color='yellow'),
+    ay=-18)
+fig_age.add_annotation(
+    x=pd.Timestamp(2020,12,24), y=0, text="Antigen tests",
+    showarrow=True, arrowhead=1,
+    arrowcolor='orange', font=dict(color='orange'))
 
 
 ###### TESTS ######
@@ -315,8 +390,8 @@ tests = read_covid_tests('./data/COVID_test_type.csv', 'Дата')
 logger.info('Creating chart 11: Daily tests by test type')
 
 fig_tests_daily = go.Figure()
-fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_pcr, name='Daily PCR tests', mode='lines', marker_color='coral'))
-fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_antigen, name='Daily Antigen tests', mode='lines', marker_color='darkcyan'))
+fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_pcr, name='Daily PCR tests', mode='lines', line_shape='spline', marker_color='coral'))
+fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_antigen, name='Daily Antigen tests', mode='lines', line_shape='spline', marker_color='darkcyan'))
 fig_tests_daily.update_layout(title='New COVID-19 tests per day by test type', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
