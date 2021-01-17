@@ -316,7 +316,7 @@ logger.info('Creating chart 11: Daily tests by test type')
 
 fig_tests_daily = go.Figure()
 fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_pcr, name='Daily PCR tests', mode='lines', marker_color='coral'))
-fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_antigen, name='Daily Antigen tests', mode='lines', marker_color='cyan'))
+fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_antigen, name='Daily Antigen tests', mode='lines', marker_color='darkcyan'))
 fig_tests_daily.update_layout(title='New COVID-19 tests per day by test type', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -324,7 +324,7 @@ logger.info('Creating chart 12: Positive tests % by test type')
 
 fig_tests_daily_positive = go.Figure()
 fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_pcr, name='Positive PCR %', mode='lines', marker_color='coral'))
-fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_antigen, name='Positive Antigen %', mode='lines', marker_color='cyan'))
+fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_antigen, name='Positive Antigen %', mode='lines', marker_color='darkcyan'))
 fig_tests_daily_positive.update_layout(title='Positive tests % by test type', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -395,7 +395,7 @@ logger.info('Creating chart 14: Hospitalized patients')
 
 fig_hospitalized = make_subplots(specs=[[{"secondary_y": True}]])
 fig_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.hospitalized, name='Hospitalized'), secondary_y=False)
-fig_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.intensive_care, name='intensive care units'), secondary_y=True)
+fig_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.intensive_care, name='Intensive care units'), secondary_y=True)
 fig_hospitalized.update_yaxes(title_text="Hospitalized patients", secondary_y=False)
 fig_hospitalized.update_yaxes(title_text="Patients in intensive care units", secondary_y=True)
 fig_hospitalized.update_layout(title="Currently hospitalized patients by date", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
