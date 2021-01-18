@@ -137,7 +137,8 @@ fig_gen_stats_weekly_events.add_annotation(
 fig_gen_stats_weekly_events.add_annotation(
     x=28, y=1518, text="Start of protests",
     showarrow=True, arrowhead=1,
-    arrowcolor='cyan', font=dict(color='cyan'))
+    arrowcolor='cyan', font=dict(color='cyan'),
+    ax=10)
 fig_gen_stats_weekly_events.add_annotation(
     x=36, y=906, text="First mass protest",
     showarrow=True, arrowhead=1,
@@ -145,7 +146,8 @@ fig_gen_stats_weekly_events.add_annotation(
 fig_gen_stats_weekly_events.add_annotation(
     x=38, y=948, text="Schools opening",
     showarrow=True, arrowhead=1,
-    arrowcolor='red', font=dict(color='red'))
+    arrowcolor='red', font=dict(color='red'),
+    ax=10, ay=-30)
 fig_gen_stats_weekly_events.update_layout(title='New confirmed cases per week + summer events', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats_weekly_events.update_xaxes(range=[24, 43])
 fig_gen_stats_weekly_events.update_yaxes(range=[0, 6000])
@@ -165,12 +167,12 @@ fig_gen_stats_weekly_events_2.add_annotation(
     x=27, y=1152, text="Football cup final",
     showarrow=True, arrowhead=1,
     arrowcolor='cornflowerblue', font=dict(color='cornflowerblue'),
-    ax=-4, ay=-50)
+    ax=5, ay=-50)
 fig_gen_stats_weekly_events_2.add_annotation(
     x=28, y=1598, text="Start of protests",
     showarrow=True, arrowhead=1,
     arrowcolor='cyan', font=dict(color='cyan'),
-    ax=25, ay=-70)
+    ax=50, ay=-30)
 fig_gen_stats_weekly_events_2.add_annotation(
     x=36, y=986, text="First mass protest",
     showarrow=True, arrowhead=1,
@@ -179,7 +181,7 @@ fig_gen_stats_weekly_events_2.add_annotation(
     x=38, y=1028, text="Schools opening",
     showarrow=True, arrowhead=1,
     arrowcolor='red', font=dict(color='red'),
-    ay=-50)
+    ax=10, ay=-50)
 fig_gen_stats_weekly_events_2.add_annotation(
     x=48, y=21150, text="Second lockdown",
     showarrow=True, arrowhead=1,
@@ -349,38 +351,39 @@ for col in covid_by_age_band.columns[1:]:
 fig_age.update_layout(title='Total cases over time by age band', template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,6,15), y=0, text="Borders reopening",
+    x=pd.Timestamp(2020,6,15), y=700, text="Borders reopening",
     showarrow=True, arrowhead=1,
     arrowcolor='ivory', font=dict(color='ivory'))
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,7,1), y=0, text="Football cup final",
+    x=pd.Timestamp(2020,7,1), y=1040, text="Football cup final",
     showarrow=True, arrowhead=1,
     arrowcolor='cornflowerblue', font=dict(color='cornflowerblue'),
-    ay=-40, yshift=10)
+    ay=-50)
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,7,11), y=0, text="Start of protests",
+    x=pd.Timestamp(2020,7,11), y=1340, text="Start of protests",
     showarrow=True, arrowhead=1,
     arrowcolor='cyan', font=dict(color='cyan'),
-    ax=20, ay=-60, yshift=10)
+    ax=20, ax=-70)
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,9,2), y=2500, text="First mass protest",
+    x=pd.Timestamp(2020,9,2), y=3070, text="First mass protest",
     showarrow=True, arrowhead=1,
     arrowcolor='lime', font=dict(color='lime'),
     ay=-40)
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,9,15), y=3000, text="Schools opening",
+    x=pd.Timestamp(2020,9,15), y=3390, text="Schools opening",
     showarrow=True, arrowhead=1,
     arrowcolor='red', font=dict(color='red'),
-    ay=-60)
+    ax=10, ay=-60)
 fig_age.add_annotation(
     x=pd.Timestamp(2020,11,28), y=0, text="Second lockdown",
     showarrow=True, arrowhead=1,
     arrowcolor='yellow', font=dict(color='yellow'),
-    ay=-18)
+    ay=20)
 fig_age.add_annotation(
     x=pd.Timestamp(2020,12,24), y=0, text="Antigen tests",
     showarrow=True, arrowhead=1,
-    arrowcolor='orange', font=dict(color='orange'))
+    arrowcolor='orange', font=dict(color='orange'),
+    ay=20)
 
 
 ###### TESTS ######
@@ -398,8 +401,8 @@ fig_tests_daily.update_layout(title='New COVID-19 tests per day by test type', p
 logger.info('Creating chart 12: Positive tests % by test type')
 
 fig_tests_daily_positive = go.Figure()
-fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_pcr, name='Positive PCR %', mode='lines', marker_color='coral'))
-fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_antigen, name='Positive Antigen %', mode='lines', marker_color='darkcyan'))
+fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_pcr, name='Positive PCR %', mode='lines', line_shape='spline', marker_color='coral'))
+fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_antigen, name='Positive Antigen %', mode='lines', line_shape='spline', marker_color='darkcyan'))
 fig_tests_daily_positive.update_layout(title='Positive tests % by test type', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
