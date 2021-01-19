@@ -363,7 +363,7 @@ fig_age.add_annotation(
     x=pd.Timestamp(2020,7,11), y=1340, text="Start of protests",
     showarrow=True, arrowhead=1,
     arrowcolor='cyan', font=dict(color='cyan'),
-    ax=20, ax=-70)
+    ax=20, ay=-70)
 fig_age.add_annotation(
     x=pd.Timestamp(2020,9,2), y=3070, text="First mass protest",
     showarrow=True, arrowhead=1,
