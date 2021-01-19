@@ -1,7 +1,7 @@
 import subprocess as cmd
 
 def git_push_automation():
-    try:
+    #try:
         #cp = cmd.run("file path", check=True, shell=True)
         #logger.info("cp", cp)
         cmd.run('git add -A', check=True, shell=True)
@@ -9,7 +9,7 @@ def git_push_automation():
         #cmd.run("git push heroku master", check=True, shell=True)
         cmd.run("git push", check=True, shell=True)
         return ("Pushed to Heroku")
-    except:
+    #except:
         return ("Git automation failed")
     
 
