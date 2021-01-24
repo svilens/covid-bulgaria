@@ -226,10 +226,11 @@ date,new_cases,province
 2021-01-17,97.0,Sofiya-Grad
 2021-01-18,93.0,Sofiya-Grad
 2021-01-19,95.0,Sofiya-Grad
-2021-01-20,96.0,Sofiya-Grad
-2021-01-21,99.0,Sofiya-Grad
-2021-01-22,105.0,Sofiya-Grad
-2021-01-23,112.0,Sofiya-Grad
+2021-01-20,94.0,Sofiya-Grad
+2021-01-21,96.0,Sofiya-Grad
+2021-01-22,100.0,Sofiya-Grad
+2021-01-23,103.0,Sofiya-Grad
+2021-01-24,99.0,Sofiya-Grad
 2020-06-29,10.0,Plovdiv
 2020-06-30,12.0,Plovdiv
 2020-07-01,13.0,Plovdiv
@@ -435,10 +436,11 @@ date,new_cases,province
 2021-01-17,34.0,Plovdiv
 2021-01-18,33.0,Plovdiv
 2021-01-19,34.0,Plovdiv
-2021-01-20,35.0,Plovdiv
-2021-01-21,37.0,Plovdiv
-2021-01-22,40.0,Plovdiv
-2021-01-23,44.0,Plovdiv
+2021-01-20,34.0,Plovdiv
+2021-01-21,35.0,Plovdiv
+2021-01-22,37.0,Plovdiv
+2021-01-23,39.0,Plovdiv
+2021-01-24,38.0,Plovdiv
 2020-07-02,10.0,Varna
 2020-07-03,11.0,Varna
 2020-07-04,11.0,Varna
@@ -641,23 +643,11 @@ date,new_cases,province
 2021-01-17,25.0,Varna
 2021-01-18,22.0,Varna
 2021-01-19,21.0,Varna
-2021-01-20,21.0,Varna
+2021-01-20,22.0,Varna
 2021-01-21,22.0,Varna
-2021-01-22,23.0,Varna
+2021-01-22,24.0,Varna
 2021-01-23,26.0,Varna
-2020-09-08,10.0,Burgas
-2020-09-09,10.0,Burgas
-2020-09-10,9.0,Burgas
-2020-09-11,9.0,Burgas
-2020-09-12,10.0,Burgas
-2020-09-13,10.0,Burgas
-2020-09-14,10.0,Burgas
-2020-09-15,10.0,Burgas
-2020-09-16,10.0,Burgas
-2020-09-17,9.0,Burgas
-2020-09-18,9.0,Burgas
-2020-09-19,9.0,Burgas
-2020-09-20,9.0,Burgas
+2021-01-24,26.0,Varna
 2020-09-21,10.0,Burgas
 2020-09-22,12.0,Burgas
 2020-09-23,13.0,Burgas
@@ -781,15 +771,9 @@ date,new_cases,province
 2021-01-19,34.0,Burgas
 2021-01-20,34.0,Burgas
 2021-01-21,32.0,Burgas
-2021-01-22,34.0,Burgas
-2021-01-23,38.0,Burgas
-2020-09-15,10.0,Stara Zagora
-2020-09-16,10.0,Stara Zagora
-2020-09-17,9.0,Stara Zagora
-2020-09-18,10.0,Stara Zagora
-2020-09-19,9.0,Stara Zagora
-2020-09-20,9.0,Stara Zagora
-2020-09-21,9.0,Stara Zagora
+2021-01-22,35.0,Burgas
+2021-01-23,37.0,Burgas
+2021-01-24,39.0,Burgas
 2020-09-22,10.0,Stara Zagora
 2020-09-23,11.0,Stara Zagora
 2020-09-24,10.0,Stara Zagora
@@ -911,9 +895,10 @@ date,new_cases,province
 2021-01-18,16.0,Stara Zagora
 2021-01-19,17.0,Stara Zagora
 2021-01-20,17.0,Stara Zagora
-2021-01-21,18.0,Stara Zagora
+2021-01-21,17.0,Stara Zagora
 2021-01-22,19.0,Stara Zagora
-2021-01-23,21.0,Stara Zagora
+2021-01-23,20.0,Stara Zagora
+2021-01-24,20.0,Stara Zagora
 2020-07-08,11.0,Blagoevgrad
 2020-07-09,12.0,Blagoevgrad
 2020-07-10,13.0,Blagoevgrad
@@ -1111,9 +1096,10 @@ date,new_cases,province
 2021-01-18,16.0,Blagoevgrad
 2021-01-19,15.0,Blagoevgrad
 2021-01-20,14.0,Blagoevgrad
-2021-01-21,14.0,Blagoevgrad
-2021-01-22,15.0,Blagoevgrad
-2021-01-23,16.0,Blagoevgrad
+2021-01-21,13.0,Blagoevgrad
+2021-01-22,14.0,Blagoevgrad
+2021-01-23,14.0,Blagoevgrad
+2021-01-24,12.0,Blagoevgrad
 2020-10-11,10.0,Pazardzhik
 2020-10-12,10.0,Pazardzhik
 2020-10-13,11.0,Pazardzhik
@@ -1215,10 +1201,11 @@ date,new_cases,province
 2021-01-17,17.0,Pazardzhik
 2021-01-18,18.0,Pazardzhik
 2021-01-19,19.0,Pazardzhik
-2021-01-20,21.0,Pazardzhik
-2021-01-21,24.0,Pazardzhik
-2021-01-22,26.0,Pazardzhik
-2021-01-23,29.0,Pazardzhik
+2021-01-20,20.0,Pazardzhik
+2021-01-21,22.0,Pazardzhik
+2021-01-22,24.0,Pazardzhik
+2021-01-23,25.0,Pazardzhik
+2021-01-24,26.0,Pazardzhik
 2020-10-14,13.0,Pleven
 2020-10-15,15.0,Pleven
 2020-10-16,16.0,Pleven
@@ -1317,10 +1304,11 @@ date,new_cases,province
 2021-01-17,21.0,Pleven
 2021-01-18,22.0,Pleven
 2021-01-19,22.0,Pleven
-2021-01-20,24.0,Pleven
-2021-01-21,25.0,Pleven
-2021-01-22,27.0,Pleven
-2021-01-23,28.0,Pleven
+2021-01-20,23.0,Pleven
+2021-01-21,23.0,Pleven
+2021-01-22,24.0,Pleven
+2021-01-23,24.0,Pleven
+2021-01-24,23.0,Pleven
 2020-10-11,10.0,Veliko Tarnovo
 2020-10-12,10.0,Veliko Tarnovo
 2020-10-13,11.0,Veliko Tarnovo
@@ -1422,10 +1410,11 @@ date,new_cases,province
 2021-01-17,8.0,Veliko Tarnovo
 2021-01-18,7.0,Veliko Tarnovo
 2021-01-19,8.0,Veliko Tarnovo
-2021-01-20,9.0,Veliko Tarnovo
-2021-01-21,9.0,Veliko Tarnovo
-2021-01-22,10.0,Veliko Tarnovo
-2021-01-23,10.0,Veliko Tarnovo
+2021-01-20,8.0,Veliko Tarnovo
+2021-01-21,8.0,Veliko Tarnovo
+2021-01-22,8.0,Veliko Tarnovo
+2021-01-23,8.0,Veliko Tarnovo
+2021-01-24,8.0,Veliko Tarnovo
 2020-10-13,10.0,Sofiya-Oblast
 2020-10-14,11.0,Sofiya-Oblast
 2020-10-15,12.0,Sofiya-Oblast
@@ -1526,9 +1515,10 @@ date,new_cases,province
 2021-01-18,12.0,Sofiya-Oblast
 2021-01-19,13.0,Sofiya-Oblast
 2021-01-20,14.0,Sofiya-Oblast
-2021-01-21,15.0,Sofiya-Oblast
+2021-01-21,14.0,Sofiya-Oblast
 2021-01-22,16.0,Sofiya-Oblast
-2021-01-23,18.0,Sofiya-Oblast
+2021-01-23,17.0,Sofiya-Oblast
+2021-01-24,16.0,Sofiya-Oblast
 2020-10-18,10.0,Haskovo
 2020-10-19,12.0,Haskovo
 2020-10-20,14.0,Haskovo
@@ -1623,10 +1613,11 @@ date,new_cases,province
 2021-01-17,19.0,Haskovo
 2021-01-18,18.0,Haskovo
 2021-01-19,18.0,Haskovo
-2021-01-20,19.0,Haskovo
-2021-01-21,19.0,Haskovo
-2021-01-22,20.0,Haskovo
-2021-01-23,21.0,Haskovo
+2021-01-20,18.0,Haskovo
+2021-01-21,17.0,Haskovo
+2021-01-22,17.0,Haskovo
+2021-01-23,17.0,Haskovo
+2021-01-24,14.0,Haskovo
 2020-10-12,10.0,Ruse
 2020-10-13,11.0,Ruse
 2020-10-14,12.0,Ruse
@@ -1727,10 +1718,11 @@ date,new_cases,province
 2021-01-17,12.0,Ruse
 2021-01-18,12.0,Ruse
 2021-01-19,14.0,Ruse
-2021-01-20,15.0,Ruse
-2021-01-21,16.0,Ruse
-2021-01-22,18.0,Ruse
-2021-01-23,19.0,Ruse
+2021-01-20,14.0,Ruse
+2021-01-21,15.0,Ruse
+2021-01-22,15.0,Ruse
+2021-01-23,16.0,Ruse
+2021-01-24,14.0,Ruse
 2020-10-06,10.0,Sliven
 2020-10-07,14.0,Sliven
 2020-10-08,16.0,Sliven
@@ -1838,9 +1830,10 @@ date,new_cases,province
 2021-01-18,15.0,Sliven
 2021-01-19,15.0,Sliven
 2021-01-20,16.0,Sliven
-2021-01-21,16.0,Sliven
-2021-01-22,17.0,Sliven
-2021-01-23,18.0,Sliven
+2021-01-21,17.0,Sliven
+2021-01-22,18.0,Sliven
+2021-01-23,19.0,Sliven
+2021-01-24,19.0,Sliven
 2020-10-10,10.0,Shumen
 2020-10-11,12.0,Shumen
 2020-10-12,15.0,Shumen
@@ -1943,10 +1936,11 @@ date,new_cases,province
 2021-01-17,13.0,Shumen
 2021-01-18,13.0,Shumen
 2021-01-19,13.0,Shumen
-2021-01-20,14.0,Shumen
-2021-01-21,14.0,Shumen
-2021-01-22,15.0,Shumen
-2021-01-23,16.0,Shumen
+2021-01-20,13.0,Shumen
+2021-01-21,13.0,Shumen
+2021-01-22,13.0,Shumen
+2021-01-23,13.0,Shumen
+2021-01-24,12.0,Shumen
 2020-10-26,10.0,Dobrich
 2020-10-27,11.0,Dobrich
 2020-10-28,12.0,Dobrich
@@ -2035,8 +2029,9 @@ date,new_cases,province
 2021-01-19,7.0,Dobrich
 2021-01-20,6.0,Dobrich
 2021-01-21,6.0,Dobrich
-2021-01-22,5.0,Dobrich
-2021-01-23,5.0,Dobrich
+2021-01-22,6.0,Dobrich
+2021-01-23,6.0,Dobrich
+2021-01-24,6.0,Dobrich
 2020-10-13,10.0,Vratsa
 2020-10-14,12.0,Vratsa
 2020-10-15,12.0,Vratsa
@@ -2136,10 +2131,11 @@ date,new_cases,province
 2021-01-17,13.0,Vratsa
 2021-01-18,13.0,Vratsa
 2021-01-19,13.0,Vratsa
-2021-01-20,14.0,Vratsa
-2021-01-21,14.0,Vratsa
-2021-01-22,16.0,Vratsa
-2021-01-23,17.0,Vratsa
+2021-01-20,13.0,Vratsa
+2021-01-21,13.0,Vratsa
+2021-01-22,14.0,Vratsa
+2021-01-23,15.0,Vratsa
+2021-01-24,14.0,Vratsa
 2020-10-09,10.0,Kardzhali
 2020-10-10,10.0,Kardzhali
 2020-10-11,11.0,Kardzhali
@@ -2244,9 +2240,10 @@ date,new_cases,province
 2021-01-18,6.0,Kardzhali
 2021-01-19,7.0,Kardzhali
 2021-01-20,7.0,Kardzhali
-2021-01-21,8.0,Kardzhali
-2021-01-22,9.0,Kardzhali
-2021-01-23,10.0,Kardzhali
+2021-01-21,7.0,Kardzhali
+2021-01-22,8.0,Kardzhali
+2021-01-23,9.0,Kardzhali
+2021-01-24,8.0,Kardzhali
 2020-10-12,11.0,Montana
 2020-10-13,12.0,Montana
 2020-10-14,13.0,Montana
@@ -2349,8 +2346,9 @@ date,new_cases,province
 2021-01-19,4.0,Montana
 2021-01-20,4.0,Montana
 2021-01-21,3.0,Montana
-2021-01-22,4.0,Montana
-2021-01-23,4.0,Montana
+2021-01-22,3.0,Montana
+2021-01-23,3.0,Montana
+2021-01-24,3.0,Montana
 2020-10-17,10.0,Lovech
 2020-10-18,11.0,Lovech
 2020-10-19,12.0,Lovech
@@ -2448,8 +2446,9 @@ date,new_cases,province
 2021-01-19,5.0,Lovech
 2021-01-20,5.0,Lovech
 2021-01-21,6.0,Lovech
-2021-01-22,6.0,Lovech
+2021-01-22,5.0,Lovech
 2021-01-23,6.0,Lovech
+2021-01-24,5.0,Lovech
 2020-10-17,10.0,Pernik
 2020-10-18,11.0,Pernik
 2020-10-19,14.0,Pernik
@@ -2548,7 +2547,8 @@ date,new_cases,province
 2021-01-20,8.0,Pernik
 2021-01-21,8.0,Pernik
 2021-01-22,8.0,Pernik
-2021-01-23,9.0,Pernik
+2021-01-23,8.0,Pernik
+2021-01-24,7.0,Pernik
 2020-10-23,11.0,Yambol
 2020-10-24,13.0,Yambol
 2020-10-25,15.0,Yambol
@@ -2639,9 +2639,10 @@ date,new_cases,province
 2021-01-18,5.0,Yambol
 2021-01-19,5.0,Yambol
 2021-01-20,5.0,Yambol
-2021-01-21,6.0,Yambol
-2021-01-22,6.0,Yambol
-2021-01-23,6.0,Yambol
+2021-01-21,5.0,Yambol
+2021-01-22,5.0,Yambol
+2021-01-23,5.0,Yambol
+2021-01-24,4.0,Yambol
 2020-10-21,12.0,Kyustendil
 2020-10-22,13.0,Kyustendil
 2020-10-23,15.0,Kyustendil
@@ -2737,6 +2738,7 @@ date,new_cases,province
 2021-01-21,16.0,Kyustendil
 2021-01-22,16.0,Kyustendil
 2021-01-23,17.0,Kyustendil
+2021-01-24,17.0,Kyustendil
 2020-10-03,10.0,Targovishte
 2020-10-04,10.0,Targovishte
 2020-10-05,10.0,Targovishte
@@ -2848,8 +2850,9 @@ date,new_cases,province
 2021-01-19,2.0,Targovishte
 2021-01-20,2.0,Targovishte
 2021-01-21,2.0,Targovishte
-2021-01-22,3.0,Targovishte
+2021-01-22,2.0,Targovishte
 2021-01-23,3.0,Targovishte
+2021-01-24,3.0,Targovishte
 2020-10-12,10.0,Razgrad
 2020-10-13,11.0,Razgrad
 2020-10-14,12.0,Razgrad
@@ -2952,8 +2955,9 @@ date,new_cases,province
 2021-01-19,4.0,Razgrad
 2021-01-20,4.0,Razgrad
 2021-01-21,4.0,Razgrad
-2021-01-22,5.0,Razgrad
-2021-01-23,5.0,Razgrad
+2021-01-22,4.0,Razgrad
+2021-01-23,4.0,Razgrad
+2021-01-24,3.0,Razgrad
 2020-10-28,11.0,Silistra
 2020-10-29,13.0,Silistra
 2020-10-30,14.0,Silistra
@@ -3038,10 +3042,11 @@ date,new_cases,province
 2021-01-17,11.0,Silistra
 2021-01-18,10.0,Silistra
 2021-01-19,9.0,Silistra
-2021-01-20,8.0,Silistra
+2021-01-20,7.0,Silistra
 2021-01-21,7.0,Silistra
-2021-01-22,6.0,Silistra
-2021-01-23,6.0,Silistra
+2021-01-22,5.0,Silistra
+2021-01-23,5.0,Silistra
+2021-01-24,4.0,Silistra
 2020-10-14,10.0,Gabrovo
 2020-10-15,13.0,Gabrovo
 2020-10-16,15.0,Gabrovo
@@ -3144,6 +3149,7 @@ date,new_cases,province
 2021-01-21,3.0,Gabrovo
 2021-01-22,3.0,Gabrovo
 2021-01-23,3.0,Gabrovo
+2021-01-24,2.0,Gabrovo
 2020-10-17,10.0,Smolyan
 2020-10-18,11.0,Smolyan
 2020-10-19,11.0,Smolyan
@@ -3242,7 +3248,8 @@ date,new_cases,province
 2021-01-20,3.0,Smolyan
 2021-01-21,3.0,Smolyan
 2021-01-22,3.0,Smolyan
-2021-01-23,4.0,Smolyan
+2021-01-23,3.0,Smolyan
+2021-01-24,3.0,Smolyan
 2020-10-29,10.0,Vidin
 2020-10-30,10.0,Vidin
 2020-10-31,13.0,Vidin
@@ -3326,7 +3333,8 @@ date,new_cases,province
 2021-01-17,5.0,Vidin
 2021-01-18,4.0,Vidin
 2021-01-19,4.0,Vidin
-2021-01-20,5.0,Vidin
+2021-01-20,4.0,Vidin
 2021-01-21,4.0,Vidin
 2021-01-22,4.0,Vidin
-2021-01-23,4.0,Vidin
+2021-01-23,3.0,Vidin
+2021-01-24,2.0,Vidin
