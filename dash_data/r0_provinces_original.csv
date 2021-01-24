@@ -231,6 +231,7 @@ date,new_cases,province
 2021-01-22,105.0,Sofiya-Grad
 2021-01-23,119.0,Sofiya-Grad
 2021-01-24,66.0,Sofiya-Grad
+2021-01-25,35.0,Sofiya-Grad
 2020-06-29,6.0,Plovdiv
 2020-06-30,7.0,Plovdiv
 2020-07-01,7.0,Plovdiv
@@ -441,6 +442,7 @@ date,new_cases,province
 2021-01-22,45.0,Plovdiv
 2021-01-23,47.0,Plovdiv
 2021-01-24,19.0,Plovdiv
+2021-01-25,7.0,Plovdiv
 2020-07-02,12.0,Varna
 2020-07-03,15.0,Varna
 2020-07-04,11.0,Varna
@@ -648,6 +650,7 @@ date,new_cases,province
 2021-01-22,21.0,Varna
 2021-01-23,29.0,Varna
 2021-01-24,25.0,Varna
+2021-01-25,6.0,Varna
 2020-09-21,1.0,Burgas
 2020-09-22,16.0,Burgas
 2020-09-23,9.0,Burgas
@@ -774,6 +777,7 @@ date,new_cases,province
 2021-01-22,44.0,Burgas
 2021-01-23,35.0,Burgas
 2021-01-24,36.0,Burgas
+2021-01-25,13.0,Burgas
 2020-09-22,14.0,Stara Zagora
 2020-09-23,2.0,Stara Zagora
 2020-09-24,15.0,Stara Zagora
@@ -899,6 +903,7 @@ date,new_cases,province
 2021-01-22,20.0,Stara Zagora
 2021-01-23,28.0,Stara Zagora
 2021-01-24,16.0,Stara Zagora
+2021-01-25,2.0,Stara Zagora
 2020-07-08,10.0,Blagoevgrad
 2020-07-09,17.0,Blagoevgrad
 2020-07-10,19.0,Blagoevgrad
@@ -1100,6 +1105,7 @@ date,new_cases,province
 2021-01-22,9.0,Blagoevgrad
 2021-01-23,21.0,Blagoevgrad
 2021-01-24,5.0,Blagoevgrad
+2021-01-25,2.0,Blagoevgrad
 2020-10-11,6.0,Pazardzhik
 2020-10-12,1.0,Pazardzhik
 2020-10-13,8.0,Pazardzhik
@@ -1206,6 +1212,7 @@ date,new_cases,province
 2021-01-22,30.0,Pazardzhik
 2021-01-23,40.0,Pazardzhik
 2021-01-24,9.0,Pazardzhik
+2021-01-25,4.0,Pazardzhik
 2020-10-14,12.0,Pleven
 2020-10-15,14.0,Pleven
 2020-10-16,28.0,Pleven
@@ -1309,6 +1316,7 @@ date,new_cases,province
 2021-01-22,28.0,Pleven
 2021-01-23,30.0,Pleven
 2021-01-24,7.0,Pleven
+2021-01-25,2.0,Pleven
 2020-10-11,19.0,Veliko Tarnovo
 2020-10-12,0.0,Veliko Tarnovo
 2020-10-13,7.0,Veliko Tarnovo
@@ -1415,6 +1423,7 @@ date,new_cases,province
 2021-01-22,6.0,Veliko Tarnovo
 2021-01-23,11.0,Veliko Tarnovo
 2021-01-24,1.0,Veliko Tarnovo
+2021-01-25,0.0,Veliko Tarnovo
 2020-10-13,8.0,Sofiya-Oblast
 2020-10-14,11.0,Sofiya-Oblast
 2020-10-15,14.0,Sofiya-Oblast
@@ -1519,6 +1528,7 @@ date,new_cases,province
 2021-01-22,12.0,Sofiya-Oblast
 2021-01-23,26.0,Sofiya-Oblast
 2021-01-24,10.0,Sofiya-Oblast
+2021-01-25,5.0,Sofiya-Oblast
 2020-10-18,4.0,Haskovo
 2020-10-19,1.0,Haskovo
 2020-10-20,17.0,Haskovo
@@ -1618,6 +1628,7 @@ date,new_cases,province
 2021-01-22,10.0,Haskovo
 2021-01-23,16.0,Haskovo
 2021-01-24,2.0,Haskovo
+2021-01-25,1.0,Haskovo
 2020-10-12,0.0,Ruse
 2020-10-13,10.0,Ruse
 2020-10-14,19.0,Ruse
@@ -1723,6 +1734,7 @@ date,new_cases,province
 2021-01-22,15.0,Ruse
 2021-01-23,23.0,Ruse
 2021-01-24,3.0,Ruse
+2021-01-25,6.0,Ruse
 2020-10-06,10.0,Sliven
 2020-10-07,10.0,Sliven
 2020-10-08,13.0,Sliven
@@ -1834,6 +1846,7 @@ date,new_cases,province
 2021-01-22,16.0,Sliven
 2021-01-23,16.0,Sliven
 2021-01-24,22.0,Sliven
+2021-01-25,6.0,Sliven
 2020-10-10,17.0,Shumen
 2020-10-11,5.0,Shumen
 2020-10-12,0.0,Shumen
@@ -1941,6 +1954,7 @@ date,new_cases,province
 2021-01-22,13.0,Shumen
 2021-01-23,20.0,Shumen
 2021-01-24,1.0,Shumen
+2021-01-25,2.0,Shumen
 2020-10-26,2.0,Dobrich
 2020-10-27,14.0,Dobrich
 2020-10-28,15.0,Dobrich
@@ -2032,6 +2046,7 @@ date,new_cases,province
 2021-01-22,0.0,Dobrich
 2021-01-23,6.0,Dobrich
 2021-01-24,8.0,Dobrich
+2021-01-25,1.0,Dobrich
 2020-10-13,13.0,Vratsa
 2020-10-14,11.0,Vratsa
 2020-10-15,28.0,Vratsa
@@ -2136,6 +2151,7 @@ date,new_cases,province
 2021-01-22,13.0,Vratsa
 2021-01-23,19.0,Vratsa
 2021-01-24,6.0,Vratsa
+2021-01-25,1.0,Vratsa
 2020-10-09,19.0,Kardzhali
 2020-10-10,9.0,Kardzhali
 2020-10-11,1.0,Kardzhali
@@ -2244,6 +2260,7 @@ date,new_cases,province
 2021-01-22,10.0,Kardzhali
 2021-01-23,17.0,Kardzhali
 2021-01-24,1.0,Kardzhali
+2021-01-25,1.0,Kardzhali
 2020-10-12,5.0,Montana
 2020-10-13,5.0,Montana
 2020-10-14,19.0,Montana
@@ -2349,6 +2366,7 @@ date,new_cases,province
 2021-01-22,2.0,Montana
 2021-01-23,2.0,Montana
 2021-01-24,2.0,Montana
+2021-01-25,1.0,Montana
 2020-10-17,23.0,Lovech
 2020-10-18,8.0,Lovech
 2020-10-19,2.0,Lovech
@@ -2449,6 +2467,7 @@ date,new_cases,province
 2021-01-22,6.0,Lovech
 2021-01-23,7.0,Lovech
 2021-01-24,3.0,Lovech
+2021-01-25,4.0,Lovech
 2020-10-17,17.0,Pernik
 2020-10-18,7.0,Pernik
 2020-10-19,9.0,Pernik
@@ -2549,6 +2568,7 @@ date,new_cases,province
 2021-01-22,3.0,Pernik
 2021-01-23,9.0,Pernik
 2021-01-24,3.0,Pernik
+2021-01-25,1.0,Pernik
 2020-10-23,19.0,Yambol
 2020-10-24,17.0,Yambol
 2020-10-25,0.0,Yambol
@@ -2643,6 +2663,7 @@ date,new_cases,province
 2021-01-22,5.0,Yambol
 2021-01-23,6.0,Yambol
 2021-01-24,3.0,Yambol
+2021-01-25,1.0,Yambol
 2020-10-21,12.0,Kyustendil
 2020-10-22,12.0,Kyustendil
 2020-10-23,19.0,Kyustendil
@@ -2739,6 +2760,7 @@ date,new_cases,province
 2021-01-22,22.0,Kyustendil
 2021-01-23,16.0,Kyustendil
 2021-01-24,17.0,Kyustendil
+2021-01-25,13.0,Kyustendil
 2020-10-03,8.0,Targovishte
 2020-10-04,15.0,Targovishte
 2020-10-05,4.0,Targovishte
@@ -2853,6 +2875,7 @@ date,new_cases,province
 2021-01-22,4.0,Targovishte
 2021-01-23,5.0,Targovishte
 2021-01-24,0.0,Targovishte
+2021-01-25,0.0,Targovishte
 2020-10-12,2.0,Razgrad
 2020-10-13,11.0,Razgrad
 2020-10-14,19.0,Razgrad
@@ -2958,6 +2981,7 @@ date,new_cases,province
 2021-01-22,4.0,Razgrad
 2021-01-23,6.0,Razgrad
 2021-01-24,0.0,Razgrad
+2021-01-25,1.0,Razgrad
 2020-10-28,6.0,Silistra
 2020-10-29,24.0,Silistra
 2020-10-30,16.0,Silistra
@@ -3047,6 +3071,7 @@ date,new_cases,province
 2021-01-22,5.0,Silistra
 2021-01-23,4.0,Silistra
 2021-01-24,0.0,Silistra
+2021-01-25,1.0,Silistra
 2020-10-14,2.0,Gabrovo
 2020-10-15,22.0,Gabrovo
 2020-10-16,5.0,Gabrovo
@@ -3150,6 +3175,7 @@ date,new_cases,province
 2021-01-22,1.0,Gabrovo
 2021-01-23,3.0,Gabrovo
 2021-01-24,0.0,Gabrovo
+2021-01-25,0.0,Gabrovo
 2020-10-17,10.0,Smolyan
 2020-10-18,16.0,Smolyan
 2020-10-19,6.0,Smolyan
@@ -3250,6 +3276,7 @@ date,new_cases,province
 2021-01-22,2.0,Smolyan
 2021-01-23,5.0,Smolyan
 2021-01-24,1.0,Smolyan
+2021-01-25,5.0,Smolyan
 2020-10-29,18.0,Vidin
 2020-10-30,7.0,Vidin
 2020-10-31,13.0,Vidin
@@ -3338,3 +3365,4 @@ date,new_cases,province
 2021-01-22,4.0,Vidin
 2021-01-23,0.0,Vidin
 2021-01-24,0.0,Vidin
+2021-01-25,0.0,Vidin
