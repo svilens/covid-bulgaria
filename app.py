@@ -874,7 +874,7 @@ import dash_bootstrap_components as dbc
 app = dash.Dash(
     name='COVID-19 in Bulgaria',
     #external_stylesheets=[dbc.themes.DARKLY],
-    external_stylesheets=['./assets/bootstrap.min.css'],
+    external_stylesheets=['./assets/bootstrap_adjusted.css'],
     meta_tags = [
         {
             "name": "description",
