@@ -57,8 +57,8 @@ def read_covid_tests(path, date_col):
         }
     )
 
-    tests['pos_rate_pcr'] = (100*tests['new_positive_pcr'] / tests['new_pcr']).round(2)
-    tests['pos_rate_antigen'] = (100*tests['new_positive_antigen'] / tests['new_antigen']).round(2)
+    tests['pos_rate_pcr'] = (tests['new_positive_pcr'] / tests['new_pcr']).round(4)
+    tests['pos_rate_antigen'] = (tests['new_positive_antigen'] / tests['new_antigen']).round(4)
     return tests
 
 

@@ -216,14 +216,16 @@ fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.de
                                line_shape='spline', line=dict(color='red'), name='Mortality rate'))
 fig_rates_mort_rec.add_trace(go.Scatter(x=covid_general.date, y=covid_general.recovery_rate,
                                line_shape='spline', line=dict(color='green'), name='Recovery rate', visible='legendonly'))
-fig_rates_mort_rec.update_layout(title='COVID-19 mortality and recovery rates (based on confirmed cases by 14 days ago)')
+fig_rates_mort_rec.update_layout(title='COVID-19 mortality and recovery rates (based on confirmed cases by 14 days ago)',
+        yaxis=dict(tickformat=',.0%', hoverformat=',.2%'))
 
 fig_rates_mort_rec_v2 = go.Figure()
 fig_rates_mort_rec_v2.add_trace(go.Scatter(x=covid_general.date, y=covid_general.death_rate_v2,
                                line_shape='spline', line=dict(color='red'), name='Mortality rate'))
 fig_rates_mort_rec_v2.add_trace(go.Scatter(x=covid_general.date, y=covid_general.recovery_rate_v2,
                                line_shape='spline', line=dict(color='green'), name='Recovery rate', visible='legendonly'))
-fig_rates_mort_rec_v2.update_layout(title='COVID-19 mortality and recovery rates (based on closed cases)')
+fig_rates_mort_rec_v2.update_layout(title='COVID-19 mortality and recovery rates (based on closed cases)',
+        yaxis=dict(tickformat=',.0%', hoverformat=',.2%'))
 
 
 fig_rates_hospitalized = go.Figure()
@@ -231,12 +233,14 @@ fig_rates_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_genera
                                line_shape='spline', line=dict(color='yellow'), name='Hospitalized rate'))
 fig_rates_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.intensive_care_rate,
                                line_shape='spline', line=dict(color='orange'), name='Intensive care rate'))
-fig_rates_hospitalized.update_layout(title="COVID-19 hospitalized and intensive care rates over time")
+fig_rates_hospitalized.update_layout(title="COVID-19 hospitalized and intensive care rates over time",
+        yaxis=dict(tickformat=',.0%', hoverformat=',.2%'))
 
 fig_rates_positive_tests = go.Figure()
 fig_rates_positive_tests.add_trace(go.Scatter(x=covid_general.date, y=covid_general.tests_positive_rate,
                                line_shape='spline', line=dict(color='cyan'), name='Tests positive rate'))
-fig_rates_positive_tests.update_layout(title="COVID-19 positive tests rate")
+fig_rates_positive_tests.update_layout(title="COVID-19 positive tests rate",
+        yaxis=dict(tickformat=',.0%', hoverformat=',.2%'))
 
 # for the dashboard
 for f in [fig_rates_mort_rec, fig_rates_mort_rec_v2, fig_rates_hospitalized, fig_rates_positive_tests]:
@@ -403,7 +407,8 @@ logger.info('Creating chart 12: Positive tests % by test type')
 fig_tests_daily_positive = go.Figure()
 fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_pcr, name='Positive PCR %', mode='lines', line_shape='spline', marker_color='coral'))
 fig_tests_daily_positive.add_trace(go.Scatter(x=tests.date, y=tests.pos_rate_antigen, name='Positive Antigen %', mode='lines', line_shape='spline', marker_color='darkcyan'))
-fig_tests_daily_positive.update_layout(title='Positive tests % by test type', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_tests_daily_positive.update_layout(title='Positive tests % by test type', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
+        yaxis=dict(tickformat=',.0%', hoverformat=',.2%'))
 
 
 logger.info('Creating chart 13: Tests Sankey')
