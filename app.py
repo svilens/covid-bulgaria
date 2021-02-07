@@ -117,6 +117,15 @@ fig_gen_stats_weekly_new_pct.add_annotation(
     showarrow=True, arrowhead=1,
     arrowcolor='orange', font=dict(color='orange'),
     ay=20)
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=57, y=0.33, text="Vaccines",
+    showarrow=True, arrowhead=1,
+    arrowcolor='green', font=dict(color='green'))
+fig_gen_stats_weekly_new_pct.add_annotation(
+    x=58, y=0.26, text="Schools partial reopening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='red', font=dict(color='red'),
+    ax=-20)
 fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
@@ -192,6 +201,16 @@ fig_gen_stats_weekly_events_2.add_annotation(
     showarrow=True, arrowhead=1,
     arrowcolor='orange', font=dict(color='orange'),
     ay=50)
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=57, y=3922, text="Vaccines",
+    showarrow=True, arrowhead=1,
+    arrowcolor='green', font=dict(color='green'),
+    ax=-20)
+fig_gen_stats_weekly_events_2.add_annotation(
+    x=58, y=4934, text="Schools partial reopening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='red', font=dict(color='red'),
+    ax=-20, ay=50)
 fig_gen_stats_weekly_events_2.update_layout(title='New confirmed cases per week + summer events + second lockdown', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats_weekly_events_2.update_xaxes(range=[24, covid_general_weekly.index[-1]])
 
@@ -388,6 +407,15 @@ fig_age.add_annotation(
     showarrow=True, arrowhead=1,
     arrowcolor='orange', font=dict(color='orange'),
     ay=20)
+fig_age.add_annotation(
+    x=pd.Timestamp(2021,1,25), y=0, text="Vaccines",
+    showarrow=True, arrowhead=1,
+    arrowcolor='green', font=dict(color='green'))
+fig_age.add_annotation(
+    x=pd.Timestamp(2021,2,4), y=0, text="Schools partial reopening",
+    showarrow=True, arrowhead=1,
+    arrowcolor='red', font=dict(color='red'),
+    ax=10, ay=20)
 
 
 ###### TESTS ######
