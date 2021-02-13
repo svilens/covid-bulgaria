@@ -2,7 +2,7 @@ from func_logging import *
 import geopandas as gpd
 import pandas as pd
 import numpy as np
-from datetime import datetime
+from datetime import datetime, date, timedelta
 
 # from external modules
 from func_read_spatial import *
@@ -618,6 +618,7 @@ for i, province in list(enumerate(provinces_list)):
                                   row=row_num, col=col_num)
 
 fig_new_by_province.update_layout(title='Daily new cases by province (smoothed figures)', height=3200, showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_new_by_province.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 ### Rt for BG
@@ -705,18 +706,19 @@ def generate_rt_by_province(provinces, final_results):
         else:
             col_num = 2
 
-        fig_rt_province.add_trace(go.Scatter(x=subset.date, y=subset.Low_90,
+        fig_rt_province.add_trace(go.Scatter(x=subset.date[3:], y=subset.Low_90[3:],
                                 fill='none', mode='lines', line_color="rgba(38,38,38,0.9)", line_shape='spline',
                                 name="Low density interval"), row=row_num, col=col_num)
-        fig_rt_province.add_trace(go.Scatter(x=subset.date, y=subset.High_90,
+        fig_rt_province.add_trace(go.Scatter(x=subset.date[3:], y=subset.High_90[3:],
                                 fill='tonexty', mode='none', fillcolor="rgba(65,65,65,1)", line_shape='spline',
                                 name="High density interval"), row=row_num, col=col_num)
-        fig_rt_province.add_trace(go.Scatter(x=subset.date, y=subset.Estimated, mode='markers+lines',
+        fig_rt_province.add_trace(go.Scatter(x=subset.date[3:], y=subset.Estimated[3:], mode='markers+lines',
                                 line=dict(width=0.3, dash='dot'), line_shape='spline',
                                 marker_color=subset.Estimated, marker_colorscale='RdYlGn_r', marker_line_width=1.2,
                                 marker_cmin=0.5, marker_cmax=1.4, name='R<sub>t'), row=row_num, col=col_num)
 
-    fig_rt_province.update_layout(yaxis=dict(range=[0,4]), title="Real-time R<sub>t</sub> by province", height=4000, showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    fig_rt_province.update_layout(title="Real-time R<sub>t</sub> by province", height=4000, showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    fig_rt_province.update_yaxes(range=[0, 2.5])
     return fig_rt_province
 
 
