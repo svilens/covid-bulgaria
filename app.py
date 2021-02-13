@@ -126,7 +126,7 @@ fig_gen_stats_weekly_new_pct.add_annotation(
     showarrow=True, arrowhead=1,
     arrowcolor='red', font=dict(color='red'),
     ax=-20, ay=30)
-fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
         yaxis=dict(tickformat=',.0%', hoverformat=',.2%'))
 
 
