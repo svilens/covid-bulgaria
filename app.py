@@ -126,7 +126,8 @@ fig_gen_stats_weekly_new_pct.add_annotation(
     showarrow=True, arrowhead=1,
     arrowcolor='red', font=dict(color='red'),
     ax=-20, ay=30)
-fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats_weekly_new_pct.update_layout(title='New cases over time - weekly % change', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+        yaxis=dict(tickformat=',.0%', hoverformat=',.2%'))
 
 
 logger.info('Creating chart 4: New cases per week + summer events')
@@ -374,29 +375,30 @@ for col in covid_by_age_band.columns[1:]:
 fig_age.update_layout(title='Total cases over time by age band', template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,6,15), y=700, text="Borders reopening",
+    x=pd.Timestamp(2020,6,15), y=0, text="Borders reopening",
     showarrow=True, arrowhead=1,
-    arrowcolor='ivory', font=dict(color='ivory'))
+    arrowcolor='ivory', font=dict(color='ivory'),
+    ay=20)
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,7,1), y=1040, text="Football cup final",
+    x=pd.Timestamp(2020,7,1), y=0, text="Football cup final",
     showarrow=True, arrowhead=1,
     arrowcolor='cornflowerblue', font=dict(color='cornflowerblue'),
-    ay=-50)
+    ay=40)
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,7,11), y=1340, text="Start of protests",
+    x=pd.Timestamp(2020,7,11), y=0, text="Start of protests",
     showarrow=True, arrowhead=1,
     arrowcolor='cyan', font=dict(color='cyan'),
-    ax=20, ay=-70)
+    ax=20, ay=20)
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,9,2), y=3070, text="First mass protest",
+    x=pd.Timestamp(2020,9,2), y=0, text="First mass protest",
     showarrow=True, arrowhead=1,
     arrowcolor='lime', font=dict(color='lime'),
-    ay=-40)
+    ay=20)
 fig_age.add_annotation(
-    x=pd.Timestamp(2020,9,15), y=3390, text="Schools opening",
+    x=pd.Timestamp(2020,9,15), y=0, text="Schools opening",
     showarrow=True, arrowhead=1,
     arrowcolor='red', font=dict(color='red'),
-    ax=10, ay=-60)
+    ax=10, ay=40)
 fig_age.add_annotation(
     x=pd.Timestamp(2020,11,28), y=0, text="Second lockdown",
     showarrow=True, arrowhead=1,
@@ -411,12 +413,12 @@ fig_age.add_annotation(
     x=pd.Timestamp(2021,1,25), y=0, text="Vaccines",
     showarrow=True, arrowhead=1,
     arrowcolor='green', font=dict(color='green'),
-    ay=5)
+    ay=20)
 fig_age.add_annotation(
     x=pd.Timestamp(2021,2,4), y=0, text="Schools partial reopening",
     showarrow=True, arrowhead=1,
     arrowcolor='red', font=dict(color='red'),
-    ax=-10, ay=20)
+    ax=-10, ay=40)
 
 
 ###### TESTS ######
