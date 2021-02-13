@@ -675,6 +675,8 @@ mr['status'] = np.select(mr_conditions, mr_values)
 mr_colors = ['green', 'crimson']
 mr['colors'] = np.select(mr_conditions, mr_colors)
 mr.loc[mr.status=="0", 'colors'] = 'rgb(189,166,17)' #dark yellow
+#append population and sort 
+mr = mr.merge(covid_pop[['province', 'pop']].drop_duplicates(), on='province').sort_values(by='pop', ascending=False)
 
 
 fig_rt_province_yesterday = go.Figure()
