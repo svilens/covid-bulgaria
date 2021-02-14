@@ -28,6 +28,15 @@ elif api_request == 'error':
 logger.info('Finished downloading the new COVID-19 data!')
 
 
+logger.info('Scraping vaccines data')
+vaccines_df = get_vaccines_data_web(vaccines_url, chromedriver_dir)
+vaccines_df = pd.merge(
+    covid_pop[['province', 'pop']].drop_duplicates().reset_index(),
+    vaccines_df,
+    on='code').drop('code', axis=1)
+vaccines_df.to_csv('./dash_data/vaccines.csv', header=True, index=False)
+
+
 logger.info('Reading general stats file')
 covid_general = read_covid_general('./data/COVID_general.csv', 'Дата')
 covid_general['week'] = covid_general.date.dt.isocalendar().week

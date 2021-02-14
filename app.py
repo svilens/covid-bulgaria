@@ -727,6 +727,42 @@ def generate_rt_by_province(provinces, final_results):
 fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 
 
+
+### Vaccines ###
+vaccines_data = pd.read_csv('./dash_data/vaccines.csv')
+vaccines_data['fully_vaccinated_per_100'] = (100*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
+vaccines_geo = pd.merge(covid_yesterday[['province','geometry']], vaccines_data, on='province').set_index('province')
+fig_vaccines_province = px.choropleth_mapbox(
+    vaccines_geo,
+    geojson=vaccines_geo.geometry,
+    locations=vaccines_geo.index,
+    color='fully_vaccinated_per_100',
+    color_continuous_scale='Greens',
+    hover_name=vaccines_geo.index,
+    hover_data=['second_dose', 'fully_vaccinated_per_100'],
+    labels={'second_dose':'fully vaccinated',
+            'fully_vaccinated_per_100': 'per 100 pop'},
+    title=f"Fully vaccinated people per 100 population by province",
+    center={'lat': 42.734189, 'lon': 25.1635087},
+    mapbox_style='carto-darkmatter',
+    opacity=1,
+    zoom=6
+)
+fig_vaccines_province.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+vaccines_new_pfizer = vaccines_data.loc[vaccines_data['new_pfizer'] > 0, ['province', 'new_pfizer']]
+vaccines_new_astra = vaccines_data.loc[vaccines_data['new_astrazeneca'] > 0, ['province', 'new_astrazeneca']]
+vaccines_new_moderna = vaccines_data.loc[vaccines_data['new_moderna'] > 0, ['province', 'new_moderna']]
+
+fig_vacc_manufacturer = go.Figure()
+fig_vacc_manufacturer.add_trace(go.Bar(name='Pfizer/BioNTech', x=vaccines_new_pfizer['province'], y=vaccines_new_pfizer['new_pfizer']))
+fig_vacc_manufacturer.add_trace(go.Bar(name='Astra Zeneca', x=vaccines_new_astra['province'], y=vaccines_new_astra['new_astrazeneca']))
+fig_vacc_manufacturer.add_trace(go.Bar(name='Moderna', x=vaccines_new_moderna['province'], y=vaccines_new_moderna['new_moderna']))
+fig_vacc_manufacturer.update_layout(barmode='stack', title='Number of vaccinated people by province and manufacturer')
+
+
+
 ####### ARIMA #######
 
 logger.info('Reading ARIMA')
