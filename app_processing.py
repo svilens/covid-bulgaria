@@ -10,6 +10,7 @@ from func_read_spatial import *
 from func_read_covid import *
 from func_read_nsi import *
 from func_logging import *
+from func_read_vaccines_web import *
 
 global_start = datetime.now()
 logger = get_logger(__name__)
@@ -26,15 +27,6 @@ elif api_request == 'error':
     sys.exit()
 
 logger.info('Finished downloading the new COVID-19 data!')
-
-
-logger.info('Scraping vaccines data')
-vaccines_df = get_vaccines_data_web(vaccines_url, chromedriver_dir)
-vaccines_df = pd.merge(
-    covid_pop[['province', 'pop']].drop_duplicates().reset_index(),
-    vaccines_df,
-    on='code').drop('code', axis=1)
-vaccines_df.to_csv('./dash_data/vaccines.csv', header=True, index=False)
 
 
 logger.info('Reading general stats file')
@@ -82,6 +74,15 @@ covid_yesterday = gpd.GeoDataFrame(
         .rename(columns={'ALL':'total cases', 'ACT':'active cases', 'new_cases':'new cases'})
         .join(geodf[['code','geometry']].set_index('code'))
         )
+
+
+logger.info('Scraping vaccines data')
+vaccines_df = get_vaccines_data_web(vaccines_url, chromedriver_dir)
+vaccines_df = pd.merge(
+            covid_pop[['province', 'pop']].drop_duplicates().reset_index(),
+                vaccines_df,
+                    on='code').drop('code', axis=1)
+vaccines_df.to_csv('./dash_data/vaccines.csv', header=True, index=False)
 
 
 logger.info('Reading age bands')

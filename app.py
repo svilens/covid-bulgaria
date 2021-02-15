@@ -729,28 +729,52 @@ fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 
 
 ### Vaccines ###
+logger.info('Creating chart 23: Vaccines by province - fully vaccinated')
 vaccines_data = pd.read_csv('./dash_data/vaccines.csv')
-vaccines_data['fully_vaccinated_per_100'] = (100*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
+vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
 vaccines_geo = pd.merge(covid_yesterday[['province','geometry']], vaccines_data, on='province').set_index('province')
-fig_vaccines_province = px.choropleth_mapbox(
+fig_vaccines_province_full = px.choropleth_mapbox(
     vaccines_geo,
     geojson=vaccines_geo.geometry,
     locations=vaccines_geo.index,
-    color='fully_vaccinated_per_100',
+    color='fully_vaccinated_per_100k',
     color_continuous_scale='Greens',
     hover_name=vaccines_geo.index,
-    hover_data=['second_dose', 'fully_vaccinated_per_100'],
+    hover_data=['second_dose', 'fully_vaccinated_per_100k'],
     labels={'second_dose':'fully vaccinated',
-            'fully_vaccinated_per_100': 'per 100 pop'},
-    title=f"Fully vaccinated people per 100 population by province",
+            'fully_vaccinated_per_100k': 'per 100k pop'},
+    title=f"Fully vaccinated people per 100k population by province",
     center={'lat': 42.734189, 'lon': 25.1635087},
     mapbox_style='carto-darkmatter',
     opacity=1,
     zoom=6
 )
-fig_vaccines_province.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_vaccines_province_full.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
+logger.info('Creating chart 24: Vaccines by province - total doses')
+vaccines_geo['total_vaccinated_per_100k'] = (100000*vaccines_geo['total'] / vaccines_geo['pop']).round(2)
+
+fig_vaccines_province_total = px.choropleth_mapbox(
+    vaccines_geo,
+    geojson=vaccines_geo.geometry,
+    locations=vaccines_geo.index,
+    color='total_vaccinated_per_100k',
+    color_continuous_scale='deep',
+    hover_name=vaccines_geo.index,
+    hover_data=['total', 'total_vaccinated_per_100k'],
+    labels={'total':'total vaccines',
+            'total_vaccinated_per_100k': 'per 100k pop'},
+    title="Total vaccinated people per 100,000 population by province",
+    center={'lat': 42.734189, 'lon': 25.1635087},
+    mapbox_style='carto-darkmatter',
+    opacity=1,
+    zoom=6
+)
+fig_vaccines_province_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+logger.info('Creating chart 25: Vaccines by province - last day by manufacturer')
 vaccines_new_pfizer = vaccines_data.loc[vaccines_data['new_pfizer'] > 0, ['province', 'new_pfizer']]
 vaccines_new_astra = vaccines_data.loc[vaccines_data['new_astrazeneca'] > 0, ['province', 'new_astrazeneca']]
 vaccines_new_moderna = vaccines_data.loc[vaccines_data['new_moderna'] > 0, ['province', 'new_moderna']]
@@ -759,7 +783,7 @@ fig_vacc_manufacturer = go.Figure()
 fig_vacc_manufacturer.add_trace(go.Bar(name='Pfizer/BioNTech', x=vaccines_new_pfizer['province'], y=vaccines_new_pfizer['new_pfizer']))
 fig_vacc_manufacturer.add_trace(go.Bar(name='Astra Zeneca', x=vaccines_new_astra['province'], y=vaccines_new_astra['new_astrazeneca']))
 fig_vacc_manufacturer.add_trace(go.Bar(name='Moderna', x=vaccines_new_moderna['province'], y=vaccines_new_moderna['new_moderna']))
-fig_vacc_manufacturer.update_layout(barmode='stack', title='Number of vaccinated people by province and manufacturer')
+fig_vacc_manufacturer.update_layout(barmode='stack', title='Number of vaccinated people by province and manufacturer',paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 
@@ -827,7 +851,7 @@ pred2_double = fit2_double.forecast(15)
 fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
 pred3_double = fit3_double.forecast(15)
 
-logger.info('Creating chart 23: Double exp smoothing')
+logger.info('Creating chart 26: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
 fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='Historical data'))
 
@@ -897,7 +921,7 @@ pred_triple = fitted_triple.forecast(steps=15)
 
 #print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
 
-logger.info('Creating chart 24: Triple exp smoothing')
+logger.info('Creating chart 27: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Historical data', mode='lines'))
@@ -1228,6 +1252,27 @@ tabs = html.Div([
                     html.Br(),
                     html.Br(),
                     dcc.Graph(figure=fig_new_by_province)
+                ]
+            ),
+            dcc.Tab(
+                label = "Vaccines",
+                className = "custom-tab",
+                selected_className = "custom-tab--selected",
+                children = [
+                    html.Br(),
+                    html.Br(),
+                    html.H4("Vaccines stats"),
+                    html.Br(),
+                    html.P("Vaccinated people for the last day by province and by vaccine manufacturer."),
+                    dcc.Graph(figure=fig_vacc_manufacturer),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Fully vaccinated people by province per 100,000 population - this includes the number of people who have received the recommended by the manufacturers two vaccine doses."),
+                    dcc.Graph(figure=fig_vaccines_province_full),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Total number of vaccinated people by province per 100,000 population."),
+                    dcc.Graph(figure=fig_vaccines_province_total)
                 ]
             ),
             dcc.Tab(
