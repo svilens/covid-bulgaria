@@ -11,7 +11,7 @@ import pytz
 df_current = pd.read_csv(os.path.join(os.getcwd() + '/data/COVID_general.csv'))
 if df_current.iloc[-1,0] == datetime.now(pytz.timezone('Europe/Sofia')).strftime(format='%Y/%m/%d'):
     print(f'{datetime.now()} - The current data is already up-to-date! Process terminated.')
-    sys.exit()
+    #sys.exit()
 
 
 # backup files
