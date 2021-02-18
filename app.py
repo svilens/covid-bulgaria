@@ -743,7 +743,7 @@ fig_vaccines_province_full = px.choropleth_mapbox(
     hover_data=['second_dose', 'fully_vaccinated_per_100k'],
     labels={'second_dose':'fully vaccinated',
             'fully_vaccinated_per_100k': 'per 100k pop'},
-    title=f"Fully vaccinated people per 100k population by province",
+    title=f"Fully vaccinated people per 100,000 population by province",
     center={'lat': 42.734189, 'lon': 25.1635087},
     mapbox_style='carto-darkmatter',
     opacity=1,

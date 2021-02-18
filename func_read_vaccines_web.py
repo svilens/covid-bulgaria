@@ -25,8 +25,8 @@ def get_vaccines_data_web(url, chromedriver_dir):
     options.add_argument("--proxy-bypass-list=*");
     options.headless = True
     
-    driver = webdriver.Chrome(chrome_options=options, executable_path=chromedriver_dir)
-    #driver = webdriver.Chrome(chrome_options=options)
+   # driver = webdriver.Chrome(chrome_options=options, executable_path=chromedriver_dir)
+    driver = webdriver.Chrome(chrome_options=options)
     
     driver.get(url)
     table_vac = driver.find_element_by_xpath("//div[@class='col stats']")
