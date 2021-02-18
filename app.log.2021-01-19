@@ -1,0 +1,1218 @@
+2021-01-17 21:44:25,187 — app.log — INFO — Starting the process
+2021-01-17 21:44:25,193 — app.log — INFO — Reading general stats
+2021-01-17 21:44:27,341 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-17 21:44:27,654 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-17 21:44:27,944 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-17 21:44:28,200 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-17 21:44:28,527 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-17 21:44:28,784 — app.log — INFO — Calculating rates
+2021-01-17 21:44:28,796 — app.log — INFO — Creating chart 6: Rates
+2021-01-17 21:44:29,711 — app.log — INFO — Reading spatial data
+2021-01-17 21:44:30,276 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-17 21:44:31,663 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-17 21:44:33,077 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-17 21:44:34,347 — app.log — INFO — Reading age bands data
+2021-01-17 21:44:34,354 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-17 21:44:34,880 — app.log — INFO — Test types
+2021-01-17 21:44:34,890 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-17 21:44:35,271 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-17 21:44:35,472 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-17 21:44:35,676 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-17 21:44:35,927 — app.log — INFO — Starting Rt processing
+2021-01-17 21:44:35,944 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-17 21:44:36,146 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-17 21:44:36,360 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-17 21:44:36,567 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-17 21:44:37,492 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-17 21:44:38,052 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-17 21:44:39,530 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-17 21:44:40,140 — app.log — INFO — Reading Rt for provinces
+2021-01-17 21:44:40,422 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-17 21:44:42,123 — app.log — INFO — Reading ARIMA
+2021-01-17 21:44:42,164 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-17 21:44:42,342 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-17 21:44:42,656 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-17 21:44:43,038 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-17 21:44:43,561 — app.log — INFO — Creating dash structure
+2021-01-17 21:44:43,913 — app.log — INFO — Creating dash helper vars
+2021-01-17 21:44:43,918 — app.log — INFO — Creating dash cards
+2021-01-17 21:44:43,978 — app.log — INFO — Creating dash tabs
+2021-01-17 21:44:44,039 — app.log — INFO — Creating dash layout
+2021-01-17 21:44:44,042 — app.log — INFO — Creating dash callbacks
+2021-01-17 21:44:44,043 — app.log — INFO — Running dash server
+2021-01-17 21:44:45,007 — app.log — INFO — Starting the process
+2021-01-17 21:44:45,008 — app.log — INFO — Reading general stats
+2021-01-17 21:44:47,764 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-17 21:44:48,143 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-17 21:44:48,433 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-17 21:44:48,713 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-17 21:44:49,052 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-17 21:44:49,315 — app.log — INFO — Calculating rates
+2021-01-17 21:44:49,325 — app.log — INFO — Creating chart 6: Rates
+2021-01-17 21:44:50,367 — app.log — INFO — Reading spatial data
+2021-01-17 21:44:50,956 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-17 21:44:53,169 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-17 21:44:55,211 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-17 21:44:56,929 — app.log — INFO — Reading age bands data
+2021-01-17 21:44:56,936 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-17 21:44:58,412 — app.log — INFO — Test types
+2021-01-17 21:44:58,423 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-17 21:44:58,756 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-17 21:44:59,064 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-17 21:44:59,490 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-17 21:44:59,969 — app.log — INFO — Starting Rt processing
+2021-01-17 21:45:00,022 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-17 21:45:00,711 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-17 21:45:01,069 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-17 21:45:01,491 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-17 21:45:03,249 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-17 21:45:04,495 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-17 21:45:06,816 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-17 21:45:07,349 — app.log — INFO — Reading Rt for provinces
+2021-01-17 21:45:07,679 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-17 21:45:10,234 — app.log — INFO — Reading ARIMA
+2021-01-17 21:45:10,289 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-17 21:45:10,581 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-17 21:45:10,920 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-17 21:45:11,345 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-17 21:45:11,676 — app.log — INFO — Creating dash structure
+2021-01-17 21:45:12,578 — app.log — INFO — Creating dash helper vars
+2021-01-17 21:45:12,581 — app.log — INFO — Creating dash cards
+2021-01-17 21:45:12,687 — app.log — INFO — Creating dash tabs
+2021-01-17 21:45:12,835 — app.log — INFO — Creating dash layout
+2021-01-17 21:45:12,836 — app.log — INFO — Creating dash callbacks
+2021-01-17 21:45:12,836 — app.log — INFO — Running dash server
+2021-01-18 23:03:14,425 — app.log — INFO — Starting the process
+2021-01-18 23:03:14,432 — app.log — INFO — Reading general stats
+2021-01-18 23:03:16,886 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:03:17,305 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:03:17,645 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:03:18,010 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:03:18,297 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:03:18,716 — app.log — INFO — Calculating rates
+2021-01-18 23:03:18,729 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:03:19,875 — app.log — INFO — Reading spatial data
+2021-01-18 23:03:20,564 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:03:22,323 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:03:23,905 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:03:25,179 — app.log — INFO — Reading age bands data
+2021-01-18 23:03:25,186 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:03:25,707 — app.log — INFO — Test types
+2021-01-18 23:03:25,716 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:03:25,918 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:03:26,294 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:03:26,504 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:03:26,762 — app.log — INFO — Starting Rt processing
+2021-01-18 23:03:26,776 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:03:26,975 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:03:27,183 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:03:27,388 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:03:28,411 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:03:28,995 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:03:30,466 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:03:30,936 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:03:31,177 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:03:32,875 — app.log — INFO — Reading ARIMA
+2021-01-18 23:03:32,915 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:03:33,107 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:03:33,397 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:03:33,863 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:03:34,122 — app.log — INFO — Creating dash structure
+2021-01-18 23:03:34,810 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:03:34,815 — app.log — INFO — Creating dash cards
+2021-01-18 23:03:34,875 — app.log — INFO — Creating dash tabs
+2021-01-18 23:03:34,949 — app.log — INFO — Creating dash layout
+2021-01-18 23:03:34,951 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:03:34,953 — app.log — INFO — Running dash server
+2021-01-18 23:03:35,873 — app.log — INFO — Starting the process
+2021-01-18 23:03:35,874 — app.log — INFO — Reading general stats
+2021-01-18 23:03:38,876 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:03:39,198 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:03:39,507 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:03:39,778 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:03:40,087 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:03:40,342 — app.log — INFO — Calculating rates
+2021-01-18 23:03:40,353 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:03:41,336 — app.log — INFO — Reading spatial data
+2021-01-18 23:03:41,971 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:03:43,383 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:03:44,778 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:03:46,040 — app.log — INFO — Reading age bands data
+2021-01-18 23:03:46,046 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:03:46,702 — app.log — INFO — Test types
+2021-01-18 23:03:46,710 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:03:46,908 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:03:47,100 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:03:47,334 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:03:47,664 — app.log — INFO — Starting Rt processing
+2021-01-18 23:03:47,681 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:03:48,050 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:03:48,268 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:03:48,535 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:03:49,361 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:03:49,923 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:03:51,432 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:03:51,770 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:03:51,981 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:03:53,972 — app.log — INFO — Reading ARIMA
+2021-01-18 23:03:54,012 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:03:54,185 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:03:54,474 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:03:54,836 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:03:55,063 — app.log — INFO — Creating dash structure
+2021-01-18 23:03:55,383 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:03:55,386 — app.log — INFO — Creating dash cards
+2021-01-18 23:03:55,430 — app.log — INFO — Creating dash tabs
+2021-01-18 23:03:55,479 — app.log — INFO — Creating dash layout
+2021-01-18 23:03:55,480 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:03:55,480 — app.log — INFO — Running dash server
+2021-01-18 23:05:20,702 — app.log — INFO — Starting the process
+2021-01-18 23:05:20,702 — app.log — INFO — Reading general stats
+2021-01-18 23:05:23,297 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:05:23,605 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:05:23,904 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:05:24,142 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:05:24,484 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:05:24,723 — app.log — INFO — Calculating rates
+2021-01-18 23:05:24,735 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:05:25,636 — app.log — INFO — Reading spatial data
+2021-01-18 23:05:26,198 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:05:27,583 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:05:29,009 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:05:30,664 — app.log — INFO — Reading age bands data
+2021-01-18 23:05:30,673 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:05:31,623 — app.log — INFO — Test types
+2021-01-18 23:05:31,635 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:05:31,902 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:05:32,133 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:05:32,371 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:05:32,658 — app.log — INFO — Starting Rt processing
+2021-01-18 23:05:32,671 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:05:33,032 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:05:33,251 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:05:33,454 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:05:34,190 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:05:34,763 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:05:36,684 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:05:37,002 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:05:37,204 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:05:39,382 — app.log — INFO — Reading ARIMA
+2021-01-18 23:05:39,427 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:05:39,621 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:05:39,894 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:05:40,321 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:05:40,607 — app.log — INFO — Creating dash structure
+2021-01-18 23:05:40,991 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:05:40,996 — app.log — INFO — Creating dash cards
+2021-01-18 23:05:41,061 — app.log — INFO — Creating dash tabs
+2021-01-18 23:05:41,160 — app.log — INFO — Creating dash layout
+2021-01-18 23:05:41,161 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:05:41,163 — app.log — INFO — Running dash server
+2021-01-18 23:05:42,068 — app.log — INFO — Starting the process
+2021-01-18 23:05:42,069 — app.log — INFO — Reading general stats
+2021-01-18 23:05:45,112 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:05:45,417 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:05:45,711 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:05:45,948 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:05:46,243 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:05:46,480 — app.log — INFO — Calculating rates
+2021-01-18 23:05:46,491 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:05:47,390 — app.log — INFO — Reading spatial data
+2021-01-18 23:05:47,954 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:05:49,518 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:05:51,069 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:05:52,328 — app.log — INFO — Reading age bands data
+2021-01-18 23:05:52,334 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:05:52,993 — app.log — INFO — Test types
+2021-01-18 23:05:53,001 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:05:53,194 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:05:53,388 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:05:53,594 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:05:53,852 — app.log — INFO — Starting Rt processing
+2021-01-18 23:05:53,865 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:05:54,225 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:05:54,424 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:05:54,626 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:05:55,574 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:05:56,213 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:05:57,983 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:05:58,296 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:05:58,590 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:06:00,736 — app.log — INFO — Reading ARIMA
+2021-01-18 23:06:00,776 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:06:00,977 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:06:01,254 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:06:01,590 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:06:01,819 — app.log — INFO — Creating dash structure
+2021-01-18 23:06:02,134 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:06:02,138 — app.log — INFO — Creating dash cards
+2021-01-18 23:06:02,185 — app.log — INFO — Creating dash tabs
+2021-01-18 23:06:02,235 — app.log — INFO — Creating dash layout
+2021-01-18 23:06:02,237 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:06:02,237 — app.log — INFO — Running dash server
+2021-01-18 23:07:02,400 — app.log — INFO — Starting the process
+2021-01-18 23:07:02,400 — app.log — INFO — Reading general stats
+2021-01-18 23:07:05,032 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:07:05,337 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:07:05,626 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:07:05,867 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:07:06,162 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:07:06,408 — app.log — INFO — Calculating rates
+2021-01-18 23:07:06,418 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:07:07,316 — app.log — INFO — Reading spatial data
+2021-01-18 23:07:07,925 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:07:09,459 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:07:10,893 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:07:12,156 — app.log — INFO — Reading age bands data
+2021-01-18 23:07:12,162 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:07:12,892 — app.log — INFO — Test types
+2021-01-18 23:07:12,901 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:07:13,100 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:07:13,296 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:07:13,502 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:07:13,757 — app.log — INFO — Starting Rt processing
+2021-01-18 23:07:13,771 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:07:14,126 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:07:14,329 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:07:14,538 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:07:15,257 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:07:15,818 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:07:17,199 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:07:17,499 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:07:17,702 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:07:19,517 — app.log — INFO — Reading ARIMA
+2021-01-18 23:07:19,557 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:07:19,728 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:07:20,002 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:07:20,337 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:07:20,565 — app.log — INFO — Creating dash structure
+2021-01-18 23:07:20,867 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:07:20,870 — app.log — INFO — Creating dash cards
+2021-01-18 23:07:20,915 — app.log — INFO — Creating dash tabs
+2021-01-18 23:07:20,966 — app.log — INFO — Creating dash layout
+2021-01-18 23:07:20,967 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:07:20,968 — app.log — INFO — Running dash server
+2021-01-18 23:09:39,811 — app.log — INFO — Starting the process
+2021-01-18 23:09:39,811 — app.log — INFO — Reading general stats
+2021-01-18 23:09:42,532 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:09:42,836 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:09:43,126 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:09:43,373 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:09:43,704 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:09:43,948 — app.log — INFO — Calculating rates
+2021-01-18 23:09:43,959 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:09:44,897 — app.log — INFO — Reading spatial data
+2021-01-18 23:09:45,474 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:09:47,000 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:09:48,536 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:09:49,977 — app.log — INFO — Reading age bands data
+2021-01-18 23:09:49,985 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:09:50,747 — app.log — INFO — Test types
+2021-01-18 23:09:50,756 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:09:50,955 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:09:51,156 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:09:51,404 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:09:51,700 — app.log — INFO — Starting Rt processing
+2021-01-18 23:09:51,713 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:09:52,082 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:09:52,354 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:09:52,577 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:09:53,433 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:09:54,020 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:09:55,541 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:09:55,844 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:09:56,059 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:09:58,171 — app.log — INFO — Reading ARIMA
+2021-01-18 23:09:58,213 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:09:58,406 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:09:58,709 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:09:59,055 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:09:59,294 — app.log — INFO — Creating dash structure
+2021-01-18 23:09:59,650 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:09:59,654 — app.log — INFO — Creating dash cards
+2021-01-18 23:09:59,702 — app.log — INFO — Creating dash tabs
+2021-01-18 23:09:59,752 — app.log — INFO — Creating dash layout
+2021-01-18 23:09:59,753 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:09:59,754 — app.log — INFO — Running dash server
+2021-01-18 23:13:36,887 — app.log — INFO — Starting the process
+2021-01-18 23:13:36,888 — app.log — INFO — Reading general stats
+2021-01-18 23:13:39,438 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:13:39,747 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:13:40,030 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:13:40,271 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:13:40,571 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:13:40,809 — app.log — INFO — Calculating rates
+2021-01-18 23:13:40,819 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:13:41,715 — app.log — INFO — Reading spatial data
+2021-01-18 23:13:42,276 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:13:43,662 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:13:45,045 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:13:46,308 — app.log — INFO — Reading age bands data
+2021-01-18 23:13:46,314 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:13:47,004 — app.log — INFO — Test types
+2021-01-18 23:13:47,012 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:13:47,204 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:13:47,396 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:13:47,605 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:13:47,853 — app.log — INFO — Starting Rt processing
+2021-01-18 23:13:47,866 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:13:48,218 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:13:48,421 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:13:48,632 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:13:49,352 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:13:49,898 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:13:51,289 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:13:51,586 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:13:51,789 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:13:53,573 — app.log — INFO — Reading ARIMA
+2021-01-18 23:13:53,613 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:13:53,785 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:13:54,053 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:13:54,387 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:13:54,621 — app.log — INFO — Creating dash structure
+2021-01-18 23:13:54,927 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:13:54,930 — app.log — INFO — Creating dash cards
+2021-01-18 23:13:54,979 — app.log — INFO — Creating dash tabs
+2021-01-18 23:13:55,028 — app.log — INFO — Creating dash layout
+2021-01-18 23:13:55,029 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:13:55,030 — app.log — INFO — Running dash server
+2021-01-18 23:14:30,783 — app.log — INFO — Starting the process
+2021-01-18 23:14:30,784 — app.log — INFO — Reading general stats
+2021-01-18 23:14:33,376 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:14:33,749 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:14:34,041 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:14:34,275 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:14:34,590 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:14:34,827 — app.log — INFO — Calculating rates
+2021-01-18 23:14:34,837 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:14:35,731 — app.log — INFO — Reading spatial data
+2021-01-18 23:14:36,291 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:14:37,676 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:14:39,063 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:14:40,450 — app.log — INFO — Reading age bands data
+2021-01-18 23:14:40,456 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:14:41,200 — app.log — INFO — Test types
+2021-01-18 23:14:41,208 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:14:41,402 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:14:41,602 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:14:41,807 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:14:42,078 — app.log — INFO — Starting Rt processing
+2021-01-18 23:14:42,092 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:14:42,557 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:14:42,830 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:14:43,083 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:14:43,833 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:14:44,379 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:14:45,836 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:14:46,129 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:14:46,329 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:14:48,106 — app.log — INFO — Reading ARIMA
+2021-01-18 23:14:48,146 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:14:48,317 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:14:48,587 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:14:48,926 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:14:49,149 — app.log — INFO — Creating dash structure
+2021-01-18 23:14:49,465 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:14:49,469 — app.log — INFO — Creating dash cards
+2021-01-18 23:14:49,516 — app.log — INFO — Creating dash tabs
+2021-01-18 23:14:49,565 — app.log — INFO — Creating dash layout
+2021-01-18 23:14:49,567 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:14:49,567 — app.log — INFO — Running dash server
+2021-01-18 23:15:11,154 — app.log — INFO — Starting the process
+2021-01-18 23:15:11,155 — app.log — INFO — Reading general stats
+2021-01-18 23:15:13,879 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:15:14,185 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:15:14,475 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:15:14,706 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:15:14,995 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:15:15,229 — app.log — INFO — Calculating rates
+2021-01-18 23:15:15,240 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:15:16,128 — app.log — INFO — Reading spatial data
+2021-01-18 23:15:16,691 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:15:18,065 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:15:19,468 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:15:20,728 — app.log — INFO — Reading age bands data
+2021-01-18 23:15:20,734 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:15:21,379 — app.log — INFO — Test types
+2021-01-18 23:15:21,387 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:15:21,582 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:15:21,771 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:15:21,972 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:15:22,222 — app.log — INFO — Starting Rt processing
+2021-01-18 23:15:22,235 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:15:22,590 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:15:22,789 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:15:22,993 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:15:23,715 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:15:24,250 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:15:25,624 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:15:25,919 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:15:26,124 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:15:27,896 — app.log — INFO — Reading ARIMA
+2021-01-18 23:15:27,936 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:15:28,112 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:15:28,390 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:15:28,727 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:15:28,954 — app.log — INFO — Creating dash structure
+2021-01-18 23:15:29,274 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:15:29,278 — app.log — INFO — Creating dash cards
+2021-01-18 23:15:29,323 — app.log — INFO — Creating dash tabs
+2021-01-18 23:15:29,371 — app.log — INFO — Creating dash layout
+2021-01-18 23:15:29,373 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:15:29,373 — app.log — INFO — Running dash server
+2021-01-18 23:17:53,325 — app.log — INFO — Starting the process
+2021-01-18 23:17:53,325 — app.log — INFO — Reading general stats
+2021-01-18 23:17:56,044 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:17:56,343 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:17:56,627 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:17:56,866 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:17:57,155 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:17:57,389 — app.log — INFO — Calculating rates
+2021-01-18 23:17:57,399 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:17:58,287 — app.log — INFO — Reading spatial data
+2021-01-18 23:17:58,853 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:18:00,289 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:18:01,720 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:18:03,021 — app.log — INFO — Reading age bands data
+2021-01-18 23:18:03,027 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:18:03,685 — app.log — INFO — Test types
+2021-01-18 23:18:03,694 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:18:03,900 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:18:04,092 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:18:04,300 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:18:04,558 — app.log — INFO — Starting Rt processing
+2021-01-18 23:18:04,572 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:18:04,938 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:18:05,139 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:18:05,339 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:18:06,067 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:18:06,602 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:18:08,049 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:18:08,343 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:18:08,564 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:18:10,419 — app.log — INFO — Reading ARIMA
+2021-01-18 23:18:10,459 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:18:10,631 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:18:10,901 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:18:11,238 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:18:11,478 — app.log — INFO — Creating dash structure
+2021-01-18 23:18:11,783 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:18:11,786 — app.log — INFO — Creating dash cards
+2021-01-18 23:18:11,837 — app.log — INFO — Creating dash tabs
+2021-01-18 23:18:11,889 — app.log — INFO — Creating dash layout
+2021-01-18 23:18:11,890 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:18:11,891 — app.log — INFO — Running dash server
+2021-01-18 23:18:53,973 — app.log — INFO — Starting the process
+2021-01-18 23:18:53,974 — app.log — INFO — Reading general stats
+2021-01-18 23:18:56,600 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:18:56,898 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:18:57,186 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:18:57,416 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:18:57,716 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:18:57,954 — app.log — INFO — Calculating rates
+2021-01-18 23:18:57,964 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:18:58,845 — app.log — INFO — Reading spatial data
+2021-01-18 23:18:59,408 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:19:00,767 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:19:02,152 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:19:03,401 — app.log — INFO — Reading age bands data
+2021-01-18 23:19:03,407 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:19:04,057 — app.log — INFO — Test types
+2021-01-18 23:19:04,065 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:19:04,254 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:19:04,444 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:19:04,646 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:19:04,897 — app.log — INFO — Starting Rt processing
+2021-01-18 23:19:04,910 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:19:05,267 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:19:05,465 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:19:05,662 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:19:06,391 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:19:06,923 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:19:08,287 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:19:08,579 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:19:08,776 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:19:10,535 — app.log — INFO — Reading ARIMA
+2021-01-18 23:19:10,575 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:19:10,747 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:19:11,027 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:19:11,365 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:19:11,586 — app.log — INFO — Creating dash structure
+2021-01-18 23:19:11,894 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:19:11,898 — app.log — INFO — Creating dash cards
+2021-01-18 23:19:11,943 — app.log — INFO — Creating dash tabs
+2021-01-18 23:19:11,995 — app.log — INFO — Creating dash layout
+2021-01-18 23:19:11,997 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:19:11,998 — app.log — INFO — Running dash server
+2021-01-18 23:23:46,302 — app.log — INFO — Starting the process
+2021-01-18 23:23:46,302 — app.log — INFO — Reading general stats
+2021-01-18 23:23:48,954 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:23:49,255 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:23:49,545 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:23:49,777 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:23:50,074 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:23:50,311 — app.log — INFO — Calculating rates
+2021-01-18 23:23:50,321 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:23:51,220 — app.log — INFO — Reading spatial data
+2021-01-18 23:23:51,783 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:23:53,159 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:23:54,568 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:23:55,831 — app.log — INFO — Reading age bands data
+2021-01-18 23:23:55,837 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:23:56,497 — app.log — INFO — Test types
+2021-01-18 23:23:56,505 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:23:56,702 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:23:56,895 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:23:57,099 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:23:57,349 — app.log — INFO — Starting Rt processing
+2021-01-18 23:23:57,362 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:23:57,805 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:23:58,045 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:23:58,279 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:23:59,299 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:23:59,874 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:24:01,325 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:24:01,649 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:24:01,863 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:24:04,095 — app.log — INFO — Reading ARIMA
+2021-01-18 23:24:04,137 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:24:04,330 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:24:04,694 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:24:05,042 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:24:05,273 — app.log — INFO — Creating dash structure
+2021-01-18 23:24:05,637 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:24:05,641 — app.log — INFO — Creating dash cards
+2021-01-18 23:24:05,689 — app.log — INFO — Creating dash tabs
+2021-01-18 23:24:05,739 — app.log — INFO — Creating dash layout
+2021-01-18 23:24:05,741 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:24:05,741 — app.log — INFO — Running dash server
+2021-01-18 23:24:40,383 — app.log — INFO — Starting the process
+2021-01-18 23:24:40,384 — app.log — INFO — Reading general stats
+2021-01-18 23:24:43,077 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:24:43,385 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:24:43,675 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:24:43,915 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:24:44,211 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:24:44,448 — app.log — INFO — Calculating rates
+2021-01-18 23:24:44,458 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:24:45,437 — app.log — INFO — Reading spatial data
+2021-01-18 23:24:46,003 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:24:47,389 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:24:48,793 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:24:50,076 — app.log — INFO — Reading age bands data
+2021-01-18 23:24:50,083 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:24:50,757 — app.log — INFO — Test types
+2021-01-18 23:24:50,765 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:24:50,964 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:24:51,158 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:24:51,362 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:24:51,618 — app.log — INFO — Starting Rt processing
+2021-01-18 23:24:51,631 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:24:52,009 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:24:52,211 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:24:52,415 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:24:53,146 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:24:53,698 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:24:55,208 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:24:55,503 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:24:55,707 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:24:57,605 — app.log — INFO — Reading ARIMA
+2021-01-18 23:24:57,646 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:24:57,823 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:24:58,093 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:24:58,425 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:24:58,659 — app.log — INFO — Creating dash structure
+2021-01-18 23:24:58,978 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:24:58,982 — app.log — INFO — Creating dash cards
+2021-01-18 23:24:59,026 — app.log — INFO — Creating dash tabs
+2021-01-18 23:24:59,077 — app.log — INFO — Creating dash layout
+2021-01-18 23:24:59,078 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:24:59,078 — app.log — INFO — Running dash server
+2021-01-18 23:26:05,216 — app.log — INFO — Starting the process
+2021-01-18 23:26:05,217 — app.log — INFO — Reading general stats
+2021-01-18 23:26:07,904 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:26:08,359 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:26:08,646 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:26:08,879 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:26:09,200 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:26:09,438 — app.log — INFO — Calculating rates
+2021-01-18 23:26:09,448 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:26:10,399 — app.log — INFO — Reading spatial data
+2021-01-18 23:26:11,046 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:26:12,417 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:26:13,830 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:26:15,117 — app.log — INFO — Reading age bands data
+2021-01-18 23:26:15,123 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:26:15,774 — app.log — INFO — Test types
+2021-01-18 23:26:15,783 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:26:15,976 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:26:16,172 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:26:16,374 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:26:16,626 — app.log — INFO — Starting Rt processing
+2021-01-18 23:26:16,639 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:26:16,991 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:26:17,193 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:26:17,395 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:26:18,132 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:26:18,691 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:26:20,108 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:26:20,429 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:26:20,635 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:26:22,415 — app.log — INFO — Reading ARIMA
+2021-01-18 23:26:22,454 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:26:22,634 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:26:22,906 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:26:23,282 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:26:23,506 — app.log — INFO — Creating dash structure
+2021-01-18 23:26:23,817 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:26:23,821 — app.log — INFO — Creating dash cards
+2021-01-18 23:26:23,867 — app.log — INFO — Creating dash tabs
+2021-01-18 23:26:23,916 — app.log — INFO — Creating dash layout
+2021-01-18 23:26:23,917 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:26:23,918 — app.log — INFO — Running dash server
+2021-01-18 23:26:49,041 — app.log — INFO — Starting the process
+2021-01-18 23:26:49,042 — app.log — INFO — Reading general stats
+2021-01-18 23:26:51,689 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:26:51,990 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:26:52,276 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:26:52,512 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:26:52,801 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:26:53,039 — app.log — INFO — Calculating rates
+2021-01-18 23:26:53,049 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:26:53,940 — app.log — INFO — Reading spatial data
+2021-01-18 23:26:54,501 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:26:55,872 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:26:57,253 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:26:58,501 — app.log — INFO — Reading age bands data
+2021-01-18 23:26:58,507 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:26:59,164 — app.log — INFO — Test types
+2021-01-18 23:26:59,174 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:26:59,366 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:26:59,559 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:26:59,765 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:27:00,012 — app.log — INFO — Starting Rt processing
+2021-01-18 23:27:00,025 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:27:00,379 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:27:00,579 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:27:00,778 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:27:01,500 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:27:02,033 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:27:03,417 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:27:03,710 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:27:03,911 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:27:05,694 — app.log — INFO — Reading ARIMA
+2021-01-18 23:27:05,734 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:27:05,905 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:27:06,172 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:27:06,510 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:27:06,736 — app.log — INFO — Creating dash structure
+2021-01-18 23:27:07,044 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:27:07,047 — app.log — INFO — Creating dash cards
+2021-01-18 23:27:07,094 — app.log — INFO — Creating dash tabs
+2021-01-18 23:27:07,146 — app.log — INFO — Creating dash layout
+2021-01-18 23:27:07,147 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:27:07,147 — app.log — INFO — Running dash server
+2021-01-18 23:27:47,814 — app.log — INFO — Starting the process
+2021-01-18 23:27:47,814 — app.log — INFO — Reading general stats
+2021-01-18 23:27:50,405 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:27:50,712 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:27:50,994 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:27:51,227 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:27:51,524 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:27:51,759 — app.log — INFO — Calculating rates
+2021-01-18 23:27:51,769 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:27:52,659 — app.log — INFO — Reading spatial data
+2021-01-18 23:27:53,227 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:27:54,624 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:27:56,003 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:27:57,262 — app.log — INFO — Reading age bands data
+2021-01-18 23:27:57,268 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:27:57,931 — app.log — INFO — Test types
+2021-01-18 23:27:57,939 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:27:58,133 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:27:58,328 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:27:58,539 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:27:58,791 — app.log — INFO — Starting Rt processing
+2021-01-18 23:27:58,805 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:27:59,215 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:27:59,422 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:27:59,630 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:28:00,392 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:28:00,933 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:28:02,325 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:28:02,627 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:28:02,829 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:28:04,617 — app.log — INFO — Reading ARIMA
+2021-01-18 23:28:04,656 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:28:04,831 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:28:05,099 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:28:05,439 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:28:05,678 — app.log — INFO — Creating dash structure
+2021-01-18 23:28:05,987 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:28:05,991 — app.log — INFO — Creating dash cards
+2021-01-18 23:28:06,036 — app.log — INFO — Creating dash tabs
+2021-01-18 23:28:06,085 — app.log — INFO — Creating dash layout
+2021-01-18 23:28:06,086 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:28:06,087 — app.log — INFO — Running dash server
+2021-01-18 23:28:56,067 — app.log — INFO — Starting the process
+2021-01-18 23:28:56,068 — app.log — INFO — Reading general stats
+2021-01-18 23:28:58,920 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:28:59,224 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:28:59,509 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:28:59,744 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:29:00,035 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:29:00,271 — app.log — INFO — Calculating rates
+2021-01-18 23:29:00,281 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:29:01,203 — app.log — INFO — Reading spatial data
+2021-01-18 23:29:01,799 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:29:03,224 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:29:04,638 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:29:05,904 — app.log — INFO — Reading age bands data
+2021-01-18 23:29:05,910 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:29:06,568 — app.log — INFO — Test types
+2021-01-18 23:29:06,577 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:29:06,766 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:29:06,962 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:29:07,163 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:29:07,412 — app.log — INFO — Starting Rt processing
+2021-01-18 23:29:07,425 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:29:07,626 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:29:07,984 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:29:08,182 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:29:08,901 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:29:09,444 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:29:10,825 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:29:11,125 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:29:11,328 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:29:13,108 — app.log — INFO — Reading ARIMA
+2021-01-18 23:29:13,147 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:29:13,319 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:29:13,594 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:29:13,931 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:29:14,160 — app.log — INFO — Creating dash structure
+2021-01-18 23:29:14,478 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:29:14,481 — app.log — INFO — Creating dash cards
+2021-01-18 23:29:14,533 — app.log — INFO — Creating dash tabs
+2021-01-18 23:29:14,584 — app.log — INFO — Creating dash layout
+2021-01-18 23:29:14,586 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:29:14,586 — app.log — INFO — Running dash server
+2021-01-18 23:30:05,820 — app.log — INFO — Starting the process
+2021-01-18 23:30:05,820 — app.log — INFO — Reading general stats
+2021-01-18 23:30:09,147 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:30:09,460 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:30:09,743 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:30:10,009 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:30:10,322 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:30:10,569 — app.log — INFO — Calculating rates
+2021-01-18 23:30:10,582 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:30:11,515 — app.log — INFO — Reading spatial data
+2021-01-18 23:30:12,077 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:30:13,596 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:30:15,003 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:30:16,337 — app.log — INFO — Reading age bands data
+2021-01-18 23:30:16,343 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:30:17,011 — app.log — INFO — Test types
+2021-01-18 23:30:17,019 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:30:17,209 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:30:17,403 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:30:17,611 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:30:17,863 — app.log — INFO — Starting Rt processing
+2021-01-18 23:30:17,876 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:30:18,077 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:30:18,444 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:30:18,652 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:30:19,433 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:30:19,987 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:30:21,518 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:30:21,836 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:30:22,052 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:30:24,377 — app.log — INFO — Reading ARIMA
+2021-01-18 23:30:24,424 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:30:24,626 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:30:24,902 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:30:25,395 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:30:25,677 — app.log — INFO — Creating dash structure
+2021-01-18 23:30:26,058 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:30:26,062 — app.log — INFO — Creating dash cards
+2021-01-18 23:30:26,149 — app.log — INFO — Creating dash tabs
+2021-01-18 23:30:26,226 — app.log — INFO — Creating dash layout
+2021-01-18 23:30:26,227 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:30:26,228 — app.log — INFO — Running dash server
+2021-01-18 23:31:16,399 — app.log — INFO — Starting the process
+2021-01-18 23:31:16,400 — app.log — INFO — Reading general stats
+2021-01-18 23:31:19,344 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:31:19,673 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:31:19,964 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:31:20,246 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:31:20,539 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:31:20,825 — app.log — INFO — Calculating rates
+2021-01-18 23:31:20,835 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:31:21,809 — app.log — INFO — Reading spatial data
+2021-01-18 23:31:22,386 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:31:24,057 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:31:25,559 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:31:26,831 — app.log — INFO — Reading age bands data
+2021-01-18 23:31:26,837 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:31:27,542 — app.log — INFO — Test types
+2021-01-18 23:31:27,551 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:31:27,769 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:31:27,974 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:31:28,195 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:31:28,455 — app.log — INFO — Starting Rt processing
+2021-01-18 23:31:28,472 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:31:28,891 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:31:29,096 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:31:29,320 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:31:30,180 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:31:30,744 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:31:32,263 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:31:32,598 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:31:32,826 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:31:35,076 — app.log — INFO — Reading ARIMA
+2021-01-18 23:31:35,125 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:31:35,318 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:31:35,601 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:31:35,936 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:31:36,164 — app.log — INFO — Creating dash structure
+2021-01-18 23:31:36,495 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:31:36,499 — app.log — INFO — Creating dash cards
+2021-01-18 23:31:36,556 — app.log — INFO — Creating dash tabs
+2021-01-18 23:31:36,608 — app.log — INFO — Creating dash layout
+2021-01-18 23:31:36,609 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:31:36,610 — app.log — INFO — Running dash server
+2021-01-18 23:32:03,419 — app.log — INFO — Starting the process
+2021-01-18 23:32:03,420 — app.log — INFO — Reading general stats
+2021-01-18 23:32:06,038 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:32:06,339 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:32:06,630 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:32:06,863 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:32:07,158 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:32:07,399 — app.log — INFO — Calculating rates
+2021-01-18 23:32:07,412 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:32:08,329 — app.log — INFO — Reading spatial data
+2021-01-18 23:32:08,891 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:32:10,382 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:32:11,850 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:32:13,138 — app.log — INFO — Reading age bands data
+2021-01-18 23:32:13,144 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:32:13,797 — app.log — INFO — Test types
+2021-01-18 23:32:13,806 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:32:14,002 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:32:14,196 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:32:14,398 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:32:14,654 — app.log — INFO — Starting Rt processing
+2021-01-18 23:32:14,667 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:32:15,025 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:32:15,224 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:32:15,427 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:32:16,158 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:32:16,712 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:32:18,096 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:32:18,392 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:32:18,600 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:32:20,380 — app.log — INFO — Reading ARIMA
+2021-01-18 23:32:20,419 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:32:20,597 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:32:20,865 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:32:21,197 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:32:21,421 — app.log — INFO — Creating dash structure
+2021-01-18 23:32:21,737 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:32:21,740 — app.log — INFO — Creating dash cards
+2021-01-18 23:32:21,786 — app.log — INFO — Creating dash tabs
+2021-01-18 23:32:21,838 — app.log — INFO — Creating dash layout
+2021-01-18 23:32:21,839 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:32:21,840 — app.log — INFO — Running dash server
+2021-01-18 23:32:42,409 — app.log — INFO — Starting the process
+2021-01-18 23:32:42,410 — app.log — INFO — Reading general stats
+2021-01-18 23:32:45,217 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:32:45,519 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:32:45,809 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:32:46,045 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:32:46,338 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:32:46,577 — app.log — INFO — Calculating rates
+2021-01-18 23:32:46,587 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:32:47,483 — app.log — INFO — Reading spatial data
+2021-01-18 23:32:48,048 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:32:49,419 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:32:50,808 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:32:52,061 — app.log — INFO — Reading age bands data
+2021-01-18 23:32:52,067 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:32:52,735 — app.log — INFO — Test types
+2021-01-18 23:32:52,744 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:32:52,936 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:32:53,135 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:32:53,338 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:32:53,590 — app.log — INFO — Starting Rt processing
+2021-01-18 23:32:53,603 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:32:53,959 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:32:54,160 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:32:54,366 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:32:55,091 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:32:55,635 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:32:57,020 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:32:57,323 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:32:57,529 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:32:59,321 — app.log — INFO — Reading ARIMA
+2021-01-18 23:32:59,361 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:32:59,533 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:32:59,806 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:33:00,141 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:33:00,369 — app.log — INFO — Creating dash structure
+2021-01-18 23:33:00,687 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:33:00,691 — app.log — INFO — Creating dash cards
+2021-01-18 23:33:00,735 — app.log — INFO — Creating dash tabs
+2021-01-18 23:33:00,783 — app.log — INFO — Creating dash layout
+2021-01-18 23:33:00,785 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:33:00,785 — app.log — INFO — Running dash server
+2021-01-18 23:33:21,735 — app.log — INFO — Starting the process
+2021-01-18 23:33:21,736 — app.log — INFO — Reading general stats
+2021-01-18 23:33:24,380 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:33:24,679 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:33:24,966 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:33:25,201 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:33:25,497 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:33:25,732 — app.log — INFO — Calculating rates
+2021-01-18 23:33:25,742 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:33:26,637 — app.log — INFO — Reading spatial data
+2021-01-18 23:33:27,196 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:33:28,571 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:33:29,963 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:33:31,214 — app.log — INFO — Reading age bands data
+2021-01-18 23:33:31,220 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:33:31,885 — app.log — INFO — Test types
+2021-01-18 23:33:31,893 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:33:32,087 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:33:32,280 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:33:32,479 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:33:32,730 — app.log — INFO — Starting Rt processing
+2021-01-18 23:33:32,743 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:33:32,944 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:33:33,301 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:33:33,506 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:33:34,243 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:33:34,781 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:33:36,184 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:33:36,482 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:33:36,687 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:33:38,480 — app.log — INFO — Reading ARIMA
+2021-01-18 23:33:38,520 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:33:38,693 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:33:38,966 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:33:39,303 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:33:39,528 — app.log — INFO — Creating dash structure
+2021-01-18 23:33:39,898 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:33:39,901 — app.log — INFO — Creating dash cards
+2021-01-18 23:33:39,951 — app.log — INFO — Creating dash tabs
+2021-01-18 23:33:40,000 — app.log — INFO — Creating dash layout
+2021-01-18 23:33:40,001 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:33:40,002 — app.log — INFO — Running dash server
+2021-01-18 23:52:19,103 — app.log — INFO — Starting the process
+2021-01-18 23:52:19,104 — app.log — INFO — Reading general stats
+2021-01-18 23:52:21,971 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:52:22,272 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:52:22,558 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:52:22,814 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:52:23,113 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:52:23,348 — app.log — INFO — Calculating rates
+2021-01-18 23:52:23,359 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:52:24,310 — app.log — INFO — Reading spatial data
+2021-01-18 23:52:24,888 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:52:26,392 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:52:27,780 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:52:29,031 — app.log — INFO — Reading age bands data
+2021-01-18 23:52:29,037 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:52:29,704 — app.log — INFO — Test types
+2021-01-18 23:52:29,713 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:52:29,914 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:52:30,112 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:52:30,318 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:52:30,571 — app.log — INFO — Starting Rt processing
+2021-01-18 23:52:30,585 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:52:30,791 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:52:31,151 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:52:31,353 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:52:32,088 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:52:32,628 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:52:34,017 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:52:34,312 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:52:34,517 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:52:36,476 — app.log — INFO — Reading ARIMA
+2021-01-18 23:52:36,517 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:52:36,691 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:52:36,967 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:52:37,301 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:52:37,531 — app.log — INFO — Creating dash structure
+2021-01-18 23:52:37,845 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:52:37,849 — app.log — INFO — Creating dash cards
+2021-01-18 23:52:37,898 — app.log — INFO — Creating dash tabs
+2021-01-18 23:52:37,949 — app.log — INFO — Creating dash layout
+2021-01-18 23:52:37,951 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:52:37,951 — app.log — INFO — Running dash server
+2021-01-18 23:53:29,318 — app.log — INFO — Starting the process
+2021-01-18 23:53:29,318 — app.log — INFO — Reading general stats
+2021-01-18 23:53:31,926 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:53:32,230 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:53:32,531 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:53:32,765 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:53:33,066 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:53:33,306 — app.log — INFO — Calculating rates
+2021-01-18 23:53:33,316 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:53:34,234 — app.log — INFO — Reading spatial data
+2021-01-18 23:53:34,795 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:53:36,228 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:53:37,611 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:53:38,871 — app.log — INFO — Reading age bands data
+2021-01-18 23:53:38,877 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:53:39,537 — app.log — INFO — Test types
+2021-01-18 23:53:39,545 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:53:39,736 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:53:39,927 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:53:40,133 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:53:40,386 — app.log — INFO — Starting Rt processing
+2021-01-18 23:53:40,398 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:53:40,600 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:53:40,962 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:53:41,164 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:53:41,889 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:53:42,431 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:53:43,809 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:53:44,109 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:53:44,313 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:53:46,121 — app.log — INFO — Reading ARIMA
+2021-01-18 23:53:46,159 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:53:46,329 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:53:46,595 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:53:46,926 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:53:47,155 — app.log — INFO — Creating dash structure
+2021-01-18 23:53:47,466 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:53:47,470 — app.log — INFO — Creating dash cards
+2021-01-18 23:53:47,523 — app.log — INFO — Creating dash tabs
+2021-01-18 23:53:47,572 — app.log — INFO — Creating dash layout
+2021-01-18 23:53:47,573 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:53:47,574 — app.log — INFO — Running dash server
+2021-01-18 23:55:10,554 — app.log — INFO — Starting the process
+2021-01-18 23:55:10,555 — app.log — INFO — Reading general stats
+2021-01-18 23:55:13,220 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:55:13,545 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:55:13,828 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:55:14,061 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:55:14,359 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:55:14,593 — app.log — INFO — Calculating rates
+2021-01-18 23:55:14,603 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:55:15,496 — app.log — INFO — Reading spatial data
+2021-01-18 23:55:16,056 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:55:17,424 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:55:18,826 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:55:20,170 — app.log — INFO — Reading age bands data
+2021-01-18 23:55:20,177 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:55:21,009 — app.log — INFO — Test types
+2021-01-18 23:55:21,021 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:55:21,288 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:55:21,588 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:55:21,902 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:55:22,232 — app.log — INFO — Starting Rt processing
+2021-01-18 23:55:22,249 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:55:22,690 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:55:22,995 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:55:23,217 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:55:24,063 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:55:24,624 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:55:26,134 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:55:26,433 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:55:26,636 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:55:28,434 — app.log — INFO — Reading ARIMA
+2021-01-18 23:55:28,472 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:55:28,648 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:55:28,953 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:55:29,339 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:55:29,620 — app.log — INFO — Creating dash structure
+2021-01-18 23:55:29,949 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:55:29,953 — app.log — INFO — Creating dash cards
+2021-01-18 23:55:29,999 — app.log — INFO — Creating dash tabs
+2021-01-18 23:55:30,050 — app.log — INFO — Creating dash layout
+2021-01-18 23:55:30,051 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:55:30,051 — app.log — INFO — Running dash server
+2021-01-18 23:56:09,231 — app.log — INFO — Starting the process
+2021-01-18 23:56:09,231 — app.log — INFO — Reading general stats
+2021-01-18 23:56:11,843 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:56:12,148 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:56:12,432 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:56:12,675 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:56:12,966 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:56:13,206 — app.log — INFO — Calculating rates
+2021-01-18 23:56:13,216 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:56:14,110 — app.log — INFO — Reading spatial data
+2021-01-18 23:56:14,671 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:56:16,042 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:56:17,441 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:56:18,709 — app.log — INFO — Reading age bands data
+2021-01-18 23:56:18,715 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:56:19,370 — app.log — INFO — Test types
+2021-01-18 23:56:19,379 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:56:19,580 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:56:19,773 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:56:19,984 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:56:20,234 — app.log — INFO — Starting Rt processing
+2021-01-18 23:56:20,247 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:56:20,607 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:56:20,808 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:56:21,013 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:56:21,742 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:56:22,278 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:56:23,679 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:56:23,973 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:56:24,175 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:56:25,976 — app.log — INFO — Reading ARIMA
+2021-01-18 23:56:26,016 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:56:26,188 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:56:26,453 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:56:26,794 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:56:27,016 — app.log — INFO — Creating dash structure
+2021-01-18 23:56:27,322 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:56:27,325 — app.log — INFO — Creating dash cards
+2021-01-18 23:56:27,369 — app.log — INFO — Creating dash tabs
+2021-01-18 23:56:27,418 — app.log — INFO — Creating dash layout
+2021-01-18 23:56:27,419 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:56:27,420 — app.log — INFO — Running dash server
+2021-01-18 23:57:05,744 — app.log — INFO — Starting the process
+2021-01-18 23:57:05,744 — app.log — INFO — Reading general stats
+2021-01-18 23:57:08,414 — app.log — INFO — Creating chart 1: Cumulative cases over time
+2021-01-18 23:57:08,719 — app.log — INFO — Creating chart 2: Cases per week
+2021-01-18 23:57:09,008 — app.log — INFO — Creating chart 3: New cases weekly % change
+2021-01-18 23:57:09,240 — app.log — INFO — Creating chart 4: New cases per week + summer events
+2021-01-18 23:57:09,535 — app.log — INFO — Creating chart 5: New cases per week, events and second lockdown
+2021-01-18 23:57:09,772 — app.log — INFO — Calculating rates
+2021-01-18 23:57:09,784 — app.log — INFO — Creating chart 6: Rates
+2021-01-18 23:57:10,675 — app.log — INFO — Reading spatial data
+2021-01-18 23:57:11,237 — app.log — INFO — Creating chart 7: Provinces map - total cases per 100k pop
+2021-01-18 23:57:12,608 — app.log — INFO — Creating chart 8: Provinces map - new cases per 100k pop
+2021-01-18 23:57:14,003 — app.log — INFO — Creating chart 9: Provinces map - active cases per 100k pop
+2021-01-18 23:57:15,262 — app.log — INFO — Reading age bands data
+2021-01-18 23:57:15,268 — app.log — INFO — Creating chart 10: Cumulative cases by age band
+2021-01-18 23:57:15,929 — app.log — INFO — Test types
+2021-01-18 23:57:15,938 — app.log — INFO — Creating chart 11: Daily tests by test type
+2021-01-18 23:57:16,128 — app.log — INFO — Creating chart 12: Positive tests % by test type
+2021-01-18 23:57:16,320 — app.log — INFO — Creating chart 13: Tests Sankey
+2021-01-18 23:57:16,522 — app.log — INFO — Creating chart 14: Hospitalized patients
+2021-01-18 23:57:16,773 — app.log — INFO — Starting Rt processing
+2021-01-18 23:57:16,788 — app.log — INFO — Creating chart 15: Smoothed new cases - BG
+2021-01-18 23:57:16,989 — app.log — INFO — Creating chart 16: Smoothed recoveries - BG
+2021-01-18 23:57:17,344 — app.log — INFO — Creating chart 17: Smoothed deaths - BG
+2021-01-18 23:57:17,547 — app.log — INFO — Creating chart 18: Smoothed new cases - BG - age bands
+2021-01-18 23:57:18,264 — app.log — INFO — Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop
+2021-01-18 23:57:18,806 — app.log — INFO — Creating chart 20: Smoothed new cases - provinces
+2021-01-18 23:57:20,186 — app.log — INFO — Creating chart 21: Rt for BG
+2021-01-18 23:57:20,480 — app.log — INFO — Reading Rt for provinces
+2021-01-18 23:57:20,684 — app.log — INFO — Creating chart 22: Rt by province
+2021-01-18 23:57:22,465 — app.log — INFO — Reading ARIMA
+2021-01-18 23:57:22,505 — app.log — INFO — Starting Double exponential smoothing (Holt)
+2021-01-18 23:57:22,677 — app.log — INFO — Creating chart 23: Double exp smoothing
+2021-01-18 23:57:22,947 — app.log — INFO — Starting Triple exponential smoothing (Holt-Winters)
+2021-01-18 23:57:23,279 — app.log — INFO — Creating chart 24: Triple exp smoothing
+2021-01-18 23:57:23,505 — app.log — INFO — Creating dash structure
+2021-01-18 23:57:23,823 — app.log — INFO — Creating dash helper vars
+2021-01-18 23:57:23,827 — app.log — INFO — Creating dash cards
+2021-01-18 23:57:23,871 — app.log — INFO — Creating dash tabs
+2021-01-18 23:57:23,920 — app.log — INFO — Creating dash layout
+2021-01-18 23:57:23,921 — app.log — INFO — Creating dash callbacks
+2021-01-18 23:57:23,921 — app.log — INFO — Running dash server
