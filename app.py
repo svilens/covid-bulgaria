@@ -783,7 +783,7 @@ fig_vacc_manufacturer = go.Figure()
 fig_vacc_manufacturer.add_trace(go.Bar(name='Pfizer/BioNTech', x=vaccines_new_pfizer['province'], y=vaccines_new_pfizer['new_pfizer']))
 fig_vacc_manufacturer.add_trace(go.Bar(name='Astra Zeneca', x=vaccines_new_astra['province'], y=vaccines_new_astra['new_astrazeneca']))
 fig_vacc_manufacturer.add_trace(go.Bar(name='Moderna', x=vaccines_new_moderna['province'], y=vaccines_new_moderna['new_moderna']))
-fig_vacc_manufacturer.update_layout(barmode='stack', title='Number of vaccinated people by province and manufacturer',paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_vacc_manufacturer.update_layout(barmode='stack', title='Number of vaccinated people for the last day by province and manufacturer',paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 
@@ -1050,6 +1050,90 @@ intensive_care_t_minus_2 = covid_general.intensive_care.tail(3).head(1).values[0
 intensive_care_change_t = covid_general.intensive_care.tail(1).values[0] - covid_general.intensive_care.tail(2).head(1).values[0]
 intensive_care_change_t_minus_1 = covid_general.intensive_care.tail(2).head(1).values[0] - covid_general.intensive_care.tail(3).head(1).values[0]
 intensive_care_change_t_perc_dod = abs((intensive_care_change_t - intensive_care_change_t_minus_1)/(intensive_care_change_t_minus_1+0.1)) * (-1 if intensive_care_change_t < intensive_care_change_t_minus_1 else 1)
+
+
+# Gauges
+logger.info('Creating gauges chart')
+fig_gauges = go.Figure()
+
+fig_gauges.add_trace(go.Indicator(
+    mode = "gauge+number",
+    value = round(values_bg.values[-7:].mean(),2),
+    title = {'text': "Reproduction number", 'font': {'size': 16}},
+    domain = {'x': [0, 0.12], 'y': [0, 1]},
+    gauge = {
+        'axis': {'range': [None, 2]},
+        'bar': {'color': "royalblue"},
+        'steps': [
+             {'range': [1, 1.5], 'color': "gold"},
+             #{'range': [1.33, 1.67], 'color': "orange"},
+             {'range': [1.5, 2], 'color': "red"},
+        ],
+    }
+))
+fig_gauges.add_trace(go.Indicator(
+    mode = "gauge+number",
+    value = round(100*covid_general.death_rate.values[-1],2),
+    title = {'text': "Mortality rate", 'font': {'size': 16}},
+    domain = {'x': [0.22, 0.34], 'y': [0, 1]},
+    gauge = {
+        'axis': {'range': [None, 25]},
+        'bar': {'color': "royalblue"},
+        'steps': [
+             {'range': [10, 18], 'color': "gold"},
+             {'range': [18, 25], 'color': "red"},
+        ],
+    },
+    number = {'suffix': '%'}
+))
+fig_gauges.add_trace(go.Indicator(
+    mode = "gauge+number",
+    value = round(100*active_t / pop_by_province['pop'].sum(),2),
+    title = {'text': "Active infections", 'font': {'size': 16}},
+    domain = {'x': [0.44, 0.56], 'y': [0, 1]},
+    gauge = {
+        'axis': {'range': [None, 2]},
+        'bar': {'color': "royalblue"},
+        'steps': [
+             {'range': [1, 1.5], 'color': "gold"},
+             {'range': [1.5, 2], 'color': "red"},
+        ],
+    },
+    number = {'suffix': '%'}
+))
+fig_gauges.add_trace(go.Indicator(
+    mode = "gauge+number",
+    value = round(100*covid_general['tests_positive_rate'].tail(7).values.mean(),2),
+    title = {'text': "Positive tests", 'font': {'size': 16}},
+    domain = {'x': [0.66, 0.78], 'y': [0, 1]},
+    gauge = {
+        'axis': {'range': [None, 30]},
+        'bar': {'color': "royalblue"},
+        'steps': [
+             {'range': [10, 20], 'color': "gold"},
+             {'range': [20, 30], 'color': "red"},
+        ],
+    },
+    number = {'suffix': '%'}
+))
+fig_gauges.add_trace(go.Indicator(
+    mode = "gauge+number",
+    value = round(100*vaccines_data.second_dose.sum() / vaccines_data['pop'].sum(),2),
+    title = {'text': "Fully vaccinated", 'font': {'size': 16}},
+    domain = {'x': [0.88, 1], 'y': [0, 1]},
+    gauge = {
+        'axis': {'range': [None, 30]},
+        'bar': {'color': "royalblue"},
+        'steps': [
+             {'range': [0, 10], 'color': "red"},
+             {'range': [10, 20], 'color': "gold"},
+        ],
+    },
+    number = {'suffix': '%'}
+))
+#plot(fig_gauges)
+fig_gauges.update_layout(height = 250, plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+
 
 
 logger.info('Creating dash cards')
@@ -1511,6 +1595,12 @@ app.layout = html.Div([
     html.H1(children='COVID-19 in Bulgaria', style={'padding-left':'5px'}),
     html.P(f"Last update: {covid_general.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}", style={'textAlign':'left', 'padding-left':'15px', 'color':'gold', 'font-style':'italic'}),
     cards,
+    html.Br(),
+    dbc.CardDeck(className="carddeck", children=[
+        dbc.Card([
+            dcc.Graph(figure=fig_gauges)
+        ])
+    ]),
     tabs,
     footer
 ])
