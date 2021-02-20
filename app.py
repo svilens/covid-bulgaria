@@ -732,7 +732,11 @@ fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 logger.info('Creating chart 23: Vaccines by province - fully vaccinated')
 vaccines_data = pd.read_csv('./dash_data/vaccines.csv')
 vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
-vaccines_geo = pd.merge(covid_yesterday[['province','geometry']], vaccines_data, on='province').set_index('province')
+vaccines_data['total_vaccinated_per_100k'] = (100000*vaccines_data['total'] / vaccines_data['pop']).round(2)
+vaccines_yesterday = vaccines_data.loc[vaccines_data.date == vaccines_data.date.max(),:]
+
+vaccines_geo = pd.merge(covid_yesterday[['province','geometry']], vaccines_yesterday, on='province').set_index('province')
+
 fig_vaccines_province_full = px.choropleth_mapbox(
     vaccines_geo,
     geojson=vaccines_geo.geometry,
@@ -753,7 +757,6 @@ fig_vaccines_province_full.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, temp
 
 
 logger.info('Creating chart 24: Vaccines by province - total doses')
-vaccines_geo['total_vaccinated_per_100k'] = (100000*vaccines_geo['total'] / vaccines_geo['pop']).round(2)
 
 fig_vaccines_province_total = px.choropleth_mapbox(
     vaccines_geo,
@@ -775,9 +778,9 @@ fig_vaccines_province_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, tem
 
 
 logger.info('Creating chart 25: Vaccines by province - last day by manufacturer')
-vaccines_new_pfizer = vaccines_data.loc[vaccines_data['new_pfizer'] > 0, ['province', 'new_pfizer']]
-vaccines_new_astra = vaccines_data.loc[vaccines_data['new_astrazeneca'] > 0, ['province', 'new_astrazeneca']]
-vaccines_new_moderna = vaccines_data.loc[vaccines_data['new_moderna'] > 0, ['province', 'new_moderna']]
+vaccines_new_pfizer = vaccines_yesterday.loc[vaccines_yesterday['new_pfizer'] > 0, ['province', 'new_pfizer']]
+vaccines_new_astra = vaccines_yesterday.loc[vaccines_yesterday['new_astrazeneca'] > 0, ['province', 'new_astrazeneca']]
+vaccines_new_moderna = vaccines_yesterday.loc[vaccines_yesterday['new_moderna'] > 0, ['province', 'new_moderna']]
 
 fig_vacc_manufacturer = go.Figure()
 fig_vacc_manufacturer.add_trace(go.Bar(name='Pfizer/BioNTech', x=vaccines_new_pfizer['province'], y=vaccines_new_pfizer['new_pfizer']))
@@ -1118,7 +1121,7 @@ fig_gauges.add_trace(go.Indicator(
 ))
 fig_gauges.add_trace(go.Indicator(
     mode = "gauge+number",
-    value = round(100*vaccines_data.second_dose.sum() / vaccines_data['pop'].sum(),2),
+    value = round(100*vaccines_yesterday['second_dose'].sum() / vaccines_yesterday['pop'].sum(),2),
     title = {'text': "Fully vaccinated", 'font': {'size': 16}},
     domain = {'x': [0.88, 1], 'y': [0, 1]},
     gauge = {
@@ -1399,7 +1402,7 @@ tabs = html.Div([
                 ]
             ),
             dcc.Tab(
-                label = "Reproduction",
+                label = "Reproduction number",
                 className = "custom-tab",
                 selected_className = "custom-tab--selected",
                 children = [

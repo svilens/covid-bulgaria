@@ -78,11 +78,22 @@ covid_yesterday = gpd.GeoDataFrame(
 
 logger.info('Scraping vaccines data')
 vaccines_df = get_vaccines_data_web(vaccines_url, chromedriver_dir)
+vaccines_df['date'] = pd.to_datetime(datetime.now()).date()
+
 vaccines_df = pd.merge(
-            covid_pop[['province', 'pop']].drop_duplicates().reset_index(),
+            covid_pop[['province']].drop_duplicates().reset_index(),
                 vaccines_df,
-                    on='code').drop('code', axis=1)
-vaccines_df.to_csv('./dash_data/vaccines.csv', header=True, index=False)
+                    on='code').sort_values(by='province', ascending=True).reset_index(drop=True)
+
+# check if the vaccines data has been updated in the source
+vaccines_df_old = pd.read_csv('./dash_data/vaccines.csv')
+vacc_old_compare = vaccines_df_old.loc[vaccines_df_old.date == vaccines_df_old.date.max(),['province','total']].sort_values(by='province', ascending=True).reset_index(drop=True)
+
+if len(vaccines_df[['province','total']].compare(vacc_old_compare)) != 0:
+    vaccines_df.to_csv('./dash_data/vaccines.csv', header=True, index=False)
+    logger.info('Vaccines data was added successfully.')
+else:
+    logger.info('WARNING: Vaccines data has not been updated in the source!')
 
 
 logger.info('Reading age bands')
