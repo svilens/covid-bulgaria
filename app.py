@@ -731,13 +731,14 @@ fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 ### Vaccines ###
 logger.info('Creating chart 23: Vaccines by province - fully vaccinated')
 vaccines_data = pd.read_csv('./dash_data/vaccines.csv')
+vaccines_data['first_dose'] = vaccines_data['total'] - vaccines_data['second_dose']
 vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
 vaccines_data['total_vaccinated_per_100k'] = (100000*vaccines_data['total'] / vaccines_data['pop']).round(2)
 vaccines_yesterday = vaccines_data.loc[vaccines_data.date == vaccines_data.date.max(),:]
 
 vaccines_geo = pd.merge(covid_yesterday[['province','geometry']], vaccines_yesterday, on='province').set_index('province')
 
-fig_vaccines_province_full = px.choropleth_mapbox(
+fig_map_vaccines_province_full = px.choropleth_mapbox(
     vaccines_geo,
     geojson=vaccines_geo.geometry,
     locations=vaccines_geo.index,
@@ -753,12 +754,12 @@ fig_vaccines_province_full = px.choropleth_mapbox(
     opacity=1,
     zoom=6
 )
-fig_vaccines_province_full.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_map_vaccines_province_full.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 24: Vaccines by province - total doses')
 
-fig_vaccines_province_total = px.choropleth_mapbox(
+fig_map_vaccines_province_total = px.choropleth_mapbox(
     vaccines_geo,
     geojson=vaccines_geo.geometry,
     locations=vaccines_geo.index,
@@ -774,10 +775,33 @@ fig_vaccines_province_total = px.choropleth_mapbox(
     opacity=1,
     zoom=6
 )
-fig_vaccines_province_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_map_vaccines_province_total.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 25: Vaccines by province - last day by manufacturer')
+vaccines_total_bg = vaccines_data.groupby('date')['total', 'first_dose', 'second_dose'].sum().reset_index()
+vaccines_total_bg['perc_first'] = vaccines_total_bg['first_dose'] / vaccines_total_bg['total']
+vaccines_total_bg['perc_second'] = vaccines_total_bg['second_dose'] / vaccines_total_bg['total']
+vaccines_total_bg['new'] = vaccines_total_bg['total'].diff()
+
+
+logger.info('Creating chart 25: Vaccines total - BG')
+fig_vaccines_total_bg = make_subplots(specs=[[{"secondary_y": True}]])
+fig_vaccines_total_bg.add_trace(go.Scatter(x=vaccines_total_bg['date'], y=vaccines_total_bg['total'], name='Cumulative', mode='lines', line_shape='spline', line=dict(width=3)), secondary_y=False)
+fig_vaccines_total_bg.add_trace(go.Scatter(x=vaccines_total_bg['date'], y=vaccines_total_bg['new'], name='Daily', mode='lines', line_shape='spline', line=dict(width=1)), secondary_y=True)
+fig_vaccines_total_bg.update_yaxes(title_text="Cumulative", secondary_y=False)
+fig_vaccines_total_bg.update_yaxes(title_text="Daily", secondary_y=True)
+fig_vaccines_total_bg.update_layout(title='Total number of vaccinated people by date', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+logger.info('Creating chart 26: Vaccines dose proportion - BG')
+fig_vaccines_total_bg_perc = go.Figure()
+fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg['date'], y=vaccines_total_bg['perc_first'], name='First dose'))
+fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg['date'], y=vaccines_total_bg['perc_second'], name='Second dose'))
+fig_vaccines_total_bg_perc.update_layout(title='Vaccines dose proportion by date', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'), legend={'traceorder':'normal'})
+
+
+logger.info('Creating chart 27: Vaccines by province - last day by manufacturer')
+
 vaccines_new_pfizer = vaccines_yesterday.loc[vaccines_yesterday['new_pfizer'] > 0, ['province', 'new_pfizer']]
 vaccines_new_astra = vaccines_yesterday.loc[vaccines_yesterday['new_astrazeneca'] > 0, ['province', 'new_astrazeneca']]
 vaccines_new_moderna = vaccines_yesterday.loc[vaccines_yesterday['new_moderna'] > 0, ['province', 'new_moderna']]
@@ -786,8 +810,40 @@ fig_vacc_manufacturer = go.Figure()
 fig_vacc_manufacturer.add_trace(go.Bar(name='Pfizer/BioNTech', x=vaccines_new_pfizer['province'], y=vaccines_new_pfizer['new_pfizer']))
 fig_vacc_manufacturer.add_trace(go.Bar(name='Astra Zeneca', x=vaccines_new_astra['province'], y=vaccines_new_astra['new_astrazeneca']))
 fig_vacc_manufacturer.add_trace(go.Bar(name='Moderna', x=vaccines_new_moderna['province'], y=vaccines_new_moderna['new_moderna']))
-fig_vacc_manufacturer.update_layout(barmode='stack', title='Number of vaccinated people for the last day by province and manufacturer',paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_vacc_manufacturer.update_layout(barmode='stack', title='Number of vaccinated people for the last day by province and manufacturer', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
+
+vaccines_type_province_total = vaccines_data.groupby('province')['new_pfizer','new_moderna','new_astrazeneca'].sum().reset_index()
+vaccines_type_province_total['total'] = vaccines_type_province_total['new_pfizer'] + vaccines_type_province_total['new_moderna'] + vaccines_type_province_total['new_astrazeneca']
+vaccines_type_province_total['perc_pfizer'] = (vaccines_type_province_total['new_pfizer'] / vaccines_type_province_total['total']).round(4)
+vaccines_type_province_total['perc_astrazeneca'] = (vaccines_type_province_total['new_astrazeneca'] / vaccines_type_province_total['total']).round(4)
+vaccines_type_province_total['perc_moderna'] = (vaccines_type_province_total['new_moderna'] / vaccines_type_province_total['total']).round(4)
+
+
+logger.info('Crating chart 28: Vaccines by province - total by manufacturer')
+trace_p = go.Bar(name='Pfizer/BioNTech', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['new_pfizer'])
+trace_az = go.Bar(name='Astra Zeneca', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['new_astrazeneca'])
+trace_m = go.Bar(name='Moderna', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['new_moderna'])
+fig_vacc_province_type_total = go.Figure().add_trace(trace_p).add_trace(trace_az).add_trace(trace_m)
+fig_vacc_province_type_total.update_layout(barmode='stack', title='Total vaccines by manufacturer per province (since 14th Feb 2021)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+logger.info('Crating chart 29: Vaccines by province - total by manufacturer - perc')
+trace_p = go.Bar(name='Pfizer/BioNTech', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['perc_pfizer'])
+trace_az = go.Bar(name='Astra Zeneca', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['perc_astrazeneca'])
+trace_m = go.Bar(name='Moderna', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['perc_moderna'])
+fig_vacc_province_total_perc = go.Figure().add_trace(trace_p).add_trace(trace_az).add_trace(trace_m)
+fig_vacc_province_total_perc.update_layout(barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'), title='Vaccines proportion by manufacturer (since 14th Feb 2021)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+logger.info('Creating chart 30: Vaccines by province - dose proportion')
+vaccines_yesterday['perc_first'] = (vaccines_yesterday['first_dose'] / vaccines_yesterday['total']).round(4)
+vaccines_yesterday['perc_second'] = (vaccines_yesterday['second_dose'] / vaccines_yesterday['total']).round(4)
+
+fig_vaccines_province_dose = go.Figure()
+fig_vaccines_province_dose.add_trace(go.Bar(x=vaccines_yesterday['province'], y=vaccines_yesterday['perc_first'], name='First dose'))
+fig_vaccines_province_dose.add_trace(go.Bar(x=vaccines_yesterday['province'], y=vaccines_yesterday['perc_second'], name='Second dose'))
+fig_vaccines_province_dose.update_layout(title='Vaccines dose proportion by province', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'), legend={'traceorder':'normal'})
 
 
 ####### ARIMA #######
@@ -1291,6 +1347,7 @@ tabs = html.Div([
                     html.Br(),
                     dcc.Graph(figure=fig_gen_stats),
                     dcc.Graph(figure=fig_hospitalized),
+                    dcc.Graph(figure=fig_vacc_province_type_total),
                     html.Br(),
                     html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
@@ -1350,16 +1407,36 @@ tabs = html.Div([
                     html.Br(),
                     html.H4("Vaccines stats"),
                     html.Br(),
-                    html.P("Vaccinated people for the last day by province and by vaccine manufacturer."),
+                    html.P("Total number of vaccinated people by date on a national level:"),
+                    dcc.Graph(figure=fig_vaccines_total_bg),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Vaccines dose proportion by date on a national level:"),
+                    dcc.Graph(figure=fig_vaccines_total_bg_perc),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Vaccinated people for the last day by province and by vaccine manufacturer:"),
                     dcc.Graph(figure=fig_vacc_manufacturer),
                     html.Br(),
                     html.Br(),
-                    html.P("Fully vaccinated people by province per 100,000 population - this includes the number of people who have received the recommended by the manufacturers two vaccine doses."),
-                    dcc.Graph(figure=fig_vaccines_province_full),
+                    html.P("Total number of vaccines by manufacturer per province, since 14th Februray 2021:"),
+                    dcc.Graph(figure=fig_vacc_province_type_total),
                     html.Br(),
                     html.Br(),
-                    html.P("Total number of vaccinated people by province per 100,000 population."),
-                    dcc.Graph(figure=fig_vaccines_province_total)
+                    html.P("Vaccines proportion by manufacturer, by province, since 14th Februray 2021:"),
+                    dcc.Graph(figure=fig_vacc_province_total_perc),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Vaccines doses (first/second) proportion by province:"),
+                    dcc.Graph(figure=fig_vaccines_province_dose),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Fully vaccinated people by province per 100,000 population - this includes the number of people who have received the recommended by the manufacturers two vaccine doses:"),
+                    dcc.Graph(figure=fig_map_vaccines_province_full),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Total number of vaccinated people by province per 100,000 population:"),
+                    dcc.Graph(figure=fig_map_vaccines_province_total)
                 ]
             ),
             dcc.Tab(
