@@ -432,7 +432,7 @@ fig_tests_daily = go.Figure()
 fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_pcr, name='Daily PCR tests', mode='lines', line_shape='spline', marker_color='coral'))
 fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_antigen, name='Daily Antigen tests', mode='lines', line_shape='spline', marker_color='darkcyan'))
 fig_tests_daily.update_layout(title='New COVID-19 tests per day by test type', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-fig_tests_daily.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+#fig_tests_daily.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 12: Positive tests % by test type')
@@ -557,7 +557,7 @@ fig_deaths_bg.add_trace(go.Scatter(x=orig_deaths_bg.reset_index()['date'], y=ori
 fig_deaths_bg.add_trace(go.Scatter(x=smoothed_deaths_bg.reset_index()['date'], y=smoothed_deaths_bg.reset_index()['total_deaths'],
                                       mode='lines', line=dict(width=3), name='Smoothed'))
 fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-fig_deaths_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+#fig_deaths_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 18: Smoothed new cases - BG - age bands')
