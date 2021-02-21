@@ -32,6 +32,7 @@ fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_r
 fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_deaths, line=dict(color='red'), name='Deaths'))
 fig_gen_stats.update_layout(title='Number of cases over time (cumulative)')
 fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 2: Cases per week')
@@ -431,6 +432,7 @@ fig_tests_daily = go.Figure()
 fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_pcr, name='Daily PCR tests', mode='lines', line_shape='spline', marker_color='coral'))
 fig_tests_daily.add_trace(go.Scatter(x=tests.date, y=tests.new_antigen, name='Daily Antigen tests', mode='lines', line_shape='spline', marker_color='darkcyan'))
 fig_tests_daily.update_layout(title='New COVID-19 tests per day by test type', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_tests_daily.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 12: Positive tests % by test type')
@@ -513,6 +515,7 @@ fig_hospitalized.add_trace(go.Scatter(x=covid_general.date, y=covid_general.inte
 fig_hospitalized.update_yaxes(title_text="Hospitalized patients", secondary_y=False)
 fig_hospitalized.update_yaxes(title_text="Patients in intensive care units", secondary_y=True)
 fig_hospitalized.update_layout(title="Currently hospitalized patients by date", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_hospitalized.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 ####### REPRODUCTION NUMBER #######
 
 logger.info('Starting Rt processing')
@@ -530,6 +533,7 @@ fig_new_bg.add_trace(go.Scatter(x=orig_bg.reset_index()['date'], y=orig_bg.reset
 fig_new_bg.add_trace(go.Scatter(x=smoothed_bg.reset_index()['date'], y=smoothed_bg.reset_index()['ALL'],
                                       mode='lines', line=dict(width=3), name='Smoothed', marker_color='royalblue'))
 fig_new_bg.update_layout(title='Daily new cases in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_new_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 16: Smoothed recoveries - BG')
@@ -541,6 +545,7 @@ fig_recovered_bg.add_trace(go.Scatter(x=orig_recovered_bg.reset_index()['date'],
 fig_recovered_bg.add_trace(go.Scatter(x=smoothed_recovered_bg.reset_index()['date'], y=smoothed_recovered_bg.reset_index()['total_recoveries'],
                                       mode='lines', line=dict(width=3), name='Smoothed', marker_color='green'))
 fig_recovered_bg.update_layout(title='Daily new recoveries in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_recovered_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 17: Smoothed deaths - BG')
@@ -552,6 +557,7 @@ fig_deaths_bg.add_trace(go.Scatter(x=orig_deaths_bg.reset_index()['date'], y=ori
 fig_deaths_bg.add_trace(go.Scatter(x=smoothed_deaths_bg.reset_index()['date'], y=smoothed_deaths_bg.reset_index()['total_deaths'],
                                       mode='lines', line=dict(width=3), name='Smoothed'))
 fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_deaths_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 18: Smoothed new cases - BG - age bands')
@@ -567,6 +573,7 @@ for col in covid_by_age_band_diff_smoothed.columns:
                                  line=dict(color=age_band_colors[i]), name=col))
     i+=1
 fig_age_diff.update_layout(title='New confirmed cases per day by age band (smoothed figures)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_age_diff.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info("Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop")
@@ -582,7 +589,7 @@ for col in covid_by_age_band_diff_smoothed_per100k.columns:
                                  line=dict(color=age_band_colors[i]), name=col))
     i+=1
 fig_age_per100k.update_layout(title='New confirmed daily cases by age band per 100,000 population (smoothed figures)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-
+fig_age_per100k.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 logger.info('Creating chart 20: Smoothed new cases - provinces')
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
@@ -734,7 +741,7 @@ vaccines_data = pd.read_csv('./dash_data/vaccines.csv')
 vaccines_data['first_dose'] = vaccines_data['total'] - vaccines_data['second_dose']
 vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
 vaccines_data['total_vaccinated_per_100k'] = (100000*vaccines_data['total'] / vaccines_data['pop']).round(2)
-vaccines_yesterday = vaccines_data.loc[vaccines_data.date == vaccines_data.date.max(),:]
+vaccines_yesterday = vaccines_data.loc[vaccines_data.date == vaccines_data.date.max(),:].sort_values(by='province', ascending=True)
 
 vaccines_geo = pd.merge(covid_yesterday[['province','geometry']], vaccines_yesterday, on='province').set_index('province')
 
@@ -910,7 +917,7 @@ pred2_double = fit2_double.forecast(15)
 fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
 pred3_double = fit3_double.forecast(15)
 
-logger.info('Creating chart 26: Double exp smoothing')
+logger.info('Creating chart 31: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
 fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='Historical data'))
 
@@ -980,7 +987,7 @@ pred_triple = fitted_triple.forecast(steps=15)
 
 #print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
 
-logger.info('Creating chart 27: Triple exp smoothing')
+logger.info('Creating chart 32: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Historical data', mode='lines'))
