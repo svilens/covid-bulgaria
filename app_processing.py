@@ -1,6 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 from datetime import datetime
+import pytz
 import warnings
 warnings.simplefilter('ignore')
 
@@ -78,7 +79,7 @@ covid_yesterday = gpd.GeoDataFrame(
 
 logger.info('Scraping vaccines data')
 vaccines_df = get_vaccines_data_web(vaccines_url, chromedriver_dir)
-vaccines_df['date'] = pd.to_datetime(datetime.now()).date()
+vaccines_df['date'] = pd.to_datetime(datetime.now(pytz.timezone('Europe/Sofia'))).date()
 
 vaccines_df = pd.merge(
             covid_pop[['province', 'pop']].drop_duplicates().reset_index(),
