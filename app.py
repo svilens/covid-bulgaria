@@ -802,8 +802,8 @@ fig_vaccines_total_bg.update_layout(title='Total number of vaccinated people by 
 
 logger.info('Creating chart 26: Vaccines dose proportion - BG')
 fig_vaccines_total_bg_perc = go.Figure()
-fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg['date'], y=vaccines_total_bg['perc_first'], name='First dose'))
-fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg['date'], y=vaccines_total_bg['perc_second'], name='Second dose'))
+fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg.loc[vaccines_total_bg.second_dose.isna() == False, 'date'], y=vaccines_total_bg.loc[vaccines_total_bg.second_dose.isna() == False, 'perc_first'], name='First dose'))
+fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg.loc[vaccines_total_bg.second_dose.isna() == False, 'date'], y=vaccines_total_bg.loc[vaccines_total_bg.second_dose.isna() == False, 'perc_second'], name='Second dose'))
 fig_vaccines_total_bg_perc.update_layout(title='Vaccines dose proportion by date', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'), legend={'traceorder':'normal'})
 
 
