@@ -802,8 +802,8 @@ fig_vaccines_total_bg.update_layout(title='Total number of vaccinated people by 
 
 logger.info('Creating chart 26: Vaccines dose proportion - BG')
 fig_vaccines_total_bg_perc = go.Figure()
-fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg.loc[vaccines_total_bg.second_dose.isna() == False, 'date'], y=vaccines_total_bg.loc[vaccines_total_bg.second_dose.isna() == False, 'perc_first'], name='First dose'))
-fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg.loc[vaccines_total_bg.second_dose.isna() == False, 'date'], y=vaccines_total_bg.loc[vaccines_total_bg.second_dose.isna() == False, 'perc_second'], name='Second dose'))
+fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'date'], y=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'perc_first'], name='First dose'))
+fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'date'], y=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'perc_second'], name='Second dose'))
 fig_vaccines_total_bg_perc.update_layout(title='Vaccines dose proportion by date', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'), legend={'traceorder':'normal'})
 
 
@@ -832,7 +832,7 @@ trace_p = go.Bar(name='Pfizer/BioNTech', x=vaccines_type_province_total['provinc
 trace_az = go.Bar(name='Astra Zeneca', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['new_astrazeneca'])
 trace_m = go.Bar(name='Moderna', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['new_moderna'])
 fig_vacc_province_type_total = go.Figure().add_trace(trace_p).add_trace(trace_az).add_trace(trace_m)
-fig_vacc_province_type_total.update_layout(barmode='stack', title='Total vaccines by manufacturer per province (since 14th Feb 2021)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_vacc_province_type_total.update_layout(barmode='stack', title='Total vaccines by manufacturer per province (since 6th Feb 2021)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Crating chart 29: Vaccines by province - total by manufacturer - perc')
@@ -840,7 +840,7 @@ trace_p = go.Bar(name='Pfizer/BioNTech', x=vaccines_type_province_total['provinc
 trace_az = go.Bar(name='Astra Zeneca', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['perc_astrazeneca'])
 trace_m = go.Bar(name='Moderna', x=vaccines_type_province_total['province'], y=vaccines_type_province_total['perc_moderna'])
 fig_vacc_province_total_perc = go.Figure().add_trace(trace_p).add_trace(trace_az).add_trace(trace_m)
-fig_vacc_province_total_perc.update_layout(barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'), title='Vaccines proportion by manufacturer (since 14th Feb 2021)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_vacc_province_total_perc.update_layout(barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'), title='Vaccines proportion by manufacturer (since 6th Feb 2021)', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 30: Vaccines by province - dose proportion')
@@ -1426,11 +1426,11 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_vacc_manufacturer),
                     html.Br(),
                     html.Br(),
-                    html.P("Total number of vaccines by manufacturer per province, since 14th Februray 2021:"),
+                    html.P("Total number of vaccines by manufacturer per province, since 6th Februray 2021:"),
                     dcc.Graph(figure=fig_vacc_province_type_total),
                     html.Br(),
                     html.Br(),
-                    html.P("Vaccines proportion by manufacturer, by province, since 14th Februray 2021:"),
+                    html.P("Vaccines proportion by manufacturer, by province, since 6th Februray 2021:"),
                     dcc.Graph(figure=fig_vacc_province_total_perc),
                     html.Br(),
                     html.Br(),
