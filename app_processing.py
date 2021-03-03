@@ -19,13 +19,13 @@ logger.info('STARTED')
 
 
 # Download data
-#api_request = get_covid_data()
-#if api_request == 'old':
-#    logger.info('The last date on the source data is different than the current date. Check if the source has been updated today. Process terminated!')
-    #sys.exit()
-#elif api_request == 'error':
-#    logger.info('There was an error while communicating with the API. Process terminated!')
-#    sys.exit()
+api_request = get_covid_data()
+if api_request == 'old':
+    logger.info('The last date on the source data is different than the current date. Check if the source has been updated today. Process terminated!')
+    sys.exit()
+elif api_request == 'error':
+    logger.info('There was an error while communicating with the API. Process terminated!')
+    sys.exit()
 
 logger.info('Finished downloading the new COVID-19 data!')
 
