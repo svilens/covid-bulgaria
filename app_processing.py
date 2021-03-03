@@ -130,7 +130,7 @@ def prepare_cases(cases):
         min_periods=1,
         center=True).mean(std=3).round()
     
-    idx_start = np.searchsorted(smoothed, 10)
+    idx_start = np.searchsorted(smoothed, 9)
     smoothed = smoothed.iloc[idx_start:]
     original = new_cases.loc[smoothed.index]
     
