@@ -172,30 +172,6 @@ covid_by_age_band_diff_smoothed_per100k = covid_by_age_band_diff_smoothed.copy()
 for col in covid_by_age_band_diff_smoothed_per100k.columns:
     covid_by_age_band_diff_smoothed_per100k[col] = (100000*covid_by_age_band_diff_smoothed_per100k[col]/pop_by_age_band.loc[pop_by_age_band.covid_age_band == col, 'pop'].values).round(0)
 
-logger.info('preparing smoothed cases by province')
-# provinces
-provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
-
-
-r0_provinces_original = pd.DataFrame()
-r0_provinces_smoothed = pd.DataFrame()
-
-# add charts for provinces
-for i, province in list(enumerate(provinces_list)):
-    cases = provinces.xs(province).rename(f"{province} cases")
-    original, smoothed = prepare_cases(cases)
-    original = original.to_frame()
-    smoothed = smoothed.to_frame()
-    original.columns = ['new_cases']
-    smoothed.columns = ['new_cases']
-    original['province'] = province
-    smoothed['province'] = province
-    r0_provinces_original = pd.concat([r0_provinces_original, original])
-    r0_provinces_smoothed = pd.concat([r0_provinces_smoothed, smoothed])
-    
-r0_provinces_original.to_csv('./dash_data/r0_provinces_original.csv', header=True)
-r0_provinces_smoothed.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
-
 
 # We create an array for every possible value of Rt
 R_T_MAX = 12
@@ -338,17 +314,29 @@ extended_bg = pd.date_range(start=index_bg[0],
                              end=index_bg[-1])
 
 
-logger.info('Calculating Rt for provinces')
+logger.info('Calculating smoothed cases for provinces')
 
 sigmas = np.linspace(1/15, 1, 15)
 
 provinces_to_process = provinces
 
 results = {}
+r0_provinces_original = pd.DataFrame()
+r0_provinces_smoothed = pd.DataFrame()
 
 for province_name, cases in provinces_to_process.groupby(level='province'):
     print(f'processing province: {province_name}')
     new, smoothed = prepare_cases(cases)
+
+    # for dash
+    new_dash = new.to_frame()
+    smoothed_dash = smoothed.to_frame()
+    new_dash.columns = ['new_cases']
+    smoothed_dash.columns = ['new_cases']
+    r0_provinces_original = pd.concat([r0_provinces_original, new_dash])
+    r0_provinces_smoothed = pd.concat([r0_provinces_smoothed, smoothed_dash])
+    # end of dash
+
     result = {}
     # Holds all posteriors with every given value of sigma
     result['posteriors'] = []
@@ -360,6 +348,11 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
         result['log_likelihoods'].append(log_likelihood)
     # Store all results keyed off of province name
     results[province_name] = result
+
+# for dash
+logger.info('Outputting smoothed cases by province')
+r0_provinces_original.to_csv('./dash_data/r0_provinces_original.csv', header=True)
+r0_provinces_smoothed.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
 
 # Each index of this array holds the total of the log likelihoods for the corresponding index of the sigmas array.
 total_log_likelihoods = np.zeros_like(sigmas)
