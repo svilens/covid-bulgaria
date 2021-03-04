@@ -802,9 +802,19 @@ fig_vaccines_total_bg.update_layout(title='Total number of vaccinated people by 
 
 logger.info('Creating chart 26: Vaccines dose proportion - BG')
 fig_vaccines_total_bg_perc = go.Figure()
-fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'date'], y=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'perc_first'], name='First dose'))
-fig_vaccines_total_bg_perc.add_trace(go.Bar(x=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'date'], y=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'perc_second'], name='Second dose'))
-fig_vaccines_total_bg_perc.update_layout(title='Vaccines dose proportion by date', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'), legend={'traceorder':'normal'})
+fig_vaccines_total_bg_perc.add_trace(
+    go.Scatter(
+        x=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'date'],
+        y=vaccines_total_bg.loc[vaccines_total_bg.second_dose != 0, 'perc_second'],
+        marker_color = 'olive',
+        mode = 'markers+lines'
+    )
+)
+fig_vaccines_total_bg_perc.update_layout(
+        title='Daily vaccination - fully vaccinated people proportion (with second dose)',
+        yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
+        paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
 
 
 logger.info('Creating chart 27: Vaccines by province - last day by manufacturer')
