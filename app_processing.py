@@ -315,6 +315,7 @@ extended_bg = pd.date_range(start=index_bg[0],
 
 
 logger.info('Calculating smoothed cases for provinces')
+start = datetime.now()
 
 sigmas = np.linspace(1/15, 1, 15)
 
@@ -354,6 +355,7 @@ logger.info('Outputting smoothed cases by province')
 r0_provinces_original.to_csv('./dash_data/r0_provinces_original.csv', header=True)
 r0_provinces_smoothed.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
 
+logger.info('Getting the best log likelihood by province')
 # Each index of this array holds the total of the log likelihoods for the corresponding index of the sigmas array.
 total_log_likelihoods = np.zeros_like(sigmas)
 
@@ -367,7 +369,6 @@ max_likelihood_index = total_log_likelihoods.argmax()
 # Select the value that has the highest log likelihood
 sigma = sigmas[max_likelihood_index]
 
-start = datetime.now()
 final_results = None
 
 logger.info('calculating final Rt by province')
