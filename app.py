@@ -1608,6 +1608,32 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_vacc_province_type_total),
                     html.Br(),
                     html.Br(),
+                    html.P("New daily vaccinations per province and manufacturer - please select manufacturer from the dropdown:"),
+                    html.Div([
+                        html.Div(className='dropdown', children=[
+                            dcc.Dropdown(
+                                id='vaccines-dropdown-manufacturer',
+                                className='dropdown',
+                                options = [
+                                    {'label':'Pfizer', 'value':'new_pfizer'},
+                                    {'label':'Astra Zeneca', 'value':'new_astrazeneca'},
+                                    {'label':'Moderna', 'value':'new_moderna'}],
+                                placeholder='Select vaccine manufacturer',
+                                value='new_pfizer',
+                                style=dict(width='60%')
+                            )
+                        ]),
+                        html.Div([
+                            dcc.Loading(
+                                id='vaccines-manufacturer-output-loader', type='default',
+                                children=[
+                                    html.Div(dcc.Graph(id="vaccines-manufacturer-output"))
+                                ]
+                            )
+                        ])
+                    ]),
+                    html.Br(),
+                    html.Br(),
                     html.P("Vaccines proportion by manufacturer, by province, since 6th February 2021:"),
                     dcc.Graph(figure=fig_vacc_province_total_perc),
                     html.Br(),
@@ -1883,7 +1909,7 @@ logger.info('Creating dash callbacks')
         dash.dependencies.Input('province-dropdown-arima', 'value')
     ])
 def update_arima_output_province(province):
-    arima_result = arima_chart(province)
+    arima_result = arima_chart(province,arima_provinces_df)
     return (
         arima_result[0],
         [f"Mean absolute percentage error: {arima_result[1].round(2)}"]
@@ -1906,6 +1932,35 @@ def update_triple_output_province(province, variable, forecast_length):
         custom_triple[0].update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'),
         f"Mean absolute percentage error: {custom_triple[1]}"
     )
+
+@app.callback(
+        dash.dependencies.Output('vaccines-manufacturer-output', 'figure'),
+    [
+        dash.dependencies.Input('vaccines-dropdown-manufacturer', 'value')
+    ])
+def update_vaccines_manufacturer_province_chart(manufacturer):
+    fig_vacc_province_type = go.Figure()
+
+    # add top 3 largest provinces
+    for province in provinces_list[:3]:
+        fig_vacc_province_type.add_trace(go.Scatter(
+            x = vaccines_data.loc[vaccines_data.province == province, 'date'],
+            y = vaccines_data.loc[vaccines_data.province == province, manufacturer],
+            name = province,
+            mode='lines', line_shape='spline'))
+    
+    # add the rest provinces as disabled on the legend
+    for province in provinces_list[3:]:
+        fig_vacc_province_type.add_trace(go.Scatter(
+            x = vaccines_data.loc[vaccines_data.province == province, 'date'],
+            y = vaccines_data.loc[vaccines_data.province == province, manufacturer],
+            name = province,
+            mode='lines', line_shape='spline',
+            visible='legendonly'))
+    fig_vacc_province_type.update_layout(
+        title = 'New daily vaccines by manufacturer and province',
+        paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    return fig_vacc_province_type
 
 
 logger.info('Running dash server')

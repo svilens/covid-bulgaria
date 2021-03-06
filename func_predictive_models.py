@@ -60,7 +60,9 @@ def arima_province(ts_data, province, column='total_cases', forecast_days=15):
     return (pred, result, fig, model_error, rolling.index, rolling[column])
 
 
-def arima_chart(province):
+import plotly.graph_objects as go
+
+def arima_chart(province, arima_provinces_df):
     arima_filtered = arima_provinces_df.loc[arima_provinces_df.province == province]
     fig_arima = go.Figure()
     fig_arima.add_trace(go.Scatter(x=arima_filtered['date'][:-15], y=arima_filtered['value'][:-15], name='Historical data', mode='lines'))
@@ -70,6 +72,8 @@ def arima_chart(province):
     arima_error = arima_filtered['error'].values[0]
     return fig_arima, arima_error
 
+
+from statsmodels.tsa.holtwinters import Holt
 
 def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
     df = ts_data.set_index('date')
@@ -108,6 +112,8 @@ def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     return fig_exp_smoothing_double
 
 
+from statsmodels.tsa.holtwinters import ExponentialSmoothing as HWES
+
 def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
     df = ts_data.set_index('date')
     # replace zeros with 0.1 as the multiplicative seasonal element o HWES requires strictly positive values
@@ -135,3 +141,4 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
     )
     fig_exp_smoothing_triple.update_layout(title=f'Holt-Winters (triple) exponential smoothing for {"new cases" if column == "new_cases" else "total cases" if column == "total_cases" else "reproduction number"} in {province} for {forecast_days} days')
     return fig_exp_smoothing_triple, pred_triple_error
+
