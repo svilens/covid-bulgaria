@@ -1122,7 +1122,7 @@ logger.info('Vaccines availability')
 # read vaccines delivery date
 vaccines_delivery = pd.read_csv('./dash_data/vaccines_delivery.csv', parse_dates=['date'])
 # read aggregated figures by date before 5th Feb
-vaccines_before5feb.columns = pd.read_csv('./dash_data/vaccines_upto5feb.csv', parse_dates=['date'])
+vaccines_before5feb.columns = pd.read_csv('./dash_data/vaccines_before5feb.csv', parse_dates=['date'])
 # aggregate figures by date from own data after 5th Feb
 vaccines_after5feb = vaccines_data.groupby('date')[['new_pfizer', 'new_astrazeneca', 'new_moderna']].sum().reset_index()
 vaccines_after5feb.columns = ['date', 'pfizer', 'astrazeneca', 'moderna']
