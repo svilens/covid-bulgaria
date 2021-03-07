@@ -930,7 +930,7 @@ fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 
 ### Vaccines ###
 logger.info('Creating chart 23: Vaccines by province - fully vaccinated')
-vaccines_data = pd.read_csv('./dash_data/vaccines.csv')
+vaccines_data = pd.read_csv('./dash_data/vaccines.csv', parse_dates=['date'])
 vaccines_data['first_dose'] = vaccines_data['total'] - vaccines_data['second_dose']
 vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
 vaccines_data['total_vaccinated_per_100k'] = (100000*vaccines_data['total'] / vaccines_data['pop']).round(2)
@@ -1116,6 +1116,55 @@ fig_vaccines_province_dose.update_layout(
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
     barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
     legend={'traceorder':'normal'})
+
+
+logger.info('Vaccines availability')
+# read vaccines delivery date
+vaccines_delivery = pd.read_csv('./dash_data/vaccines_delivery.csv', parse_dates=['date'])
+# read aggregated figures by date before 5th Feb
+vaccines_before5feb.columns = pd.read_csv('./dash_data/vaccines_upto5feb.csv', parse_dates=['date'])
+# aggregate figures by date from own data after 5th Feb
+vaccines_after5feb = vaccines_data.groupby('date')[['new_pfizer', 'new_astrazeneca', 'new_moderna']].sum().reset_index()
+vaccines_after5feb.columns = ['date', 'pfizer', 'astrazeneca', 'moderna']
+
+# combine the above
+vaccines_by_date = pd.concat([vaccines_before5feb, vaccines_after5feb])
+vaccines_by_date_w_delivery = vaccines_by_date.merge(vaccines_delivery, on='date', how='outer').fillna(0).sort_values(by='date', ascending=True).reset_index(drop=True)
+
+# accumulate figures from current day delivery + previous day availability - current day vaccinations
+for i in range(len(vaccines_by_date_w_delivery)):
+    if i == 0:
+        vaccines_by_date_w_delivery['avail_pfizer'] = vaccines_by_date_w_delivery['deliv_pfizer']
+        vaccines_by_date_w_delivery['avail_astrazeneca'] = vaccines_by_date_w_delivery['deliv_astrazeneca']
+        vaccines_by_date_w_delivery['avail_moderna'] = vaccines_by_date_w_delivery['deliv_moderna']
+    else:
+        vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_pfizer'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_pfizer'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_pfizer'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'pfizer'].values[0]
+        vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_astrazeneca'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_astrazeneca'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_astrazeneca'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'astrazeneca'].values[0]
+        vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_moderna'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_moderna'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_moderna'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'moderna'].values[0]
+
+
+fig_vaccines_availability = go.Figure()
+fig_vaccines_availability.add_trace(go.Scatter(
+    x = vaccines_by_date_w_delivery.date,
+    y = vaccines_by_date_w_delivery.avail_pfizer,
+    mode='lines', line_shape='spline',
+    name = 'Pfizer'))
+fig_vaccines_availability.add_trace(go.Scatter(
+    x = vaccines_by_date_w_delivery.date,
+    y = vaccines_by_date_w_delivery.avail_astrazeneca,
+    mode='lines', line_shape='spline',
+    name = 'Astra Zeneca'))
+fig_vaccines_availability.add_trace(go.Scatter(
+    x = vaccines_by_date_w_delivery.date,
+    y = vaccines_by_date_w_delivery.avail_moderna,
+    mode='lines', line_shape='spline',
+    name = 'Moderna'))
+fig_vaccines_availability.update_layout(
+    title = 'Vaccines availability by manufacturer',
+    plot_bgcolor='rgba(0,0,0,0)',
+    paper_bgcolor='rgba(0,0,0,0)'
+)
+
 
 
 ####### ARIMA #######
@@ -1533,6 +1582,7 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_gen_stats),
                     dcc.Graph(figure=fig_hospitalized),
                     dcc.Graph(figure=fig_vacc_province_type_total),
+                    dcc.Graph(figure=fig_vaccines_availability),
                     html.Br(),
                     html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
@@ -1636,6 +1686,10 @@ tabs = html.Div([
                     html.Br(),
                     html.P("Vaccines proportion by manufacturer, by province, since 6th February 2021:"),
                     dcc.Graph(figure=fig_vacc_province_total_perc),
+                    html.Br(),
+                    html.Br(),
+                    html.P("Vaccines availability over time by manufacturer:"),
+                    dcc.Graph(figure=fig_vaccines_availability),
                     html.Br(),
                     html.Br(),
                     html.P("Vaccines doses (first/second) proportion by province:"),
