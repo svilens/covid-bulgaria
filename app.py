@@ -1170,7 +1170,7 @@ fig_vaccines_availability.update_layout(
 ####### ARIMA #######
 from func_predictive_models import *
 
-logger.info('Reading ARIMA')
+#logger.info('Reading ARIMA')
 
 ts_data = covid_pop.reset_index()[['date', 'province', 'ALL', 'new_cases']].rename(columns={'ALL':'total_cases'})
 
@@ -1179,7 +1179,7 @@ ts_data_r0['date'] = pd.to_datetime(ts_data_r0.date)
 ts_data = pd.merge(ts_data, ts_data_r0, how='left', on=['date','province'])
 
 
-arima_provinces_df = pd.read_csv('./dash_data/arima_provinces.csv')
+#arima_provinces_df = pd.read_csv('./dash_data/arima_provinces.csv')
 
 ######## EXPONENTIAL SMOOTHING ##########
 
@@ -1774,35 +1774,36 @@ tabs = html.Div([
                 className = "custom-tab",
                 selected_className = "custom-tab--selected",
                 children = [
-                    html.Br(),
-                    html.Br(),
-                    html.H3('ARIMA'),
-                    html.Br(),
-                    html.P("The ARIMA model was used to predict the 7-days rolling mean number of the total confirmed cases."),
-                    html.Br(),
-                    dcc.Markdown("You can use the dropdown below to select your desired **province** and create live predictions using ARIMA model."),
-                    html.Div([
-                        html.Div(className='dropdown', children=[
-                            dcc.Dropdown(
-                                id='province-dropdown-arima',
-                                className='dropdown',
-                                options=[{'label':p, 'value':p} for p in ts_data['province'].unique()],
-                                placeholder='Select a province',
-                                value='Sofiya-Grad',
-                                style=dict(width='70%')
-                            )
-                        ]),
-                        html.Div([
-                            dcc.Loading(
-                                id='custom-arima-output-loader', type='default',
-                                children=[
-                                    html.Div(dcc.Graph(id="custom-arima-output"))
-                                ]
-                            ),
-                            html.H6(id="custom-arima-output-error"),
-                            html.P(id="custom-arima-output-summary")
-                        ])
-                    ])
+# ARIMA IS DISABLED
+                   # html.Br(),
+                   # html.Br(),
+                   # html.H3('ARIMA'),
+                   # html.Br(),
+                   # html.P("The ARIMA model was used to predict the 7-days rolling mean number of the total confirmed cases."),
+                   # html.Br(),
+                   # dcc.Markdown("You can use the dropdown below to select your desired **province** and create live predictions using ARIMA model."),
+                   # html.Div([
+                   #     html.Div(className='dropdown', children=[
+                   #         dcc.Dropdown(
+                   #             id='province-dropdown-arima',
+                   #             className='dropdown',
+                   #             options=[{'label':p, 'value':p} for p in ts_data['province'].unique()],
+                   #             placeholder='Select a province',
+                   #             value='Sofiya-Grad',
+                   #             style=dict(width='70%')
+                   #         )
+                   #     ]),
+                   #     html.Div([
+                   #         dcc.Loading(
+                   #             id='custom-arima-output-loader', type='default',
+                   #             children=[
+                   #                 html.Div(dcc.Graph(id="custom-arima-output"))
+                   #             ]
+                   #         ),
+                   #         html.H6(id="custom-arima-output-error"),
+                   #         html.P(id="custom-arima-output-summary")
+                   #     ])
+                   # ])
         #        ]
         #    ),
         #    dcc.Tab(
@@ -1810,8 +1811,7 @@ tabs = html.Div([
         #        className = "custom-tab",
         #        selected_className = "custom-tab--selected",
         #        children = [
-                    ,html.Br(), html.Br(), html.H3('Exponential smoothing'),
-        #           html.Br(),
+                    html.Br(), html.Br(), html.H3('Exponential smoothing'),
                     html.Br(),
                     html.P("The exponential smoothing models can be used to predict the value of the daily total cases, new cases or the reproduction number Rt by province."),
                     html.Br(),
@@ -1953,22 +1953,22 @@ app.layout = html.Div([
 
 #Callbacks
 logger.info('Creating dash callbacks')
-@app.callback(
-    [
-        dash.dependencies.Output('custom-arima-output', 'figure'),
-        dash.dependencies.Output('custom-arima-output-error', 'children')
+#@app.callback(
+#    [
+#        dash.dependencies.Output('custom-arima-output', 'figure'),
+#        dash.dependencies.Output('custom-arima-output-error', 'children')
         #dash.dependencies.Output('custom-arima-output-summary', 'children')
-    ],
-    [
-        dash.dependencies.Input('province-dropdown-arima', 'value')
-    ])
-def update_arima_output_province(province):
-    arima_result = arima_chart(province,arima_provinces_df)
-    return (
-        arima_result[0],
-        [f"Mean absolute percentage error: {arima_result[1].round(2)}"]
-        #[pprint.pprint(str(arima_provinces.get(province+'_summary')), width=100)]
-    )
+#    ],
+#    [
+#        dash.dependencies.Input('province-dropdown-arima', 'value')
+#    ])
+#def update_arima_output_province(province):
+#    arima_result = arima_chart(province,arima_provinces_df)
+#    return (
+#        arima_result[0],
+#        [f"Mean absolute percentage error: {arima_result[1].round(2)}"]
+#        #[pprint.pprint(str(arima_provinces.get(province+'_summary')), width=100)]
+#    )
 
 @app.callback(
     [

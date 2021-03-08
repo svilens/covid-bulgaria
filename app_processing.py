@@ -286,32 +286,34 @@ mr.loc[mr.status=="0", 'colors'] = 'grey'
 #######
 # ARIMA
 #######
-logger.info('Starting ARIMA')
+# ARIMA IS DISABLED
+
+#logger.info('Starting ARIMA')
 from func_predictive_models import *
 
-ts_data = pd.read_csv('./dash_data/ts_data.csv')
+#ts_data = pd.read_csv('./dash_data/ts_data.csv')
 
 #from statsmodels.tools.sm_exceptions import ConvergenceWarning
 #warnings.simplefilter('ignore', ConvergenceWarning)
 #warnings.simplefilter('ignore')
-logger.info('Getting ARIMA predictions for provinces')
-start_arima = datetime.now()
-arima_provinces_df = pd.DataFrame()
+#logger.info('Getting ARIMA predictions for provinces')
+#start_arima = datetime.now()
+#arima_provinces_df = pd.DataFrame()
 
-for province in ts_data['province'].unique():
-    print(province)
-    data = ts_data.loc[ts_data['province'] == province]
-    arima_results = arima_province(data, province, 'total_cases')
-    arima_preds = [*arima_results[5][:-15], *arima_results[0]]
-    arima_errors = [arima_results[3] for x in range(len(arima_preds))]
-    arima_indexes = arima_results[4]
-    arima_true_values = arima_results[5]
-    arima_temp_df = pd.DataFrame({'date':arima_indexes, 'province':province, 'pred':arima_preds, 'error':arima_errors, 'value':arima_true_values})
-    arima_provinces_df = pd.concat([arima_provinces_df, arima_temp_df])
+#for province in ts_data['province'].unique():
+#    print(province)
+#    data = ts_data.loc[ts_data['province'] == province]
+#    arima_results = arima_province(data, province, 'total_cases')
+#    arima_preds = [*arima_results[5][:-15], *arima_results[0]]
+#    arima_errors = [arima_results[3] for x in range(len(arima_preds))]
+#    arima_indexes = arima_results[4]
+#    arima_true_values = arima_results[5]
+#    arima_temp_df = pd.DataFrame({'date':arima_indexes, 'province':province, 'pred':arima_preds, 'error':arima_errors, 'value':arima_true_values})
+#    arima_provinces_df = pd.concat([arima_provinces_df, arima_temp_df])
 
-logger.info(f'Provinces ARIMA runtime: {datetime.now() - start_arima}')
+#logger.info(f'Provinces ARIMA runtime: {datetime.now() - start_arima}')
 
-arima_provinces_df.to_csv('./dash_data/arima_provinces.csv', header=True)
+#arima_provinces_df.to_csv('./dash_data/arima_provinces.csv', header=True)
 
 logger.info(f'Processing is done. Total runtime: {datetime.now() - global_start}')
 logger.info('Starting git push')
