@@ -1831,12 +1831,12 @@ tabs = html.Div([
                                 id='variable-dropdown',
                                 className='dropdown',
                                 options=[
-                                    {'label': 'Total cases', 'value': 'total_cases'},
                                     {'label': 'New cases', 'value': 'new_cases'},
+                                    {'label': 'Total cumulative cases', 'value': 'total_cases'},
                                     {'label': 'Reproduction number', 'value': 'r0'}
                                 ],
                                 placeholder='Select a variable to be predicted',
-                                value='total_cases',
+                                value='new_cases',
                                 style=dict(width='160%')
                             ),
                             dcc.Input(

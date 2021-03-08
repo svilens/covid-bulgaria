@@ -113,32 +113,70 @@ def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
 
 
 from statsmodels.tsa.holtwinters import ExponentialSmoothing as HWES
+from datetime import timedelta
 
-def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15):
+def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15, validation=False):
+    """
+    Inputs:
+        ts_data = time series pandas dataframe. Columns: date, province, variable
+        province = province name to filter the time series data by
+        column = variable column to make the predictions for
+        forecast_days = number of days to make predictions for
+        validation = boolean indicating whether to draw validation data line on the chart
+        
+    Outputs:
+        1) a plotly figure containing:
+            - a line for training data
+            - a line for model fitted values
+            - a line for forecast
+            - [optional] a line for validation data
+        2) mean absolute percentage error (float)
+            calculated between testing and forecast data, if validation is set to True
+            calculated between training data and model fitted values, if validation is set to False
+    """
+        
     df = ts_data.set_index('date')
     # replace zeros with 0.1 as the multiplicative seasonal element o HWES requires strictly positive values
-    df = df.loc[((df['province'] == province) & (df[column].notnull()))].replace(0,0.1)
+    df = df.loc[((df['province'] == province) & (df[column].notnull()))].replace(0,1)
     df = df.resample("D").sum()
     
-    train = df.iloc[:-forecast_days]
-    test = df.iloc[-forecast_days:]
-    pred = test.copy()
-    
-    model_triple = HWES(train[column], seasonal_periods=7, trend='add', seasonal='mul')
+    if validation == True:
+        train = df.iloc[:-forecast_days]
+        test = df.iloc[-forecast_days:]
+    else:
+        train = df.copy()#.iloc[30:]
+        test = df.copy()#.iloc[30:]
+
+    model_triple = HWES(train[column], seasonal_periods=14, trend='add', seasonal='mul')
     fitted_triple = model_triple.fit(optimized=True, use_brute=True)
     pred_triple = fitted_triple.forecast(steps=forecast_days)
-    pred_triple_error = mape(test[column].values,pred_triple).round(2)
-    print(f"\nMean absolute percentage error: {pred_triple_error}")
+    
+    if validation == True:
+        pred_triple_error = mape(test[column].values,pred_triple).round(2)
+    else:
+        pred_triple_error = mape(train[column].values, fitted_triple.fittedvalues).round(2)
+    
+    #print(f"\nMean absolute percentage error: {pred_triple_error}")
 
     #plot the training data, the test data and the forecast on the same plot
     fig_exp_smoothing_triple = go.Figure()
-    fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train[column][30:], name='Historical data', mode='lines'))
-    fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=fitted_triple.fittedvalues[30:], name='Model fit', mode='lines', marker_color='lime'))
-    fig_exp_smoothing_triple.add_trace(go.Scatter(x=test.index, y=test[column], name='Validation data', mode='lines', marker_color='coral'))
     fig_exp_smoothing_triple.add_trace(go.Scatter(
-        x=pd.date_range(start=test.index.min(), periods=len(test) + len(pred_triple)),
+        x=train.index[30:], y=train[column][30:],
+        name='Historical data', mode='lines'))
+    fig_exp_smoothing_triple.add_trace(go.Scatter(
+        x=train.index[30:], y=fitted_triple.fittedvalues[30:],
+        name='Model fit', mode='lines', marker_color='lime'))
+    
+    if validation == True:
+        fig_exp_smoothing_triple.add_trace(go.Scatter(
+            x=test.index, y=test[column],
+            name='Validation data',
+            mode='lines', marker_color='coral')
+        )
+    
+    fig_exp_smoothing_triple.add_trace(go.Scatter(
+        x=pd.date_range(start=train.index.max() + timedelta(1), periods=len(test) + len(pred_triple)),
         y=pred_triple, name='Forecast', marker_color='gold', mode='lines')
     )
     fig_exp_smoothing_triple.update_layout(title=f'Holt-Winters (triple) exponential smoothing for {"new cases" if column == "new_cases" else "total cases" if column == "total_cases" else "reproduction number"} in {province} for {forecast_days} days')
     return fig_exp_smoothing_triple, pred_triple_error
-
