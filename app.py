@@ -1118,7 +1118,7 @@ fig_vaccines_province_dose.update_layout(
     legend={'traceorder':'normal'})
 
 
-logger.info('Vaccines availability')
+logger.info('Creating chart 31: Vaccines availability')
 # read vaccines delivery date
 vaccines_delivery = pd.read_csv('./dash_data/vaccines_delivery.csv', parse_dates=['date'])
 # read aggregated figures by date before 5th Feb
@@ -1210,7 +1210,7 @@ pred2_double = fit2_double.forecast(15)
 fit3_double = model_double.fit(smoothing_level=.3, smoothing_trend=.2)
 pred3_double = fit3_double.forecast(15)
 
-logger.info('Creating chart 31: Double exp smoothing')
+logger.info('Creating chart 32: Double exp smoothing')
 fig_exp_smoothing_double = go.Figure()
 fig_exp_smoothing_double.add_trace(go.Scatter(x=df.index[30:], y=df.data[30:], name='Historical data'))
 
@@ -1243,7 +1243,7 @@ pred_triple = fitted_triple.forecast(steps=15)
 
 #print(f"\nMean absolute percentage error: {mape(test['data'].values,pred_triple).round(2)}")
 
-logger.info('Creating chart 32: Triple exp smoothing')
+logger.info('Creating chart 33: Triple exp smoothing')
 #plot the training data, the test data and the forecast on the same plot
 fig_exp_smoothing_triple = go.Figure()
 fig_exp_smoothing_triple.add_trace(go.Scatter(x=train.index[30:], y=train.data[30:], name='Historical data', mode='lines'))
@@ -1688,7 +1688,7 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_vacc_province_total_perc),
                     html.Br(),
                     html.Br(),
-                    html.P("Vaccines availability over time by manufacturer:"),
+                    html.P("Vaccines availability in stock over time by manufacturer - please note that these figures are only indicative; each manufacturer's vaccines are combined into chunks, each chunk being available to use within a few days. There is no information if there was any vaccine wastage, so we assume that all vaccines have been successfully used."),
                     dcc.Graph(figure=fig_vaccines_availability),
                     html.Br(),
                     html.Br(),
