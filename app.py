@@ -44,7 +44,7 @@ covid_general['week'] = (np.where(covid_general.date.astype("datetime64").le(epo
                                covid_general.date.dt.isocalendar().week,
                                covid_general.date.sub(epoch).dt.days//7+1))
 covid_general_weekly = covid_general.groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
-covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
+#covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
 
 if covid_general_weekly.iloc[-1,0] == 53:
     pass
@@ -58,7 +58,9 @@ else:
     # projected current week recovered cases
     covid_general_weekly.iloc[-1,2] = round(covid_general_weekly.iloc[-1,2] * [12.7 if x==1 else 4.3 if x==2 else 2.5 if x==3 else 1.8 if x==4 else 1.3 if x==5 else 1.1 if x==6 else 1 for x in [last_day_num]][0],0)
 
-# removing the first week as it starts on Saturday
+covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
+
+#removing the first week as it starts on Saturday
 covid_general_weekly = covid_general_weekly[1:]
 
 from plotly.subplots import make_subplots
