@@ -401,9 +401,9 @@ covid_past2weeks_conditions = [(covid_past2weeks.new_per_100k < 20),
                                (covid_past2weeks.new_per_100k < 200),
                                (covid_past2weeks.new_per_100k >= 200)]
 covid_past2weeks_labels = ['< 20 per 100k pop',
-                           '20-60 per 100k pop',
-                           '60-120 per 100k pop',
-                           '120-200 per 100k pop',
+                           '20-59 per 100k pop',
+                           '60-119 per 100k pop',
+                           '120-199 per 100k pop',
                            '200+ per 100k pop']
 covid_past2weeks_colors = ['green', 'gold', 'darkorange', 'red', 'purple']
 covid_past2weeks['label'] = np.select(covid_past2weeks_conditions, covid_past2weeks_labels)
