@@ -982,7 +982,7 @@ fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 logger.info('Creating chart 23: Vaccines by province - fully vaccinated')
 vaccines_data = pd.read_csv('./dash_data/vaccines.csv', parse_dates=['date'])
 vaccines_data['first_dose'] = vaccines_data['total'] - 2*vaccines_data['second_dose']
-vaccines_data['fully_vaccinated_per_100k'] = (100000*2*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
+vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
 vaccines_data['total_vaccinated_per_100k'] = (100000*(vaccines_data['total'] - vaccines_data['second_dose']) / vaccines_data['pop']).round(2)
 vaccines_yesterday = vaccines_data.loc[vaccines_data.date == vaccines_data.date.max(),:].sort_values(by='province', ascending=True)
 
@@ -1022,7 +1022,7 @@ fig_map_vaccines_province_total = px.choropleth_mapbox(
     hover_data=['total', 'total_vaccinated_per_100k'],
     labels={'total':'total vaccines',
             'total_vaccinated_per_100k': 'per 100k pop'},
-    title="Total vaccinated people per 100,000 population by province",
+    title="Total vaccinations per 100,000 population by province",
     center={'lat': 42.734189, 'lon': 25.1635087},
     mapbox_style='carto-darkmatter',
     opacity=1,
@@ -1214,8 +1214,7 @@ fig_vaccines_availability.add_trace(go.Scatter(
 fig_vaccines_availability.update_layout(
     title = 'Vaccines availability by manufacturer',
     plot_bgcolor='rgba(0,0,0,0)',
-    paper_bgcolor='rgba(0,0,0,0)'
-)
+    paper_bgcolor='rgba(0,0,0,0)')
 
 
 
@@ -1696,22 +1695,22 @@ tabs = html.Div([
                 children = [
                     html.Br(),
                     html.P(f"Last vaccines update: {vaccines_data.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}", style={'textAlign':'left', 'padding-left':'15px', 'color':'gold', 'font-style':'italic'}),
-                    html.Br(),
+#                    html.Br(),
 #                    html.H4("Vaccines stats"),
-                    html.Br(),
-                    html.P("Total number of vaccinated people by date on a national level:"),
+#                    html.Br(),
+#                    html.P("Total number of vaccinated people by date on a national level:"),
                     dcc.Graph(figure=fig_vaccines_total_bg),
                     html.Br(),
                     html.Br(),
-                    html.P("Vaccines dose proportion by date on a national level:"),
+#                    html.P("Vaccines dose proportion by date on a national level:"),
                     dcc.Graph(figure=fig_vaccines_total_bg_perc),
                     html.Br(),
                     html.Br(),
-                    html.P("Vaccinated people for the last day by province and by vaccine manufacturer:"),
+#                    html.P("Vaccinated people for the last day by province and by vaccine manufacturer:"),
                     dcc.Graph(figure=fig_vacc_manufacturer),
                     html.Br(),
                     html.Br(),
-                    html.P("Total number of vaccines by manufacturer per province, since 6th February 2021:"),
+#                    html.P("Total number of vaccines by manufacturer per province, since 6th February 2021:"),
                     dcc.Graph(figure=fig_vacc_province_type_total),
                     html.Br(),
                     html.Br(),
@@ -1757,7 +1756,7 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_map_vaccines_province_full),
                     html.Br(),
                     html.Br(),
-                    html.P("Total number of vaccinated people by province per 100,000 population:"),
+                    html.P("Total number of vaccinations by province per 100,000 population:"),
                     dcc.Graph(figure=fig_map_vaccines_province_total)
                 ]
             ),
