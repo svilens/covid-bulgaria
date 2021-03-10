@@ -32,7 +32,7 @@ fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_r
 fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_deaths, line=dict(color='red'), name='Deaths'))
 fig_gen_stats.update_layout(title='Number of cases over time (cumulative)')
 fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-fig_gen_stats.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_gen_stats.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
 logger.info('Creating chart 2: Cases per week')
@@ -683,7 +683,7 @@ fig_hospitalized.update_layout(
     title="Currently hospitalized patients by date",
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig_hospitalized.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_hospitalized.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 ####### REPRODUCTION NUMBER #######
 
 logger.info('Starting Rt processing')
@@ -713,7 +713,7 @@ fig_new_bg.update_layout(
     title='Daily new cases in Bulgaria',
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig_new_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_new_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
 logger.info('Creating chart 16: Smoothed recoveries - BG')
@@ -737,7 +737,7 @@ fig_recovered_bg.update_layout(
     title='Daily new recoveries in Bulgaria',
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig_recovered_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_recovered_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
 logger.info('Creating chart 17: Smoothed deaths - BG')
@@ -774,7 +774,7 @@ for col in covid_by_age_band_diff_smoothed.columns:
 fig_age_diff.update_layout(
     title='New confirmed cases per day by age band (smoothed figures)',
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-fig_age_diff.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_age_diff.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
 logger.info("Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop")
@@ -795,7 +795,7 @@ for col in covid_by_age_band_diff_smoothed_per100k.columns:
 fig_age_per100k.update_layout(
     title='New confirmed daily cases by age band per 100,000 population (smoothed figures)',
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-fig_age_per100k.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_age_per100k.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 logger.info('Creating chart 20: Smoothed new cases - provinces')
 provinces_list = covid_pop[['province', 'pop']].drop_duplicates().sort_values(by='pop', ascending=False).province.values
@@ -837,7 +837,7 @@ fig_new_by_province.update_layout(
     title='Daily new cases by province (smoothed figures)',
     height=3200, showlegend=False,
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-fig_new_by_province.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_new_by_province.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
 ### Rt for BG
