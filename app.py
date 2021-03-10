@@ -981,9 +981,9 @@ fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 ### Vaccines ###
 logger.info('Creating chart 23: Vaccines by province - fully vaccinated')
 vaccines_data = pd.read_csv('./dash_data/vaccines.csv', parse_dates=['date'])
-vaccines_data['first_dose'] = vaccines_data['total'] - vaccines_data['second_dose']
-vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
-vaccines_data['total_vaccinated_per_100k'] = (100000*vaccines_data['total'] / vaccines_data['pop']).round(2)
+vaccines_data['first_dose'] = vaccines_data['total'] - 2*vaccines_data['second_dose']
+vaccines_data['fully_vaccinated_per_100k'] = (100000*2*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
+vaccines_data['total_vaccinated_per_100k'] = (100000*(vaccines_data['total'] - vaccines_data['second_dose']) / vaccines_data['pop']).round(2)
 vaccines_yesterday = vaccines_data.loc[vaccines_data.date == vaccines_data.date.max(),:].sort_values(by='province', ascending=True)
 
 vaccines_geo = pd.merge(covid_yesterday[['province','geometry']],
@@ -1034,8 +1034,9 @@ fig_map_vaccines_province_total.update_layout(
 
 
 vaccines_total_bg = vaccines_data.groupby('date')['total', 'first_dose', 'second_dose'].sum().reset_index()
-vaccines_total_bg['perc_first'] = vaccines_total_bg['first_dose'] / vaccines_total_bg['total']
+#vaccines_total_bg['perc_first'] = vaccines_total_bg['first_dose'] / vaccines_total_bg['total']
 vaccines_total_bg['perc_second'] = vaccines_total_bg['second_dose'] / vaccines_total_bg['total']
+vaccines_total_bg['perc_first'] = 1 - vaccines_total_bg['perc_second']
 vaccines_total_bg['new'] = vaccines_total_bg['total'].diff()
 
 
@@ -1149,8 +1150,9 @@ fig_vacc_province_total_perc.update_layout(
 
 
 logger.info('Creating chart 30: Vaccines by province - dose proportion')
-vaccines_yesterday['perc_first'] = (vaccines_yesterday['first_dose'] / vaccines_yesterday['total']).round(4)
+#vaccines_yesterday['perc_first'] = (vaccines_yesterday['first_dose'] / vaccines_yesterday['total']).round(4)
 vaccines_yesterday['perc_second'] = (vaccines_yesterday['second_dose'] / vaccines_yesterday['total']).round(4)
+vaccines_yesterday['perc_first'] = 1 - vaccines_yesterday['perc_second']
 
 fig_vaccines_province_dose = go.Figure()
 fig_vaccines_province_dose.add_trace(go.Bar(

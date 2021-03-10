@@ -91,8 +91,11 @@ from func_read_vaccines_web import *
 vaccines_df = get_vaccines_data_web(vaccines_url, chromedriver_dir)
 vaccines_df['date'] = pd.to_datetime(datetime.now(pytz.timezone('Europe/Sofia'))).date()
 
+# load the existing data
+vaccines_df_old = pd.read_csv('./dash_data/vaccines.csv')
+
 vaccines_df = pd.merge(
-    covid_pop[['province', 'pop']].drop_duplicates().reset_index(),
+    vaccines_df_old[['code', 'province', 'pop']].drop_duplicates(),
     vaccines_df,
     on='code'
 ).sort_values(by='province', ascending=True).reset_index(drop=True)
