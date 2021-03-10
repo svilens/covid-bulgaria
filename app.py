@@ -1633,8 +1633,8 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_gen_stats),
                     dcc.Graph(figure=fig_hospitalized),
                     dcc.Graph(figure=fig_vacc_province_type_total),
-                    dcc.Graph(figure=fig_vaccines_availability),
-                    dcc.Graph(figure=fig_newper100k_14days_map),
+                   # dcc.Graph(figure=fig_vaccines_availability),
+                   # dcc.Graph(figure=fig_newper100k_14days_map),
                     html.Br(),
                     html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
@@ -1644,8 +1644,8 @@ tabs = html.Div([
                     html.Br(),
                     html.H4("Smoothed number of cases by age bands"),
                     html.Br(),
-                    dcc.Graph(figure=fig_age_diff),
-                    html.P("The figure for the age bands above is no respecter of the proportion of each age band from the total population. Therefore, we can calculate the new cases by each age band per 100,000 population of that age band, which can be a better indicatior for the infectivity rate across different age bands. It clearly shows the higher infection risk for middle-aged and older people, compared to the younger generation:"),
+                   # dcc.Graph(figure=fig_age_diff),
+                   # html.P("The figure for the age bands above is no respecter of the proportion of each age band from the total population. Therefore, we can calculate the new cases by each age band per 100,000 population of that age band, which can be a better indicatior for the infectivity rate across different age bands. It clearly shows the higher infection risk for middle-aged and older people, compared to the younger generation:"),
                     dcc.Graph(figure=fig_age_per100k),
                     html.Br(),
                     html.H4("Cases on a weekly basis"),
@@ -1656,9 +1656,9 @@ tabs = html.Div([
                     html.H4("COVID-19 tests - PCR vs Antigen"),
                     html.Br(),
                     html.P("Since 24th December 2020, the antigen tests are also included in the official statistics."),
-                    dcc.Graph(figure=fig_tests_daily),
-                    html.Br(),
-                    dcc.Graph(figure=fig_tests_sankey)
+                    dcc.Graph(figure=fig_tests_daily)
+                    #html.Br(),
+                    #dcc.Graph(figure=fig_tests_sankey)
                 ]
             ),
             dcc.Tab(
