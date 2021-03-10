@@ -1693,8 +1693,9 @@ tabs = html.Div([
                 selected_className = "custom-tab--selected",
                 children = [
                     html.Br(),
+                    html.P(f"Last vaccines update: {vaccines_data.date.tail(1).dt.date.values[0].strftime('%d-%b-%Y')}", style={'textAlign':'left', 'padding-left':'15px', 'color':'gold', 'font-style':'italic'}),
                     html.Br(),
-                    html.H4("Vaccines stats"),
+#                    html.H4("Vaccines stats"),
                     html.Br(),
                     html.P("Total number of vaccinated people by date on a national level:"),
                     dcc.Graph(figure=fig_vaccines_total_bg),
