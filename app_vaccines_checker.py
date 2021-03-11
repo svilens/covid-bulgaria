@@ -27,6 +27,10 @@ if len(vaccines_df[['province','total']].compare(vacc_old_compare)) != 0:
     vacc_cols = ['date','province','code','pop','total','new_pfizer','new_astrazeneca','new_moderna','second_dose']
     pd.concat([vaccines_df_old[vacc_cols], vaccines_df[vacc_cols]]).to_csv('./dash_data/vaccines.csv', header=True, index=False)
     logger.info('Vaccines data was added successfully.')
+    logger.info('Starting git push')
+    from func_git import *
+    git_push_result = git_push_automation()
+    logger.info(git_push_result)
 elif vaccines_df_old['date'].max() == datetime.now(pytz.timezone('Europe/Sofia')).strftime(format="%Y-%m-%d"):
     logger.info('Vaccines data is up to date!')
 else:
