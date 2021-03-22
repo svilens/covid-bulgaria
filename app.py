@@ -351,7 +351,7 @@ covid_pop_sorted = covid_pop.sort_values(by=['date', 'ALL'])
 # animation frame parameter should be string or int
 #covid_pop_sorted['day'] = covid_pop_sorted.date.apply(lambda x: (x - min(covid_pop_sorted.date)).days + 1)
 
-geodf['geometry'] = geodf['geometry'].simplify(tolerance=0.00001, preserve_topology=True)
+geodf['geometry'] = geodf['geometry'].simplify(tolerance=0.01, preserve_topology=True)
 
 covid_yesterday = gpd.GeoDataFrame(
     covid_pop.loc[covid_pop.date == max(covid_pop.date)]
