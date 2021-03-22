@@ -7,7 +7,7 @@ from scipy.interpolate import interp1d
 def prepare_cases(cases):
     new_cases = cases.diff()
 
-    smoothed = new_cases.rolling(9,
+    smoothed = new_cases.rolling(7,
         win_type='gaussian',
         min_periods=1,
         center=True).mean(std=3).round()
