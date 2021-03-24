@@ -1283,6 +1283,7 @@ logger.info('Starting Triple exponential smoothing (Holt-Winters)')
 from statsmodels.tsa.holtwinters import ExponentialSmoothing as HWES
 
 #build and train the model on the training data
+train['data'] = train['data'].replace(0,0.1)
 model_triple = HWES(train.data, seasonal_periods=7, trend='add', seasonal='mul')
 fitted_triple = model_triple.fit(optimized=True, use_brute=True)
 
