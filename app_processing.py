@@ -21,7 +21,7 @@ if api_request == 'old':
     sys.exit()
 elif api_request == 'error':
     logger.info('There was an error while communicating with the API. Process terminated!')
-    sys.exit()
+    #sys.exit()
 
 logger.info('Finished downloading the new COVID-19 data!')
 
