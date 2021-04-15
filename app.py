@@ -1010,27 +1010,27 @@ fig_map_vaccines_province_full.update_layout(
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 24: Vaccines by province - total doses')
+#logger.info('Creating chart 24: Vaccines by province - total doses')
 
-fig_map_vaccines_province_total = px.choropleth_mapbox(
-    vaccines_geo,
-    geojson=vaccines_geo.geometry,
-    locations=vaccines_geo.index,
-    color='total_vaccinated_per_100k',
-    color_continuous_scale='deep',
-    hover_name=vaccines_geo.index,
-    hover_data=['total', 'total_vaccinated_per_100k'],
-    labels={'total':'total vaccines',
-            'total_vaccinated_per_100k': 'per 100k pop'},
-    title="Total vaccinations per 100,000 population by province",
-    center={'lat': 42.734189, 'lon': 25.1635087},
-    mapbox_style='carto-darkmatter',
-    opacity=1,
-    zoom=6)
-fig_map_vaccines_province_total.update_layout(
-    margin={"r":0,"t":40,"l":0,"b":0},
-    template='plotly_dark',
-    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+#fig_map_vaccines_province_total = px.choropleth_mapbox(
+#    vaccines_geo,
+#    geojson=vaccines_geo.geometry,
+#    locations=vaccines_geo.index,
+#    color='total_vaccinated_per_100k',
+#    color_continuous_scale='deep',
+#    hover_name=vaccines_geo.index,
+#    hover_data=['total', 'total_vaccinated_per_100k'],
+#    labels={'total':'total vaccines',
+#            'total_vaccinated_per_100k': 'per 100k pop'},
+#    title="Total vaccinations per 100,000 population by province",
+#    center={'lat': 42.734189, 'lon': 25.1635087},
+#    mapbox_style='carto-darkmatter',
+#    opacity=1,
+#    zoom=6)
+#fig_map_vaccines_province_total.update_layout(
+#    margin={"r":0,"t":40,"l":0,"b":0},
+#    template='plotly_dark',
+#    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
 vaccines_total_bg = vaccines_data.groupby('date')['total', 'first_dose', 'second_dose'].sum().reset_index()
@@ -1756,9 +1756,9 @@ tabs = html.Div([
                     html.P("Fully vaccinated people by province per 100,000 population - this includes the number of people who have received the recommended by the manufacturers two vaccine doses:"),
                     dcc.Graph(figure=fig_map_vaccines_province_full),
                     html.Br(),
-                    html.Br(),
-                    html.P("Total number of vaccinations by province per 100,000 population:"),
-                    dcc.Graph(figure=fig_map_vaccines_province_total)
+                    html.Br()
+                    #html.P("Total number of vaccinations by province per 100,000 population:"),
+                    #dcc.Graph(figure=fig_map_vaccines_province_total)
                 ]
             ),
             dcc.Tab(
