@@ -280,8 +280,11 @@ Blagoevgrad,2021-04-10,97.0
 Blagoevgrad,2021-04-11,45.0
 Blagoevgrad,2021-04-12,2.0
 Blagoevgrad,2021-04-13,127.0
+<<<<<<< HEAD
 Blagoevgrad,2021-04-14,91.0
 Blagoevgrad,2021-04-15,96.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Burgas,2020-09-03,9.0
 Burgas,2020-09-04,2.0
 Burgas,2020-09-05,3.0
@@ -505,6 +508,7 @@ Burgas,2021-04-10,155.0
 Burgas,2021-04-11,127.0
 Burgas,2021-04-12,13.0
 Burgas,2021-04-13,92.0
+<<<<<<< HEAD
 Burgas,2021-04-14,253.0
 Burgas,2021-04-15,161.0
 Dobrich,2020-07-16,7.0
@@ -512,6 +516,8 @@ Dobrich,2020-07-17,12.0
 Dobrich,2020-07-18,14.0
 Dobrich,2020-07-19,2.0
 Dobrich,2020-07-20,0.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Dobrich,2020-07-21,5.0
 Dobrich,2020-07-22,13.0
 Dobrich,2020-07-23,18.0
@@ -779,8 +785,11 @@ Dobrich,2021-04-10,79.0
 Dobrich,2021-04-11,41.0
 Dobrich,2021-04-12,4.0
 Dobrich,2021-04-13,82.0
+<<<<<<< HEAD
 Dobrich,2021-04-14,70.0
 Dobrich,2021-04-15,97.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Gabrovo,2020-10-14,2.0
 Gabrovo,2020-10-15,22.0
 Gabrovo,2020-10-16,5.0
@@ -963,8 +972,11 @@ Gabrovo,2021-04-10,37.0
 Gabrovo,2021-04-11,0.0
 Gabrovo,2021-04-12,10.0
 Gabrovo,2021-04-13,45.0
+<<<<<<< HEAD
 Gabrovo,2021-04-14,30.0
 Gabrovo,2021-04-15,35.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Haskovo,2020-10-10,16.0
 Haskovo,2020-10-11,7.0
 Haskovo,2020-10-12,0.0
@@ -1151,8 +1163,13 @@ Haskovo,2021-04-10,68.0
 Haskovo,2021-04-11,30.0
 Haskovo,2021-04-12,10.0
 Haskovo,2021-04-13,81.0
+<<<<<<< HEAD
 Haskovo,2021-04-14,76.0
 Haskovo,2021-04-15,71.0
+=======
+Kardzhali,2020-10-04,0.0
+Kardzhali,2020-10-05,0.0
+>>>>>>> parent of 90d613c... daily update
 Kardzhali,2020-10-06,14.0
 Kardzhali,2020-10-07,11.0
 Kardzhali,2020-10-08,10.0
@@ -1343,8 +1360,11 @@ Kardzhali,2021-04-10,41.0
 Kardzhali,2021-04-11,14.0
 Kardzhali,2021-04-12,8.0
 Kardzhali,2021-04-13,54.0
+<<<<<<< HEAD
 Kardzhali,2021-04-14,47.0
 Kardzhali,2021-04-15,41.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Kyustendil,2020-10-20,13.0
 Kyustendil,2020-10-21,12.0
 Kyustendil,2020-10-22,12.0
@@ -1521,8 +1541,11 @@ Kyustendil,2021-04-10,23.0
 Kyustendil,2021-04-11,37.0
 Kyustendil,2021-04-12,12.0
 Kyustendil,2021-04-13,64.0
+<<<<<<< HEAD
 Kyustendil,2021-04-14,44.0
 Kyustendil,2021-04-15,34.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Lovech,2020-10-15,5.0
 Lovech,2020-10-16,15.0
 Lovech,2020-10-17,23.0
@@ -1704,8 +1727,11 @@ Lovech,2021-04-10,53.0
 Lovech,2021-04-11,18.0
 Lovech,2021-04-12,12.0
 Lovech,2021-04-13,64.0
+<<<<<<< HEAD
 Lovech,2021-04-14,57.0
 Lovech,2021-04-15,38.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Montana,2020-10-11,16.0
 Montana,2020-10-12,5.0
 Montana,2020-10-13,5.0
@@ -1891,8 +1917,11 @@ Montana,2021-04-10,46.0
 Montana,2021-04-11,3.0
 Montana,2021-04-12,1.0
 Montana,2021-04-13,56.0
+<<<<<<< HEAD
 Montana,2021-04-14,42.0
 Montana,2021-04-15,37.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Pazardzhik,2020-10-07,10.0
 Pazardzhik,2020-10-08,12.0
 Pazardzhik,2020-10-09,10.0
@@ -2082,8 +2111,11 @@ Pazardzhik,2021-04-10,79.0
 Pazardzhik,2021-04-11,31.0
 Pazardzhik,2021-04-12,3.0
 Pazardzhik,2021-04-13,50.0
+<<<<<<< HEAD
 Pazardzhik,2021-04-14,124.0
 Pazardzhik,2021-04-15,76.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Pernik,2020-10-16,7.0
 Pernik,2020-10-17,17.0
 Pernik,2020-10-18,7.0
@@ -2264,8 +2296,11 @@ Pernik,2021-04-10,48.0
 Pernik,2021-04-11,54.0
 Pernik,2021-04-12,29.0
 Pernik,2021-04-13,41.0
+<<<<<<< HEAD
 Pernik,2021-04-14,53.0
 Pernik,2021-04-15,52.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Pleven,2020-10-13,11.0
 Pleven,2020-10-14,12.0
 Pleven,2020-10-15,14.0
@@ -2449,8 +2484,11 @@ Pleven,2021-04-10,71.0
 Pleven,2021-04-11,33.0
 Pleven,2021-04-12,19.0
 Pleven,2021-04-13,60.0
+<<<<<<< HEAD
 Pleven,2021-04-14,66.0
 Pleven,2021-04-15,66.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Plovdiv,2020-06-29,6.0
 Plovdiv,2020-06-30,7.0
 Plovdiv,2020-07-01,7.0
@@ -2740,8 +2778,11 @@ Plovdiv,2021-04-10,244.0
 Plovdiv,2021-04-11,126.0
 Plovdiv,2021-04-12,33.0
 Plovdiv,2021-04-13,314.0
+<<<<<<< HEAD
 Plovdiv,2021-04-14,270.0
 Plovdiv,2021-04-15,228.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Razgrad,2020-10-11,5.0
 Razgrad,2020-10-12,2.0
 Razgrad,2020-10-13,11.0
@@ -2927,8 +2968,11 @@ Razgrad,2021-04-10,31.0
 Razgrad,2021-04-11,14.0
 Razgrad,2021-04-12,6.0
 Razgrad,2021-04-13,24.0
+<<<<<<< HEAD
 Razgrad,2021-04-14,24.0
 Razgrad,2021-04-15,29.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Ruse,2020-10-12,0.0
 Ruse,2020-10-13,10.0
 Ruse,2020-10-14,19.0
@@ -3113,8 +3157,11 @@ Ruse,2021-04-10,120.0
 Ruse,2021-04-11,23.0
 Ruse,2021-04-12,31.0
 Ruse,2021-04-13,155.0
+<<<<<<< HEAD
 Ruse,2021-04-14,106.0
 Ruse,2021-04-15,100.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Shumen,2020-10-09,11.0
 Shumen,2020-10-10,17.0
 Shumen,2020-10-11,5.0
@@ -3302,8 +3349,11 @@ Shumen,2021-04-10,53.0
 Shumen,2021-04-11,5.0
 Shumen,2021-04-12,1.0
 Shumen,2021-04-13,106.0
+<<<<<<< HEAD
 Shumen,2021-04-14,59.0
 Shumen,2021-04-15,53.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Silistra,2020-10-28,6.0
 Silistra,2020-10-29,24.0
 Silistra,2020-10-30,16.0
@@ -3472,8 +3522,11 @@ Silistra,2021-04-10,42.0
 Silistra,2021-04-11,10.0
 Silistra,2021-04-12,7.0
 Silistra,2021-04-13,47.0
+<<<<<<< HEAD
 Silistra,2021-04-14,25.0
 Silistra,2021-04-15,38.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Sliven,2020-10-07,10.0
 Sliven,2020-10-08,13.0
 Sliven,2020-10-09,21.0
@@ -3663,8 +3716,11 @@ Sliven,2021-04-10,75.0
 Sliven,2021-04-11,38.0
 Sliven,2021-04-12,7.0
 Sliven,2021-04-13,57.0
+<<<<<<< HEAD
 Sliven,2021-04-14,50.0
 Sliven,2021-04-15,51.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Smolyan,2020-10-16,14.0
 Smolyan,2020-10-17,10.0
 Smolyan,2020-10-18,16.0
@@ -3845,8 +3901,11 @@ Smolyan,2021-04-10,32.0
 Smolyan,2021-04-11,17.0
 Smolyan,2021-04-12,13.0
 Smolyan,2021-04-13,38.0
+<<<<<<< HEAD
 Smolyan,2021-04-14,41.0
 Smolyan,2021-04-15,45.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Sofiya-Grad,2020-06-07,
 Sofiya-Grad,2020-06-08,10.0
 Sofiya-Grad,2020-06-09,14.0
@@ -4158,8 +4217,11 @@ Sofiya-Grad,2021-04-10,662.0
 Sofiya-Grad,2021-04-11,314.0
 Sofiya-Grad,2021-04-12,143.0
 Sofiya-Grad,2021-04-13,758.0
+<<<<<<< HEAD
 Sofiya-Grad,2021-04-14,692.0
 Sofiya-Grad,2021-04-15,599.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Sofiya-Oblast,2020-10-13,8.0
 Sofiya-Oblast,2020-10-14,11.0
 Sofiya-Oblast,2020-10-15,14.0
@@ -4343,8 +4405,11 @@ Sofiya-Oblast,2021-04-10,92.0
 Sofiya-Oblast,2021-04-11,55.0
 Sofiya-Oblast,2021-04-12,30.0
 Sofiya-Oblast,2021-04-13,93.0
+<<<<<<< HEAD
 Sofiya-Oblast,2021-04-14,128.0
 Sofiya-Oblast,2021-04-15,105.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Stara Zagora,2020-09-12,17.0
 Stara Zagora,2020-09-13,0.0
 Stara Zagora,2020-09-14,2.0
@@ -4559,6 +4624,7 @@ Stara Zagora,2021-04-10,157.0
 Stara Zagora,2021-04-11,27.0
 Stara Zagora,2021-04-12,6.0
 Stara Zagora,2021-04-13,195.0
+<<<<<<< HEAD
 Stara Zagora,2021-04-14,126.0
 Stara Zagora,2021-04-15,95.0
 Targovishte,2020-09-24,2.0
@@ -4569,6 +4635,8 @@ Targovishte,2020-09-28,1.0
 Targovishte,2020-09-29,8.0
 Targovishte,2020-09-30,10.0
 Targovishte,2020-10-01,7.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Targovishte,2020-10-02,10.0
 Targovishte,2020-10-03,8.0
 Targovishte,2020-10-04,15.0
@@ -4763,8 +4831,34 @@ Targovishte,2021-04-10,36.0
 Targovishte,2021-04-11,28.0
 Targovishte,2021-04-12,8.0
 Targovishte,2021-04-13,27.0
+<<<<<<< HEAD
 Targovishte,2021-04-14,18.0
 Targovishte,2021-04-15,29.0
+=======
+Varna,2020-08-26,10.0
+Varna,2020-08-27,10.0
+Varna,2020-08-28,17.0
+Varna,2020-08-29,10.0
+Varna,2020-08-30,8.0
+Varna,2020-08-31,3.0
+Varna,2020-09-01,9.0
+Varna,2020-09-02,17.0
+Varna,2020-09-03,7.0
+Varna,2020-09-04,6.0
+Varna,2020-09-05,14.0
+Varna,2020-09-06,6.0
+Varna,2020-09-07,0.0
+Varna,2020-09-08,1.0
+Varna,2020-09-09,21.0
+Varna,2020-09-10,12.0
+Varna,2020-09-11,14.0
+Varna,2020-09-12,11.0
+Varna,2020-09-13,6.0
+Varna,2020-09-14,1.0
+Varna,2020-09-15,8.0
+Varna,2020-09-16,10.0
+Varna,2020-09-17,5.0
+>>>>>>> parent of 90d613c... daily update
 Varna,2020-09-18,4.0
 Varna,2020-09-19,14.0
 Varna,2020-09-20,19.0
@@ -4973,8 +5067,11 @@ Varna,2021-04-10,250.0
 Varna,2021-04-11,174.0
 Varna,2021-04-12,27.0
 Varna,2021-04-13,233.0
+<<<<<<< HEAD
 Varna,2021-04-14,282.0
 Varna,2021-04-15,177.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Veliko Tarnovo,2020-10-09,6.0
 Veliko Tarnovo,2020-10-10,16.0
 Veliko Tarnovo,2020-10-11,19.0
@@ -5162,8 +5259,11 @@ Veliko Tarnovo,2021-04-10,88.0
 Veliko Tarnovo,2021-04-11,26.0
 Veliko Tarnovo,2021-04-12,7.0
 Veliko Tarnovo,2021-04-13,117.0
+<<<<<<< HEAD
 Veliko Tarnovo,2021-04-14,67.0
 Veliko Tarnovo,2021-04-15,62.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Vidin,2020-10-28,13.0
 Vidin,2020-10-29,18.0
 Vidin,2020-10-30,7.0
@@ -5332,8 +5432,11 @@ Vidin,2021-04-10,18.0
 Vidin,2021-04-11,1.0
 Vidin,2021-04-12,4.0
 Vidin,2021-04-13,28.0
+<<<<<<< HEAD
 Vidin,2021-04-14,21.0
 Vidin,2021-04-15,18.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Vratsa,2020-10-12,0.0
 Vratsa,2020-10-13,13.0
 Vratsa,2020-10-14,11.0
@@ -5518,8 +5621,11 @@ Vratsa,2021-04-10,52.0
 Vratsa,2021-04-11,34.0
 Vratsa,2021-04-12,8.0
 Vratsa,2021-04-13,67.0
+<<<<<<< HEAD
 Vratsa,2021-04-14,43.0
 Vratsa,2021-04-15,55.0
+=======
+>>>>>>> parent of 90d613c... daily update
 Yambol,2020-10-20,16.0
 Yambol,2020-10-21,10.0
 Yambol,2020-10-22,3.0
@@ -5696,5 +5802,8 @@ Yambol,2021-04-10,54.0
 Yambol,2021-04-11,27.0
 Yambol,2021-04-12,8.0
 Yambol,2021-04-13,47.0
+<<<<<<< HEAD
 Yambol,2021-04-14,39.0
 Yambol,2021-04-15,29.0
+=======
+>>>>>>> parent of 90d613c... daily update

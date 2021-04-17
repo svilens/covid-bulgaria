@@ -1875,6 +1875,7 @@ date,province,code,pop,total,new_pfizer,new_astrazeneca,new_moderna,second_dose
 2021-04-13,Vidin,VID,82835,5491,23,1,20,1066.0
 2021-04-13,Vratsa,VRC,159470,12338,122,13,20,2329.0
 2021-04-13,Yambol,JAM,117335,9526,79,1,52,1735.0
+<<<<<<< HEAD
 2021-04-14,Blagoevgrad,BLG,302694,17573,273,18,10,2873.0
 2021-04-14,Burgas,BGS,409265,33024,388,24,61,5997.0
 2021-04-14,Dobrich,DOB,171809,9390,60,0,99,2084.0
@@ -1931,3 +1932,5 @@ date,province,code,pop,total,new_pfizer,new_astrazeneca,new_moderna,second_dose
 2021-04-15,Vidin,VID,82835,6144,291,0,10,1088.0
 2021-04-15,Vratsa,VRC,159470,12655,124,8,21,2380.0
 2021-04-15,Yambol,JAM,117335,10197,369,3,22,2122.0
+=======
+>>>>>>> parent of 90d613c... daily update
