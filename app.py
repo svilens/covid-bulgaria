@@ -1081,6 +1081,7 @@ logger.info('Creating chart 27: Vaccines by province - last day by manufacturer'
 vaccines_new_pfizer = vaccines_yesterday.loc[vaccines_yesterday['new_pfizer'] > 0, ['province', 'new_pfizer']]
 vaccines_new_astra = vaccines_yesterday.loc[vaccines_yesterday['new_astrazeneca'] > 0, ['province', 'new_astrazeneca']]
 vaccines_new_moderna = vaccines_yesterday.loc[vaccines_yesterday['new_moderna'] > 0, ['province', 'new_moderna']]
+#vaccines_new_johnson = vaccines_yesterday.loc[vaccines_yesterday['new_johnson'] > 0, ['province', 'new_johnson']]
 
 fig_vacc_manufacturer = go.Figure()
 fig_vacc_manufacturer.add_trace(go.Bar(
@@ -1095,6 +1096,10 @@ fig_vacc_manufacturer.add_trace(go.Bar(
     name='Moderna',
     x=vaccines_new_moderna['province'],
     y=vaccines_new_moderna['new_moderna']))
+#fig_vacc_manufacturer.add_trace(go.Bar(
+#    name='Johnson & Johnson',
+#    x=vaccines_new_johnson['province'],
+#    y=vaccines_new_johnson['new_johnson']))
 fig_vacc_manufacturer.update_layout(
     barmode='stack',
     title='Number of vaccinated people for the last day by province and manufacturer',
@@ -1180,7 +1185,7 @@ vaccines_after5feb = vaccines_data.groupby('date')[['new_pfizer', 'new_astrazene
 vaccines_after5feb.columns = ['date', 'pfizer', 'astrazeneca', 'moderna']
 
 # combine the above
-vaccines_by_date = pd.concat([vaccines_before5feb, vaccines_after5feb])
+vaccines_by_date = pd.concat([vaccines_before5feb, vaccines_after5feb]).fillna(0)
 vaccines_by_date_w_delivery = vaccines_by_date.merge(vaccines_delivery, on='date', how='outer').fillna(0).sort_values(by='date', ascending=True).reset_index(drop=True)
 
 # accumulate figures from current day delivery + previous day availability - current day vaccinations
@@ -1189,11 +1194,12 @@ for i in range(len(vaccines_by_date_w_delivery)):
         vaccines_by_date_w_delivery['avail_pfizer'] = vaccines_by_date_w_delivery['deliv_pfizer']
         vaccines_by_date_w_delivery['avail_astrazeneca'] = vaccines_by_date_w_delivery['deliv_astrazeneca']
         vaccines_by_date_w_delivery['avail_moderna'] = vaccines_by_date_w_delivery['deliv_moderna']
+        #vaccines_by_date_w_delivery['avail_johnson'] = vaccines_by_date_w_delivery['deliv_johnson']
     else:
         vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_pfizer'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_pfizer'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_pfizer'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'pfizer'].values[0]
         vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_astrazeneca'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_astrazeneca'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_astrazeneca'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'astrazeneca'].values[0]
         vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_moderna'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_moderna'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_moderna'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'moderna'].values[0]
-
+        #vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_johnson'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_johnson'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_johnson'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'johnson'].values[0]
 
 fig_vaccines_availability = go.Figure()
 fig_vaccines_availability.add_trace(go.Scatter(
@@ -1211,6 +1217,11 @@ fig_vaccines_availability.add_trace(go.Scatter(
     y = vaccines_by_date_w_delivery.avail_moderna,
     mode='lines', line_shape='spline',
     name = 'Moderna'))
+#fig_vaccines_availability.add_trace(go.Scatter(
+#    x = vaccines_by_date_w_delivery.date,
+#    y = vaccines_by_date_w_delivery.avail_johnson,
+#    mode='lines', line_shape='spline',
+#    name = 'Johnson & Johnson'))
 fig_vaccines_availability.update_layout(
     title = 'Vaccines availability by manufacturer',
     plot_bgcolor='rgba(0,0,0,0)',
