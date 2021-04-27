@@ -49,8 +49,8 @@ def get_vaccines_data_web(url, chromedriver_dir):
             line[0],
             int(line[1]),
             int(line[2]),
-            int(line[3]),
             int(line[4]),
+            int(line[3]),
             int(line[5])
         ]
     
