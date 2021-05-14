@@ -32,7 +32,7 @@ def get_vaccines_data_web(url, chromedriver_dir):
     table_vac = driver.find_element_by_xpath("//div[@class='col stats']")
     
     # strip headers and footer
-    vaccines_raw = table_vac.text.split('\n')[5:-4]
+    vaccines_raw = table_vac.text.split('\n')[5:-5]
     
     import pandas as pd
     vaccines_df = pd.DataFrame()
@@ -41,8 +41,8 @@ def get_vaccines_data_web(url, chromedriver_dir):
         line = i.replace('-','0').split(' ')
         
         # adjust the names of provinces containing a space
-        if len(line) == 7:
-            line = [line[0] + ' ' + line[1], line[2], line[3], line[4], line[5], line[6]]
+        if len(line) == 8:
+            line = [line[0] + ' ' + line[1], line[2], line[3], line[4], line[5], line[6], line[7]]
         
         # convert to int
         line_int = [
@@ -51,7 +51,8 @@ def get_vaccines_data_web(url, chromedriver_dir):
             int(line[2]),
             int(line[4]),
             int(line[3]),
-            int(line[5])
+            int(line[5]),
+            int(line[6])
         ]
     
         # add each province data to a dataframe
@@ -59,7 +60,7 @@ def get_vaccines_data_web(url, chromedriver_dir):
         vaccines_df = pd.concat([vaccines_df, vacc_line])
     
     # rename columns
-    vaccines_df.columns=['province', 'total', 'new_pfizer', 'new_astrazeneca', 'new_moderna', 'second_dose']
+    vaccines_df.columns=['province', 'total', 'new_pfizer', 'new_astrazeneca', 'new_moderna', 'new_johnson', 'second_dose']
     vaccines_df = vaccines_df.reset_index().drop(['index', 'province'], axis=1)
     vaccines_df = pd.concat([pd.DataFrame(codes_vaccines, columns=['code']),
                vaccines_df], axis=1)

@@ -106,7 +106,7 @@ vacc_old_compare = vaccines_df_old.loc[vaccines_df_old.date == vaccines_df_old.d
 
 if len(vaccines_df[['province','total']].compare(vacc_old_compare)) != 0:
     vacc_cols = ['date','province','code','pop','total','new_pfizer','new_astrazeneca','new_moderna','second_dose']
-    pd.concat([vaccines_df_old[vacc_cols], vaccines_df[vacc_cols]]).to_csv('./dash_data/vaccines.csv', header=True, index=False)
+    pd.concat([vaccines_df_old[vacc_cols], vaccines_df[vacc_cols + ['new_johnson']]]).to_csv('./dash_data/vaccines.csv', header=True, index=False)
     logger.info('Vaccines data was added successfully.')
 else:
     logger.info('WARNING: Vaccines data has not been updated in the source!')
