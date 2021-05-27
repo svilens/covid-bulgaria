@@ -980,7 +980,7 @@ fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 
 ### Vaccines ###
 logger.info('Creating chart 23: Vaccines by province - fully vaccinated')
-vaccines_data = pd.read_csv('./dash_data/vaccines.csv', parse_dates=['date'])
+vaccines_data = pd.read_csv('./dash_data/vaccines.csv', parse_dates=['date']).fillna(0)
 vaccines_data['first_dose'] = vaccines_data['total'] - 2*vaccines_data['second_dose']
 vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
 vaccines_data['total_vaccinated_per_100k'] = (100000*(vaccines_data['total'] - vaccines_data['second_dose']) / vaccines_data['pop']).round(2)
@@ -1081,7 +1081,7 @@ logger.info('Creating chart 27: Vaccines by province - last day by manufacturer'
 vaccines_new_pfizer = vaccines_yesterday.loc[vaccines_yesterday['new_pfizer'] > 0, ['province', 'new_pfizer']]
 vaccines_new_astra = vaccines_yesterday.loc[vaccines_yesterday['new_astrazeneca'] > 0, ['province', 'new_astrazeneca']]
 vaccines_new_moderna = vaccines_yesterday.loc[vaccines_yesterday['new_moderna'] > 0, ['province', 'new_moderna']]
-#vaccines_new_johnson = vaccines_yesterday.loc[vaccines_yesterday['new_johnson'] > 0, ['province', 'new_johnson']]
+vaccines_new_johnson = vaccines_yesterday.loc[vaccines_yesterday['new_johnson'] > 0, ['province', 'new_johnson']]
 
 fig_vacc_manufacturer = go.Figure()
 fig_vacc_manufacturer.add_trace(go.Bar(
@@ -1096,22 +1096,22 @@ fig_vacc_manufacturer.add_trace(go.Bar(
     name='Moderna',
     x=vaccines_new_moderna['province'],
     y=vaccines_new_moderna['new_moderna']))
-#fig_vacc_manufacturer.add_trace(go.Bar(
-#    name='Johnson & Johnson',
-#    x=vaccines_new_johnson['province'],
-#    y=vaccines_new_johnson['new_johnson']))
+fig_vacc_manufacturer.add_trace(go.Bar(
+    name='Johnson & Johnson',
+    x=vaccines_new_johnson['province'],
+    y=vaccines_new_johnson['new_johnson']))
 fig_vacc_manufacturer.update_layout(
     barmode='stack',
     title='Number of vaccinated people for the last day by province and manufacturer',
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-vaccines_type_province_total = vaccines_data.groupby('province')['new_pfizer','new_moderna','new_astrazeneca'].sum().reset_index()
-vaccines_type_province_total['total'] = vaccines_type_province_total['new_pfizer'] + vaccines_type_province_total['new_moderna'] + vaccines_type_province_total['new_astrazeneca']
+vaccines_type_province_total = vaccines_data.groupby('province')['new_pfizer','new_moderna','new_astrazeneca','new_johnson'].sum().reset_index()
+vaccines_type_province_total['total'] = vaccines_type_province_total['new_pfizer'] + vaccines_type_province_total['new_moderna'] + vaccines_type_province_total['new_astrazeneca'] + vaccines_type_province_total['new_johnson']
 vaccines_type_province_total['perc_pfizer'] = (vaccines_type_province_total['new_pfizer'] / vaccines_type_province_total['total']).round(4)
 vaccines_type_province_total['perc_astrazeneca'] = (vaccines_type_province_total['new_astrazeneca'] / vaccines_type_province_total['total']).round(4)
 vaccines_type_province_total['perc_moderna'] = (vaccines_type_province_total['new_moderna'] / vaccines_type_province_total['total']).round(4)
-
+vaccines_type_province_total['perc_johnson'] = (vaccines_type_province_total['new_johnson'] / vaccines_type_province_total['total']).round(4)
 
 logger.info('Crating chart 28: Vaccines by province - total by manufacturer')
 trace_p = go.Bar(
@@ -1126,7 +1126,11 @@ trace_m = go.Bar(
     name='Moderna',
     x=vaccines_type_province_total['province'],
     y=vaccines_type_province_total['new_moderna'])
-fig_vacc_province_type_total = go.Figure().add_trace(trace_p).add_trace(trace_az).add_trace(trace_m)
+trace_j = go.Bar(
+    name='Johnson & Johnson',
+    x=vaccines_type_province_total['province'],
+    y=vaccines_type_province_total['new_johnson'])
+fig_vacc_province_type_total = go.Figure().add_trace(trace_p).add_trace(trace_az).add_trace(trace_m).add_trace(trace_j)
 fig_vacc_province_type_total.update_layout(
     barmode='stack',
     title='Total vaccines by manufacturer per province (since 6th Feb 2021)',
@@ -1146,7 +1150,11 @@ trace_m = go.Bar(
     name='Moderna',
     x=vaccines_type_province_total['province'],
     y=vaccines_type_province_total['perc_moderna'])
-fig_vacc_province_total_perc = go.Figure().add_trace(trace_p).add_trace(trace_az).add_trace(trace_m)
+trace_j = go.Bar(
+    name='Johnson & Johnson',
+    x=vaccines_type_province_total['province'],
+    y=vaccines_type_province_total['perc_johnson'])
+fig_vacc_province_total_perc = go.Figure().add_trace(trace_p).add_trace(trace_az).add_trace(trace_m).add_trace(trace_j)
 fig_vacc_province_total_perc.update_layout(
     barmode='stack',
     yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
@@ -1181,8 +1189,8 @@ vaccines_delivery = pd.read_csv('./dash_data/vaccines_delivery.csv', parse_dates
 # read aggregated figures by date before 5th Feb
 vaccines_before5feb = pd.read_csv('./dash_data/vaccines_before5feb.csv', parse_dates=['date'])
 # aggregate figures by date from own data after 5th Feb
-vaccines_after5feb = vaccines_data.groupby('date')[['new_pfizer', 'new_astrazeneca', 'new_moderna']].sum().reset_index()
-vaccines_after5feb.columns = ['date', 'pfizer', 'astrazeneca', 'moderna']
+vaccines_after5feb = vaccines_data.groupby('date')[['new_pfizer', 'new_astrazeneca', 'new_moderna', 'new_johnson']].sum().reset_index()
+vaccines_after5feb.columns = ['date', 'pfizer', 'astrazeneca', 'moderna', 'johnson']
 
 # combine the above
 vaccines_by_date = pd.concat([vaccines_before5feb, vaccines_after5feb]).fillna(0)
@@ -1194,12 +1202,12 @@ for i in range(len(vaccines_by_date_w_delivery)):
         vaccines_by_date_w_delivery['avail_pfizer'] = vaccines_by_date_w_delivery['deliv_pfizer']
         vaccines_by_date_w_delivery['avail_astrazeneca'] = vaccines_by_date_w_delivery['deliv_astrazeneca']
         vaccines_by_date_w_delivery['avail_moderna'] = vaccines_by_date_w_delivery['deliv_moderna']
-        #vaccines_by_date_w_delivery['avail_johnson'] = vaccines_by_date_w_delivery['deliv_johnson']
+        vaccines_by_date_w_delivery['avail_johnson'] = vaccines_by_date_w_delivery['deliv_johnson']
     else:
         vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_pfizer'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_pfizer'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_pfizer'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'pfizer'].values[0]
         vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_astrazeneca'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_astrazeneca'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_astrazeneca'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'astrazeneca'].values[0]
         vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_moderna'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_moderna'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_moderna'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'moderna'].values[0]
-        #vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_johnson'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_johnson'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_johnson'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'johnson'].values[0]
+        vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == i, 'avail_johnson'] = vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i-1),'avail_johnson'].values[0] + vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'deliv_johnson'].values[0] - vaccines_by_date_w_delivery.loc[vaccines_by_date_w_delivery.index == (i),'johnson'].values[0]
 
 fig_vaccines_availability = go.Figure()
 fig_vaccines_availability.add_trace(go.Scatter(
@@ -1217,11 +1225,11 @@ fig_vaccines_availability.add_trace(go.Scatter(
     y = vaccines_by_date_w_delivery.avail_moderna,
     mode='lines', line_shape='spline',
     name = 'Moderna'))
-#fig_vaccines_availability.add_trace(go.Scatter(
-#    x = vaccines_by_date_w_delivery.date,
-#    y = vaccines_by_date_w_delivery.avail_johnson,
-#    mode='lines', line_shape='spline',
-#    name = 'Johnson & Johnson'))
+fig_vaccines_availability.add_trace(go.Scatter(
+    x = vaccines_by_date_w_delivery.date,
+    y = vaccines_by_date_w_delivery.avail_johnson,
+    mode='lines', line_shape='spline',
+    name = 'Johnson & Johnson'))
 fig_vaccines_availability.update_layout(
     title = 'Vaccines availability by manufacturer',
     plot_bgcolor='rgba(0,0,0,0)',
@@ -1648,6 +1656,7 @@ tabs = html.Div([
                    # dcc.Graph(figure=fig_vaccines_availability),
                     dcc.Graph(figure=fig_newper100k_14days_map),
                     html.Br(),
+                    html.Br(),
                     html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
                     dcc.Graph(figure=fig_new_bg),
@@ -1735,7 +1744,8 @@ tabs = html.Div([
                                 options = [
                                     {'label':'Pfizer', 'value':'new_pfizer'},
                                     {'label':'Astra Zeneca', 'value':'new_astrazeneca'},
-                                    {'label':'Moderna', 'value':'new_moderna'}],
+                                    {'label':'Moderna', 'value':'new_moderna'},
+                                    {'label':'Johnson & Johnson', 'value':'new_johnson'}],
                                 placeholder='Select vaccine manufacturer',
                                 value='new_pfizer',
                                 style=dict(width='60%')
