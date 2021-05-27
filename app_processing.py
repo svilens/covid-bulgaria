@@ -94,6 +94,7 @@ vaccines_df['date'] = pd.to_datetime(datetime.now(pytz.timezone('Europe/Sofia'))
 # load the existing data
 vaccines_df_old = pd.read_csv('./dash_data/vaccines.csv')
 
+# add codes and pop
 vaccines_df = pd.merge(
     vaccines_df_old[['code', 'province', 'pop']].drop_duplicates(),
     vaccines_df,
@@ -101,12 +102,11 @@ vaccines_df = pd.merge(
 ).sort_values(by='province', ascending=True).reset_index(drop=True)
 
 # check if the vaccines data has been updated in the source
-vaccines_df_old = pd.read_csv('./dash_data/vaccines.csv')
 vacc_old_compare = vaccines_df_old.loc[vaccines_df_old.date == vaccines_df_old.date.max(),['province','total']].sort_values(by='province', ascending=True).reset_index(drop=True)
 
 if len(vaccines_df[['province','total']].compare(vacc_old_compare)) != 0:
-    vacc_cols = ['date','province','code','pop','total','new_pfizer','new_astrazeneca','new_moderna','second_dose']
-    pd.concat([vaccines_df_old[vacc_cols], vaccines_df[vacc_cols + ['new_johnson']]]).to_csv('./dash_data/vaccines.csv', header=True, index=False)
+    vacc_cols = ['date','province','code','pop','total','new_pfizer','new_astrazeneca','new_moderna','new_johnson','second_dose']
+    pd.concat([vaccines_df_old[vacc_cols], vaccines_df[vacc_cols]]).fillna(0).to_csv('./dash_data/vaccines.csv', header=True, index=False)
     logger.info('Vaccines data was added successfully.')
 else:
     logger.info('WARNING: Vaccines data has not been updated in the source!')
