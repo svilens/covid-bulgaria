@@ -384,51 +384,51 @@ import plotly.express as px
 
 
 
-#logger.info('Creating chart 7: Provinces map - new cases per 100k pop for the past 14 days')
-#covid_past2weeks = gpd.GeoDataFrame(
-#    (
-#        covid_pop.loc[
-#            covid_pop.date >= covid_pop.date.max() - timedelta(14),
-#            ['date','province','new_per_100k']
-#        ].reset_index()
-#    ).groupby(['code','province'])[['new_per_100k']].sum().reset_index(level='province')
-#    .join(geodf[['code','geometry']].set_index('code'))
-#).reset_index(drop=True).set_index('province')
+logger.info('Creating chart 7: Provinces map - new cases per 100k pop for the past 14 days')
+covid_past2weeks = gpd.GeoDataFrame(
+    (
+        covid_pop.loc[
+            covid_pop.date >= covid_pop.date.max() - timedelta(14),
+            ['date','province','new_per_100k']
+        ].reset_index()
+    ).groupby(['code','province'])[['new_per_100k']].sum().reset_index(level='province')
+    .join(geodf[['code','geometry']].set_index('code'))
+).reset_index(drop=True).set_index('province')
 
-#covid_past2weeks_conditions = [(covid_past2weeks.new_per_100k < 20),
-#                               (covid_past2weeks.new_per_100k < 60),
-#                               (covid_past2weeks.new_per_100k < 120),
-#                               (covid_past2weeks.new_per_100k < 200),
-#                               (covid_past2weeks.new_per_100k >= 200)]
-#covid_past2weeks_labels = ['< 20 per 100k pop',
-#                           '20-59 per 100k pop',
-#                           '60-119 per 100k pop',
-#                           '120-199 per 100k pop',
-#                           '200+ per 100k pop']
-#covid_past2weeks_colors = ['green', 'gold', 'darkorange', 'red', 'purple']
-#covid_past2weeks['label'] = np.select(covid_past2weeks_conditions, covid_past2weeks_labels)
-#covid_past2weeks['color'] = np.select(covid_past2weeks_conditions, covid_past2weeks_colors)
+covid_past2weeks_conditions = [(covid_past2weeks.new_per_100k < 20),
+                               (covid_past2weeks.new_per_100k < 60),
+                               (covid_past2weeks.new_per_100k < 120),
+                               (covid_past2weeks.new_per_100k < 200),
+                               (covid_past2weeks.new_per_100k >= 200)]
+covid_past2weeks_labels = ['< 20 per 100k pop',
+                           '20-59 per 100k pop',
+                           '60-119 per 100k pop',
+                           '120-199 per 100k pop',
+                           '200+ per 100k pop']
+covid_past2weeks_colors = ['green', 'gold', 'darkorange', 'red', 'purple']
+covid_past2weeks['label'] = np.select(covid_past2weeks_conditions, covid_past2weeks_labels)
+covid_past2weeks['color'] = np.select(covid_past2weeks_conditions, covid_past2weeks_colors)
 
-#fig_newper100k_14days_map = px.choropleth_mapbox(
-#    covid_past2weeks,
-#    geojson = covid_past2weeks.geometry,
-#    locations = covid_past2weeks.index,
-#    color = 'label',
-#    color_discrete_sequence = covid_past2weeks['color'].drop_duplicates(),
-#    hover_name = covid_past2weeks.reset_index()['province'],
-#    hover_data = ['new_per_100k'],
-#    labels = {'new_per_100k':'New infections per 100k pop<br>   for the past 14 days',
-#             'label':'Category'},
-#    title = f"New infections per 100,000 population for the past 14 days",
-#    center = {'lat': 42.734189, 'lon': 25.1635087},
-#    mapbox_style = 'carto-darkmatter',
-#    opacity = 1,
-#    zoom = 6)
-#fig_newper100k_14days_map.update_layout(
-#    margin={"r":0,"t":40,"l":0,"b":0},
-#    template='plotly_dark',
-#    paper_bgcolor='rgba(0,0,0,0)',
-#    plot_bgcolor='rgba(0,0,0,0)')
+fig_newper100k_14days_map = px.choropleth_mapbox(
+    covid_past2weeks,
+    geojson = covid_past2weeks.geometry,
+    locations = covid_past2weeks.index,
+    color = 'label',
+    color_discrete_sequence = covid_past2weeks['color'].drop_duplicates(),
+    hover_name = covid_past2weeks.reset_index()['province'],
+    hover_data = ['new_per_100k'],
+    labels = {'new_per_100k':'New infections per 100k pop<br>   for the past 14 days',
+             'label':'Category'},
+    title = f"New infections per 100,000 population for the past 14 days",
+    center = {'lat': 42.734189, 'lon': 25.1635087},
+    mapbox_style = 'carto-darkmatter',
+    opacity = 1,
+    zoom = 6)
+fig_newper100k_14days_map.update_layout(
+    margin={"r":0,"t":40,"l":0,"b":0},
+    template='plotly_dark',
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0)')
 
 
 logger.info('Creating chart 8: Provinces map - new cases per 100k pop')
@@ -1646,7 +1646,7 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_hospitalized),
                     dcc.Graph(figure=fig_vacc_province_type_total),
                    # dcc.Graph(figure=fig_vaccines_availability),
-                   # dcc.Graph(figure=fig_newper100k_14days_map),
+                    dcc.Graph(figure=fig_newper100k_14days_map),
                     html.Br(),
                     html.H4("Smoothed figures on a daily basis"),
                     html.Br(),
@@ -1690,9 +1690,9 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_yesterday_map_active),
                     html.Br(),
                     html.Br(),
-                    #html.P("The color-coding of the provinces below is according to the categories adopted by the Ministry of Health, depending on the number of new cases per 100,000 population for the past two weeks."),
-                    #html.Br(),
-                    #dcc.Graph(figure=fig_newper100k_14days_map),
+                    html.P("The color-coding of the provinces below is according to the categories adopted by the Ministry of Health, depending on the number of new cases per 100,000 population for the past two weeks."),
+                    html.Br(),
+                    dcc.Graph(figure=fig_newper100k_14days_map),
                     #html.P("Below the provinces are color-coded according to the number of total confirmed cases per 100,000 population. This map isn't as important as the other two above for the spread of the disease, because part of the historical confirmed cases are already 'closed'."),
                     #dcc.Graph(figure=fig_yesterday_map_total),
                     #html.Br(),
