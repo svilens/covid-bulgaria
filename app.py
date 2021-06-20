@@ -9,7 +9,7 @@ from func_read_spatial import *
 from func_read_covid import *
 from func_read_nsi import *
 
-logger = get_logger_app('app')
+logger = create_logger('app')
 logger.info('Starting the process')
 
 

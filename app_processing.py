@@ -7,7 +7,7 @@ warnings.simplefilter('ignore')
 from func_logging import *
 
 global_start = datetime.now()
-logger = get_logger(__name__)
+logger = create_logger('processing')
 logger.info('STARTED')
 
 ###############
