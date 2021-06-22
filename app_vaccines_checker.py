@@ -5,7 +5,7 @@ import pytz
 from func_logging import *
 from func_read_vaccines_web import *
 
-logger = get_logger(__name__)
+logger = create_logger(__name__)
 logger.info('Obtaining vaccines data')
 
 vaccines_df = get_vaccines_data_web(vaccines_url, chromedriver_dir)
