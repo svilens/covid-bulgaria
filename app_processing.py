@@ -259,7 +259,7 @@ logger.info('calculating final Rt by province')
 
 for province_name, result in results.items():
     print(province_name)
-    posteriors = result['posteriors'][max_likelihood_index]
+    posteriors = result['posteriors'][max_likelihood_index].fillna(0.1)
     hdis_90 = highest_density_interval(posteriors, p=.9)
     hdis_50 = highest_density_interval(posteriors, p=.5)
     most_likely = posteriors.idxmax().rename('Estimated')
