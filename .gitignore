@@ -1,7 +1,7 @@
 temp-plot.html
 
 __pycache__/
-
+__*
 .ipynb_checkpoints/
 *.log
 *.bat
