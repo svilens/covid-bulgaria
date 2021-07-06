@@ -93,6 +93,8 @@ vaccines_df['date'] = pd.to_datetime(datetime.now(pytz.timezone('Europe/Sofia'))
 
 # load the existing data
 vaccines_df_old = pd.read_csv('./dash_data/vaccines.csv')
+# create backup
+vaccines_df_old.to_csv('./dash_data/backup_vaccines.csv', index=False)
 
 # add codes and pop
 vaccines_df = pd.merge(
