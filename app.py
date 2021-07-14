@@ -753,7 +753,7 @@ fig_deaths_bg.add_trace(go.Scatter(
     y=smoothed_deaths_bg.reset_index()['total_deaths'],
     mode='lines', line=dict(width=3), name='Smoothed'))
 fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-#fig_deaths_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_deaths_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 18: Smoothed new cases - BG - age bands')
