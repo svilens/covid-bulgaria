@@ -897,6 +897,14 @@ mr = final_results.loc[final_results['date'] == final_results['date'].max(), ['p
 
 mr['diff_up'] = mr['High_90'] - mr['Estimated']
 mr['diff_down'] = mr['Estimated'] - mr['Low_90']
+
+# fix zeros
+mr['diff_up'] = np.where(mr['Estimated']==0, 0.1, mr['diff_up'])
+mr['diff_down'] = np.where(mr['Estimated']==0, 0, mr['diff_down'])
+mr['High_90'] = np.where(mr['Estimated']==0, 0.1, mr['High_90'])
+mr['Low_90'] = np.where(mr['Estimated']==0, 0, mr['Low_90'])
+mr['Estimated'] = np.where(mr['Estimated']==0, 0.1, mr['Estimated'])
+
 # create status column
 mr_conditions = [(mr.High_90 <= 1), (mr.Low_90 >= 1)]
 mr_values = ['Likely under control', 'Likely not under control']
