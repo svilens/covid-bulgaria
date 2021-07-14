@@ -830,7 +830,7 @@ for i, province in list(enumerate(provinces_list)):
     fig_new_by_province.add_trace(go.Scatter(
             x=smoothed['date'],
             y=smoothed['new_cases'],
-            mode='lines', line=dict(width=3), name='Smoothed'),
+            mode='lines', line=dict(width=1), name='Smoothed'),
         row=row_num, col=col_num)
 
 fig_new_by_province.update_layout(
