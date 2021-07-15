@@ -22,16 +22,37 @@ import plotly.graph_objects as go
 import plotly.io as pio
 pio.templates.default = "plotly_dark"
 from plotly.offline import plot
+from plotly.subplots import make_subplots
 
 
 logger.info('Creating chart 1: Cumulative cases over time')
-fig_gen_stats = go.Figure()
-fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_cases, name='Confirmed'))
-fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.active_cases, line=dict(color='yellow'), name='Active'))
-fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_recoveries, line=dict(color='green'), name='Recovered'))
-fig_gen_stats.add_trace(go.Scatter(x=covid_general.date, y=covid_general.total_deaths, line=dict(color='red'), name='Deaths'))
-fig_gen_stats.update_layout(title='Number of cases over time (cumulative)')
-fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_gen_stats = make_subplots(specs=[[{"secondary_y": True}]])
+fig_gen_stats.add_trace(go.Scatter(
+    x=covid_general.date,
+    y=covid_general.total_cases,
+    name='Confirmed',
+    line_shape='spline'), secondary_y=True)
+fig_gen_stats.add_trace(go.Scatter(
+    x=covid_general.date,
+    y=covid_general.active_cases,
+    line=dict(color='yellow'),
+    name='Active',
+    line_shape='spline'), secondary_y=False)
+fig_gen_stats.add_trace(go.Scatter(
+    x=covid_general.date,
+    y=covid_general.total_recoveries,
+    line=dict(color='green'),
+    name='Recovered',
+    line_shape='spline'),secondary_y=True)
+fig_gen_stats.add_trace(go.Scatter(
+    x=covid_general.date,
+    y=covid_general.total_deaths,
+    line=dict(color='red'),
+    name='Deaths',
+    line_shape='spline'),secondary_y=False)
+fig_gen_stats.update_layout(title = 'Number of cases over time (cumulative)')
+fig_gen_stats.update_yaxes(title_text="Confirmed / Recovered", secondary_y=True)
+fig_gen_stats.update_yaxes(title_text="Deaths / Active infections", secondary_y=False)
 fig_gen_stats.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
