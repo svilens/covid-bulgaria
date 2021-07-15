@@ -51,6 +51,7 @@ fig_gen_stats.add_trace(go.Scatter(
     name='Deaths',
     line_shape='spline'),secondary_y=False)
 fig_gen_stats.update_layout(title = 'Number of cases over time (cumulative)')
+fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats.update_yaxes(title_text="Confirmed / Recovered", secondary_y=True)
 fig_gen_stats.update_yaxes(title_text="Deaths / Active infections", secondary_y=False)
 fig_gen_stats.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
@@ -593,6 +594,7 @@ fig_tests_daily.update_layout(
     title='New COVID-19 tests per day by test type',
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
+fig_tests_daily.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 #fig_tests_daily.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
