@@ -376,6 +376,7 @@ Blagoevgrad,2021-07-15,4.0
 Blagoevgrad,2021-07-16,4.0
 Blagoevgrad,2021-07-17,4.0
 Blagoevgrad,2021-07-18,4.0
+Blagoevgrad,2021-07-19,4.0
 Burgas,2020-09-03,9.0
 Burgas,2020-09-04,9.0
 Burgas,2020-09-05,9.0
@@ -693,8 +694,9 @@ Burgas,2021-07-13,4.0
 Burgas,2021-07-14,5.0
 Burgas,2021-07-15,6.0
 Burgas,2021-07-16,7.0
-Burgas,2021-07-17,8.0
-Burgas,2021-07-18,9.0
+Burgas,2021-07-17,7.0
+Burgas,2021-07-18,8.0
+Burgas,2021-07-19,8.0
 Dobrich,2020-10-09,9.0
 Dobrich,2020-10-10,9.0
 Dobrich,2020-10-11,9.0
@@ -978,8 +980,7 @@ Dobrich,2021-07-15,1.0
 Dobrich,2021-07-16,1.0
 Dobrich,2021-07-17,1.0
 Dobrich,2021-07-18,1.0
-Gabrovo,2021-02-13,9.0
-Gabrovo,2021-02-14,8.0
+Dobrich,2021-07-19,1.0
 Gabrovo,2021-02-15,9.0
 Gabrovo,2021-02-16,9.0
 Gabrovo,2021-02-17,10.0
@@ -1134,6 +1135,7 @@ Gabrovo,2021-07-15,1.0
 Gabrovo,2021-07-16,1.0
 Gabrovo,2021-07-17,1.0
 Gabrovo,2021-07-18,1.0
+Gabrovo,2021-07-19,1.0
 Haskovo,2020-10-10,9.0
 Haskovo,2020-10-11,9.0
 Haskovo,2020-10-12,9.0
@@ -1413,9 +1415,10 @@ Haskovo,2021-07-12,1.0
 Haskovo,2021-07-13,1.0
 Haskovo,2021-07-14,1.0
 Haskovo,2021-07-15,1.0
-Haskovo,2021-07-16,2.0
+Haskovo,2021-07-16,1.0
 Haskovo,2021-07-17,2.0
 Haskovo,2021-07-18,2.0
+Haskovo,2021-07-19,2.0
 Kardzhali,2021-02-24,9.0
 Kardzhali,2021-02-25,10.0
 Kardzhali,2021-02-26,11.0
@@ -1561,6 +1564,7 @@ Kardzhali,2021-07-15,1.0
 Kardzhali,2021-07-16,1.0
 Kardzhali,2021-07-17,1.0
 Kardzhali,2021-07-18,1.0
+Kardzhali,2021-07-19,1.0
 Kyustendil,2020-10-20,9.0
 Kyustendil,2020-10-21,12.0
 Kyustendil,2020-10-22,13.0
@@ -1831,8 +1835,9 @@ Kyustendil,2021-07-13,0.0
 Kyustendil,2021-07-14,0.0
 Kyustendil,2021-07-15,0.0
 Kyustendil,2021-07-16,0.0
-Kyustendil,2021-07-17,1.0
-Kyustendil,2021-07-18,1.0
+Kyustendil,2021-07-17,0.0
+Kyustendil,2021-07-18,0.0
+Kyustendil,2021-07-19,0.0
 Lovech,2020-10-15,9.0
 Lovech,2020-10-16,9.0
 Lovech,2020-10-17,10.0
@@ -2110,6 +2115,7 @@ Lovech,2021-07-15,1.0
 Lovech,2021-07-16,1.0
 Lovech,2021-07-17,1.0
 Lovech,2021-07-18,1.0
+Lovech,2021-07-19,1.0
 Montana,2020-10-11,9.0
 Montana,2020-10-12,11.0
 Montana,2020-10-13,12.0
@@ -2391,18 +2397,7 @@ Montana,2021-07-15,1.0
 Montana,2021-07-16,1.0
 Montana,2021-07-17,1.0
 Montana,2021-07-18,1.0
-Pazardzhik,2020-09-27,9.0
-Pazardzhik,2020-09-28,9.0
-Pazardzhik,2020-09-29,9.0
-Pazardzhik,2020-09-30,8.0
-Pazardzhik,2020-10-01,7.0
-Pazardzhik,2020-10-02,6.0
-Pazardzhik,2020-10-03,6.0
-Pazardzhik,2020-10-04,6.0
-Pazardzhik,2020-10-05,7.0
-Pazardzhik,2020-10-06,7.0
-Pazardzhik,2020-10-07,8.0
-Pazardzhik,2020-10-08,8.0
+Montana,2021-07-19,1.0
 Pazardzhik,2020-10-09,9.0
 Pazardzhik,2020-10-10,9.0
 Pazardzhik,2020-10-11,10.0
@@ -2682,10 +2677,11 @@ Pazardzhik,2021-07-11,1.0
 Pazardzhik,2021-07-12,2.0
 Pazardzhik,2021-07-13,2.0
 Pazardzhik,2021-07-14,2.0
-Pazardzhik,2021-07-15,3.0
-Pazardzhik,2021-07-16,3.0
-Pazardzhik,2021-07-17,3.0
-Pazardzhik,2021-07-18,3.0
+Pazardzhik,2021-07-15,2.0
+Pazardzhik,2021-07-16,2.0
+Pazardzhik,2021-07-17,2.0
+Pazardzhik,2021-07-18,2.0
+Pazardzhik,2021-07-19,2.0
 Pernik,2020-10-17,10.0
 Pernik,2020-10-18,11.0
 Pernik,2020-10-19,14.0
@@ -2961,6 +2957,7 @@ Pernik,2021-07-15,1.0
 Pernik,2021-07-16,1.0
 Pernik,2021-07-17,1.0
 Pernik,2021-07-18,1.0
+Pernik,2021-07-19,1.0
 Pleven,2020-10-13,9.0
 Pleven,2020-10-14,13.0
 Pleven,2020-10-15,15.0
@@ -3240,6 +3237,7 @@ Pleven,2021-07-15,1.0
 Pleven,2021-07-16,1.0
 Pleven,2021-07-17,1.0
 Pleven,2021-07-18,1.0
+Pleven,2021-07-19,1.0
 Plovdiv,2020-06-28,9.0
 Plovdiv,2020-06-29,10.0
 Plovdiv,2020-06-30,12.0
@@ -3622,10 +3620,11 @@ Plovdiv,2021-07-11,5.0
 Plovdiv,2021-07-12,5.0
 Plovdiv,2021-07-13,5.0
 Plovdiv,2021-07-14,5.0
-Plovdiv,2021-07-15,6.0
-Plovdiv,2021-07-16,6.0
-Plovdiv,2021-07-17,6.0
+Plovdiv,2021-07-15,5.0
+Plovdiv,2021-07-16,5.0
+Plovdiv,2021-07-17,5.0
 Plovdiv,2021-07-18,5.0
+Plovdiv,2021-07-19,4.0
 Razgrad,2021-03-02,9.0
 Razgrad,2021-03-03,10.0
 Razgrad,2021-03-04,11.0
@@ -3763,8 +3762,9 @@ Razgrad,2021-07-13,1.0
 Razgrad,2021-07-14,1.0
 Razgrad,2021-07-15,1.0
 Razgrad,2021-07-16,1.0
-Razgrad,2021-07-17,1.0
+Razgrad,2021-07-17,2.0
 Razgrad,2021-07-18,2.0
+Razgrad,2021-07-19,1.0
 Ruse,2020-10-11,9.0
 Ruse,2020-10-12,10.0
 Ruse,2020-10-13,11.0
@@ -4045,7 +4045,8 @@ Ruse,2021-07-14,0.0
 Ruse,2021-07-15,1.0
 Ruse,2021-07-16,1.0
 Ruse,2021-07-17,1.0
-Ruse,2021-07-18,1.0
+Ruse,2021-07-18,2.0
+Ruse,2021-07-19,2.0
 Shumen,2020-10-10,10.0
 Shumen,2020-10-11,12.0
 Shumen,2020-10-12,15.0
@@ -4328,6 +4329,7 @@ Shumen,2021-07-15,1.0
 Shumen,2021-07-16,1.0
 Shumen,2021-07-17,1.0
 Shumen,2021-07-18,1.0
+Shumen,2021-07-19,1.0
 Silistra,2020-10-28,11.0
 Silistra,2020-10-29,13.0
 Silistra,2020-10-30,14.0
@@ -4591,7 +4593,8 @@ Silistra,2021-07-14,0.0
 Silistra,2021-07-15,0.0
 Silistra,2021-07-16,0.0
 Silistra,2021-07-17,0.0
-Silistra,2021-07-18,1.0
+Silistra,2021-07-18,0.0
+Silistra,2021-07-19,0.0
 Sliven,2020-10-06,10.0
 Sliven,2020-10-07,14.0
 Sliven,2020-10-08,16.0
@@ -4878,6 +4881,7 @@ Sliven,2021-07-15,1.0
 Sliven,2021-07-16,1.0
 Sliven,2021-07-17,1.0
 Sliven,2021-07-18,1.0
+Sliven,2021-07-19,0.0
 Smolyan,2020-10-16,9.0
 Smolyan,2020-10-17,10.0
 Smolyan,2020-10-18,11.0
@@ -5153,7 +5157,8 @@ Smolyan,2021-07-14,1.0
 Smolyan,2021-07-15,1.0
 Smolyan,2021-07-16,1.0
 Smolyan,2021-07-17,1.0
-Smolyan,2021-07-18,2.0
+Smolyan,2021-07-18,1.0
+Smolyan,2021-07-19,1.0
 Sofiya-Grad,2020-06-07,14.0
 Sofiya-Grad,2020-06-08,17.0
 Sofiya-Grad,2020-06-09,18.0
@@ -5557,10 +5562,11 @@ Sofiya-Grad,2021-07-11,16.0
 Sofiya-Grad,2021-07-12,17.0
 Sofiya-Grad,2021-07-13,18.0
 Sofiya-Grad,2021-07-14,19.0
-Sofiya-Grad,2021-07-15,20.0
-Sofiya-Grad,2021-07-16,20.0
-Sofiya-Grad,2021-07-17,21.0
-Sofiya-Grad,2021-07-18,19.0
+Sofiya-Grad,2021-07-15,19.0
+Sofiya-Grad,2021-07-16,19.0
+Sofiya-Grad,2021-07-17,18.0
+Sofiya-Grad,2021-07-18,17.0
+Sofiya-Grad,2021-07-19,15.0
 Sofiya-Oblast,2020-10-12,9.0
 Sofiya-Oblast,2020-10-13,10.0
 Sofiya-Oblast,2020-10-14,11.0
@@ -5837,10 +5843,11 @@ Sofiya-Oblast,2021-07-11,4.0
 Sofiya-Oblast,2021-07-12,4.0
 Sofiya-Oblast,2021-07-13,4.0
 Sofiya-Oblast,2021-07-14,4.0
-Sofiya-Oblast,2021-07-15,4.0
-Sofiya-Oblast,2021-07-16,4.0
-Sofiya-Oblast,2021-07-17,4.0
-Sofiya-Oblast,2021-07-18,4.0
+Sofiya-Oblast,2021-07-15,3.0
+Sofiya-Oblast,2021-07-16,3.0
+Sofiya-Oblast,2021-07-17,3.0
+Sofiya-Oblast,2021-07-18,3.0
+Sofiya-Oblast,2021-07-19,3.0
 Stara Zagora,2020-09-12,9.0
 Stara Zagora,2020-09-13,9.0
 Stara Zagora,2020-09-14,9.0
@@ -6149,8 +6156,9 @@ Stara Zagora,2021-07-13,4.0
 Stara Zagora,2021-07-14,4.0
 Stara Zagora,2021-07-15,4.0
 Stara Zagora,2021-07-16,4.0
-Stara Zagora,2021-07-17,5.0
+Stara Zagora,2021-07-17,4.0
 Stara Zagora,2021-07-18,4.0
+Stara Zagora,2021-07-19,3.0
 Targovishte,2020-09-25,9.0
 Targovishte,2020-09-26,10.0
 Targovishte,2020-09-27,10.0
@@ -6448,16 +6456,7 @@ Targovishte,2021-07-15,1.0
 Targovishte,2021-07-16,1.0
 Targovishte,2021-07-17,1.0
 Targovishte,2021-07-18,1.0
-Varna,2020-09-18,9.0
-Varna,2020-09-19,9.0
-Varna,2020-09-20,9.0
-Varna,2020-09-21,9.0
-Varna,2020-09-22,9.0
-Varna,2020-09-23,9.0
-Varna,2020-09-24,8.0
-Varna,2020-09-25,7.0
-Varna,2020-09-26,8.0
-Varna,2020-09-27,8.0
+Targovishte,2021-07-19,1.0
 Varna,2020-09-28,9.0
 Varna,2020-09-29,11.0
 Varna,2020-09-30,12.0
@@ -6749,9 +6748,10 @@ Varna,2021-07-12,5.0
 Varna,2021-07-13,6.0
 Varna,2021-07-14,6.0
 Varna,2021-07-15,7.0
-Varna,2021-07-16,8.0
+Varna,2021-07-16,7.0
 Varna,2021-07-17,8.0
-Varna,2021-07-18,8.0
+Varna,2021-07-18,7.0
+Varna,2021-07-19,7.0
 Veliko Tarnovo,2020-10-10,9.0
 Veliko Tarnovo,2020-10-11,10.0
 Veliko Tarnovo,2020-10-12,10.0
@@ -7034,6 +7034,7 @@ Veliko Tarnovo,2021-07-15,1.0
 Veliko Tarnovo,2021-07-16,1.0
 Veliko Tarnovo,2021-07-17,1.0
 Veliko Tarnovo,2021-07-18,1.0
+Veliko Tarnovo,2021-07-19,1.0
 Vidin,2020-10-28,9.0
 Vidin,2020-10-29,10.0
 Vidin,2020-10-30,10.0
@@ -7298,6 +7299,7 @@ Vidin,2021-07-15,1.0
 Vidin,2021-07-16,1.0
 Vidin,2021-07-17,1.0
 Vidin,2021-07-18,0.0
+Vidin,2021-07-19,0.0
 Vratsa,2020-10-12,9.0
 Vratsa,2020-10-13,10.0
 Vratsa,2020-10-14,12.0
@@ -7578,6 +7580,7 @@ Vratsa,2021-07-15,1.0
 Vratsa,2021-07-16,1.0
 Vratsa,2021-07-17,1.0
 Vratsa,2021-07-18,1.0
+Vratsa,2021-07-19,1.0
 Yambol,2020-10-20,9.0
 Yambol,2020-10-21,9.0
 Yambol,2020-10-22,9.0
@@ -7850,3 +7853,4 @@ Yambol,2021-07-15,0.0
 Yambol,2021-07-16,0.0
 Yambol,2021-07-17,0.0
 Yambol,2021-07-18,0.0
+Yambol,2021-07-19,0.0
