@@ -322,8 +322,9 @@ from func_predictive_models import *
 
 logger.info(f'Processing is done. Total runtime: {datetime.now() - global_start}')
 logger.info('Starting git push')
-from func_git import *
-git_push_result = git_push_automation()
-logger.info(git_push_result)
+from func_git import git_push
+#git_push_result = git_push_automation()
+#logger.info(git_push_result)
+git_push()
 
 logger.info('FINISHED!')

@@ -1,3 +1,15 @@
+import os
+import git
+
+def git_push():
+    gitdir = os.getcwd()
+    repo = git.Repo(gitdir)
+    changed_files = [ item.a_path for item in repo.index.diff(None) ]
+    repo.index.add(changed_files)
+    repo.index.commit('daily update')
+    print(repo.remotes.origin.push())
+
+
 import subprocess as cmd
 
 def git_push_automation():
@@ -30,3 +42,5 @@ def git_push_automation():
 
 path = './.git'
 commit_message = 'daily update'
+
+
