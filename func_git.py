@@ -9,20 +9,22 @@ def git_push():
     repo.index.commit('daily update')
     print(repo.remotes.origin.push())
 
+git_push()
 
-import subprocess as cmd
 
-def git_push_automation():
-    #try:
-        #cp = cmd.run("file path", check=True, shell=True)
-        #logger.info("cp", cp)
-        cmd.run('git add -A', check=True, shell=True)
-        cmd.run('git commit -m "daily update"', check=True, shell=True)
-        #cmd.run("git push heroku master", check=True, shell=True)
-        cmd.run("git push", check=True, shell=True)
-        return ("Pushed to Heroku")
-    #except:
-        return ("Git automation failed")
+#import subprocess as cmd
+
+#def git_push_automation():
+#    #try:
+#        #cp = cmd.run("file path", check=True, shell=True)
+#        #logger.info("cp", cp)
+#        cmd.run('git add -A', check=True, shell=True)
+#        cmd.run('git commit -m "daily update"', check=True, shell=True)
+#        #cmd.run("git push heroku master", check=True, shell=True)
+#        cmd.run("git push", check=True, shell=True)
+#        return ("Pushed to Heroku")
+#    #except:
+#        return ("Git automation failed")
     
 
 # below not used currently 
@@ -40,7 +42,7 @@ def git_push_automation():
 #        result_message = 'Some error occured while pushing'
 #    return result_message
 
-path = './.git'
-commit_message = 'daily update'
+#path = './.git'
+#commit_message = 'daily update'
 
 
