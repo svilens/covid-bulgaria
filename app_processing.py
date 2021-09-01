@@ -208,20 +208,21 @@ sigmas = np.linspace(1/15, 1, 15)
 provinces_to_process = provinces
 
 results = {}
-r0_provinces_original = pd.DataFrame()
+#r0_provinces_original = pd.DataFrame()
 r0_provinces_smoothed = pd.DataFrame()
 
 for province_name, cases in provinces_to_process.groupby(level='province'):
-    print(f'processing province: {province_name}')
+    logger.info(f'processing province: {province_name}')
     new, smoothed = prepare_cases(cases)
 
     # for dash
-    new_dash = new.to_frame()
+ #   new_dash = new.to_frame()
     smoothed_dash = smoothed.to_frame()
-    new_dash.columns = ['new_cases']
+ #   new_dash.columns = ['new_cases']
     smoothed_dash.columns = ['new_cases']
-    r0_provinces_original = pd.concat([r0_provinces_original, new_dash])
-    r0_provinces_smoothed = pd.concat([r0_provinces_smoothed, smoothed_dash])
+ #   r0_provinces_original = pd.concat([r0_provinces_original, new_dash])
+#    r0_provinces_smoothed = pd.concat([r0_provinces_smoothed, smoothed_dash])
+    smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True, mode='a')
     # end of dash
 
     result = {}
@@ -237,9 +238,9 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
     results[province_name] = result
 
 # for dash
-logger.info('Outputting smoothed cases by province')
-r0_provinces_original.to_csv('./dash_data/r0_provinces_original.csv', header=True)
-r0_provinces_smoothed.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
+#logger.info('Outputting smoothed cases by province')
+#r0_provinces_original.to_csv('./dash_data/r0_provinces_original.csv', header=True)
+#r0_provinces_smoothed.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
 
 logger.info('Getting the best log likelihood by province')
 # Each index of this array holds the total of the log likelihoods for the corresponding index of the sigmas array.
