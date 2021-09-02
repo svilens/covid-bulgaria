@@ -216,15 +216,17 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
     new, smoothed = prepare_cases(cases)
 
     # for dash
- #   new_dash = new.to_frame()
+    new_dash = new.to_frame()
     smoothed_dash = smoothed.to_frame()
- #   new_dash.columns = ['new_cases']
+    new_dash.columns = ['new_cases']
     smoothed_dash.columns = ['new_cases']
  #   r0_provinces_original = pd.concat([r0_provinces_original, new_dash])
 #    r0_provinces_smoothed = pd.concat([r0_provinces_smoothed, smoothed_dash])
     if province_name == 'Blagoevgrad':
+        new_dash.to_csv(('./dash_data/r0_provinces_original.csv', header=True)
         smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
     else:
+        new_dash.to_csv(('./dash_data/r0_provinces_original.csv', header=True, mode='a')
         smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True, mode='a')
     # end of dash
 
