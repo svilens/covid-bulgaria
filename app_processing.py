@@ -222,7 +222,10 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
     smoothed_dash.columns = ['new_cases']
  #   r0_provinces_original = pd.concat([r0_provinces_original, new_dash])
 #    r0_provinces_smoothed = pd.concat([r0_provinces_smoothed, smoothed_dash])
-    smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True, mode='a')
+    if province_name == 'Blagoevgrad':
+        smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
+    else:
+        smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True, mode='a')
     # end of dash
 
     result = {}
@@ -261,12 +264,16 @@ final_results = None
 logger.info('calculating final Rt by province')
 
 for province_name, result in results.items():
-    print(province_name)
+    logger.info(f'Rt for {province_name}')
     posteriors = result['posteriors'][max_likelihood_index].fillna(0.1)
     hdis_90 = highest_density_interval(posteriors, p=.9)
     hdis_50 = highest_density_interval(posteriors, p=.5)
     most_likely = posteriors.idxmax().rename('Estimated')
     result = pd.concat([most_likely, hdis_90, hdis_50], axis=1)
+    if province == 'Blagoevgrad':
+        result.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
+    else:
+        result.to_csv('./dash_data/r0_provinces_r0.csv', header=True, mode='a')
     if final_results is None:
         final_results = result
     else:
@@ -274,7 +281,7 @@ for province_name, result in results.items():
 
 logger.info(f'Provinces Rt runtime: {datetime.now() - start}')
 
-final_results.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
+#final_results.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
 
 mr = final_results.groupby(level=0)[['Estimated', 'High_90', 'Low_90']].last()
 
