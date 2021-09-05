@@ -66,7 +66,7 @@ def get_covid_data():
             
             # check if the source data has been updated today
             if df.iloc[-1,0] == datetime.now(pytz.timezone('Europe/Sofia')).strftime(format='%Y/%m/%d'):
-                # backup the existing file and save the newest data
+               #  backup the existing file and save the newest data
                 backup_existing_file(resources[resource_key][1])
                 df.to_csv(os.getcwd() + '/data/' + resources[resource_key][1], header=True, encoding='utf-8', index=False)
                 print(f'Saved newest data file: {resources[resource_key][1]}')

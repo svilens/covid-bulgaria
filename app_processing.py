@@ -18,7 +18,7 @@ from func_download_data_api import *
 api_request = get_covid_data()
 if api_request == 'old':
     logger.info('The last date on the source data is different than the current date. Check if the source has been updated today. Process terminated!')
-    sys.exit()
+#    sys.exit()
 elif api_request == 'error':
     logger.info('There was an error while communicating with the API. Process terminated!')
     sys.exit()
@@ -223,10 +223,10 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
  #   r0_provinces_original = pd.concat([r0_provinces_original, new_dash])
 #    r0_provinces_smoothed = pd.concat([r0_provinces_smoothed, smoothed_dash])
     if province_name == 'Blagoevgrad':
-        new_dash.to_csv(('./dash_data/r0_provinces_original.csv', header=True)
+        new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=True)
         smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
     else:
-        new_dash.to_csv(('./dash_data/r0_provinces_original.csv', header=True, mode='a')
+        new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=True, mode='a')
         smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True, mode='a')
     # end of dash
 
@@ -272,7 +272,7 @@ for province_name, result in results.items():
     hdis_50 = highest_density_interval(posteriors, p=.5)
     most_likely = posteriors.idxmax().rename('Estimated')
     result = pd.concat([most_likely, hdis_90, hdis_50], axis=1)
-    if province == 'Blagoevgrad':
+    if province_name == 'Blagoevgrad':
         result.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
     else:
         result.to_csv('./dash_data/r0_provinces_r0.csv', header=True, mode='a')
