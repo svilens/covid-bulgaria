@@ -18,7 +18,7 @@ from func_download_data_api import *
 api_request = get_covid_data()
 if api_request == 'old':
     logger.info('The last date on the source data is different than the current date. Check if the source has been updated today. Process terminated!')
-#    sys.exit()
+    sys.exit()
 elif api_request == 'error':
     logger.info('There was an error while communicating with the API. Process terminated!')
     sys.exit()
@@ -226,8 +226,8 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
         new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=True)
         smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
     else:
-        new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=True, mode='a')
-        smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True, mode='a')
+        new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=False, mode='a')
+        smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=False, mode='a')
     # end of dash
 
     result = {}
