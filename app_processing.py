@@ -275,7 +275,7 @@ for province_name, result in results.items():
     if province_name == 'Blagoevgrad':
         result.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
     else:
-        result.to_csv('./dash_data/r0_provinces_r0.csv', header=True, mode='a')
+        result.to_csv('./dash_data/r0_provinces_r0.csv', header=False, mode='a')
     if final_results is None:
         final_results = result
     else:

@@ -5,9 +5,12 @@ def git_push():
     gitdir = os.getcwd()
     repo = git.Repo(gitdir)
     changed_files = [ item.a_path for item in repo.index.diff(None) ]
-    repo.index.add(changed_files)
-    repo.index.commit('daily update')
-    print(repo.remotes.origin.push())
+    if len(changed_files) > 0:
+        repo.index.add(changed_files)
+        repo.index.commit('daily update')
+        print(repo.remotes.origin.push())
+    else:
+        print('no changes to commit')
 
 git_push()
 
