@@ -500,7 +500,7 @@ fig_yesterday_map_active.update_layout(
 ### Age bands
 
 logger.info('Reading age bands data')
-covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'})).replace('-',0)
+covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'})).replace('-',0).drop(['0 - 1', '1 - 5', '6 - 9', '10 - 14', '15 - 19'], axis=1)
 
 
 logger.info('Creating chart 10: Cumulative cases by age band')
@@ -509,11 +509,12 @@ age_band_colors = ['green', 'cyan', 'magenta', 'ghostwhite', 'coral', 'royalblue
 fig_age = go.Figure()
 i=0
 for col in covid_by_age_band.columns[1:]:
+    covid_by_age_band[col] = covid_by_age_band[col].astype('int')
     fig_age.add_trace(go.Scatter(
         x=covid_by_age_band['date'],
         y=covid_by_age_band[col],
         mode='lines',
-        line=dict(width=3),# color=age_band_colors[i]),
+        line=dict(width=3, color=age_band_colors[i]),
         name=col))
     i+=1
 fig_age.update_layout(
@@ -792,7 +793,8 @@ for col in covid_by_age_band_diff_smoothed.columns:
         x=covid_by_age_band_diff_smoothed.index,
         y=covid_by_age_band_diff_smoothed[col],
         mode='lines', line_shape='spline',
-        line=dict(color=age_band_colors[i]), name=col))
+        line=dict(color=age_band_colors[i]),
+        name=col))
     i+=1
 fig_age_diff.update_layout(
     title='New confirmed cases per day by age band (smoothed figures)',
