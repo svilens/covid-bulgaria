@@ -500,7 +500,7 @@ fig_yesterday_map_active.update_layout(
 ### Age bands
 
 logger.info('Reading age bands data')
-covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'}))
+covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'})).replace('-',0)
 
 
 logger.info('Creating chart 10: Cumulative cases by age band')
