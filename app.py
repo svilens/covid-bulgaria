@@ -513,7 +513,7 @@ for col in covid_by_age_band.columns[1:]:
         x=covid_by_age_band['date'],
         y=covid_by_age_band[col],
         mode='lines',
-        line=dict(width=3, color=age_band_colors[i]),
+        line=dict(width=3),# color=age_band_colors[i]),
         name=col))
     i+=1
 fig_age.update_layout(
