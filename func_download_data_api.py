@@ -37,9 +37,12 @@ resources = {
     '(1) general stats': ['e59f95dd-afde-43af-83c8-ea2916badd19', 'COVID_general.csv'],
     '(2) by province': ['cb5d7df0-3066-4d7a-b4a1-ac26525e0f0c', 'COVID_provinces.csv'],
     '(3) by age band': ['8f62cfcf-a979-46d4-8317-4e1ab9cbd6a8', 'COVID_age_bands.csv'],
-    '(4) by test type': ['0ce4e9c3-5dfc-46e2-b4ab-42d840caab92', 'COVID_test_type.csv']
+    '(4) by test type': ['0ce4e9c3-5dfc-46e2-b4ab-42d840caab92', 'COVID_test_type.csv'],
+    '(5) by test type': ['e9f795a8-0146-4cf0-9bd1-c0ba3d9aa124', 'COVID_breakthrough_infected.csv'],
+    '(6) by test type': ['6fb4bfb1-f586-45af-8dd2-3385499c3664', 'COVID_breakthrough_hospitalized.csv'],
+    '(7) by test type': ['218d49de-88a8-472a-9bb2-b2a373bd7ab4', 'COVID_breakthrough_intensivecare.csv'],
+    '(8) by test type': ['e6a72183-28e0-486a-b4e4-b5db8b60a900', 'COVID_breakthrough_deaths.csv'],
 }
-
 
 def get_covid_data():
     for resource_key in resources.keys():
@@ -63,14 +66,19 @@ def get_covid_data():
             # set the first line as column headers
             df = data_json_normalized.iloc[1:,:]
             df.columns = data_json_normalized.iloc[0,:].values
-            
-            # check if the source data has been updated today
-            if df.iloc[-1,0] == datetime.now(pytz.timezone('Europe/Sofia')).strftime(format='%Y/%m/%d'):
-               #  backup the existing file and save the newest data
+            if int(resource_key[1:2]) >= 5:
                 backup_existing_file(resources[resource_key][1])
                 df.to_csv(os.getcwd() + '/data/' + resources[resource_key][1], header=True, encoding='utf-8', index=False)
                 print(f'Saved newest data file: {resources[resource_key][1]}')
             else:
-                return 'old'
+                # check if the source data has been updated today
+                if df.iloc[-1,0] == datetime.now(pytz.timezone('Europe/Sofia')).strftime(format='%Y/%m/%d'):
+                   #  backup the existing file and save the newest data
+                    backup_existing_file(resources[resource_key][1])
+                    df.to_csv(os.getcwd() + '/data/' + resources[resource_key][1], header=True, encoding='utf-8', index=False)
+                    print(f'Saved newest data file: {resources[resource_key][1]}')
+                else:
+                    return 'old'
         else:
             return 'error'
+

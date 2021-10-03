@@ -36,7 +36,8 @@ def read_population_data(path, worksheet_name, col_num, col_names, skip, codes):
 
 def read_nsi_age_bands(path, worksheet_name, col_num, col_names, skip, rows_needed):
     nsi_age_bands = pd.read_excel(
-		path, sheet_name=worksheet_name, index_col=None, usecols=range(col_num), names=col_names, skiprows=skip, nrows=rows_needed
+		path, sheet_name=worksheet_name, index_col=None, usecols=range(col_num),
+        names=col_names, skiprows=skip, nrows=rows_needed
 	)
     nsi_age_bands = nsi_age_bands.replace(0, '0 - 0').replace('100 +', '100 - 150')
     for row in range(len(nsi_age_bands)):
@@ -58,6 +59,8 @@ def read_nsi_age_bands(path, worksheet_name, col_num, col_names, skip, rows_need
             nsi_age_bands.loc[nsi_age_bands.index==row,'covid_age_band'] = '80 - 89'
         else:
             nsi_age_bands.loc[nsi_age_bands.index==row,'covid_age_band'] = '90+'
-    nsi_age_bands = nsi_age_bands.groupby('covid_age_band')['pop'].sum().reset_index()
-    nsi_age_bands['band_prop'] = (nsi_age_bands['pop'] / nsi_age_bands['pop'].sum()).round(4)
+    nsi_age_bands = nsi_age_bands.groupby('covid_age_band')[col_names[-1]].sum().reset_index()
+    nsi_age_bands['band_prop'] = (
+        nsi_age_bands[col_names[-1]] / nsi_age_bands[col_names[-1]].sum()
+    ).round(4)
     return nsi_age_bands

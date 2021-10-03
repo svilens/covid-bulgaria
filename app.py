@@ -428,8 +428,12 @@ covid_past2weeks_labels = ['< 20 per 100k pop',
                            '120-199 per 100k pop',
                            '200+ per 100k pop']
 covid_past2weeks_colors = ['green', 'gold', 'darkorange', 'red', 'purple']
-covid_past2weeks['label'] = np.select(covid_past2weeks_conditions, covid_past2weeks_labels)
-covid_past2weeks['color'] = np.select(covid_past2weeks_conditions, covid_past2weeks_colors)
+covid_past2weeks['label'] = np.select(
+    covid_past2weeks_conditions, covid_past2weeks_labels
+)
+covid_past2weeks['color'] = np.select(
+    covid_past2weeks_conditions, covid_past2weeks_colors
+)
 
 fig_newper100k_14days_map = px.choropleth_mapbox(
     covid_past2weeks,
@@ -500,7 +504,12 @@ fig_yesterday_map_active.update_layout(
 ### Age bands
 
 logger.info('Reading age bands data')
-covid_by_age_band = (pd.read_csv('./data/COVID_age_bands.csv', parse_dates=['Дата']).rename(columns={'Дата':'date'})).replace('-',0).drop(['0 - 1', '1 - 5', '6 - 9', '10 - 14', '15 - 19'], axis=1)
+covid_by_age_band = (
+    pd.read_csv(
+        './data/COVID_age_bands.csv',
+        parse_dates=['Дата']
+    ).rename(columns={'Дата':'date'})
+).replace('-',0).drop(['0 - 1', '1 - 5', '6 - 9', '10 - 14', '15 - 19'], axis=1)
 
 
 logger.info('Creating chart 10: Cumulative cases by age band')
@@ -595,8 +604,10 @@ fig_tests_daily.update_layout(
     title='New COVID-19 tests per day by test type',
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig_tests_daily.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
-#fig_tests_daily.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+fig_tests_daily.update_xaxes(
+    range=[date.today() - timedelta(days=5*30),
+           date.today() + timedelta(days=1)]
+)
 
 
 logger.info('Creating chart 12: Positive tests % by test type')
@@ -658,7 +669,9 @@ fig_tests_sankey = go.Figure(
                 thickness = 15,
                 line = dict(color = 'black', width = 0.5),
                 #label = sankey_dummy.groupby('col1').count().index.tolist(),
-                label = ['Total tests', 'PCR tests', 'Antigen tests', 'Positive PCR', 'Positive Antigen', 'Positive for yesterday', 'Positive for yesterday'],
+                label = ['Total tests', 'PCR tests', 'Antigen tests',
+                         'Positive PCR', 'Positive Antigen',
+                         'Positive for yesterday', 'Positive for yesterday'],
                 x = [0.1, 0.4, 0.4, 0.55, 0.55, 0.9, 0.9],
                 y = [0.5, 0.1, 0.6, 0.05, 0.3, 0.05, 0.3],
                 color = colors_list[:7]
@@ -799,14 +812,27 @@ for col in covid_by_age_band_diff_smoothed.columns:
 fig_age_diff.update_layout(
     title='New confirmed cases per day by age band (smoothed figures)',
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-fig_age_diff.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
+fig_age_diff.update_xaxes(
+    range=[date.today() - timedelta(days=5*30),
+           date.today() + timedelta(days=1)]
+)
 
 
 logger.info("Creating chart 19: Smoothed new cases - BG - age bands per 100,000 pop")
-pop_by_age_band = read_nsi_age_bands('./data/Pop_6.1.2_Pop_DR.xls', worksheet_name='2019', col_num=2, col_names=['age_band', 'pop'], skip=5, rows_needed=22)
+pop_by_age_band = read_nsi_age_bands(
+    './data/Pop_6.1.2_Pop_DR.xls',
+    worksheet_name='2019',
+    col_num=2,
+    col_names=['age_band', 'pop'],
+    skip=5, rows_needed=22)
 covid_by_age_band_diff_smoothed_per100k = covid_by_age_band_diff_smoothed.copy()
 for col in covid_by_age_band_diff_smoothed_per100k.columns:
-    covid_by_age_band_diff_smoothed_per100k[col] = (100000 * covid_by_age_band_diff_smoothed_per100k[col] / pop_by_age_band.loc[pop_by_age_band.covid_age_band == col, 'pop'].values).round(0)
+    covid_by_age_band_diff_smoothed_per100k[col] = (
+        100000 * covid_by_age_band_diff_smoothed_per100k[col] 
+        / pop_by_age_band.loc[
+            pop_by_age_band['covid_age_band'] == col, 'pop'
+        ].values
+    ).round(0)
     
 fig_age_per100k = go.Figure()
 i=0
@@ -1268,6 +1294,881 @@ fig_vaccines_availability.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',
     paper_bgcolor='rgba(0,0,0,0)')
 
+
+####### BREAKTHROUGH INFECTIONS #######
+logger.info('Processing breakthrough cases')
+males = read_nsi_age_bands(
+    './data/Pop_6.1.2_Pop_DR.xls',
+    worksheet_name='2019',
+    col_num=3,
+    col_names=['age_band', 'pop', 'males'],
+    skip=5, rows_needed=22)
+males['gender'] = 'Male'
+
+females = read_nsi_age_bands(
+    './data/Pop_6.1.2_Pop_DR.xls',
+    worksheet_name='2019',
+    col_num=4,
+    col_names=['age_band', 'pop', 'males', 'females'],
+    skip=5, rows_needed=22)
+females['gender'] = 'Female'
+
+second_jab_num = vaccines_data.groupby('date')['second_dose'].sum()[-1]
+second_jab_perc = vaccines_total_bg['perc_second'].values[-1]
+pfizer = vaccines_data['new_pfizer'].sum()
+moderna = vaccines_data['new_moderna'].sum()
+astrazeneca = vaccines_data['new_astrazeneca'].sum()
+johnson = vaccines_data['new_johnson'].sum()
+total_vaccines = pfizer/2 + moderna/2 + astrazeneca/2 + johnson
+pfizer_perc = pfizer/2/total_vaccines
+moderna_perc = moderna/2/total_vaccines
+astrazeneca_perc = astrazeneca/2/total_vaccines
+johnson_perc = johnson/total_vaccines
+
+total_pop_males = males['males'].sum()
+total_pop_females = females['females'].sum()
+total_pop = total_pop_males + total_pop_females
+total_pop_males_prop = total_pop_males / total_pop
+total_vac_perc = second_jab_num / total_pop
+
+## INFECTIONS ##
+logger.info('Processing breakthrough cases - infections')
+bt_infected = read_breakthrough('./data/COVID_breakthrough_infected.csv')
+bt_infected['count'].sum()
+
+infected_vac_past30 = (
+    bt_infected.loc[
+        bt_infected['date'] >= (datetime.now() - timedelta(30)),
+        'count'
+    ].sum()
+)
+infected_unvac_past30 = (
+    covid_general.loc[
+        covid_general['date'] >= (datetime.now() - timedelta(30)),
+        'new_cases'
+    ].sum()
+)
+infected_vac_past30_prop = (
+    infected_vac_past30 / 
+    (infected_vac_past30 + infected_unvac_past30)
+)
+
+
+# by vaccine type
+logger.info('Processing breakthrough cases - infections - by vaccine type')
+bt_infected_vac = bt_infected.loc[
+    bt_infected['date'] >= (datetime.now() - timedelta(30))
+].groupby('vaccine', as_index=False)['count'].sum()
+bt_infected_vac['perc'] = bt_infected_vac['count'] / bt_infected_vac['count'].sum()
+bt_infected_vac = (
+    append_nat_vac_props(
+        bt_infected_vac, astrazeneca_perc,
+        moderna_perc, johnson_perc, pfizer_perc)
+)
+bt_infected_vac['infection_risk'] = bt_infected_vac['perc'] / bt_infected_vac['perc_vac']
+bt_infected_vac['infection_risk'] = (
+    bt_infected_vac['infection_risk'] *
+    infected_vac_past30_prop /
+    bt_infected_vac['infection_risk'].sum()
+)
+
+bt_infected_vac = (
+    pd.concat(
+        [pd.DataFrame(
+             {'vaccine':['Unvaccinated'],
+              'count': [infected_unvac_past30],
+              'infection_risk':[(1-infected_vac_past30_prop)]
+              }),
+        bt_infected_vac]
+    )
+)
+
+vaccines_color_map={
+    'Unvaccinated': 'red',
+    'Pfizer': '#636EFA',
+    'Moderna': '#00CC96',
+    'Astra Zeneca': '#EF553B',
+    'Astra Zeneca + Pfizer': 'gold',
+    'Johnson & Johnson': '#AB63FA',
+    'Pfizer + Johnson': 'darkcyan'
+}
+
+fig_bt_infected_vac = go.Figure()
+for i in bt_infected_vac.itertuples():
+    if not i.vaccine == 'Unvaccinated':
+        fig_bt_infected_vac.add_trace(go.Bar(
+            name=i.vaccine, x=[i.infection_risk], y=[i.vaccine], orientation='h',
+            marker=dict(color=vaccines_color_map[i.vaccine])
+        ))
+    else:
+        fig_bt_infected_vac.add_trace(go.Bar(
+            name=i.vaccine, x=[i.infection_risk], y=[i.vaccine], orientation='h',
+            marker=dict(color=vaccines_color_map[i.vaccine]), visible='legendonly',
+        ))
+
+fig_bt_infected_vac.update_layout(
+    barmode='stack',
+    xaxis=dict(tickformat=',.1%', hoverformat=',.2%', title='Infection Rate'),
+    title='Weighted Breakthrough Infection Rate by Type of Vaccine (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_breakthrough_by_vac)
+
+logger.info('Processing breakthrough cases - infections - by gender')
+bt_infected_gender = bt_infected.loc[
+    bt_infected['date'] >= (datetime.now() - timedelta(30))
+].groupby('gender', as_index=False)['count'].sum()
+bt_infected_gender['perc'] = bt_infected_gender['count'] / bt_infected_gender['count'].sum()
+bt_infected_gender['perc_pop'] = [1-total_pop_males_prop, total_pop_males_prop]
+bt_infected_gender['infection_risk'] = bt_infected_gender['perc'] / bt_infected_gender['perc_pop']
+bt_infected_gender['infection_risk'] = (
+    bt_infected_gender['infection_risk'] * 100 / bt_infected_gender['infection_risk'].sum()
+)
+
+fig_bt_infected_gender = px.pie(
+    bt_infected_gender, values='infection_risk', names='gender',
+    color='gender', color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    title='Weighted Breakthrough Infection Rate by Gender (past 30 days)',
+    #paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_infected_gender)
+
+logger.info('Processing breakthrough cases - infections - by age band')
+bt_infected_age = bt_infected.loc[
+    bt_infected['date'] >= (datetime.now() - timedelta(30))
+].groupby('ageband', as_index=False)['count'].sum()
+bt_infected_age['perc'] = bt_infected_age['count'] / bt_infected_age['count'].sum()
+
+bt_infected_vac_gender = (
+    bt_infected.groupby(['vaccine', 'gender'],
+                        as_index=False)['count'].sum()
+)
+#f = px.bar(bt_infected_vac_gender, x='vaccine', y='count', color='gender', barmode='group')
+#plot(f)
+bt_infected_vac_age = (
+    bt_infected.groupby(['vaccine', 'ageband'],
+                        as_index=False)['count'].sum()
+)
+#f = px.bar(bt_infected_vac_age, x='ageband', y='count', color='vaccine', barmode='stack')
+#plot(f)
+
+# by age and gender
+logger.info('Processing breakthrough cases - infections - by age band and gender')
+bt_infected_age_gender = (
+    bt_infected.loc[
+        bt_infected['date'] >= (datetime.now() - timedelta(30))
+    ]
+    .replace('10 - 12', '0 - 19').replace('12 - 14', '0 - 19')
+    .replace('15 - 16', '0 - 19').replace('17 - 19', '0 - 19')
+    .groupby(['gender', 'ageband'], as_index=False)['count'].sum()
+)
+
+bt_infected_age_gender = (
+    bt_infected_age_gender.merge(
+    pd.concat([males, females]), how='left',
+    left_on=['gender', 'ageband'],
+    right_on=['gender', 'covid_age_band'])
+).drop(['males', 'females', 'covid_age_band'], axis=1)
+
+bt_infected_age_gender['perc'] = bt_infected_age_gender['count'] / bt_infected_age_gender.groupby('gender')['count'].transform('sum')
+bt_infected_age_gender['infection_risk'] = bt_infected_age_gender['perc'] / bt_infected_age_gender['band_prop']
+bt_infected_age_gender['infection_risk'] = (
+    bt_infected_age_gender['infection_risk'] / bt_infected_age_gender.groupby('gender')['infection_risk'].transform('sum')
+)
+
+fig_bt_infected_age_gender = px.bar(
+    bt_infected_age_gender,
+    x='ageband', y='infection_risk', color='gender',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'}
+)
+fig_bt_infected_age_gender.update_layout(
+   yaxis=dict(title='Infection Rate'), xaxis=dict(title='Age Band'), barmode='group',
+   title='Weighted Breakthrough Infection Rate by Age and Gender (past 30 days)',
+   paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_infected_age_gender)
+
+
+# by age, gender and vaccine type
+logger.info('Processing breakthrough cases - infections - by age band, gender and vaccine type')
+bt_infected_vac_age_gender = (
+    bt_infected.groupby(['ageband', 'vaccine', 'gender'],
+                        as_index=False)['count'].sum()
+)
+fig_bt_infected_vac_age_gender = px.bar(
+    bt_infected_vac_age_gender,
+    x='ageband', y='count', color='gender', barmode='relative',
+    facet_col='vaccine'
+)
+fig_bt_infected_vac_age_gender.update_layout(
+    yaxis=dict(title='Number of cases'),
+    title='Number of Infections by Vaccine Type, Age Band and Gender (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_infected_vac_age_gender)
+
+
+bt_infected_vac_age_gender['perc'] = (
+    bt_infected_vac_age_gender
+    .groupby(['vaccine', 'ageband'])['count']
+    .apply(lambda x: 100*x / float(x.sum()))
+)
+fig_bt_infected_vac_age_gender_perc = px.bar(
+    bt_infected_vac_age_gender,
+    x='ageband', y='perc', color='gender', barmode='relative',
+    facet_col='vaccine'
+)
+fig_bt_infected_vac_age_gender_perc.update_layout(
+    yaxis=dict(title='Proportion of cases'),
+    title='Proportion of Infections by Vaccine Type, Age Band and Gender (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_infected_vac_age_gender_perc)
+
+
+## HOSPITALIZATIONS ##
+logger.info('Processing breakthrough cases - hospitalizations')
+bt_hospitalized = read_breakthrough('./data/COVID_breakthrough_hospitalized.csv')
+bt_hospitalized['count'].sum()
+
+hospitalizations = covid_general[['date', 'hospitalized', 'intensive_care']]
+hospitalizations['new_hospitalized'] = hospitalizations['hospitalized'].diff()
+hospitalizations['new_hospitalized'] = np.where(
+    hospitalizations['new_hospitalized'] < 0, 0, hospitalizations['new_hospitalized']
+)
+hospitalizations['new_intensive_care'] = hospitalizations['intensive_care'].diff()
+hospitalizations['new_intensive_care'] = np.where(
+    hospitalizations['new_intensive_care'] < 0, 0, hospitalizations['new_intensive_care']
+)
+
+
+hospitalized_vac_past30 = (
+    bt_hospitalized.loc[
+        bt_hospitalized['date'] >= (datetime.now() - timedelta(30)),
+        'count'
+    ].sum()
+)
+hospitalized_unvac_past30 = (
+    hospitalizations.loc[
+        hospitalizations['date'] >= (datetime.now() - timedelta(30)),
+        'new_hospitalized'
+    ].sum()
+)
+hospitalized_vac_past30_prop = (
+    hospitalized_vac_past30 / 
+    (hospitalized_vac_past30 + hospitalized_unvac_past30)
+)
+
+
+# by vaccine type
+logger.info('Processing breakthrough cases - hospitalizations - by vaccine type')
+bt_hospitalized_vac = bt_hospitalized.loc[
+    bt_hospitalized['date'] >= (datetime.now() - timedelta(30))
+].groupby('vaccine', as_index=False)['count'].sum()
+bt_hospitalized_vac['perc'] = bt_hospitalized_vac['count'] / bt_hospitalized_vac['count'].sum()
+bt_hospitalized_vac = (
+    append_nat_vac_props(
+        bt_hospitalized_vac, astrazeneca_perc,
+        moderna_perc, johnson_perc, pfizer_perc)
+)
+bt_hospitalized_vac['hospitalization_risk'] = bt_hospitalized_vac['perc'] / bt_hospitalized_vac['perc_vac']
+bt_hospitalized_vac['hospitalization_risk'] = (
+    bt_hospitalized_vac['hospitalization_risk'] *
+    hospitalized_vac_past30_prop /
+    bt_hospitalized_vac['hospitalization_risk'].sum()
+)
+
+bt_hospitalized_vac = (
+    pd.concat(
+        [pd.DataFrame(
+             {'vaccine':['Unvaccinated'],
+              'count': [hospitalized_unvac_past30],
+              'hospitalization_risk':[(1-hospitalized_vac_past30_prop)]
+              }),
+        bt_hospitalized_vac]
+    )
+)
+
+fig_bt_hospitalized_vac = go.Figure()
+for i in bt_hospitalized_vac.itertuples():
+    if not i.vaccine == 'Unvaccinated':
+        fig_bt_hospitalized_vac.add_trace(go.Bar(
+            name=i.vaccine, x=[i.hospitalization_risk], y=[i.vaccine], orientation='h',
+            marker=dict(color=vaccines_color_map[i.vaccine])
+        ))
+    else:
+        fig_bt_hospitalized_vac.add_trace(go.Bar(
+            name=i.vaccine, x=[i.hospitalization_risk], y=[i.vaccine], orientation='h',
+            marker=dict(color=vaccines_color_map[i.vaccine]), visible='legendonly',
+        ))
+
+fig_bt_hospitalized_vac.update_layout(
+    barmode='stack',
+    xaxis=dict(tickformat=',.1%', hoverformat=',.2%', title='Hospitalization Rate'),
+    title='Weighted Breakthrough Hospitalization Rate by Type of Vaccine (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_breakthrough_by_vac)
+
+logger.info('Processing breakthrough cases - hospitalizations - by gender')
+bt_hospitalized_gender = bt_hospitalized.loc[
+    bt_hospitalized['date'] >= (datetime.now() - timedelta(30))
+].groupby('gender', as_index=False)['count'].sum()
+bt_hospitalized_gender['perc'] = bt_hospitalized_gender['count'] / bt_hospitalized_gender['count'].sum()
+bt_hospitalized_gender['perc_pop'] = [1-total_pop_males_prop, total_pop_males_prop]
+bt_hospitalized_gender['hospitalization_risk'] = bt_hospitalized_gender['perc'] / bt_hospitalized_gender['perc_pop']
+bt_hospitalized_gender['hospitalization_risk'] = (
+    bt_hospitalized_gender['hospitalization_risk'] * 100 / bt_hospitalized_gender['hospitalization_risk'].sum()
+)
+
+fig_breakthrough_by_gender = px.pie(
+    bt_hospitalized_gender, values='hospitalization_risk', names='gender',
+    color='gender', color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    title='Weighted Breakthrough Hospitalization Rate by Gender (past 30 days)',
+    #paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_breakthrough_by_gender)
+
+logger.info('Processing breakthrough cases - hospitalizations - by age band')
+bt_hospitalized_age = bt_hospitalized.loc[
+    bt_hospitalized['date'] >= (datetime.now() - timedelta(30))
+].groupby('ageband', as_index=False)['count'].sum()
+bt_hospitalized_age['perc'] = bt_hospitalized_age['count'] / bt_hospitalized_age['count'].sum()
+
+bt_hospitalized_vac_gender = (
+    bt_hospitalized.groupby(['vaccine', 'gender'],
+                        as_index=False)['count'].sum()
+)
+#f = px.bar(bt_hospitalized_vac_gender, x='vaccine', y='count', color='gender', barmode='group')
+#plot(f)
+bt_hospitalized_vac_age = (
+    bt_hospitalized.groupby(['vaccine', 'ageband'],
+                        as_index=False)['count'].sum()
+)
+#f = px.bar(bt_hospitalized_vac_age, x='ageband', y='count', color='vaccine', barmode='stack')
+#plot(f)
+
+# by age and gender
+logger.info('Processing breakthrough cases - hospitalizations - by age band and gender')
+bt_hospitalized_age_gender = (
+    bt_hospitalized.loc[
+        bt_hospitalized['date'] >= (datetime.now() - timedelta(30))
+    ]
+    .replace('10 - 12', '0 - 19').replace('12 - 14', '0 - 19')
+    .replace('15 - 16', '0 - 19').replace('17 - 19', '0 - 19')
+    .groupby(['gender', 'ageband'], as_index=False)['count'].sum()
+)
+
+bt_hospitalized_age_gender = (
+    bt_hospitalized_age_gender.merge(
+    pd.concat([males, females]), how='left',
+    left_on=['gender', 'ageband'],
+    right_on=['gender', 'covid_age_band'])
+).drop(['males', 'females', 'covid_age_band'], axis=1)
+
+bt_hospitalized_age_gender['perc'] = bt_hospitalized_age_gender['count'] / bt_hospitalized_age_gender.groupby('gender')['count'].transform('sum')
+bt_hospitalized_age_gender['hospitalization_risk'] = bt_hospitalized_age_gender['perc'] / bt_hospitalized_age_gender['band_prop']
+bt_hospitalized_age_gender['hospitalization_risk'] = (
+    bt_hospitalized_age_gender['hospitalization_risk'] * 100 / bt_hospitalized_age_gender.groupby('gender')['hospitalization_risk'].transform('sum')
+)
+
+fig_bt_hospitalized_age_gender = px.bar(
+    bt_hospitalized_age_gender,
+    x='ageband', y='hospitalization_risk', color='gender',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'}
+)
+fig_bt_hospitalized_age_gender.update_layout(
+   yaxis=dict(title='Hospitalization Rate'), xaxis=dict(title='Age Band'), barmode='group',
+   title='Weighted Breakthrough Hospitalization Rate by Age and Gender (past 30 days)',
+   paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_hospitalized_age_gender)
+
+
+# by age, gender and vaccine type
+logger.info('Processing breakthrough cases - hospitalizations - by age band, gender and vaccine type')
+bt_hospitalized_vac_age_gender = (
+    bt_hospitalized.loc[
+        bt_hospitalized['date'] >= (datetime.now() - timedelta(30))
+    ].groupby(['ageband', 'vaccine', 'gender'],
+                        as_index=False)['count'].sum()
+)
+fig_bt_hospitalized_vac_age_gender = px.bar(
+    bt_hospitalized_vac_age_gender,
+    x='ageband', y='count', color='gender', barmode='relative',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    facet_col='vaccine'
+)
+fig_bt_hospitalized_vac_age_gender.update_layout(
+    yaxis=dict(title='Number of cases'),
+    title='Number of Hospitalizations by Vaccine Type, Age Band and Gender (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_hospitalized_vac_age_gender)
+
+
+bt_hospitalized_vac_age_gender['perc'] = (
+    bt_hospitalized_vac_age_gender
+    .groupby(['vaccine', 'ageband'])['count']
+    .apply(lambda x: 100*x / float(x.sum()))
+)
+fig_bt_hospitalized_vac_age_gender_perc = px.bar(
+    bt_hospitalized_vac_age_gender,
+    x='ageband', y='perc', color='gender', barmode='relative',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    facet_col='vaccine'
+)
+fig_bt_hospitalized_vac_age_gender_perc.update_layout(
+    yaxis=dict(title='Proportion of cases'),
+    title='Proportion of Hospitalizations by Vaccine Type, Age Band and Gender (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_hospitalized_vac_age_gender_perc)
+
+
+## INTENSIVE CARE UNITS ##
+logger.info('Processing breakthrough cases - intensive care')
+bt_intensivecare = read_breakthrough('./data/COVID_breakthrough_intensivecare.csv')
+bt_intensivecare['count'].sum()
+
+intensivecare_vac_past30 = (
+    bt_intensivecare.loc[
+        bt_intensivecare['date'] >= (datetime.now() - timedelta(30)),
+        'count'
+    ].sum()
+)
+intensivecare_unvac_past30 = (
+    hospitalizations.loc[
+        hospitalizations['date'] >= (datetime.now() - timedelta(30)),
+        'new_intensive_care'
+    ].sum()
+)
+intensivecare_vac_past30_prop = (
+    intensivecare_vac_past30 / 
+    (intensivecare_vac_past30 + intensivecare_unvac_past30)
+)
+
+
+# by vaccine type
+logger.info('Processing breakthrough cases - intensive care - by vaccine type')
+bt_intensivecare_vac = bt_intensivecare.loc[
+    bt_intensivecare['date'] >= (datetime.now() - timedelta(30))
+].groupby('vaccine', as_index=False)['count'].sum()
+bt_intensivecare_vac['perc'] = bt_intensivecare_vac['count'] / bt_intensivecare_vac['count'].sum()
+bt_intensivecare_vac = (
+    append_nat_vac_props(
+        bt_intensivecare_vac, astrazeneca_perc,
+        moderna_perc, johnson_perc, pfizer_perc)
+)
+bt_intensivecare_vac['intensivecare_risk'] = bt_intensivecare_vac['perc'] / bt_intensivecare_vac['perc_vac']
+bt_intensivecare_vac['intensivecare_risk'] = (
+    bt_intensivecare_vac['intensivecare_risk'] *
+    intensivecare_vac_past30_prop /
+    bt_intensivecare_vac['intensivecare_risk'].sum()
+)
+
+bt_intensivecare_vac = (
+    pd.concat(
+        [pd.DataFrame(
+             {'vaccine':['Unvaccinated'],
+              'count': [intensivecare_unvac_past30],
+              'intensivecare_risk':[(1-intensivecare_vac_past30_prop)]
+              }),
+        bt_intensivecare_vac]
+    )
+)
+
+fig_bt_intensivecare_vac = go.Figure()
+for i in bt_intensivecare_vac.itertuples():
+    if not i.vaccine == 'Unvaccinated':
+        fig_bt_intensivecare_vac.add_trace(go.Bar(
+            name=i.vaccine, x=[i.intensivecare_risk], y=[i.vaccine], orientation='h',
+            marker=dict(color=vaccines_color_map[i.vaccine])
+        ))
+    else:
+        fig_bt_intensivecare_vac.add_trace(go.Bar(
+            name=i.vaccine, x=[i.intensivecare_risk], y=[i.vaccine], orientation='h',
+            marker=dict(color=vaccines_color_map[i.vaccine]), visible='legendonly',
+        ))
+
+fig_bt_intensivecare_vac.update_layout(
+    barmode='stack',
+    xaxis=dict(tickformat=',.1%', hoverformat=',.2%', title='Intensive Care Hosp. Rate'),
+    title='Weighted Breakthrough Intensive Care Hosp. Rate by Type of Vaccine (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_breakthrough_by_vac)
+
+logger.info('Processing breakthrough cases - intensive care - by gender')
+bt_intensivecare_gender = bt_intensivecare.loc[
+    bt_intensivecare['date'] >= (datetime.now() - timedelta(30))
+].groupby('gender', as_index=False)['count'].sum()
+bt_intensivecare_gender['perc'] = bt_intensivecare_gender['count'] / bt_intensivecare_gender['count'].sum()
+bt_intensivecare_gender['perc_pop'] = [1-total_pop_males_prop, total_pop_males_prop]
+bt_intensivecare_gender['intensivecare_risk'] = bt_intensivecare_gender['perc'] / bt_intensivecare_gender['perc_pop']
+bt_intensivecare_gender['intensivecare_risk'] = (
+    bt_intensivecare_gender['intensivecare_risk'] * 100 / bt_intensivecare_gender['intensivecare_risk'].sum()
+)
+
+fig_breakthrough_by_gender = px.pie(
+    bt_intensivecare_gender, values='intensivecare_risk', names='gender',
+    color='gender', color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    title='Weighted Breakthrough Intensive Care Hosp. Rate by Gender (past 30 days)',
+    #paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_breakthrough_by_gender)
+
+logger.info('Processing breakthrough cases - intensive care - by age band')
+bt_intensivecare_age = bt_intensivecare.loc[
+    bt_intensivecare['date'] >= (datetime.now() - timedelta(30))
+].groupby('ageband', as_index=False)['count'].sum()
+bt_intensivecare_age['perc'] = bt_intensivecare_age['count'] / bt_intensivecare_age['count'].sum()
+
+bt_intensivecare_vac_gender = (
+    bt_intensivecare.groupby(['vaccine', 'gender'],
+                        as_index=False)['count'].sum()
+)
+#f = px.bar(bt_intensivecare_vac_gender, x='vaccine', y='count', color='gender', barmode='group')
+#plot(f)
+bt_intensivecare_vac_age = (
+    bt_intensivecare.groupby(['vaccine', 'ageband'],
+                        as_index=False)['count'].sum()
+)
+#f = px.bar(bt_intensivecare_vac_age, x='ageband', y='count', color='vaccine', barmode='stack')
+#plot(f)
+
+# by age and gender
+logger.info('Processing breakthrough cases - intensive care - by age band and gender')
+bt_intensivecare_age_gender = (
+    bt_intensivecare.loc[
+        bt_intensivecare['date'] >= (datetime.now() - timedelta(30))
+    ]
+    .replace('10 - 12', '0 - 19').replace('12 - 14', '0 - 19')
+    .replace('15 - 16', '0 - 19').replace('17 - 19', '0 - 19')
+    .groupby(['gender', 'ageband'], as_index=False)['count'].sum()
+)
+
+bt_intensivecare_age_gender = (
+    bt_intensivecare_age_gender.merge(
+    pd.concat([males, females]), how='left',
+    left_on=['gender', 'ageband'],
+    right_on=['gender', 'covid_age_band'])
+).drop(['males', 'females', 'covid_age_band'], axis=1)
+
+bt_intensivecare_age_gender['perc'] = bt_intensivecare_age_gender['count'] / bt_intensivecare_age_gender.groupby('gender')['count'].transform('sum')
+bt_intensivecare_age_gender['intensivecare_risk'] = bt_intensivecare_age_gender['perc'] / bt_intensivecare_age_gender['band_prop']
+bt_intensivecare_age_gender['intensivecare_risk'] = (
+    bt_intensivecare_age_gender['intensivecare_risk'] * 100 / bt_intensivecare_age_gender.groupby('gender')['intensivecare_risk'].transform('sum')
+)
+
+fig_bt_intensivecare_age_gender = px.bar(
+    bt_intensivecare_age_gender,
+    x='ageband', y='intensivecare_risk', color='gender',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'}
+)
+fig_bt_intensivecare_age_gender.update_layout(
+   yaxis=dict(title='Intensive Care Hosp. Rate'), xaxis=dict(title='Age Band'), barmode='group',
+   title='Weighted Breakthrough Intensive Care Hosp. Rate by Age and Gender (past 30 days)',
+   paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_intensivecare_age_gender)
+
+
+# by age, gender and vaccine type
+logger.info('Processing breakthrough cases - intensive care - by age band, gender and vaccine type')
+bt_intensivecare_vac_age_gender = (
+    bt_intensivecare.loc[
+        bt_intensivecare['date'] >= (datetime.now() - timedelta(30))
+].groupby(['ageband', 'vaccine', 'gender'],
+                        as_index=False)['count'].sum()
+)
+fig_bt_intensivecare_vac_age_gender = px.bar(
+    bt_intensivecare_vac_age_gender,
+    x='ageband', y='count', color='gender', barmode='relative',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    facet_col='vaccine'
+)
+fig_bt_intensivecare_vac_age_gender.update_layout(
+    yaxis=dict(title='Number of cases'),
+    title='Number of Intensive Care Hosp. by Vaccine Type, Age Band and Gender (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_intensivecare_vac_age_gender)
+
+
+bt_intensivecare_vac_age_gender['perc'] = (
+    bt_intensivecare_vac_age_gender
+    .groupby(['vaccine', 'ageband'])['count']
+    .apply(lambda x: 100*x / float(x.sum()))
+)
+fig_bt_intensivecare_vac_age_gender_perc = px.bar(
+    bt_intensivecare_vac_age_gender,
+    x='ageband', y='perc', color='gender', barmode='relative',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    facet_col='vaccine'
+)
+fig_bt_intensivecare_vac_age_gender_perc.update_layout(
+    yaxis=dict(title='Proportion of cases'),
+    title='Proportion of Intensive Care Hosp. by Vaccine Type, Age Band and Gender (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_intensivecare_vac_age_gender_perc)
+
+
+## DEATHS ##
+logger.info('Processing breakthrough cases - deaths')
+bt_deaths = read_breakthrough('./data/COVID_breakthrough_deaths.csv')
+bt_deaths['count'].sum()
+
+deaths_vac_past30 = (
+    bt_deaths.loc[
+        bt_deaths['date'] >= (datetime.now() - timedelta(30)),
+        'count'
+    ].sum()
+)
+deaths_unvac_past30 = (
+    covid_general.loc[
+        covid_general['date'] >= (datetime.now() - timedelta(30)),
+        'new_deaths'
+    ].sum()
+)
+deaths_vac_past30_prop = (
+    deaths_vac_past30 / 
+    (deaths_vac_past30 + deaths_unvac_past30)
+)
+
+
+# by vaccine type
+logger.info('Processing breakthrough cases - deaths - by vaccine type')
+bt_deaths_vac = bt_deaths.loc[
+    bt_deaths['date'] >= (datetime.now() - timedelta(30))
+].groupby('vaccine', as_index=False)['count'].sum()
+bt_deaths_vac['perc'] = bt_deaths_vac['count'] / bt_deaths_vac['count'].sum()
+bt_deaths_vac = (
+    append_nat_vac_props(
+        bt_deaths_vac, astrazeneca_perc,
+        moderna_perc, johnson_perc, pfizer_perc)
+)
+bt_deaths_vac['mortality_risk'] = bt_deaths_vac['perc'] / bt_deaths_vac['perc_vac']
+bt_deaths_vac['mortality_risk'] = (
+    bt_deaths_vac['mortality_risk'] *
+    deaths_vac_past30_prop /
+    bt_deaths_vac['mortality_risk'].sum()
+)
+
+bt_deaths_vac = (
+    pd.concat(
+        [pd.DataFrame(
+             {'vaccine':['Unvaccinated'],
+              'count': [deaths_unvac_past30],
+              'mortality_risk':[(1-deaths_vac_past30_prop)]
+              }),
+        bt_deaths_vac]
+    )
+)
+
+fig_bt_deaths_vac = go.Figure()
+for i in bt_deaths_vac.itertuples():
+    if not i.vaccine == 'Unvaccinated':
+        fig_bt_deaths_vac.add_trace(go.Bar(
+            name=i.vaccine, x=[i.mortality_risk], y=[i.vaccine], orientation='h',
+            marker=dict(color=vaccines_color_map[i.vaccine])
+        ))
+    else:
+        fig_bt_deaths_vac.add_trace(go.Bar(
+            name=i.vaccine, x=[i.mortality_risk], y=[i.vaccine], orientation='h',
+            marker=dict(color=vaccines_color_map[i.vaccine]), visible='legendonly',
+        ))
+
+fig_bt_deaths_vac.update_layout(
+    barmode='stack',
+    xaxis=dict(tickformat=',.1%', hoverformat=',.2%', title='Mortality Rate'),
+    title='Weighted Breakthrough Mortality Rate by Type of Vaccine (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_breakthrough_by_vac)
+
+logger.info('Processing breakthrough cases - deaths - by gender')
+bt_deaths_gender = bt_deaths.loc[
+    bt_deaths['date'] >= (datetime.now() - timedelta(30))
+].groupby('gender', as_index=False)['count'].sum()
+bt_deaths_gender['perc'] = bt_deaths_gender['count'] / bt_deaths_gender['count'].sum()
+bt_deaths_gender['perc_pop'] = [1-total_pop_males_prop, total_pop_males_prop]
+bt_deaths_gender['mortality_risk'] = bt_deaths_gender['perc'] / bt_deaths_gender['perc_pop']
+bt_deaths_gender['mortality_risk'] = (
+    bt_deaths_gender['mortality_risk'] * 100 / bt_deaths_gender['mortality_risk'].sum()
+)
+
+fig_breakthrough_by_gender = px.pie(
+    bt_deaths_gender, values='mortality_risk', names='gender',
+    color='gender', color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    title='Weighted Breakthrough Mortality Rate by Gender (past 30 days)',
+    #paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_breakthrough_by_gender)
+
+logger.info('Processing breakthrough cases - deaths - by age band')
+bt_deaths_age = bt_deaths.loc[
+    bt_deaths['date'] >= (datetime.now() - timedelta(30))
+].groupby('ageband', as_index=False)['count'].sum()
+bt_deaths_age['perc'] = bt_deaths_age['count'] / bt_deaths_age['count'].sum()
+
+bt_deaths_vac_gender = (
+    bt_deaths.groupby(['vaccine', 'gender'],
+                        as_index=False)['count'].sum()
+)
+#f = px.bar(bt_deaths_vac_gender, x='vaccine', y='count', color='gender', barmode='group')
+#plot(f)
+bt_deaths_vac_age = (
+    bt_deaths.groupby(['vaccine', 'ageband'],
+                        as_index=False)['count'].sum()
+)
+#f = px.bar(bt_deaths_vac_age, x='ageband', y='count', color='vaccine', barmode='stack')
+#plot(f)
+
+# by age and gender
+logger.info('Processing breakthrough cases - deaths - by age band and gender')
+bt_deaths_age_gender = (
+    bt_deaths.loc[
+        bt_deaths['date'] >= (datetime.now() - timedelta(30))
+    ]
+    .replace('10 - 12', '0 - 19').replace('12 - 14', '0 - 19')
+    .replace('15 - 16', '0 - 19').replace('17 - 19', '0 - 19')
+    .groupby(['gender', 'ageband'], as_index=False)['count'].sum()
+)
+
+bt_deaths_age_gender = (
+    bt_deaths_age_gender.merge(
+    pd.concat([males, females]), how='left',
+    left_on=['gender', 'ageband'],
+    right_on=['gender', 'covid_age_band'])
+).drop(['males', 'females', 'covid_age_band'], axis=1)
+
+bt_deaths_age_gender['perc'] = bt_deaths_age_gender['count'] / bt_deaths_age_gender.groupby('gender')['count'].transform('sum')
+bt_deaths_age_gender['mortality_risk'] = bt_deaths_age_gender['perc'] / bt_deaths_age_gender['band_prop']
+bt_deaths_age_gender['mortality_risk'] = (
+    bt_deaths_age_gender['mortality_risk'] * 100 / bt_deaths_age_gender.groupby('gender')['mortality_risk'].transform('sum')
+)
+
+fig_bt_deaths_age_gender = px.bar(
+    bt_deaths_age_gender,
+    x='ageband', y='mortality_risk', color='gender',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'}
+)
+fig_bt_deaths_age_gender.update_layout(
+   yaxis=dict(title='Mortality Rate'), xaxis=dict(title='Age Band'), barmode='group',
+   title='Weighted Breakthrough Mortality Rate by Age and Gender (past 30 days)',
+   paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_deaths_age_gender)
+
+
+# by age, gender and vaccine type
+logger.info('Processing breakthrough cases - deaths - by age band, gender and vaccine type')
+bt_deaths_vac_age_gender = (
+    bt_deaths.loc[
+        bt_deaths['date'] >= (datetime.now() - timedelta(30))
+].groupby(['ageband', 'vaccine', 'gender'],
+                        as_index=False)['count'].sum()
+)
+fig_bt_deaths_vac_age_gender = px.bar(
+    bt_deaths_vac_age_gender,
+    x='ageband', y='count', color='gender', barmode='relative',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    facet_col='vaccine'
+)
+fig_bt_deaths_vac_age_gender.update_layout(
+    yaxis=dict(title='Number of cases'),
+    title='Number of Deaths by Vaccine Type, Age Band and Gender (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_deaths_vac_age_gender)
+
+
+bt_deaths_vac_age_gender['perc'] = (
+    bt_deaths_vac_age_gender
+    .groupby(['vaccine', 'ageband'])['count']
+    .apply(lambda x: 100*x / float(x.sum()))
+)
+fig_bt_deaths_vac_age_gender_perc = px.bar(
+    bt_deaths_vac_age_gender,
+    x='ageband', y='perc', color='gender', barmode='relative',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
+    facet_col='vaccine'
+)
+fig_bt_deaths_vac_age_gender_perc.update_layout(
+    yaxis=dict(title='Proportion of cases'),
+    title='Proportion of Deaths by Vaccine Type, Age Band and Gender (past 30 days)',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
+)
+#plot(fig_bt_deaths_vac_age_gender_perc)
+
+
+
+def calculate_your_risk(age_band, gender, vaccine_type, risk_type):
+    """
+
+    Parameters
+    ----------
+    age_band : str
+        One of '0 - 19', '20 - 29', '30 - 39', '40 - 49',
+        '50 - 59', '60 - 69', '70 - 79', '80 - 89', '90+'
+    gender : str
+        'Male' or 'Female'
+    vaccine_type : str
+        One of 'Unvaccinated', 'Astra Zeneca', 'Astra Zeneca + Pfizer',
+        'Johnson & Johnson', 'Moderna', 'Pfizer' or 'Pfizer + Johnson'
+    risk_type : str
+        Risk type - could be 'infection_risk', 'hospitalization_risk',
+        'intensivecare_risk' or 'mortality_risk'
+
+    Returns
+    -------
+    composite_risk : float
+        Calculated composite risk
+
+    """
+    if risk_type == 'infection_risk':
+        df_bt_vac = bt_infected_vac
+        df_bt_gender = bt_infected_gender
+        df_bt_age = bt_infected_age_gender
+    elif risk_type == 'hospitalization_risk':
+        df_bt_vac = bt_hospitalized_vac
+        df_bt_gender = bt_hospitalized_gender
+        df_bt_age = bt_hospitalized_age_gender
+    elif risk_type == 'intensivecare_risk':
+        df_bt_vac = bt_intensivecare_vac
+        df_bt_gender = bt_intensivecare_gender
+        df_bt_age = bt_intensivecare_age_gender
+    else:
+        df_bt_vac = bt_deaths_vac
+        df_bt_gender = bt_deaths_gender
+        df_bt_age = bt_deaths_age_gender
+        
+        
+    risk_vaccine = (
+        df_bt_vac.loc[
+            df_bt_vac['vaccine'] == vaccine_type, risk_type
+        ].values[0]
+    )
+    risk_gender = (
+        df_bt_gender.loc[
+            df_bt_gender['gender'] == gender, risk_type
+        ].values[0]
+    ) #* len(bt_infected_gender) / 100
+    risk_age = (
+        df_bt_age.loc[
+            ((df_bt_age['gender'] == gender) & (df_bt_age['ageband'] == age_band)),
+            risk_type
+        ].values[0]
+    ) #* len(bt_infected_age_gender.loc[bt_infected_age_gender['gender'] == gender])
+    
+    composite_risk = risk_vaccine * risk_age# * risk_gender
+    
+    return composite_risk
+
+calculate_your_risk(age_band='40 - 49', gender='Female', vaccine_type='Pfizer',
+        risk_type='hospitalization_risk')
 
 
 ####### ARIMA #######
@@ -1743,7 +2644,7 @@ tabs = html.Div([
                 ]
             ),
             dcc.Tab(
-                label = "Vaccines",
+                label = "Vaccinations",
                 className = "custom-tab",
                 selected_className = "custom-tab--selected",
                 children = [
@@ -1813,6 +2714,116 @@ tabs = html.Div([
                     html.Br()
                     #html.P("Total number of vaccinations by province per 100,000 population:"),
                     #dcc.Graph(figure=fig_map_vaccines_province_total)
+                ]
+            ),
+            dcc.Tab(
+                label = "Breakthrough Infections",
+                className = "custom-tab",
+                selected_className = "custom-tab--selected",
+                children = [
+                    html.Br(),
+                    html.Br(),
+                    dcc.Markdown("You can use the options below to calculate specific individual risk by selecting **age band**, **gender** and **vaccine type**. This can allow you to compare the protection rate of each vaccine type according to the age and gender. This calulator is for experimental purposes."),
+                    html.Div([
+                        html.Div(className='dropdown', children=[
+                            dcc.Dropdown(
+                                id='bt-ageband-dropdown',
+                                className='dropdown',
+                                options=[{'label':a, 'value':a} for a in males['covid_age_band'].values],
+                                placeholder='Select age band',
+                                value='30 - 39',
+                                style=dict(width='140%')
+                            ),
+                            dcc.Dropdown(
+                                id='bt-gender-dropdown',
+                                className='dropdown',
+                                options=[
+                                    {'label': 'Female', 'value': 'Female'},
+                                    {'label': 'Male', 'value': 'Male'}
+                                ],
+                                placeholder='Select gender',
+                                value='Female',
+                                style=dict(width='160%')
+                            ),
+                            dcc.Dropdown(
+                                id='bt-vaccine-dropdown',
+                                className='dropdown',
+                                options=[{'label':v, 'value':v} for v in bt_infected_vac['vaccine'].values],
+                                placeholder='Select vaccine',
+                                value='Unvaccinated',
+                                style=dict(width='160%')
+                            ),
+                        ]),
+                        html.Br(),
+                        html.Div([
+                            dcc.Markdown(id="custom-calc-risk-output1"),
+                            #dcc.Markdown(id="custom-calc-risk-output2"),
+                            #dcc.Markdown(id="custom-calc-risk-output3"),
+                            dcc.Markdown(id="custom-calc-risk-output4")
+                        ])
+                    ]),
+                    html.Br(),
+                    html.Br(),
+                    html.H4("Breakthrough - Infections"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_infected_vac_age_gender),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_infected_vac_age_gender_perc),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_infected_age_gender),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_infected_vac),
+                    html.Br(),
+                    html.Br(),
+                    html.H4("Breakthrough - Hospitalizations"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_hospitalized_vac_age_gender),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_hospitalized_vac_age_gender_perc),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_hospitalized_age_gender),
+                    html.Br(),
+                    html.Br(),
+                    # dcc.Graph(figure=fig_bt_hospitalized_vac),
+                    # html.Br(),
+                    # html.Br(),
+                    html.H4("Breakthrough - Intensive Care Unit Hospitalizations"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_intensivecare_vac_age_gender),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_intensivecare_vac_age_gender_perc),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_intensivecare_age_gender),
+                    html.Br(),
+                    html.Br(),
+                    #dcc.Graph(figure=fig_bt_intensivecare_vac),
+                    # html.Br(),
+                    # html.Br(),
+                    html.H4("Breakthrough - Death Cases"),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_deaths_vac_age_gender),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_deaths_vac_age_gender_perc),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_deaths_age_gender),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_bt_deaths_vac),
+                    html.Br(),
+                    html.Br()
                 ]
             ),
             dcc.Tab(
@@ -2128,10 +3139,49 @@ def update_vaccines_manufacturer_province_chart(manufacturer):
     return fig_vacc_province_type
 
 
+@app.callback(
+        [
+         dash.dependencies.Output('custom-calc-risk-output1', 'children'),
+         #dash.dependencies.Output('custom-calc-risk-output2', 'children'),
+         #dash.dependencies.Output('custom-calc-risk-output3', 'children'),
+         dash.dependencies.Output('custom-calc-risk-output4', 'children')
+        ],
+    [
+        dash.dependencies.Input('bt-ageband-dropdown', 'value'),
+        dash.dependencies.Input('bt-gender-dropdown', 'value'),
+        dash.dependencies.Input('bt-vaccine-dropdown', 'value')
+    ])
+def update_calculated_risk(age_band, gender, vaccine_type):
+    try:
+        risk_inf = calculate_your_risk(age_band, gender, vaccine_type, 'infection_risk')
+    except:
+        risk_inf = 0.0001
+    try:
+        risk_hosp = calculate_your_risk(age_band, gender, vaccine_type, 'hospitalization_risk')
+    except:
+        risk_hosp = 0.0001
+    try:
+        risk_icu = calculate_your_risk(age_band, gender, vaccine_type, 'intensivecare_risk')
+    except:
+        risk_icu = 0.0001
+    try:
+        risk_mort = calculate_your_risk(age_band, gender, vaccine_type, 'mortality_risk')
+    except:
+        risk_mort = 0.0001
+        
+    return (
+        [
+            f'Infection risk: **{round(100 * risk_inf, 2)}%**',
+            #f'Hospitalization risk: **{round(100 * risk_hosp, 2)}%** (after infection)',
+            #f'Intensive care risk: **{round(100 * risk_icu, 2)}%** (after hospitalization)',
+            f'Death risk: **{round(100 * risk_mort, 2)}%**'
+        ]        
+    )
+
+
 logger.info('Running dash server')
 
 server = app.server
 
 if __name__ == '__main__':
     app.run_server(debug=False)
-

@@ -62,3 +62,33 @@ def read_covid_tests(path, date_col):
     return tests
 
 
+def read_breakthrough(path):
+    df = pd.read_csv(path, parse_dates=['Дата'])
+    df.columns = ['date', 'vaccine', 'gender', 'ageband', 'count']
+    df = df.loc[df['count'] > 0]
+    df['gender'] = (
+        df['gender']
+        .replace('Мъж', 'Male')
+        .replace('Жена', 'Female')
+    )
+    df['vaccine'] = (
+        df['vaccine']
+        .replace('AZ', 'Astra Zeneca')
+        .replace('AZ - COM', 'Astra Zeneca + Pfizer')
+        .replace('COM', 'Pfizer')
+        .replace('MOD', 'Moderna')
+        .replace('JANSS', 'Johnson & Johnson')
+        .replace('COM - JANSS', 'Pfizer + Johnson')
+    )
+    return df
+
+
+def append_nat_vac_props(df, prop_az, prop_mod, prop_john, prop_pf):
+    df.loc[df['vaccine'] == 'Astra Zeneca', 'perc_vac'] = prop_az
+    df.loc[df['vaccine'] == 'Astra Zeneca + Pfizer', 'perc_vac'] = df.loc[df['vaccine'] == 'Astra Zeneca + Pfizer', 'perc']
+    df.loc[df['vaccine'] == 'Johnson & Johnson', 'perc_vac'] = prop_john
+    df.loc[df['vaccine'] == 'Moderna', 'perc_vac'] = prop_mod
+    df.loc[df['vaccine'] == 'Pfizer', 'perc_vac'] = prop_pf
+    df.loc[df['vaccine'] == 'Pfizer + Johnson', 'perc_vac'] = df.loc[df['vaccine'] == 'Pfizer + Johnson', 'perc']
+    return df
+
