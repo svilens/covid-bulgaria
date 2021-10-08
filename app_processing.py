@@ -107,7 +107,7 @@ vaccines_df = pd.merge(
 vacc_old_compare = vaccines_df_old.loc[vaccines_df_old.date == vaccines_df_old.date.max(),['province','total']].sort_values(by='province', ascending=True).reset_index(drop=True)
 
 if len(vaccines_df[['province','total']].compare(vacc_old_compare)) != 0:
-    vacc_cols = ['date','province','code','pop','total','new_pfizer','new_astrazeneca','new_moderna','new_johnson','second_dose']
+    vacc_cols = ['date','province','code','pop','total','new_pfizer','new_astrazeneca','new_moderna','new_johnson','second_dose', 'booster_jab']
     pd.concat([vaccines_df_old[vacc_cols], vaccines_df[vacc_cols]]).fillna(0).to_csv('./dash_data/vaccines.csv', header=True, index=False)
     logger.info('Vaccines data was added successfully.')
 else:

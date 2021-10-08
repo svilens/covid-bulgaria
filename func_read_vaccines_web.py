@@ -41,8 +41,8 @@ def get_vaccines_data_web(url, chromedriver_dir):
         line = i.replace('-','0').split(' ')
         
         # adjust the names of provinces containing a space
-        if len(line) == 8:
-            line = [line[0] + ' ' + line[1], line[2], line[3], line[4], line[5], line[6], line[7]]
+        if len(line) == 9:
+            line = [line[0] + ' ' + line[1], line[2], line[3], line[4], line[5], line[6], line[7], line[8]]
         
         # convert to int
         line_int = [
@@ -52,7 +52,8 @@ def get_vaccines_data_web(url, chromedriver_dir):
             int(line[4]),
             int(line[3]),
             int(line[5]),
-            int(line[6])
+            int(line[6]),
+            int(line[7])
         ]
     
         # add each province data to a dataframe
@@ -60,7 +61,7 @@ def get_vaccines_data_web(url, chromedriver_dir):
         vaccines_df = pd.concat([vaccines_df, vacc_line])
     
     # rename columns
-    vaccines_df.columns=['province', 'total', 'new_pfizer', 'new_astrazeneca', 'new_moderna', 'new_johnson', 'second_dose']
+    vaccines_df.columns=['province', 'total', 'new_pfizer', 'new_astrazeneca', 'new_moderna', 'new_johnson', 'second_dose', 'booster_jab']
     vaccines_df = vaccines_df.reset_index().drop(['index', 'province'], axis=1)
     vaccines_df = pd.concat([pd.DataFrame(codes_vaccines, columns=['code']),
                vaccines_df], axis=1)
