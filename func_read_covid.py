@@ -79,6 +79,11 @@ def read_breakthrough(path):
         .replace('MOD', 'Moderna')
         .replace('JANSS', 'Johnson & Johnson')
         .replace('COM - JANSS', 'Pfizer + Johnson')
+        .replace('COM - MOD', 'Pfizer + Moderna')
+        .replace('AZ - MOD', 'Astra Zeneca + Moderna')
+        .replace('AZ - JANSS', 'Astra Zeneca + Johnson')
+        .replace('MOD - COM', 'Moderna + Pfizer')
+        .replace('MOD - JANSS', 'Moderna + Johnson')
     )
     return df
 
@@ -90,5 +95,6 @@ def append_nat_vac_props(df, prop_az, prop_mod, prop_john, prop_pf):
     df.loc[df['vaccine'] == 'Moderna', 'perc_vac'] = prop_mod
     df.loc[df['vaccine'] == 'Pfizer', 'perc_vac'] = prop_pf
     df.loc[df['vaccine'] == 'Pfizer + Johnson', 'perc_vac'] = df.loc[df['vaccine'] == 'Pfizer + Johnson', 'perc']
+    df.loc[df['vaccine'] == 'Pfizer + Moderna', 'perc_vac'] = df.loc[df['vaccine'] == 'Pfizer + Moderna', 'perc']
     return df
 
