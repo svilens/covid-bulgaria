@@ -1390,7 +1390,8 @@ vaccines_color_map={
     'Astra Zeneca': '#EF553B',
     'Astra Zeneca + Pfizer': 'gold',
     'Johnson & Johnson': '#AB63FA',
-    'Pfizer + Johnson': 'darkcyan'
+    'Pfizer + Johnson': 'darkcyan',
+    'Pfizer + Moderna': 'darkblue'
 }
 
 fig_bt_infected_vac = go.Figure()
