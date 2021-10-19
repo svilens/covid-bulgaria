@@ -1499,6 +1499,7 @@ bt_infected_vac_age_gender = (
 fig_bt_infected_vac_age_gender = px.bar(
     bt_infected_vac_age_gender,
     x='ageband', y='count', color='gender', barmode='relative',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
     facet_col='vaccine'
 )
 fig_bt_infected_vac_age_gender.update_layout(
@@ -1517,6 +1518,7 @@ bt_infected_vac_age_gender['perc'] = (
 fig_bt_infected_vac_age_gender_perc = px.bar(
     bt_infected_vac_age_gender,
     x='ageband', y='perc', color='gender', barmode='relative',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'},
     facet_col='vaccine'
 )
 fig_bt_infected_vac_age_gender_perc.update_layout(

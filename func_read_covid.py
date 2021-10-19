@@ -74,16 +74,16 @@ def read_breakthrough(path):
     df['vaccine'] = (
         df['vaccine']
         .replace('AZ', 'Astra Zeneca')
-        .replace('AZ - COM', 'Astra Zeneca + Pfizer')
+        .replace('AZ - COM', 'Pfizer')
         .replace('COM', 'Pfizer')
         .replace('MOD', 'Moderna')
         .replace('JANSS', 'Johnson & Johnson')
-        .replace('COM - JANSS', 'Pfizer + Johnson')
-        .replace('COM - MOD', 'Pfizer + Moderna')
-        .replace('AZ - MOD', 'Astra Zeneca + Moderna')
-        .replace('AZ - JANSS', 'Astra Zeneca + Johnson')
-        .replace('MOD - COM', 'Moderna + Pfizer')
-        .replace('MOD - JANSS', 'Moderna + Johnson')
+        .replace('COM - JANSS', 'Johnson & Johnson')
+        .replace('COM - MOD', 'Moderna')
+        .replace('AZ - MOD', 'Moderna')
+        .replace('AZ - JANSS', 'Johnson & Johnson')
+        .replace('MOD - COM', 'Pfizer')
+        .replace('MOD - JANSS', 'Johnson & Johnson')
     )
     return df
 
