@@ -1241,7 +1241,7 @@ fig_vaccines_province_dose.update_layout(
     barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
     legend={'traceorder':'normal'})
 
-
+"""
 logger.info('Creating chart 31: Vaccines availability')
 # read vaccines delivery date
 vaccines_delivery = pd.read_csv('./dash_data/vaccines_delivery.csv', parse_dates=['date'])
@@ -1293,6 +1293,7 @@ fig_vaccines_availability.update_layout(
     title = 'Vaccines availability by manufacturer',
     plot_bgcolor='rgba(0,0,0,0)',
     paper_bgcolor='rgba(0,0,0,0)')
+"""
 
 
 ####### BREAKTHROUGH INFECTIONS #######
