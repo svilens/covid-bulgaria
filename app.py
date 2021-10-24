@@ -54,7 +54,7 @@ fig_gen_stats.update_layout(title = 'Number of cases over time (cumulative)')
 fig_gen_stats.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 fig_gen_stats.update_yaxes(title_text="Confirmed / Recovered", secondary_y=True)
 fig_gen_stats.update_yaxes(title_text="Deaths / Active infections", secondary_y=False)
-fig_gen_stats.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
+#fig_gen_stats.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
 logger.info('Creating chart 2: Cases per week')
@@ -457,6 +457,29 @@ fig_newper100k_14days_map.update_layout(
     plot_bgcolor='rgba(0,0,0,0)')
 
 
+fig_newper100k_14days_map_continuous = px.choropleth_mapbox(
+    covid_past2weeks,
+    geojson = covid_past2weeks.geometry,
+    locations = covid_past2weeks.index,
+    color = 'new_per_100k',
+    color_continuous_scale='Sunsetdark',
+    hover_name = covid_past2weeks.reset_index()['province'],
+    hover_data = ['new_per_100k'],
+    labels = {'new_per_100k':'New infections per 100k pop<br>   for the past 14 days',
+             'label':'Category'},
+    title = f"New infections per 100,000 population for the past 14 days",
+    center = {'lat': 42.734189, 'lon': 25.1635087},
+    mapbox_style = 'carto-darkmatter',
+    opacity = 1,
+    zoom = 6)
+fig_newper100k_14days_map_continuous.update_layout(
+    margin={"r":0,"t":40,"l":0,"b":0},
+    template='plotly_dark',
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0)')
+
+
+
 logger.info('Creating chart 8: Provinces map - new cases per 100k pop')
 fig_yesterday_map_new = px.choropleth_mapbox(
     covid_yesterday,
@@ -604,10 +627,10 @@ fig_tests_daily.update_layout(
     title='New COVID-19 tests per day by test type',
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig_tests_daily.update_xaxes(
-    range=[date.today() - timedelta(days=5*30),
-           date.today() + timedelta(days=1)]
-)
+#fig_tests_daily.update_xaxes(
+#    range=[date.today() - timedelta(days=5*30),
+#           date.today() + timedelta(days=1)]
+#)
 
 
 logger.info('Creating chart 12: Positive tests % by test type')
@@ -720,7 +743,7 @@ fig_hospitalized.update_layout(
     title="Currently hospitalized patients by date",
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig_hospitalized.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
+#fig_hospitalized.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 ####### REPRODUCTION NUMBER #######
 
 logger.info('Starting Rt processing')
@@ -750,7 +773,7 @@ fig_new_bg.update_layout(
     title='Daily new cases in Bulgaria',
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig_new_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
+#fig_new_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
 logger.info('Creating chart 16: Smoothed recoveries - BG')
@@ -774,7 +797,7 @@ fig_recovered_bg.update_layout(
     title='Daily new recoveries in Bulgaria',
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig_recovered_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
+#fig_recovered_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today() + timedelta(days=1)])
 
 
 logger.info('Creating chart 17: Smoothed deaths - BG')
@@ -790,7 +813,7 @@ fig_deaths_bg.add_trace(go.Scatter(
     y=smoothed_deaths_bg.reset_index()['total_deaths'],
     mode='lines', line=dict(width=3), name='Smoothed'))
 fig_deaths_bg.update_layout(title='Daily new deaths in Bulgaria', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-fig_deaths_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
+#fig_deaths_bg.update_xaxes(range=[date.today() - timedelta(days=5*30), date.today()])
 
 
 logger.info('Creating chart 18: Smoothed new cases - BG - age bands')
@@ -2593,6 +2616,9 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_vacc_province_type_total),
                    # dcc.Graph(figure=fig_vaccines_availability),
                     dcc.Graph(figure=fig_newper100k_14days_map),
+                    html.Br(),
+                    html.Br(),
+                    dcc.Graph(figure=fig_newper100k_14days_map_continuous),
                     html.Br(),
                     html.Br(),
                     html.H4("Smoothed figures on a daily basis"),
