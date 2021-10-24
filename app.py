@@ -3007,39 +3007,37 @@ tabs = html.Div([
                     html.Br()
                 ]
             ),
-            """
-            dcc.Tab(
-                label = "Events",
-                className = "custom-tab",
-                selected_className = "custom-tab--selected",
-                children = [
-                    html.Br(),
-                    html.Br(),
-                    html.H4("Did the crowded events  during the summer had any effect on the number of new cases?"),
-                    html.Br(),
-                    html.P("Five major dates were selected: the end of the first lockdown, when the borders with Greece were re-opened (15th June); the football cup final with 20,000 spectators on the stands (1st July); the beginning of the anti-government protests (11th July); the first mass anti-government protest (2nd September); the school opening (15th September). The second lockdown date was also added (28th November 2020), as well as the date since the Antigen tests started to get into the official statistics (24th December 2020)."),
-                    html.Br(),
-                    html.P("The first chart shows that despite the high activity during the summer (summer holidays, mass events, daily protests), there was very little or no immediate effect on the number of new confirmed cases."),
-                    html.P("It is expected to have a few (2-4) weeks lag between the event and the result, but still the only major increase of the confirmed cases began almost a month after the school opening, and there was no other change that can be associated with the other mass events."),
-                    html.Br(),
-                    dcc.Graph(figure=fig_age),
-                    html.Br(),
-                    html.Br(),
-                    html.P("The second chart shows week-over-week percentage change of new confirmed cases. Again, there is no evidence about immediate increase of the new cases after mass outdoor events."),
-                    html.Br(),
-                    dcc.Graph(figure=fig_gen_stats_weekly_new_pct),
-                    html.Br(),
-                    html.P("The fact that the outdoor events during the summer didn't have any significant effect on the number of new cases per week can also be seen on the chart below:"),
-                    html.Br(),
-                    dcc.Graph(figure=fig_gen_stats_weekly_events),
-                    html.Br(),
-                    html.P("Above we can see some significant increase of the new cases in the beginning of the period, after opening the borders with Greece. However, the reason for the increase in the next few weeks could probably be due to the requirement for a negative PCR test result for the people who were travelling abroad - then, many people had to undergo test because they were asked to, part of them have received a positive result, but otherwise they wouldn't have tested themselves, and therefore they would have been left out of the statistics. The conclusion here is that in the beginning of the period, the growth of the new cases might have been caused by the bureaucratic requirement for a negative PCR test."),
-                    html.P("There isn't any significant change in the new cases after the other public events, except the schools opening. It might have caused persistent spread of the disease over the students, and therefore to their parents and relatives. The schools opening is not a one-time event and, unlike the other events, it is carried out indoors, which could potentially increase the infectivity. Also, the younger people might often be asymptomatic, which can make them unaware that they might be spreading the virus. Figure 2 also shows that in the second half of November, when many schools turned to a home-based education, the spread of the disease has lost its momentum. Therefore, the schools opening is a potential root cause for the increased number of cases, that could be investigated further."),
-                    html.P("Another potential reason that could have played part in the increased cases in October is the change in the weather conditions. However, it will be difficult to explain why the virus infectivity has lost its momentum at the end of November. This could probably be due to various government measures and restrictions - it is also obvious how much has decreased the weekly confirmed cases just two weeks after the second lockdown:"),
-                    dcc.Graph(figure=fig_gen_stats_weekly_events_2)
-                ]
-            ),
-            """
+            #dcc.Tab(
+            #    label = "Events",
+            #    className = "custom-tab",
+            #    selected_className = "custom-tab--selected",
+            #    children = [
+            #        html.Br(),
+            #        html.Br(),
+            #        html.H4("Did the crowded events  during the summer had any effect on the number of new cases?"),
+            #        html.Br(),
+            #        html.P("Five major dates were selected: the end of the first lockdown, when the borders with Greece were re-opened (15th June); the football cup final with 20,000 spectators on the stands (1st July); the beginning of the anti-government protests (11th July); the first mass anti-government protest (2nd September); the school opening (15th September). The second lockdown date was also added (28th November 2020), as well as the date since the Antigen tests started to get into the official statistics (24th December 2020)."),
+            #        html.Br(),
+            #        html.P("The first chart shows that despite the high activity during the summer (summer holidays, mass events, daily protests), there was very little or no immediate effect on the number of new confirmed cases."),
+            #        html.P("It is expected to have a few (2-4) weeks lag between the event and the result, but still the only major increase of the confirmed cases began almost a month after the school opening, and there was no other change that can be associated with the other mass events."),
+            #        html.Br(),
+            #        dcc.Graph(figure=fig_age),
+            #        html.Br(),
+            #        html.Br(),
+            #        html.P("The second chart shows week-over-week percentage change of new confirmed cases. Again, there is no evidence about immediate increase of the new cases after mass outdoor events."),
+            #        html.Br(),
+            #        dcc.Graph(figure=fig_gen_stats_weekly_new_pct),
+            #        html.Br(),
+            #        html.P("The fact that the outdoor events during the summer didn't have any significant effect on the number of new cases per week can also be seen on the chart below:"),
+            #        html.Br(),
+            #        dcc.Graph(figure=fig_gen_stats_weekly_events),
+            #        html.Br(),
+            #        html.P("Above we can see some significant increase of the new cases in the beginning of the period, after opening the borders with Greece. However, the reason for the increase in the next few weeks could probably be due to the requirement for a negative PCR test result for the people who were travelling abroad - then, many people had to undergo test because they were asked to, part of them have received a positive result, but otherwise they wouldn't have tested themselves, and therefore they would have been left out of the statistics. The conclusion here is that in the beginning of the period, the growth of the new cases might have been caused by the bureaucratic requirement for a negative PCR test."),
+            #        html.P("There isn't any significant change in the new cases after the other public events, except the schools opening. It might have caused persistent spread of the disease over the students, and therefore to their parents and relatives. The schools opening is not a one-time event and, unlike the other events, it is carried out indoors, which could potentially increase the infectivity. Also, the younger people might often be asymptomatic, which can make them unaware that they might be spreading the virus. Figure 2 also shows that in the second half of November, when many schools turned to a home-based education, the spread of the disease has lost its momentum. Therefore, the schools opening is a potential root cause for the increased number of cases, that could be investigated further."),
+            #        html.P("Another potential reason that could have played part in the increased cases in October is the change in the weather conditions. However, it will be difficult to explain why the virus infectivity has lost its momentum at the end of November. This could probably be due to various government measures and restrictions - it is also obvious how much has decreased the weekly confirmed cases just two weeks after the second lockdown:"),
+            #        dcc.Graph(figure=fig_gen_stats_weekly_events_2)
+            #    ]
+            #),
         ]
     )
 ])
