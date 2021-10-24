@@ -2612,6 +2612,8 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_gen_stats_weekly),
                     #html.P("The weekly cases distribution chart above shows that the number of new confirmed cases per week was relatively stable during the summer (week 25 - week 40), but drastically started to increase in the early October (week 40). The number of new cases per week reached its peak about mid November (week 47), but then started to decrease. About that time the number of new recoveries have also started to increase greatly and although they lost some momentum, the recoveries surpassed the new cases per week before mid December (week 50). On the bad side, between mid October and early December (weeks 42-49), the number of new death cases were breaking the all-time record for 8 consecutive weeks, but that tendency ended in mid-December (week 52)."),
                     html.Br(),
+                    dcc.Graph(figure=fig_gen_stats_weekly_new_pct),
+                    html.Br(),
                     html.H4("COVID-19 tests - PCR vs Antigen"),
                     html.Br(),
                     html.P("Since 24th December 2020, the antigen tests are also included in the official statistics."),
@@ -2704,10 +2706,10 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_vacc_province_total_perc),
                     html.Br(),
                     html.Br(),
-                    html.P("Vaccines availability in stock over time by manufacturer - please note that these figures are only indicative; each manufacturer's vaccines are combined into chunks, each chunk being available to use within a few days. There is no information if there was any vaccine wastage, so we assume that all vaccines have been successfully used."),
-                    dcc.Graph(figure=fig_vaccines_availability),
-                    html.Br(),
-                    html.Br(),
+                    #html.P("Vaccines availability in stock over time by manufacturer - please note that these figures are only indicative; each manufacturer's vaccines are combined into chunks, each chunk being available to use within a few days. There is no information if there was any vaccine wastage, so we assume that all vaccines have been successfully used."),
+                    #dcc.Graph(figure=fig_vaccines_availability),
+                    #html.Br(),
+                    #html.Br(),
                     html.P("Vaccines doses (first/second) proportion by province:"),
                     dcc.Graph(figure=fig_vaccines_province_dose),
                     html.Br(),
@@ -3005,6 +3007,7 @@ tabs = html.Div([
                     html.Br()
                 ]
             ),
+            """
             dcc.Tab(
                 label = "Events",
                 className = "custom-tab",
@@ -3036,6 +3039,7 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_gen_stats_weekly_events_2)
                 ]
             ),
+            """
         ]
     )
 ])
