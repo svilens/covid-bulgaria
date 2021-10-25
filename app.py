@@ -619,7 +619,6 @@ fig_age_prop.update_layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)',
     title='Proportion of total infections by age band')
-plot(fig_age_area)
 
 
 # Area chart - past 14 days
