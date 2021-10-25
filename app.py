@@ -602,6 +602,58 @@ fig_age.add_annotation(
     ax=-10, ay=40)
 
 
+# Prop of total
+covid_by_age_band_perc = covid_by_age_band.copy()
+for c in covid_by_age_band_perc.columns[1:]:
+    covid_by_age_band_perc[c] = 100*covid_by_age_band[c] / covid_by_age_band.iloc[:,1:].sum(axis=1)
+
+fig_age_prop = go.Figure()
+for age_band in covid_by_age_band_perc.columns[1:]:
+    fig_age_prop.add_trace(go.Scatter(
+        x=covid_by_age_band_perc['date'],
+        y=covid_by_age_band_perc[age_band],
+        mode='lines',
+        name=age_band,
+    ))
+fig_age_prop.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0)',
+    title='Proportion of total infections by age band')
+plot(fig_age_area)
+
+
+# Area chart - past 14 days
+covid_by_age_band_daily = covid_by_age_band.copy()
+for c in covid_by_age_band_daily.columns[1:]:
+    covid_by_age_band_daily[c] = covid_by_age_band[c].diff()
+
+covid_by_age_band_14days = covid_by_age_band_daily.copy()
+
+for i in covid_by_age_band_14days.index:
+    for c in covid_by_age_band_14days.columns[1:]:
+        covid_by_age_band_14days.loc[covid_by_age_band_14days.index==i, c] = covid_by_age_band_daily.loc[covid_by_age_band_daily.index.isin(np.arange(i-13,i+1)), c].sum()
+    
+covid_by_age_band_14days_perc = covid_by_age_band_14days.copy()
+for c in covid_by_age_band_14days_perc.columns[1:]:
+    covid_by_age_band_14days_perc[c] = 100*covid_by_age_band_14days[c] / covid_by_age_band_14days.iloc[:,1:].sum(axis=1)
+
+
+fig_age_area = go.Figure()
+for age_band in covid_by_age_band_14days_perc.columns[1:]:
+    fig_age_area.add_trace(go.Scatter(
+        x=covid_by_age_band_14days_perc['date'],
+        y=covid_by_age_band_14days_perc[age_band],
+        mode='lines',
+        name=age_band,
+        stackgroup='one' # define stack group
+    ))
+fig_age_area.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0)',
+    title='Proportion of infections for the past 14 days by age band'
+)
+
+
 ###### TESTS ######
 logger.info('Test types')
 tests = read_covid_tests('./data/COVID_test_type.csv', 'Дата')
@@ -2632,6 +2684,10 @@ tabs = html.Div([
                    # dcc.Graph(figure=fig_age_diff),
                    # html.P("The figure for the age bands above is no respecter of the proportion of each age band from the total population. Therefore, we can calculate the new cases by each age band per 100,000 population of that age band, which can be a better indicatior for the infectivity rate across different age bands. It clearly shows the higher infection risk for middle-aged and older people, compared to the younger generation:"),
                     dcc.Graph(figure=fig_age_per100k),
+                    html.Br(),
+                    dcc.Graph(figure=fig_age_prop),
+                    html.Br(),
+                    dcc.Graph(figure=fig_age_area),
                     html.Br(),
                     html.H4("Cases on a weekly basis"),
                     html.Br(),
