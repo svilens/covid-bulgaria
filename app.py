@@ -64,8 +64,10 @@ epoch = pd.Timestamp("2019-12-30") # continue the week number count when the yea
 covid_general['day_name'] = covid_general['date'].dt.day_name()
 covid_general['week'] = (np.where(covid_general.date.astype("datetime64").le(epoch),
                                covid_general.date.dt.isocalendar().week,
-                               covid_general.date.sub(epoch).dt.days//7+1))
-covid_general_weekly = covid_general.groupby('week')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
+                               covid_general.date.sub(epoch).dt.days//7+1)
+)
+covid_general['first_day'] = covid_general.groupby('week')['date'].transform('first')
+covid_general_weekly = covid_general.groupby('first_day')[['new_cases', 'new_deaths', 'new_recoveries']].sum()
 #covid_general_weekly['new_cases_pct_change'] = covid_general_weekly['new_cases'].pct_change()
 
 if covid_general_weekly.iloc[-1,0] == 53:
@@ -89,24 +91,24 @@ from plotly.subplots import make_subplots
 
 fig_gen_stats_weekly = make_subplots(specs=[[{"secondary_y": True}]])
 fig_gen_stats_weekly.add_trace(go.Scatter(
-    x=covid_general_weekly.index[1:],
-    y=covid_general_weekly.new_cases[1:],
+    x=covid_general_weekly.index,
+    y=covid_general_weekly.new_cases,
     name='New confirmed cases',
     line_shape='spline'), secondary_y=True)
 fig_gen_stats_weekly.add_trace(go.Bar(
-    x=covid_general_weekly.index[1:],
-    y=covid_general_weekly.new_deaths[1:],
+    x=covid_general_weekly.index,
+    y=covid_general_weekly.new_deaths,
     name='New death cases'), secondary_y=False)
 fig_gen_stats_weekly.add_trace(go.Scatter(
-    x=covid_general_weekly.index[1:],
-    y=covid_general_weekly.new_recoveries[1:],
+    x=covid_general_weekly.index,
+    y=covid_general_weekly.new_recoveries,
     name='New recoveries',
     line_shape='spline'),secondary_y=True)
-fig_gen_stats_weekly.add_annotation(
-    x=53, y=530, text="New Year",
-    showarrow=True, arrowhead=2, arrowsize=1, arrowwidth=2,
-    arrowcolor='orange', font=dict(color='orange', size=15),
-    ax=0, ay=-100)
+#fig_gen_stats_weekly.add_annotation(
+#    x=53, y=530, text="New Year",
+#    showarrow=True, arrowhead=2, arrowsize=1, arrowwidth=2,
+#    arrowcolor='orange', font=dict(color='orange', size=15),
+#    ax=0, ay=-100)
 fig_gen_stats_weekly.update_layout(title = 'New cases per week (projected estimations for the current week)')
 fig_gen_stats_weekly.update_xaxes(title_text="week number")
 fig_gen_stats_weekly.update_yaxes(title_text="Confirmed/recovered", secondary_y=True)
@@ -115,9 +117,13 @@ fig_gen_stats_weekly.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='
 
 
 logger.info('Creating chart 3: New cases weekly % change')
+covid_general_weekly = covid_general_weekly.merge(
+        covid_general[['first_day', 'week']].drop_duplicates().set_index('first_day'), left_index=True, right_index=True
+)
+
 fig_gen_stats_weekly_new_pct = go.Figure()
 fig_gen_stats_weekly_new_pct.add_trace(go.Scatter(
-    x=covid_general_weekly.index[1:],
+    x=covid_general_weekly['week'][1:],
     y=covid_general_weekly.new_cases_pct_change[1:],
     line=dict(color='orange'),
     line_shape='spline',
