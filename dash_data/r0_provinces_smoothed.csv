@@ -481,10 +481,12 @@ Blagoevgrad,2021-10-28,205.0
 Blagoevgrad,2021-10-29,210.0
 Blagoevgrad,2021-10-30,216.0
 Blagoevgrad,2021-10-31,208.0
-Blagoevgrad,2021-11-01,207.0
-Blagoevgrad,2021-11-02,209.0
-Blagoevgrad,2021-11-03,214.0
-Blagoevgrad,2021-11-04,217.0
+Blagoevgrad,2021-11-01,208.0
+Blagoevgrad,2021-11-02,214.0
+Blagoevgrad,2021-11-03,220.0
+Blagoevgrad,2021-11-04,225.0
+Blagoevgrad,2021-11-05,237.0
+Blagoevgrad,2021-11-06,252.0
 Burgas,2020-09-03,9.0
 Burgas,2020-09-04,9.0
 Burgas,2020-09-05,9.0
@@ -909,10 +911,12 @@ Burgas,2021-10-28,210.0
 Burgas,2021-10-29,202.0
 Burgas,2021-10-30,216.0
 Burgas,2021-10-31,220.0
-Burgas,2021-11-01,213.0
-Burgas,2021-11-02,218.0
-Burgas,2021-11-03,226.0
-Burgas,2021-11-04,234.0
+Burgas,2021-11-01,217.0
+Burgas,2021-11-02,223.0
+Burgas,2021-11-03,231.0
+Burgas,2021-11-04,238.0
+Burgas,2021-11-05,246.0
+Burgas,2021-11-06,262.0
 Dobrich,2020-10-26,10.0
 Dobrich,2020-10-27,11.0
 Dobrich,2020-10-28,12.0
@@ -1284,10 +1288,12 @@ Dobrich,2021-10-28,83.0
 Dobrich,2021-10-29,82.0
 Dobrich,2021-10-30,83.0
 Dobrich,2021-10-31,80.0
-Dobrich,2021-11-01,76.0
-Dobrich,2021-11-02,73.0
-Dobrich,2021-11-03,72.0
-Dobrich,2021-11-04,73.0
+Dobrich,2021-11-01,77.0
+Dobrich,2021-11-02,75.0
+Dobrich,2021-11-03,76.0
+Dobrich,2021-11-04,78.0
+Dobrich,2021-11-05,84.0
+Dobrich,2021-11-06,90.0
 Gabrovo,2020-09-27,9.0
 Gabrovo,2020-09-28,9.0
 Gabrovo,2020-09-29,9.0
@@ -1688,10 +1694,12 @@ Gabrovo,2021-10-28,85.0
 Gabrovo,2021-10-29,86.0
 Gabrovo,2021-10-30,88.0
 Gabrovo,2021-10-31,82.0
-Gabrovo,2021-11-01,80.0
-Gabrovo,2021-11-02,83.0
-Gabrovo,2021-11-03,84.0
+Gabrovo,2021-11-01,81.0
+Gabrovo,2021-11-02,84.0
+Gabrovo,2021-11-03,86.0
 Gabrovo,2021-11-04,88.0
+Gabrovo,2021-11-05,94.0
+Gabrovo,2021-11-06,100.0
 Haskovo,2020-10-10,9.0
 Haskovo,2020-10-11,9.0
 Haskovo,2020-10-12,9.0
@@ -2079,10 +2087,12 @@ Haskovo,2021-10-28,97.0
 Haskovo,2021-10-29,101.0
 Haskovo,2021-10-30,106.0
 Haskovo,2021-10-31,108.0
-Haskovo,2021-11-01,109.0
-Haskovo,2021-11-02,115.0
-Haskovo,2021-11-03,122.0
-Haskovo,2021-11-04,128.0
+Haskovo,2021-11-01,108.0
+Haskovo,2021-11-02,114.0
+Haskovo,2021-11-03,119.0
+Haskovo,2021-11-04,122.0
+Haskovo,2021-11-05,129.0
+Haskovo,2021-11-06,136.0
 Kardzhali,2021-08-13,9.0
 Kardzhali,2021-08-14,10.0
 Kardzhali,2021-08-15,11.0
@@ -2163,10 +2173,12 @@ Kardzhali,2021-10-28,27.0
 Kardzhali,2021-10-29,28.0
 Kardzhali,2021-10-30,30.0
 Kardzhali,2021-10-31,29.0
-Kardzhali,2021-11-01,30.0
-Kardzhali,2021-11-02,31.0
-Kardzhali,2021-11-03,33.0
-Kardzhali,2021-11-04,34.0
+Kardzhali,2021-11-01,29.0
+Kardzhali,2021-11-02,30.0
+Kardzhali,2021-11-03,31.0
+Kardzhali,2021-11-04,31.0
+Kardzhali,2021-11-05,32.0
+Kardzhali,2021-11-06,33.0
 Kyustendil,2020-10-20,9.0
 Kyustendil,2020-10-21,12.0
 Kyustendil,2020-10-22,13.0
@@ -2547,7 +2559,9 @@ Kyustendil,2021-10-31,88.0
 Kyustendil,2021-11-01,89.0
 Kyustendil,2021-11-02,92.0
 Kyustendil,2021-11-03,94.0
-Kyustendil,2021-11-04,98.0
+Kyustendil,2021-11-04,96.0
+Kyustendil,2021-11-05,98.0
+Kyustendil,2021-11-06,102.0
 Lovech,2020-10-15,9.0
 Lovech,2020-10-16,9.0
 Lovech,2020-10-17,10.0
@@ -2930,10 +2944,320 @@ Lovech,2021-10-28,67.0
 Lovech,2021-10-29,68.0
 Lovech,2021-10-30,68.0
 Lovech,2021-10-31,67.0
-Lovech,2021-11-01,67.0
-Lovech,2021-11-02,69.0
-Lovech,2021-11-03,70.0
-Lovech,2021-11-04,74.0
+Lovech,2021-11-01,70.0
+Lovech,2021-11-02,72.0
+Lovech,2021-11-03,74.0
+Lovech,2021-11-04,77.0
+Lovech,2021-11-05,82.0
+Lovech,2021-11-06,87.0
+Montana,2020-10-11,9.0
+Montana,2020-10-12,11.0
+Montana,2020-10-13,12.0
+Montana,2020-10-14,13.0
+Montana,2020-10-15,13.0
+Montana,2020-10-16,13.0
+Montana,2020-10-17,14.0
+Montana,2020-10-18,15.0
+Montana,2020-10-19,17.0
+Montana,2020-10-20,19.0
+Montana,2020-10-21,20.0
+Montana,2020-10-22,22.0
+Montana,2020-10-23,23.0
+Montana,2020-10-24,24.0
+Montana,2020-10-25,24.0
+Montana,2020-10-26,24.0
+Montana,2020-10-27,25.0
+Montana,2020-10-28,27.0
+Montana,2020-10-29,28.0
+Montana,2020-10-30,32.0
+Montana,2020-10-31,40.0
+Montana,2020-11-01,47.0
+Montana,2020-11-02,52.0
+Montana,2020-11-03,60.0
+Montana,2020-11-04,63.0
+Montana,2020-11-05,63.0
+Montana,2020-11-06,61.0
+Montana,2020-11-07,62.0
+Montana,2020-11-08,57.0
+Montana,2020-11-09,54.0
+Montana,2020-11-10,55.0
+Montana,2020-11-11,56.0
+Montana,2020-11-12,53.0
+Montana,2020-11-13,53.0
+Montana,2020-11-14,54.0
+Montana,2020-11-15,54.0
+Montana,2020-11-16,53.0
+Montana,2020-11-17,57.0
+Montana,2020-11-18,60.0
+Montana,2020-11-19,58.0
+Montana,2020-11-20,61.0
+Montana,2020-11-21,61.0
+Montana,2020-11-22,60.0
+Montana,2020-11-23,56.0
+Montana,2020-11-24,52.0
+Montana,2020-11-25,50.0
+Montana,2020-11-26,45.0
+Montana,2020-11-27,41.0
+Montana,2020-11-28,42.0
+Montana,2020-11-29,40.0
+Montana,2020-11-30,38.0
+Montana,2020-12-01,38.0
+Montana,2020-12-02,37.0
+Montana,2020-12-03,36.0
+Montana,2020-12-04,36.0
+Montana,2020-12-05,37.0
+Montana,2020-12-06,38.0
+Montana,2020-12-07,37.0
+Montana,2020-12-08,39.0
+Montana,2020-12-09,39.0
+Montana,2020-12-10,38.0
+Montana,2020-12-11,37.0
+Montana,2020-12-12,36.0
+Montana,2020-12-13,31.0
+Montana,2020-12-14,27.0
+Montana,2020-12-15,24.0
+Montana,2020-12-16,21.0
+Montana,2020-12-17,18.0
+Montana,2020-12-18,18.0
+Montana,2020-12-19,16.0
+Montana,2020-12-20,16.0
+Montana,2020-12-21,14.0
+Montana,2020-12-22,13.0
+Montana,2020-12-23,12.0
+Montana,2020-12-24,11.0
+Montana,2020-12-25,10.0
+Montana,2020-12-26,9.0
+Montana,2020-12-27,10.0
+Montana,2020-12-28,11.0
+Montana,2020-12-29,11.0
+Montana,2020-12-30,12.0
+Montana,2020-12-31,12.0
+Montana,2021-01-01,12.0
+Montana,2021-01-02,12.0
+Montana,2021-01-03,12.0
+Montana,2021-01-04,11.0
+Montana,2021-01-05,10.0
+Montana,2021-01-06,11.0
+Montana,2021-01-07,11.0
+Montana,2021-01-08,11.0
+Montana,2021-01-09,11.0
+Montana,2021-01-10,10.0
+Montana,2021-01-11,8.0
+Montana,2021-01-12,8.0
+Montana,2021-01-13,7.0
+Montana,2021-01-14,6.0
+Montana,2021-01-15,6.0
+Montana,2021-01-16,5.0
+Montana,2021-01-17,4.0
+Montana,2021-01-18,4.0
+Montana,2021-01-19,4.0
+Montana,2021-01-20,4.0
+Montana,2021-01-21,3.0
+Montana,2021-01-22,3.0
+Montana,2021-01-23,3.0
+Montana,2021-01-24,4.0
+Montana,2021-01-25,4.0
+Montana,2021-01-26,4.0
+Montana,2021-01-27,5.0
+Montana,2021-01-28,5.0
+Montana,2021-01-29,5.0
+Montana,2021-01-30,5.0
+Montana,2021-01-31,5.0
+Montana,2021-02-01,6.0
+Montana,2021-02-02,6.0
+Montana,2021-02-03,7.0
+Montana,2021-02-04,7.0
+Montana,2021-02-05,8.0
+Montana,2021-02-06,8.0
+Montana,2021-02-07,8.0
+Montana,2021-02-08,8.0
+Montana,2021-02-09,8.0
+Montana,2021-02-10,7.0
+Montana,2021-02-11,6.0
+Montana,2021-02-12,6.0
+Montana,2021-02-13,6.0
+Montana,2021-02-14,6.0
+Montana,2021-02-15,6.0
+Montana,2021-02-16,6.0
+Montana,2021-02-17,7.0
+Montana,2021-02-18,6.0
+Montana,2021-02-19,8.0
+Montana,2021-02-20,8.0
+Montana,2021-02-21,10.0
+Montana,2021-02-22,11.0
+Montana,2021-02-23,13.0
+Montana,2021-02-24,14.0
+Montana,2021-02-25,14.0
+Montana,2021-02-26,16.0
+Montana,2021-02-27,19.0
+Montana,2021-02-28,19.0
+Montana,2021-03-01,20.0
+Montana,2021-03-02,23.0
+Montana,2021-03-03,24.0
+Montana,2021-03-04,24.0
+Montana,2021-03-05,26.0
+Montana,2021-03-06,28.0
+Montana,2021-03-07,28.0
+Montana,2021-03-08,30.0
+Montana,2021-03-09,36.0
+Montana,2021-03-10,38.0
+Montana,2021-03-11,38.0
+Montana,2021-03-12,40.0
+Montana,2021-03-13,45.0
+Montana,2021-03-14,47.0
+Montana,2021-03-15,50.0
+Montana,2021-03-16,53.0
+Montana,2021-03-17,54.0
+Montana,2021-03-18,52.0
+Montana,2021-03-19,55.0
+Montana,2021-03-20,55.0
+Montana,2021-03-21,55.0
+Montana,2021-03-22,52.0
+Montana,2021-03-23,56.0
+Montana,2021-03-24,58.0
+Montana,2021-03-25,56.0
+Montana,2021-03-26,57.0
+Montana,2021-03-27,62.0
+Montana,2021-03-28,58.0
+Montana,2021-03-29,59.0
+Montana,2021-03-30,58.0
+Montana,2021-03-31,56.0
+Montana,2021-04-01,50.0
+Montana,2021-04-02,49.0
+Montana,2021-04-03,49.0
+Montana,2021-04-04,47.0
+Montana,2021-04-05,42.0
+Montana,2021-04-06,44.0
+Montana,2021-04-07,43.0
+Montana,2021-04-08,40.0
+Montana,2021-04-09,41.0
+Montana,2021-04-10,39.0
+Montana,2021-04-11,34.0
+Montana,2021-04-12,33.0
+Montana,2021-04-13,32.0
+Montana,2021-04-14,32.0
+Montana,2021-04-15,30.0
+Montana,2021-04-16,34.0
+Montana,2021-04-17,35.0
+Montana,2021-04-18,33.0
+Montana,2021-04-19,33.0
+Montana,2021-04-20,33.0
+Montana,2021-04-21,32.0
+Montana,2021-04-22,29.0
+Montana,2021-04-23,29.0
+Montana,2021-04-24,29.0
+Montana,2021-04-25,25.0
+Montana,2021-04-26,25.0
+Montana,2021-04-27,24.0
+Montana,2021-04-28,22.0
+Montana,2021-04-29,21.0
+Montana,2021-04-30,21.0
+Montana,2021-05-01,19.0
+Montana,2021-05-02,19.0
+Montana,2021-05-03,19.0
+Montana,2021-05-04,20.0
+Montana,2021-05-05,21.0
+Montana,2021-05-06,22.0
+Montana,2021-05-07,23.0
+Montana,2021-05-08,24.0
+Montana,2021-05-09,24.0
+Montana,2021-05-10,23.0
+Montana,2021-05-11,21.0
+Montana,2021-05-12,21.0
+Montana,2021-05-13,20.0
+Montana,2021-05-14,19.0
+Montana,2021-05-15,19.0
+Montana,2021-05-16,16.0
+Montana,2021-05-17,14.0
+Montana,2021-05-18,13.0
+Montana,2021-05-19,12.0
+Montana,2021-05-20,10.0
+Montana,2021-05-21,9.0
+Montana,2021-05-22,9.0
+Montana,2021-05-23,8.0
+Montana,2021-05-24,8.0
+Montana,2021-05-25,8.0
+Montana,2021-05-26,8.0
+Montana,2021-05-27,8.0
+Montana,2021-05-28,7.0
+Montana,2021-05-29,7.0
+Montana,2021-05-30,6.0
+Montana,2021-05-31,5.0
+Montana,2021-06-01,4.0
+Montana,2021-06-02,3.0
+Montana,2021-06-03,3.0
+Montana,2021-06-04,4.0
+Montana,2021-06-05,4.0
+Montana,2021-06-06,3.0
+Montana,2021-06-07,3.0
+Montana,2021-06-08,3.0
+Montana,2021-06-09,3.0
+Montana,2021-06-10,2.0
+Montana,2021-06-11,2.0
+Montana,2021-06-12,2.0
+Montana,2021-06-13,2.0
+Montana,2021-06-14,2.0
+Montana,2021-06-15,2.0
+Montana,2021-06-16,2.0
+Montana,2021-06-17,2.0
+Montana,2021-06-18,2.0
+Montana,2021-06-19,1.0
+Montana,2021-06-20,1.0
+Montana,2021-06-21,1.0
+Montana,2021-06-22,0.0
+Montana,2021-06-23,0.0
+Montana,2021-06-24,0.0
+Montana,2021-06-25,1.0
+Montana,2021-06-26,1.0
+Montana,2021-06-27,1.0
+Montana,2021-06-28,1.0
+Montana,2021-06-29,1.0
+Montana,2021-06-30,1.0
+Montana,2021-07-01,1.0
+Montana,2021-07-02,1.0
+Montana,2021-07-03,1.0
+Montana,2021-07-04,1.0
+Montana,2021-07-05,1.0
+Montana,2021-07-06,1.0
+Montana,2021-07-07,1.0
+Montana,2021-07-08,1.0
+Montana,2021-07-09,1.0
+Montana,2021-07-10,1.0
+Montana,2021-07-11,1.0
+Montana,2021-07-12,1.0
+Montana,2021-07-13,1.0
+Montana,2021-07-14,1.0
+Montana,2021-07-15,1.0
+Montana,2021-07-16,1.0
+Montana,2021-07-17,1.0
+Montana,2021-07-18,0.0
+Montana,2021-07-19,0.0
+Montana,2021-07-20,1.0
+Montana,2021-07-21,1.0
+Montana,2021-07-22,1.0
+Montana,2021-07-23,1.0
+Montana,2021-07-24,1.0
+Montana,2021-07-25,1.0
+Montana,2021-07-26,1.0
+Montana,2021-07-27,1.0
+Montana,2021-07-28,1.0
+Montana,2021-07-29,1.0
+Montana,2021-07-30,2.0
+Montana,2021-07-31,2.0
+Montana,2021-08-01,2.0
+Montana,2021-08-02,2.0
+Montana,2021-08-03,2.0
+Montana,2021-08-04,3.0
+Montana,2021-08-05,3.0
+Montana,2021-08-06,3.0
+Montana,2021-08-07,3.0
+Montana,2021-08-08,3.0
+Montana,2021-08-09,4.0
+Montana,2021-08-10,4.0
+Montana,2021-08-11,4.0
+Montana,2021-08-12,4.0
+Montana,2021-08-13,6.0
+Montana,2021-08-14,8.0
 Montana,2021-08-15,9.0
 Montana,2021-08-16,11.0
 Montana,2021-08-17,13.0
@@ -3012,10 +3336,12 @@ Montana,2021-10-28,130.0
 Montana,2021-10-29,131.0
 Montana,2021-10-30,129.0
 Montana,2021-10-31,118.0
-Montana,2021-11-01,112.0
-Montana,2021-11-02,113.0
-Montana,2021-11-03,116.0
-Montana,2021-11-04,118.0
+Montana,2021-11-01,111.0
+Montana,2021-11-02,111.0
+Montana,2021-11-03,113.0
+Montana,2021-11-04,113.0
+Montana,2021-11-05,119.0
+Montana,2021-11-06,125.0
 Pazardzhik,2020-09-27,9.0
 Pazardzhik,2020-09-28,9.0
 Pazardzhik,2020-09-29,9.0
@@ -3416,10 +3742,12 @@ Pazardzhik,2021-10-28,115.0
 Pazardzhik,2021-10-29,117.0
 Pazardzhik,2021-10-30,123.0
 Pazardzhik,2021-10-31,122.0
-Pazardzhik,2021-11-01,119.0
-Pazardzhik,2021-11-02,118.0
-Pazardzhik,2021-11-03,121.0
-Pazardzhik,2021-11-04,123.0
+Pazardzhik,2021-11-01,118.0
+Pazardzhik,2021-11-02,120.0
+Pazardzhik,2021-11-03,123.0
+Pazardzhik,2021-11-04,125.0
+Pazardzhik,2021-11-05,132.0
+Pazardzhik,2021-11-06,142.0
 Pernik,2020-10-17,10.0
 Pernik,2020-10-18,11.0
 Pernik,2020-10-19,14.0
@@ -3801,9 +4129,11 @@ Pernik,2021-10-29,105.0
 Pernik,2021-10-30,107.0
 Pernik,2021-10-31,103.0
 Pernik,2021-11-01,99.0
-Pernik,2021-11-02,97.0
-Pernik,2021-11-03,100.0
-Pernik,2021-11-04,101.0
+Pernik,2021-11-02,96.0
+Pernik,2021-11-03,98.0
+Pernik,2021-11-04,98.0
+Pernik,2021-11-05,102.0
+Pernik,2021-11-06,107.0
 Pleven,2020-10-13,9.0
 Pleven,2020-10-14,13.0
 Pleven,2020-10-15,15.0
@@ -4189,9 +4519,11 @@ Pleven,2021-10-29,120.0
 Pleven,2021-10-30,124.0
 Pleven,2021-10-31,123.0
 Pleven,2021-11-01,119.0
-Pleven,2021-11-02,119.0
-Pleven,2021-11-03,123.0
-Pleven,2021-11-04,126.0
+Pleven,2021-11-02,121.0
+Pleven,2021-11-03,124.0
+Pleven,2021-11-04,127.0
+Pleven,2021-11-05,133.0
+Pleven,2021-11-06,141.0
 Plovdiv,2020-06-28,9.0
 Plovdiv,2020-06-29,10.0
 Plovdiv,2020-06-30,12.0
@@ -4683,10 +5015,12 @@ Plovdiv,2021-10-28,407.0
 Plovdiv,2021-10-29,417.0
 Plovdiv,2021-10-30,429.0
 Plovdiv,2021-10-31,409.0
-Plovdiv,2021-11-01,395.0
-Plovdiv,2021-11-02,395.0
-Plovdiv,2021-11-03,400.0
-Plovdiv,2021-11-04,407.0
+Plovdiv,2021-11-01,400.0
+Plovdiv,2021-11-02,409.0
+Plovdiv,2021-11-03,419.0
+Plovdiv,2021-11-04,431.0
+Plovdiv,2021-11-05,451.0
+Plovdiv,2021-11-06,482.0
 Razgrad,2021-08-11,9.0
 Razgrad,2021-08-12,10.0
 Razgrad,2021-08-13,10.0
@@ -4769,10 +5103,12 @@ Razgrad,2021-10-28,53.0
 Razgrad,2021-10-29,55.0
 Razgrad,2021-10-30,58.0
 Razgrad,2021-10-31,58.0
-Razgrad,2021-11-01,57.0
+Razgrad,2021-11-01,58.0
 Razgrad,2021-11-02,60.0
 Razgrad,2021-11-03,61.0
-Razgrad,2021-11-04,62.0
+Razgrad,2021-11-04,61.0
+Razgrad,2021-11-05,63.0
+Razgrad,2021-11-06,64.0
 Ruse,2020-10-11,9.0
 Ruse,2020-10-12,10.0
 Ruse,2020-10-13,11.0
@@ -5159,10 +5495,12 @@ Ruse,2021-10-28,126.0
 Ruse,2021-10-29,129.0
 Ruse,2021-10-30,129.0
 Ruse,2021-10-31,122.0
-Ruse,2021-11-01,117.0
-Ruse,2021-11-02,116.0
-Ruse,2021-11-03,116.0
-Ruse,2021-11-04,116.0
+Ruse,2021-11-01,118.0
+Ruse,2021-11-02,118.0
+Ruse,2021-11-03,119.0
+Ruse,2021-11-04,120.0
+Ruse,2021-11-05,126.0
+Ruse,2021-11-06,134.0
 Shumen,2020-10-10,10.0
 Shumen,2020-10-11,12.0
 Shumen,2020-10-12,15.0
@@ -5550,10 +5888,12 @@ Shumen,2021-10-28,66.0
 Shumen,2021-10-29,72.0
 Shumen,2021-10-30,77.0
 Shumen,2021-10-31,76.0
-Shumen,2021-11-01,79.0
-Shumen,2021-11-02,83.0
-Shumen,2021-11-03,88.0
-Shumen,2021-11-04,92.0
+Shumen,2021-11-01,78.0
+Shumen,2021-11-02,82.0
+Shumen,2021-11-03,86.0
+Shumen,2021-11-04,89.0
+Shumen,2021-11-05,94.0
+Shumen,2021-11-06,100.0
 Silistra,2020-10-28,11.0
 Silistra,2020-10-29,13.0
 Silistra,2020-10-30,14.0
@@ -5923,10 +6263,12 @@ Silistra,2021-10-28,45.0
 Silistra,2021-10-29,48.0
 Silistra,2021-10-30,50.0
 Silistra,2021-10-31,49.0
-Silistra,2021-11-01,49.0
+Silistra,2021-11-01,50.0
 Silistra,2021-11-02,50.0
-Silistra,2021-11-03,52.0
-Silistra,2021-11-04,53.0
+Silistra,2021-11-03,51.0
+Silistra,2021-11-04,51.0
+Silistra,2021-11-05,52.0
+Silistra,2021-11-06,53.0
 Sliven,2020-10-06,10.0
 Sliven,2020-10-07,14.0
 Sliven,2020-10-08,16.0
@@ -6318,10 +6660,12 @@ Sliven,2021-10-28,96.0
 Sliven,2021-10-29,92.0
 Sliven,2021-10-30,93.0
 Sliven,2021-10-31,88.0
-Sliven,2021-11-01,82.0
-Sliven,2021-11-02,81.0
-Sliven,2021-11-03,82.0
-Sliven,2021-11-04,83.0
+Sliven,2021-11-01,83.0
+Sliven,2021-11-02,83.0
+Sliven,2021-11-03,85.0
+Sliven,2021-11-04,87.0
+Sliven,2021-11-05,89.0
+Sliven,2021-11-06,96.0
 Smolyan,2021-08-17,10.0
 Smolyan,2021-08-18,11.0
 Smolyan,2021-08-19,12.0
@@ -6402,6 +6746,8 @@ Smolyan,2021-11-01,36.0
 Smolyan,2021-11-02,36.0
 Smolyan,2021-11-03,36.0
 Smolyan,2021-11-04,35.0
+Smolyan,2021-11-05,36.0
+Smolyan,2021-11-06,37.0
 Sofiya-Grad,2020-06-07,14.0
 Sofiya-Grad,2020-06-08,17.0
 Sofiya-Grad,2020-06-09,18.0
@@ -6915,9 +7261,11 @@ Sofiya-Grad,2021-10-29,1305.0
 Sofiya-Grad,2021-10-30,1293.0
 Sofiya-Grad,2021-10-31,1219.0
 Sofiya-Grad,2021-11-01,1164.0
-Sofiya-Grad,2021-11-02,1146.0
-Sofiya-Grad,2021-11-03,1151.0
-Sofiya-Grad,2021-11-04,1175.0
+Sofiya-Grad,2021-11-02,1149.0
+Sofiya-Grad,2021-11-03,1155.0
+Sofiya-Grad,2021-11-04,1173.0
+Sofiya-Grad,2021-11-05,1214.0
+Sofiya-Grad,2021-11-06,1266.0
 Sofiya-Oblast,2020-10-12,9.0
 Sofiya-Oblast,2020-10-13,10.0
 Sofiya-Oblast,2020-10-14,11.0
@@ -7303,10 +7651,12 @@ Sofiya-Oblast,2021-10-28,174.0
 Sofiya-Oblast,2021-10-29,168.0
 Sofiya-Oblast,2021-10-30,167.0
 Sofiya-Oblast,2021-10-31,155.0
-Sofiya-Oblast,2021-11-01,146.0
-Sofiya-Oblast,2021-11-02,144.0
-Sofiya-Oblast,2021-11-03,145.0
-Sofiya-Oblast,2021-11-04,148.0
+Sofiya-Oblast,2021-11-01,147.0
+Sofiya-Oblast,2021-11-02,146.0
+Sofiya-Oblast,2021-11-03,149.0
+Sofiya-Oblast,2021-11-04,152.0
+Sofiya-Oblast,2021-11-05,160.0
+Sofiya-Oblast,2021-11-06,171.0
 Stara Zagora,2020-09-12,9.0
 Stara Zagora,2020-09-13,9.0
 Stara Zagora,2020-09-14,9.0
@@ -7723,9 +8073,11 @@ Stara Zagora,2021-10-29,217.0
 Stara Zagora,2021-10-30,218.0
 Stara Zagora,2021-10-31,208.0
 Stara Zagora,2021-11-01,202.0
-Stara Zagora,2021-11-02,201.0
-Stara Zagora,2021-11-03,202.0
-Stara Zagora,2021-11-04,204.0
+Stara Zagora,2021-11-02,200.0
+Stara Zagora,2021-11-03,200.0
+Stara Zagora,2021-11-04,200.0
+Stara Zagora,2021-11-05,207.0
+Stara Zagora,2021-11-06,213.0
 Targovishte,2021-08-10,9.0
 Targovishte,2021-08-11,10.0
 Targovishte,2021-08-12,10.0
@@ -7811,8 +8163,10 @@ Targovishte,2021-10-30,43.0
 Targovishte,2021-10-31,40.0
 Targovishte,2021-11-01,38.0
 Targovishte,2021-11-02,37.0
-Targovishte,2021-11-03,36.0
+Targovishte,2021-11-03,37.0
 Targovishte,2021-11-04,37.0
+Targovishte,2021-11-05,39.0
+Targovishte,2021-11-06,42.0
 Varna,2020-07-01,9.0
 Varna,2020-07-02,10.0
 Varna,2020-07-03,11.0
@@ -8301,398 +8655,9 @@ Varna,2021-10-28,407.0
 Varna,2021-10-29,410.0
 Varna,2021-10-30,419.0
 Varna,2021-10-31,417.0
-Varna,2021-11-01,406.0
-Varna,2021-11-02,401.0
-Varna,2021-11-03,405.0
+Varna,2021-11-01,408.0
+Varna,2021-11-02,402.0
+Varna,2021-11-03,406.0
 Varna,2021-11-04,407.0
-Veliko Tarnovo,2020-10-10,9.0
-Veliko Tarnovo,2020-10-11,10.0
-Veliko Tarnovo,2020-10-12,10.0
-Veliko Tarnovo,2020-10-13,11.0
-Veliko Tarnovo,2020-10-14,11.0
-Veliko Tarnovo,2020-10-15,10.0
-Veliko Tarnovo,2020-10-16,11.0
-Veliko Tarnovo,2020-10-17,11.0
-Veliko Tarnovo,2020-10-18,13.0
-Veliko Tarnovo,2020-10-19,14.0
-Veliko Tarnovo,2020-10-20,15.0
-Veliko Tarnovo,2020-10-21,17.0
-Veliko Tarnovo,2020-10-22,17.0
-Veliko Tarnovo,2020-10-23,19.0
-Veliko Tarnovo,2020-10-24,21.0
-Veliko Tarnovo,2020-10-25,22.0
-Veliko Tarnovo,2020-10-26,23.0
-Veliko Tarnovo,2020-10-27,26.0
-Veliko Tarnovo,2020-10-28,28.0
-Veliko Tarnovo,2020-10-29,28.0
-Veliko Tarnovo,2020-10-30,29.0
-Veliko Tarnovo,2020-10-31,33.0
-Veliko Tarnovo,2020-11-01,37.0
-Veliko Tarnovo,2020-11-02,41.0
-Veliko Tarnovo,2020-11-03,47.0
-Veliko Tarnovo,2020-11-04,52.0
-Veliko Tarnovo,2020-11-05,52.0
-Veliko Tarnovo,2020-11-06,55.0
-Veliko Tarnovo,2020-11-07,55.0
-Veliko Tarnovo,2020-11-08,60.0
-Veliko Tarnovo,2020-11-09,59.0
-Veliko Tarnovo,2020-11-10,65.0
-Veliko Tarnovo,2020-11-11,69.0
-Veliko Tarnovo,2020-11-12,69.0
-Veliko Tarnovo,2020-11-13,72.0
-Veliko Tarnovo,2020-11-14,74.0
-Veliko Tarnovo,2020-11-15,73.0
-Veliko Tarnovo,2020-11-16,72.0
-Veliko Tarnovo,2020-11-17,69.0
-Veliko Tarnovo,2020-11-18,71.0
-Veliko Tarnovo,2020-11-19,66.0
-Veliko Tarnovo,2020-11-20,69.0
-Veliko Tarnovo,2020-11-21,72.0
-Veliko Tarnovo,2020-11-22,73.0
-Veliko Tarnovo,2020-11-23,76.0
-Veliko Tarnovo,2020-11-24,78.0
-Veliko Tarnovo,2020-11-25,79.0
-Veliko Tarnovo,2020-11-26,76.0
-Veliko Tarnovo,2020-11-27,76.0
-Veliko Tarnovo,2020-11-28,76.0
-Veliko Tarnovo,2020-11-29,69.0
-Veliko Tarnovo,2020-11-30,72.0
-Veliko Tarnovo,2020-12-01,75.0
-Veliko Tarnovo,2020-12-02,74.0
-Veliko Tarnovo,2020-12-03,72.0
-Veliko Tarnovo,2020-12-04,78.0
-Veliko Tarnovo,2020-12-05,76.0
-Veliko Tarnovo,2020-12-06,79.0
-Veliko Tarnovo,2020-12-07,80.0
-Veliko Tarnovo,2020-12-08,88.0
-Veliko Tarnovo,2020-12-09,82.0
-Veliko Tarnovo,2020-12-10,79.0
-Veliko Tarnovo,2020-12-11,82.0
-Veliko Tarnovo,2020-12-12,81.0
-Veliko Tarnovo,2020-12-13,69.0
-Veliko Tarnovo,2020-12-14,67.0
-Veliko Tarnovo,2020-12-15,57.0
-Veliko Tarnovo,2020-12-16,54.0
-Veliko Tarnovo,2020-12-17,50.0
-Veliko Tarnovo,2020-12-18,51.0
-Veliko Tarnovo,2020-12-19,50.0
-Veliko Tarnovo,2020-12-20,45.0
-Veliko Tarnovo,2020-12-21,39.0
-Veliko Tarnovo,2020-12-22,36.0
-Veliko Tarnovo,2020-12-23,29.0
-Veliko Tarnovo,2020-12-24,24.0
-Veliko Tarnovo,2020-12-25,20.0
-Veliko Tarnovo,2020-12-26,20.0
-Veliko Tarnovo,2020-12-27,19.0
-Veliko Tarnovo,2020-12-28,20.0
-Veliko Tarnovo,2020-12-29,21.0
-Veliko Tarnovo,2020-12-30,22.0
-Veliko Tarnovo,2020-12-31,22.0
-Veliko Tarnovo,2021-01-01,21.0
-Veliko Tarnovo,2021-01-02,21.0
-Veliko Tarnovo,2021-01-03,20.0
-Veliko Tarnovo,2021-01-04,18.0
-Veliko Tarnovo,2021-01-05,18.0
-Veliko Tarnovo,2021-01-06,19.0
-Veliko Tarnovo,2021-01-07,19.0
-Veliko Tarnovo,2021-01-08,19.0
-Veliko Tarnovo,2021-01-09,18.0
-Veliko Tarnovo,2021-01-10,15.0
-Veliko Tarnovo,2021-01-11,12.0
-Veliko Tarnovo,2021-01-12,11.0
-Veliko Tarnovo,2021-01-13,10.0
-Veliko Tarnovo,2021-01-14,8.0
-Veliko Tarnovo,2021-01-15,8.0
-Veliko Tarnovo,2021-01-16,8.0
-Veliko Tarnovo,2021-01-17,8.0
-Veliko Tarnovo,2021-01-18,7.0
-Veliko Tarnovo,2021-01-19,8.0
-Veliko Tarnovo,2021-01-20,8.0
-Veliko Tarnovo,2021-01-21,8.0
-Veliko Tarnovo,2021-01-22,8.0
-Veliko Tarnovo,2021-01-23,9.0
-Veliko Tarnovo,2021-01-24,10.0
-Veliko Tarnovo,2021-01-25,10.0
-Veliko Tarnovo,2021-01-26,11.0
-Veliko Tarnovo,2021-01-27,12.0
-Veliko Tarnovo,2021-01-28,11.0
-Veliko Tarnovo,2021-01-29,12.0
-Veliko Tarnovo,2021-01-30,12.0
-Veliko Tarnovo,2021-01-31,12.0
-Veliko Tarnovo,2021-02-01,13.0
-Veliko Tarnovo,2021-02-02,14.0
-Veliko Tarnovo,2021-02-03,15.0
-Veliko Tarnovo,2021-02-04,14.0
-Veliko Tarnovo,2021-02-05,14.0
-Veliko Tarnovo,2021-02-06,14.0
-Veliko Tarnovo,2021-02-07,13.0
-Veliko Tarnovo,2021-02-08,13.0
-Veliko Tarnovo,2021-02-09,13.0
-Veliko Tarnovo,2021-02-10,13.0
-Veliko Tarnovo,2021-02-11,13.0
-Veliko Tarnovo,2021-02-12,14.0
-Veliko Tarnovo,2021-02-13,15.0
-Veliko Tarnovo,2021-02-14,15.0
-Veliko Tarnovo,2021-02-15,16.0
-Veliko Tarnovo,2021-02-16,17.0
-Veliko Tarnovo,2021-02-17,16.0
-Veliko Tarnovo,2021-02-18,16.0
-Veliko Tarnovo,2021-02-19,18.0
-Veliko Tarnovo,2021-02-20,19.0
-Veliko Tarnovo,2021-02-21,19.0
-Veliko Tarnovo,2021-02-22,20.0
-Veliko Tarnovo,2021-02-23,22.0
-Veliko Tarnovo,2021-02-24,23.0
-Veliko Tarnovo,2021-02-25,23.0
-Veliko Tarnovo,2021-02-26,26.0
-Veliko Tarnovo,2021-02-27,29.0
-Veliko Tarnovo,2021-02-28,29.0
-Veliko Tarnovo,2021-03-01,31.0
-Veliko Tarnovo,2021-03-02,36.0
-Veliko Tarnovo,2021-03-03,39.0
-Veliko Tarnovo,2021-03-04,39.0
-Veliko Tarnovo,2021-03-05,43.0
-Veliko Tarnovo,2021-03-06,46.0
-Veliko Tarnovo,2021-03-07,49.0
-Veliko Tarnovo,2021-03-08,51.0
-Veliko Tarnovo,2021-03-09,58.0
-Veliko Tarnovo,2021-03-10,58.0
-Veliko Tarnovo,2021-03-11,56.0
-Veliko Tarnovo,2021-03-12,61.0
-Veliko Tarnovo,2021-03-13,66.0
-Veliko Tarnovo,2021-03-14,68.0
-Veliko Tarnovo,2021-03-15,72.0
-Veliko Tarnovo,2021-03-16,75.0
-Veliko Tarnovo,2021-03-17,77.0
-Veliko Tarnovo,2021-03-18,75.0
-Veliko Tarnovo,2021-03-19,78.0
-Veliko Tarnovo,2021-03-20,79.0
-Veliko Tarnovo,2021-03-21,75.0
-Veliko Tarnovo,2021-03-22,75.0
-Veliko Tarnovo,2021-03-23,78.0
-Veliko Tarnovo,2021-03-24,78.0
-Veliko Tarnovo,2021-03-25,77.0
-Veliko Tarnovo,2021-03-26,81.0
-Veliko Tarnovo,2021-03-27,84.0
-Veliko Tarnovo,2021-03-28,83.0
-Veliko Tarnovo,2021-03-29,84.0
-Veliko Tarnovo,2021-03-30,88.0
-Veliko Tarnovo,2021-03-31,88.0
-Veliko Tarnovo,2021-04-01,84.0
-Veliko Tarnovo,2021-04-02,84.0
-Veliko Tarnovo,2021-04-03,82.0
-Veliko Tarnovo,2021-04-04,76.0
-Veliko Tarnovo,2021-04-05,72.0
-Veliko Tarnovo,2021-04-06,71.0
-Veliko Tarnovo,2021-04-07,70.0
-Veliko Tarnovo,2021-04-08,63.0
-Veliko Tarnovo,2021-04-09,66.0
-Veliko Tarnovo,2021-04-10,67.0
-Veliko Tarnovo,2021-04-11,63.0
-Veliko Tarnovo,2021-04-12,61.0
-Veliko Tarnovo,2021-04-13,60.0
-Veliko Tarnovo,2021-04-14,58.0
-Veliko Tarnovo,2021-04-15,53.0
-Veliko Tarnovo,2021-04-16,55.0
-Veliko Tarnovo,2021-04-17,55.0
-Veliko Tarnovo,2021-04-18,51.0
-Veliko Tarnovo,2021-04-19,50.0
-Veliko Tarnovo,2021-04-20,51.0
-Veliko Tarnovo,2021-04-21,50.0
-Veliko Tarnovo,2021-04-22,47.0
-Veliko Tarnovo,2021-04-23,49.0
-Veliko Tarnovo,2021-04-24,48.0
-Veliko Tarnovo,2021-04-25,44.0
-Veliko Tarnovo,2021-04-26,43.0
-Veliko Tarnovo,2021-04-27,42.0
-Veliko Tarnovo,2021-04-28,40.0
-Veliko Tarnovo,2021-04-29,36.0
-Veliko Tarnovo,2021-04-30,34.0
-Veliko Tarnovo,2021-05-01,29.0
-Veliko Tarnovo,2021-05-02,26.0
-Veliko Tarnovo,2021-05-03,24.0
-Veliko Tarnovo,2021-05-04,25.0
-Veliko Tarnovo,2021-05-05,25.0
-Veliko Tarnovo,2021-05-06,27.0
-Veliko Tarnovo,2021-05-07,29.0
-Veliko Tarnovo,2021-05-08,30.0
-Veliko Tarnovo,2021-05-09,30.0
-Veliko Tarnovo,2021-05-10,30.0
-Veliko Tarnovo,2021-05-11,26.0
-Veliko Tarnovo,2021-05-12,25.0
-Veliko Tarnovo,2021-05-13,21.0
-Veliko Tarnovo,2021-05-14,21.0
-Veliko Tarnovo,2021-05-15,19.0
-Veliko Tarnovo,2021-05-16,16.0
-Veliko Tarnovo,2021-05-17,14.0
-Veliko Tarnovo,2021-05-18,14.0
-Veliko Tarnovo,2021-05-19,12.0
-Veliko Tarnovo,2021-05-20,11.0
-Veliko Tarnovo,2021-05-21,10.0
-Veliko Tarnovo,2021-05-22,10.0
-Veliko Tarnovo,2021-05-23,8.0
-Veliko Tarnovo,2021-05-24,8.0
-Veliko Tarnovo,2021-05-25,8.0
-Veliko Tarnovo,2021-05-26,8.0
-Veliko Tarnovo,2021-05-27,8.0
-Veliko Tarnovo,2021-05-28,8.0
-Veliko Tarnovo,2021-05-29,8.0
-Veliko Tarnovo,2021-05-30,9.0
-Veliko Tarnovo,2021-05-31,8.0
-Veliko Tarnovo,2021-06-01,8.0
-Veliko Tarnovo,2021-06-02,8.0
-Veliko Tarnovo,2021-06-03,7.0
-Veliko Tarnovo,2021-06-04,7.0
-Veliko Tarnovo,2021-06-05,6.0
-Veliko Tarnovo,2021-06-06,5.0
-Veliko Tarnovo,2021-06-07,4.0
-Veliko Tarnovo,2021-06-08,4.0
-Veliko Tarnovo,2021-06-09,4.0
-Veliko Tarnovo,2021-06-10,3.0
-Veliko Tarnovo,2021-06-11,3.0
-Veliko Tarnovo,2021-06-12,3.0
-Veliko Tarnovo,2021-06-13,2.0
-Veliko Tarnovo,2021-06-14,2.0
-Veliko Tarnovo,2021-06-15,2.0
-Veliko Tarnovo,2021-06-16,2.0
-Veliko Tarnovo,2021-06-17,2.0
-Veliko Tarnovo,2021-06-18,2.0
-Veliko Tarnovo,2021-06-19,2.0
-Veliko Tarnovo,2021-06-20,2.0
-Veliko Tarnovo,2021-06-21,2.0
-Veliko Tarnovo,2021-06-22,2.0
-Veliko Tarnovo,2021-06-23,2.0
-Veliko Tarnovo,2021-06-24,2.0
-Veliko Tarnovo,2021-06-25,2.0
-Veliko Tarnovo,2021-06-26,1.0
-Veliko Tarnovo,2021-06-27,1.0
-Veliko Tarnovo,2021-06-28,1.0
-Veliko Tarnovo,2021-06-29,1.0
-Veliko Tarnovo,2021-06-30,1.0
-Veliko Tarnovo,2021-07-01,1.0
-Veliko Tarnovo,2021-07-02,1.0
-Veliko Tarnovo,2021-07-03,2.0
-Veliko Tarnovo,2021-07-04,2.0
-Veliko Tarnovo,2021-07-05,2.0
-Veliko Tarnovo,2021-07-06,3.0
-Veliko Tarnovo,2021-07-07,3.0
-Veliko Tarnovo,2021-07-08,3.0
-Veliko Tarnovo,2021-07-09,3.0
-Veliko Tarnovo,2021-07-10,3.0
-Veliko Tarnovo,2021-07-11,2.0
-Veliko Tarnovo,2021-07-12,2.0
-Veliko Tarnovo,2021-07-13,2.0
-Veliko Tarnovo,2021-07-14,1.0
-Veliko Tarnovo,2021-07-15,1.0
-Veliko Tarnovo,2021-07-16,1.0
-Veliko Tarnovo,2021-07-17,2.0
-Veliko Tarnovo,2021-07-18,2.0
-Veliko Tarnovo,2021-07-19,2.0
-Veliko Tarnovo,2021-07-20,3.0
-Veliko Tarnovo,2021-07-21,3.0
-Veliko Tarnovo,2021-07-22,4.0
-Veliko Tarnovo,2021-07-23,4.0
-Veliko Tarnovo,2021-07-24,4.0
-Veliko Tarnovo,2021-07-25,5.0
-Veliko Tarnovo,2021-07-26,5.0
-Veliko Tarnovo,2021-07-27,5.0
-Veliko Tarnovo,2021-07-28,6.0
-Veliko Tarnovo,2021-07-29,6.0
-Veliko Tarnovo,2021-07-30,7.0
-Veliko Tarnovo,2021-07-31,8.0
-Veliko Tarnovo,2021-08-01,10.0
-Veliko Tarnovo,2021-08-02,12.0
-Veliko Tarnovo,2021-08-03,14.0
-Veliko Tarnovo,2021-08-04,16.0
-Veliko Tarnovo,2021-08-05,16.0
-Veliko Tarnovo,2021-08-06,18.0
-Veliko Tarnovo,2021-08-07,20.0
-Veliko Tarnovo,2021-08-08,21.0
-Veliko Tarnovo,2021-08-09,24.0
-Veliko Tarnovo,2021-08-10,28.0
-Veliko Tarnovo,2021-08-11,30.0
-Veliko Tarnovo,2021-08-12,31.0
-Veliko Tarnovo,2021-08-13,36.0
-Veliko Tarnovo,2021-08-14,40.0
-Veliko Tarnovo,2021-08-15,43.0
-Veliko Tarnovo,2021-08-16,49.0
-Veliko Tarnovo,2021-08-17,55.0
-Veliko Tarnovo,2021-08-18,57.0
-Veliko Tarnovo,2021-08-19,56.0
-Veliko Tarnovo,2021-08-20,61.0
-Veliko Tarnovo,2021-08-21,66.0
-Veliko Tarnovo,2021-08-22,66.0
-Veliko Tarnovo,2021-08-23,67.0
-Veliko Tarnovo,2021-08-24,69.0
-Veliko Tarnovo,2021-08-25,70.0
-Veliko Tarnovo,2021-08-26,67.0
-Veliko Tarnovo,2021-08-27,71.0
-Veliko Tarnovo,2021-08-28,73.0
-Veliko Tarnovo,2021-08-29,70.0
-Veliko Tarnovo,2021-08-30,70.0
-Veliko Tarnovo,2021-08-31,71.0
-Veliko Tarnovo,2021-09-01,70.0
-Veliko Tarnovo,2021-09-02,66.0
-Veliko Tarnovo,2021-09-03,62.0
-Veliko Tarnovo,2021-09-04,61.0
-Veliko Tarnovo,2021-09-05,57.0
-Veliko Tarnovo,2021-09-06,57.0
-Veliko Tarnovo,2021-09-07,60.0
-Veliko Tarnovo,2021-09-08,61.0
-Veliko Tarnovo,2021-09-09,60.0
-Veliko Tarnovo,2021-09-10,64.0
-Veliko Tarnovo,2021-09-11,65.0
-Veliko Tarnovo,2021-09-12,65.0
-Veliko Tarnovo,2021-09-13,63.0
-Veliko Tarnovo,2021-09-14,64.0
-Veliko Tarnovo,2021-09-15,63.0
-Veliko Tarnovo,2021-09-16,61.0
-Veliko Tarnovo,2021-09-17,64.0
-Veliko Tarnovo,2021-09-18,65.0
-Veliko Tarnovo,2021-09-19,60.0
-Veliko Tarnovo,2021-09-20,60.0
-Veliko Tarnovo,2021-09-21,63.0
-Veliko Tarnovo,2021-09-22,62.0
-Veliko Tarnovo,2021-09-23,59.0
-Veliko Tarnovo,2021-09-24,63.0
-Veliko Tarnovo,2021-09-25,66.0
-Veliko Tarnovo,2021-09-26,64.0
-Veliko Tarnovo,2021-09-27,64.0
-Veliko Tarnovo,2021-09-28,67.0
-Veliko Tarnovo,2021-09-29,63.0
-Veliko Tarnovo,2021-09-30,58.0
-Veliko Tarnovo,2021-10-01,59.0
-Veliko Tarnovo,2021-10-02,61.0
-Veliko Tarnovo,2021-10-03,58.0
-Veliko Tarnovo,2021-10-04,58.0
-Veliko Tarnovo,2021-10-05,61.0
-Veliko Tarnovo,2021-10-06,61.0
-Veliko Tarnovo,2021-10-07,59.0
-Veliko Tarnovo,2021-10-08,61.0
-Veliko Tarnovo,2021-10-09,62.0
-Veliko Tarnovo,2021-10-10,61.0
-Veliko Tarnovo,2021-10-11,62.0
-Veliko Tarnovo,2021-10-12,68.0
-Veliko Tarnovo,2021-10-13,70.0
-Veliko Tarnovo,2021-10-14,70.0
-Veliko Tarnovo,2021-10-15,77.0
-Veliko Tarnovo,2021-10-16,81.0
-Veliko Tarnovo,2021-10-17,83.0
-Veliko Tarnovo,2021-10-18,89.0
-Veliko Tarnovo,2021-10-19,99.0
-Veliko Tarnovo,2021-10-20,106.0
-Veliko Tarnovo,2021-10-21,108.0
-Veliko Tarnovo,2021-10-22,118.0
-Veliko Tarnovo,2021-10-23,129.0
-Veliko Tarnovo,2021-10-24,129.0
-Veliko Tarnovo,2021-10-25,133.0
-Veliko Tarnovo,2021-10-26,137.0
-Veliko Tarnovo,2021-10-27,133.0
-Veliko Tarnovo,2021-10-28,124.0
-Veliko Tarnovo,2021-10-29,125.0
-Veliko Tarnovo,2021-10-30,122.0
-Veliko Tarnovo,2021-10-31,114.0
-Veliko Tarnovo,2021-11-01,108.0
-Veliko Tarnovo,2021-11-02,110.0
-Veliko Tarnovo,2021-11-03,113.0
-Veliko Tarnovo,2021-11-04,116.0
+Varna,2021-11-05,417.0
+Varna,2021-11-06,431.0
