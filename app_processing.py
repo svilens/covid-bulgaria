@@ -224,9 +224,7 @@ new_dash = new_dash.loc[new_dash.index.get_level_values(1) <= (datetime.today() 
 smoothed_dash = smoothed_dash.loc[smoothed_dash.index.get_level_values(1) <= (datetime.today() - timedelta(days=57))]
 
 for province_name, cases in provinces_to_process.groupby(level='province'):
-    logger.info(f'processing province: {province_name}')
-    for province_name, cases in provinces_to_process.groupby(level='province'):
-    logger.info(f'processing province: {province_name}')
+    logger.info(f'processing province: {province_name}'))
     # prepare cases for the past 60 days
     new, smoothed = prepare_cases(
         cases.loc[
