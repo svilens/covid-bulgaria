@@ -257,7 +257,7 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
     # Holds the log likelihood across all k for each value of sigma
     result['log_likelihoods'] = []
     for sigma in sigmas:
-        posteriors, log_likelihood = get_posteriors(smoothed, sigma=sigma)
+        posteriors, log_likelihood = get_posteriors(smoothed[3:], sigma=sigma)
         result['posteriors'].append(posteriors)
         result['log_likelihoods'].append(log_likelihood)
     # Store all results keyed off of province name
