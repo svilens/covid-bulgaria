@@ -147,6 +147,8 @@ smoothed_deaths_bg.to_csv('./dash_data/r0_bg_smoothed_deaths.csv', header=True)
 
 
 logger.info('preparing posteriors for Bulgaria')
+# every day we are re-calculating the Rt for the past 60 days
+# then replacing the last 60 days in the file
 sigmas = np.linspace(1/15, 1, 15)
 result_bg = {}
  # Holds all posteriors with every given value of sigma
@@ -155,7 +157,7 @@ result_bg['posteriors'] = []
 result_bg['log_likelihoods'] = []
 
 for sigma in sigmas:
-    posteriors, log_likelihood = get_posteriors(smoothed_bg, sigma=sigma)
+    posteriors, log_likelihood = get_posteriors(smoothed_bg[-60:], sigma=sigma)
     result_bg['posteriors'].append(posteriors)
     result_bg['log_likelihoods'].append(log_likelihood)
     
@@ -173,7 +175,7 @@ max_likelihood_index_bg = total_log_likelihoods_bg.argmax()
 sigma_bg = sigmas[max_likelihood_index_bg]
 
 logger.info('calculating Rt for Bulgaria')
-posteriors_bg, log_likelihood_bg = get_posteriors(smoothed_bg, sigma=sigma_bg)
+posteriors_bg, log_likelihood_bg = get_posteriors(smoothed_bg[-60:], sigma=sigma_bg)
 
 # Note that this takes a while to execute - it's not the most efficient algorithm
 hdis_bg = highest_density_interval(posteriors_bg, p=.9)
@@ -183,6 +185,13 @@ most_likely_bg = posteriors_bg.idxmax().rename('Estimated')
 # Look into why you shift -1
 result_bg = pd.concat([most_likely_bg, hdis_bg], axis=1)
 
+# read the old file, keep drop last 57 days data
+# then append today's recalculation
+result_bg_prev = pd.read_csv('./dash_data/r0_bg_r0.csv', parse_dates=['date'], index_col=['date'])
+result_bg = pd.concat([
+    result_bg_prev.loc[result_bg_prev.index <= (datetime.now() - timedelta(days=57))],
+    result_bg.loc[result_bg.index >= (datetime.now() - timedelta(days=57))]
+])
 result_bg.to_csv('./dash_data/r0_bg_r0.csv', header=True)
 
 index_bg = result_bg['Estimated'].index.get_level_values('date')
@@ -206,31 +215,35 @@ logger.info('Calculating smoothed cases for provinces')
 start = datetime.now()
 
 sigmas = np.linspace(1/15, 1, 15)
-
 provinces_to_process = provinces
-
 results = {}
-#r0_provinces_original = pd.DataFrame()
-r0_provinces_smoothed = pd.DataFrame()
+
+new_dash = pd.read_csv('./dash_data/r0_provinces_original.csv', parse_dates=['date'], index_col=['province', 'date'])
+smoothed_dash = pd.read_csv('./dash_data/r0_provinces_smoothed.csv', parse_dates=['date'], index_col=['province', 'date'])
+new_dash = new_dash.loc[new_dash.index.get_level_values(1) <= (datetime.today() - timedelta(days=57))]
+smoothed_dash = smoothed_dash.loc[smoothed_dash.index.get_level_values(1) <= (datetime.today() - timedelta(days=57))]
 
 for province_name, cases in provinces_to_process.groupby(level='province'):
     logger.info(f'processing province: {province_name}')
-    new, smoothed = prepare_cases(cases)
-
-    # for dash
-    new_dash = new.to_frame()
-    smoothed_dash = smoothed.to_frame()
-    new_dash.columns = ['new_cases']
-    smoothed_dash.columns = ['new_cases']
- #   r0_provinces_original = pd.concat([r0_provinces_original, new_dash])
-#    r0_provinces_smoothed = pd.concat([r0_provinces_smoothed, smoothed_dash])
-    if province_name == 'Blagoevgrad':
-        new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=True)
-        smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
-    else:
-        new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=False, mode='a')
-        smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=False, mode='a')
-    # end of dash
+    for province_name, cases in provinces_to_process.groupby(level='province'):
+    logger.info(f'processing province: {province_name}')
+    # prepare cases for the past 60 days
+    new, smoothed = prepare_cases(
+        cases.loc[
+            cases.index.get_level_values(1) >= (datetime.today() - timedelta(days=60))
+        ]
+    )
+    new.name = 'new_cases'
+    smoothed.name = 'new_cases'
+    # append to the old data
+    new_dash = pd.concat([
+        new_dash,
+        new[3:].to_frame()
+    ])
+    smoothed_dash = pd.concat([
+        smoothed_dash,
+        smoothed[3:].to_frame()
+    ])
 
     result = {}
     # Holds all posteriors with every given value of sigma
@@ -244,10 +257,8 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
     # Store all results keyed off of province name
     results[province_name] = result
 
-# for dash
-#logger.info('Outputting smoothed cases by province')
-#r0_provinces_original.to_csv('./dash_data/r0_provinces_original.csv', header=True)
-#r0_provinces_smoothed.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
+new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=True)
+smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
 
 logger.info('Getting the best log likelihood by province')
 # Each index of this array holds the total of the log likelihoods for the corresponding index of the sigmas array.
@@ -271,21 +282,22 @@ for province_name, result in results.items():
     logger.info(f'Rt for {province_name}')
     posteriors = result['posteriors'][max_likelihood_index].fillna(0.1)
     hdis_90 = highest_density_interval(posteriors, p=.9)
-    hdis_50 = highest_density_interval(posteriors, p=.5)
+    #hdis_50 = highest_density_interval(posteriors, p=.5)
     most_likely = posteriors.idxmax().rename('Estimated')
-    result = pd.concat([most_likely, hdis_90, hdis_50], axis=1)
-    if province_name == 'Blagoevgrad':
-        result.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
-    else:
-        result.to_csv('./dash_data/r0_provinces_r0.csv', header=False, mode='a')
+    result = pd.concat([most_likely, hdis_90], axis=1)
+
     if final_results is None:
         final_results = result
     else:
         final_results = pd.concat([final_results, result])
 
-logger.info(f'Provinces Rt runtime: {datetime.now() - start}')
+result_prev = pd.read_csv('./dash_data/r0_provinces_r0.csv', parse_dates=['date'], index_col=['province', 'date'])
+result_prev = result_prev.loc[result_prev.index.get_level_values(1) <= (datetime.today() - timedelta(days=57))]
 
-#final_results.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
+final_results = pd.concat([result_prev, final_results])
+final_results.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
+
+logger.info(f'Provinces Rt runtime: {datetime.now() - start}')
 
 mr = final_results.groupby(level=0)[['Estimated', 'High_90', 'Low_90']].last()
 
