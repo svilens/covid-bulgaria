@@ -187,14 +187,18 @@ result_bg = pd.concat([most_likely_bg, hdis_bg], axis=1)
 
 # read the old file, keep drop last 57 days data
 # then append today's recalculation
-result_bg_prev = pd.read_csv('./dash_data/r0_bg_r0.csv', parse_dates=['date'], index_col=['date'])
+result_bg_prev = pd.read_csv('./dash_data/r0_bg_r0.csv', index_col=['date'])
+result_bg_prev.index = pd.to_datetime(result_bg_prev.index).date
+result_bg.index = pd.to_datetime(result_bg.index).date
 result_bg = pd.concat([
-    result_bg_prev.loc[result_bg_prev.index <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))],
-    result_bg.loc[result_bg.index >= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))]
+    result_bg_prev.loc[result_bg_prev.index <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()],
+    result_bg.loc[result_bg.index >= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()]
 ])
-result_bg.to_csv('./dash_data/r0_bg_r0.csv', header=True)
+result_bg.index.rename('date', inplace=True)
+result_bg.reset_index().to_csv('./dash_data/r0_bg_r0.csv', header=True, index=False)
 
-index_bg = result_bg['Estimated'].index.get_level_values('date')
+
+index_bg = result_bg['Estimated'].index
 values_bg = result_bg['Estimated'].values
 
 lowfn_bg = interp1d(date2num(index_bg),
@@ -219,16 +223,20 @@ provinces_to_process = provinces
 results = {}
 
 new_dash = pd.read_csv('./dash_data/r0_provinces_original.csv', parse_dates=['date'], index_col=['province', 'date'])
+new_dash.index = new_dash.index.set_levels([new_dash.index.levels[0], pd.to_datetime(new_dash.index.levels[1]).date])
 smoothed_dash = pd.read_csv('./dash_data/r0_provinces_smoothed.csv', parse_dates=['date'], index_col=['province', 'date'])
-new_dash = new_dash.loc[new_dash.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))]
-smoothed_dash = smoothed_dash.loc[smoothed_dash.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))]
+new_dash = new_dash.loc[new_dash.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()]
+smoothed_dash.index = smoothed_dash.index.set_levels([smoothed_dash.index.levels[0], pd.to_datetime(smoothed_dash.index.levels[1]).date])
+smoothed_dash = smoothed_dash.loc[smoothed_dash.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()]
+
 
 for province_name, cases in provinces_to_process.groupby(level='province'):
-    logger.info(f'processing province: {province_name}')
+    logger.info(f'smoothing province: {province_name}')
+    cases.index = cases.index.set_levels([cases.index.levels[0], pd.to_datetime(cases.index.levels[1]).date])
     # prepare cases for the past 60 days
     new, smoothed = prepare_cases(
         cases.loc[
-            cases.index.get_level_values(1) >= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=60))
+            cases.index.get_level_values(1) >= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=60)).date()
         ]
     )
     new.name = 'new_cases'
@@ -255,8 +263,8 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
     # Store all results keyed off of province name
     results[province_name] = result
 
-new_dash.to_csv('./dash_data/r0_provinces_original.csv', header=True)
-smoothed_dash.to_csv('./dash_data/r0_provinces_smoothed.csv', header=True)
+new_dash.reset_index().to_csv('./dash_data/r0_provinces_original.csv', header=True, index=False)
+smoothed_dash.reset_index().to_csv('./dash_data/r0_provinces_smoothed.csv', header=True, index=False)
 
 logger.info('Getting the best log likelihood by province')
 # Each index of this array holds the total of the log likelihoods for the corresponding index of the sigmas array.
@@ -290,10 +298,11 @@ for province_name, result in results.items():
         final_results = pd.concat([final_results, result])
 
 result_prev = pd.read_csv('./dash_data/r0_provinces_r0.csv', parse_dates=['date'], index_col=['province', 'date'])
-result_prev = result_prev.loc[result_prev.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))]
+result_prev.index = result_prev.index.set_levels([result_prev.index.levels[0], pd.to_datetime(result_prev.index.levels[1]).date])
+result_prev = result_prev.loc[result_prev.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()]
 
 final_results = pd.concat([result_prev, final_results])
-final_results.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
+final_results.reset_index().to_csv('./dash_data/r0_provinces_r0.csv', header=True, index=False)
 
 logger.info(f'Provinces Rt runtime: {datetime.now() - start}')
 
