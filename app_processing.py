@@ -189,8 +189,8 @@ result_bg = pd.concat([most_likely_bg, hdis_bg], axis=1)
 # then append today's recalculation
 result_bg_prev = pd.read_csv('./dash_data/r0_bg_r0.csv', parse_dates=['date'], index_col=['date'])
 result_bg = pd.concat([
-    result_bg_prev.loc[result_bg_prev.index <= (datetime.now() - timedelta(days=57))],
-    result_bg.loc[result_bg.index >= (datetime.now() - timedelta(days=57))]
+    result_bg_prev.loc[result_bg_prev.index <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))],
+    result_bg.loc[result_bg.index >= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))]
 ])
 result_bg.to_csv('./dash_data/r0_bg_r0.csv', header=True)
 
@@ -220,15 +220,15 @@ results = {}
 
 new_dash = pd.read_csv('./dash_data/r0_provinces_original.csv', parse_dates=['date'], index_col=['province', 'date'])
 smoothed_dash = pd.read_csv('./dash_data/r0_provinces_smoothed.csv', parse_dates=['date'], index_col=['province', 'date'])
-new_dash = new_dash.loc[new_dash.index.get_level_values(1) <= (datetime.today() - timedelta(days=57))]
-smoothed_dash = smoothed_dash.loc[smoothed_dash.index.get_level_values(1) <= (datetime.today() - timedelta(days=57))]
+new_dash = new_dash.loc[new_dash.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))]
+smoothed_dash = smoothed_dash.loc[smoothed_dash.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))]
 
 for province_name, cases in provinces_to_process.groupby(level='province'):
     logger.info(f'processing province: {province_name}')
     # prepare cases for the past 60 days
     new, smoothed = prepare_cases(
         cases.loc[
-            cases.index.get_level_values(1) >= (datetime.today() - timedelta(days=60))
+            cases.index.get_level_values(1) >= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=60))
         ]
     )
     new.name = 'new_cases'
@@ -282,7 +282,7 @@ for province_name, result in results.items():
     hdis_90 = highest_density_interval(posteriors, p=.9)
     #hdis_50 = highest_density_interval(posteriors, p=.5)
     most_likely = posteriors.idxmax().rename('Estimated')
-    result = pd.concat([most_likely, hdis_90], axis=1)
+    result = pd.concat([most_likely, hdis_90], axis=1)[3:]
 
     if final_results is None:
         final_results = result
@@ -290,7 +290,7 @@ for province_name, result in results.items():
         final_results = pd.concat([final_results, result])
 
 result_prev = pd.read_csv('./dash_data/r0_provinces_r0.csv', parse_dates=['date'], index_col=['province', 'date'])
-result_prev = result_prev.loc[result_prev.index.get_level_values(1) <= (datetime.today() - timedelta(days=57))]
+result_prev = result_prev.loc[result_prev.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57))]
 
 final_results = pd.concat([result_prev, final_results])
 final_results.to_csv('./dash_data/r0_provinces_r0.csv', header=True)

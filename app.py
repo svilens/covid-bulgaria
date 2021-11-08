@@ -1014,7 +1014,7 @@ fig_rt.add_trace(go.Scatter(
     marker_line_width=1.2, marker_cmin=0.5, marker_cmax=1.4,
     name='R<sub>t'))
 fig_rt.update_layout(
-    yaxis=dict(range=[0,4]),
+    yaxis=dict(range=[0,2.5]),
     title="Real-time R<sub>t</sub> for Bulgaria", showlegend=False,
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
