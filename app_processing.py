@@ -302,7 +302,8 @@ result_prev.index = result_prev.index.set_levels([result_prev.index.levels[0], p
 result_prev = result_prev.loc[result_prev.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()]
 
 final_results = pd.concat([result_prev, final_results])
-final_results.reset_index().to_csv('./dash_data/r0_provinces_r0.csv', header=True, index=False)
+final_results = final_results.groupby(level=[0,1])['Estimated','Low_90','High_90'].first()
+final_results.to_csv('./dash_data/r0_provinces_r0.csv', header=True)
 
 logger.info(f'Provinces Rt runtime: {datetime.now() - start}')
 
