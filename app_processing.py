@@ -299,7 +299,7 @@ for province_name, result in results.items():
 
 result_prev = pd.read_csv('./dash_data/r0_provinces_r0.csv', parse_dates=['date'], index_col=['province', 'date'])
 result_prev.index = result_prev.index.set_levels([result_prev.index.levels[0], pd.to_datetime(result_prev.index.levels[1]).date])
-result_prev = result_prev.loc[result_prev.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()]
+result_prev = result_prev.loc[result_prev.index.get_level_values(1) <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=60)).date()]
 
 final_results = pd.concat([result_prev, final_results])
 final_results = final_results.groupby(level=[0,1])['Estimated','Low_90','High_90'].first()
