@@ -8273,7 +8273,62 @@ Yambol,2021-09-29,40.0
 Yambol,2021-09-30,39.0
 Blagoevgrad,2021-09-30,106.0
 Blagoevgrad,2021-10-01,103.0
-Blagoevgrad,2021-10-02,100.0
+Burgas,2021-09-30,101.0
+Burgas,2021-10-01,94.0
+Dobrich,2021-09-30,50.0
+Dobrich,2021-10-01,47.0
+Gabrovo,2021-09-30,57.0
+Gabrovo,2021-10-01,56.0
+Haskovo,2021-09-30,45.0
+Haskovo,2021-10-01,43.0
+Kardzhali,2021-09-30,13.0
+Kardzhali,2021-10-01,12.0
+Kyustendil,2021-09-30,44.0
+Kyustendil,2021-10-01,43.0
+Lovech,2021-09-30,28.0
+Lovech,2021-10-01,27.0
+Montana,2021-09-30,47.0
+Montana,2021-10-01,47.0
+Pazardzhik,2021-09-30,48.0
+Pazardzhik,2021-10-01,48.0
+Pernik,2021-09-30,53.0
+Pernik,2021-10-01,51.0
+Pleven,2021-09-30,32.0
+Pleven,2021-10-01,31.0
+Plovdiv,2021-09-30,181.0
+Plovdiv,2021-10-01,176.0
+Razgrad,2021-09-30,20.0
+Razgrad,2021-10-01,18.0
+Ruse,2021-09-30,56.0
+Ruse,2021-10-01,54.0
+Shumen,2021-09-30,30.0
+Shumen,2021-10-01,30.0
+Silistra,2021-09-30,25.0
+Silistra,2021-10-01,24.0
+Sliven,2021-09-30,73.0
+Sliven,2021-10-01,72.0
+Smolyan,2021-09-30,17.0
+Smolyan,2021-10-01,16.0
+Sofiya-Grad,2021-09-30,471.0
+Sofiya-Grad,2021-10-01,470.0
+Sofiya-Oblast,2021-09-30,91.0
+Sofiya-Oblast,2021-10-01,88.0
+Stara Zagora,2021-09-30,88.0
+Stara Zagora,2021-10-01,89.0
+Targovishte,2021-09-30,32.0
+Targovishte,2021-10-01,29.0
+Varna,2021-09-30,145.0
+Varna,2021-10-01,139.0
+Veliko Tarnovo,2021-09-30,65.0
+Veliko Tarnovo,2021-10-01,63.0
+Vidin,2021-09-30,30.0
+Vidin,2021-10-01,29.0
+Vratsa,2021-09-30,38.0
+Vratsa,2021-10-01,38.0
+Yambol,2021-09-30,42.0
+Yambol,2021-10-01,41.0
+Blagoevgrad,2021-10-01,99.0
+Blagoevgrad,2021-10-02,97.0
 Blagoevgrad,2021-10-03,96.0
 Blagoevgrad,2021-10-04,96.0
 Blagoevgrad,2021-10-05,98.0
@@ -8325,13 +8380,13 @@ Blagoevgrad,2021-11-19,120.0
 Blagoevgrad,2021-11-20,121.0
 Blagoevgrad,2021-11-21,115.0
 Blagoevgrad,2021-11-22,110.0
-Blagoevgrad,2021-11-23,112.0
-Blagoevgrad,2021-11-24,112.0
-Blagoevgrad,2021-11-25,114.0
-Blagoevgrad,2021-11-26,120.0
-Burgas,2021-09-30,101.0
-Burgas,2021-10-01,94.0
-Burgas,2021-10-02,94.0
+Blagoevgrad,2021-11-23,113.0
+Blagoevgrad,2021-11-24,114.0
+Blagoevgrad,2021-11-25,116.0
+Blagoevgrad,2021-11-26,122.0
+Blagoevgrad,2021-11-27,128.0
+Burgas,2021-10-01,99.0
+Burgas,2021-10-02,97.0
 Burgas,2021-10-03,94.0
 Burgas,2021-10-04,90.0
 Burgas,2021-10-05,91.0
@@ -8383,11 +8438,11 @@ Burgas,2021-11-19,112.0
 Burgas,2021-11-20,119.0
 Burgas,2021-11-21,120.0
 Burgas,2021-11-22,112.0
-Burgas,2021-11-23,113.0
-Burgas,2021-11-24,115.0
-Burgas,2021-11-25,115.0
-Burgas,2021-11-26,119.0
-Dobrich,2021-09-30,50.0
+Burgas,2021-11-23,114.0
+Burgas,2021-11-24,116.0
+Burgas,2021-11-25,117.0
+Burgas,2021-11-26,121.0
+Burgas,2021-11-27,129.0
 Dobrich,2021-10-01,47.0
 Dobrich,2021-10-02,47.0
 Dobrich,2021-10-03,48.0
@@ -8442,12 +8497,12 @@ Dobrich,2021-11-20,48.0
 Dobrich,2021-11-21,47.0
 Dobrich,2021-11-22,45.0
 Dobrich,2021-11-23,46.0
-Dobrich,2021-11-24,47.0
-Dobrich,2021-11-25,48.0
+Dobrich,2021-11-24,48.0
+Dobrich,2021-11-25,49.0
 Dobrich,2021-11-26,51.0
-Gabrovo,2021-09-30,57.0
-Gabrovo,2021-10-01,56.0
-Gabrovo,2021-10-02,55.0
+Dobrich,2021-11-27,54.0
+Gabrovo,2021-10-01,53.0
+Gabrovo,2021-10-02,53.0
 Gabrovo,2021-10-03,53.0
 Gabrovo,2021-10-04,53.0
 Gabrovo,2021-10-05,55.0
@@ -8499,13 +8554,13 @@ Gabrovo,2021-11-19,46.0
 Gabrovo,2021-11-20,47.0
 Gabrovo,2021-11-21,44.0
 Gabrovo,2021-11-22,41.0
-Gabrovo,2021-11-23,42.0
-Gabrovo,2021-11-24,42.0
-Gabrovo,2021-11-25,43.0
-Gabrovo,2021-11-26,46.0
-Haskovo,2021-09-30,45.0
-Haskovo,2021-10-01,43.0
-Haskovo,2021-10-02,41.0
+Gabrovo,2021-11-23,43.0
+Gabrovo,2021-11-24,45.0
+Gabrovo,2021-11-25,46.0
+Gabrovo,2021-11-26,50.0
+Gabrovo,2021-11-27,53.0
+Haskovo,2021-10-01,42.0
+Haskovo,2021-10-02,40.0
 Haskovo,2021-10-03,39.0
 Haskovo,2021-10-04,37.0
 Haskovo,2021-10-05,37.0
@@ -8560,10 +8615,10 @@ Haskovo,2021-11-22,82.0
 Haskovo,2021-11-23,84.0
 Haskovo,2021-11-24,85.0
 Haskovo,2021-11-25,88.0
-Haskovo,2021-11-26,92.0
-Kardzhali,2021-09-30,13.0
+Haskovo,2021-11-26,91.0
+Haskovo,2021-11-27,96.0
 Kardzhali,2021-10-01,12.0
-Kardzhali,2021-10-02,13.0
+Kardzhali,2021-10-02,12.0
 Kardzhali,2021-10-03,13.0
 Kardzhali,2021-10-04,14.0
 Kardzhali,2021-10-05,14.0
@@ -8615,13 +8670,13 @@ Kardzhali,2021-11-19,22.0
 Kardzhali,2021-11-20,23.0
 Kardzhali,2021-11-21,23.0
 Kardzhali,2021-11-22,22.0
-Kardzhali,2021-11-23,23.0
-Kardzhali,2021-11-24,24.0
-Kardzhali,2021-11-25,24.0
-Kardzhali,2021-11-26,25.0
-Kyustendil,2021-09-30,44.0
-Kyustendil,2021-10-01,43.0
-Kyustendil,2021-10-02,42.0
+Kardzhali,2021-11-23,24.0
+Kardzhali,2021-11-24,25.0
+Kardzhali,2021-11-25,25.0
+Kardzhali,2021-11-26,27.0
+Kardzhali,2021-11-27,29.0
+Kyustendil,2021-10-01,41.0
+Kyustendil,2021-10-02,40.0
 Kyustendil,2021-10-03,42.0
 Kyustendil,2021-10-04,44.0
 Kyustendil,2021-10-05,46.0
@@ -8675,9 +8730,9 @@ Kyustendil,2021-11-21,46.0
 Kyustendil,2021-11-22,43.0
 Kyustendil,2021-11-23,42.0
 Kyustendil,2021-11-24,40.0
-Kyustendil,2021-11-25,41.0
-Kyustendil,2021-11-26,42.0
-Lovech,2021-09-30,28.0
+Kyustendil,2021-11-25,40.0
+Kyustendil,2021-11-26,41.0
+Kyustendil,2021-11-27,43.0
 Lovech,2021-10-01,27.0
 Lovech,2021-10-02,27.0
 Lovech,2021-10-03,27.0
@@ -8733,11 +8788,11 @@ Lovech,2021-11-21,45.0
 Lovech,2021-11-22,42.0
 Lovech,2021-11-23,42.0
 Lovech,2021-11-24,42.0
-Lovech,2021-11-25,41.0
-Lovech,2021-11-26,42.0
-Montana,2021-09-30,47.0
-Montana,2021-10-01,47.0
-Montana,2021-10-02,48.0
+Lovech,2021-11-25,40.0
+Lovech,2021-11-26,41.0
+Lovech,2021-11-27,43.0
+Montana,2021-10-01,43.0
+Montana,2021-10-02,45.0
 Montana,2021-10-03,47.0
 Montana,2021-10-04,51.0
 Montana,2021-10-05,56.0
@@ -8789,12 +8844,12 @@ Montana,2021-11-19,57.0
 Montana,2021-11-20,57.0
 Montana,2021-11-21,54.0
 Montana,2021-11-22,55.0
-Montana,2021-11-23,58.0
-Montana,2021-11-24,62.0
-Montana,2021-11-25,66.0
-Montana,2021-11-26,73.0
-Pazardzhik,2021-09-30,48.0
-Pazardzhik,2021-10-01,48.0
+Montana,2021-11-23,57.0
+Montana,2021-11-24,60.0
+Montana,2021-11-25,63.0
+Montana,2021-11-26,68.0
+Montana,2021-11-27,72.0
+Pazardzhik,2021-10-01,49.0
 Pazardzhik,2021-10-02,48.0
 Pazardzhik,2021-10-03,48.0
 Pazardzhik,2021-10-04,46.0
@@ -8847,11 +8902,11 @@ Pazardzhik,2021-11-19,69.0
 Pazardzhik,2021-11-20,71.0
 Pazardzhik,2021-11-21,68.0
 Pazardzhik,2021-11-22,62.0
-Pazardzhik,2021-11-23,62.0
-Pazardzhik,2021-11-24,64.0
-Pazardzhik,2021-11-25,63.0
-Pazardzhik,2021-11-26,67.0
-Pernik,2021-09-30,53.0
+Pazardzhik,2021-11-23,63.0
+Pazardzhik,2021-11-24,66.0
+Pazardzhik,2021-11-25,66.0
+Pazardzhik,2021-11-26,71.0
+Pazardzhik,2021-11-27,75.0
 Pernik,2021-10-01,51.0
 Pernik,2021-10-02,51.0
 Pernik,2021-10-03,52.0
@@ -8905,13 +8960,13 @@ Pernik,2021-11-19,65.0
 Pernik,2021-11-20,67.0
 Pernik,2021-11-21,66.0
 Pernik,2021-11-22,61.0
-Pernik,2021-11-23,61.0
-Pernik,2021-11-24,61.0
-Pernik,2021-11-25,59.0
-Pernik,2021-11-26,61.0
-Pleven,2021-09-30,32.0
-Pleven,2021-10-01,31.0
-Pleven,2021-10-02,31.0
+Pernik,2021-11-23,60.0
+Pernik,2021-11-24,59.0
+Pernik,2021-11-25,57.0
+Pernik,2021-11-26,57.0
+Pernik,2021-11-27,57.0
+Pleven,2021-10-01,29.0
+Pleven,2021-10-02,29.0
 Pleven,2021-10-03,30.0
 Pleven,2021-10-04,31.0
 Pleven,2021-10-05,33.0
@@ -8963,13 +9018,13 @@ Pleven,2021-11-19,82.0
 Pleven,2021-11-20,82.0
 Pleven,2021-11-21,80.0
 Pleven,2021-11-22,77.0
-Pleven,2021-11-23,78.0
-Pleven,2021-11-24,79.0
-Pleven,2021-11-25,81.0
+Pleven,2021-11-23,79.0
+Pleven,2021-11-24,80.0
+Pleven,2021-11-25,82.0
 Pleven,2021-11-26,86.0
-Plovdiv,2021-09-30,181.0
-Plovdiv,2021-10-01,176.0
-Plovdiv,2021-10-02,173.0
+Pleven,2021-11-27,90.0
+Plovdiv,2021-10-01,169.0
+Plovdiv,2021-10-02,169.0
 Plovdiv,2021-10-03,169.0
 Plovdiv,2021-10-04,171.0
 Plovdiv,2021-10-05,179.0
@@ -9024,10 +9079,10 @@ Plovdiv,2021-11-22,215.0
 Plovdiv,2021-11-23,216.0
 Plovdiv,2021-11-24,219.0
 Plovdiv,2021-11-25,222.0
-Plovdiv,2021-11-26,232.0
-Razgrad,2021-09-30,20.0
+Plovdiv,2021-11-26,229.0
+Plovdiv,2021-11-27,239.0
 Razgrad,2021-10-01,18.0
-Razgrad,2021-10-02,19.0
+Razgrad,2021-10-02,18.0
 Razgrad,2021-10-03,19.0
 Razgrad,2021-10-04,20.0
 Razgrad,2021-10-05,22.0
@@ -9082,10 +9137,10 @@ Razgrad,2021-11-22,29.0
 Razgrad,2021-11-23,30.0
 Razgrad,2021-11-24,30.0
 Razgrad,2021-11-25,31.0
-Razgrad,2021-11-26,33.0
-Ruse,2021-09-30,56.0
-Ruse,2021-10-01,54.0
-Ruse,2021-10-02,53.0
+Razgrad,2021-11-26,32.0
+Razgrad,2021-11-27,33.0
+Ruse,2021-10-01,50.0
+Ruse,2021-10-02,50.0
 Ruse,2021-10-03,51.0
 Ruse,2021-10-04,53.0
 Ruse,2021-10-05,57.0
@@ -9139,11 +9194,11 @@ Ruse,2021-11-21,77.0
 Ruse,2021-11-22,78.0
 Ruse,2021-11-23,81.0
 Ruse,2021-11-24,84.0
-Ruse,2021-11-25,87.0
-Ruse,2021-11-26,92.0
-Shumen,2021-09-30,30.0
-Shumen,2021-10-01,30.0
-Shumen,2021-10-02,30.0
+Ruse,2021-11-25,86.0
+Ruse,2021-11-26,90.0
+Ruse,2021-11-27,93.0
+Shumen,2021-10-01,26.0
+Shumen,2021-10-02,28.0
 Shumen,2021-10-03,29.0
 Shumen,2021-10-04,30.0
 Shumen,2021-10-05,32.0
@@ -9197,11 +9252,11 @@ Shumen,2021-11-21,44.0
 Shumen,2021-11-22,43.0
 Shumen,2021-11-23,44.0
 Shumen,2021-11-24,43.0
-Shumen,2021-11-25,44.0
-Shumen,2021-11-26,46.0
-Silistra,2021-09-30,25.0
-Silistra,2021-10-01,24.0
-Silistra,2021-10-02,24.0
+Shumen,2021-11-25,43.0
+Shumen,2021-11-26,44.0
+Shumen,2021-11-27,46.0
+Silistra,2021-10-01,21.0
+Silistra,2021-10-02,22.0
 Silistra,2021-10-03,24.0
 Silistra,2021-10-04,24.0
 Silistra,2021-10-05,25.0
@@ -9253,13 +9308,13 @@ Silistra,2021-11-19,28.0
 Silistra,2021-11-20,27.0
 Silistra,2021-11-21,24.0
 Silistra,2021-11-22,22.0
-Silistra,2021-11-23,21.0
+Silistra,2021-11-23,20.0
 Silistra,2021-11-24,20.0
-Silistra,2021-11-25,20.0
-Silistra,2021-11-26,21.0
-Sliven,2021-09-30,73.0
-Sliven,2021-10-01,72.0
-Sliven,2021-10-02,72.0
+Silistra,2021-11-25,19.0
+Silistra,2021-11-26,20.0
+Silistra,2021-11-27,20.0
+Sliven,2021-10-01,70.0
+Sliven,2021-10-02,71.0
 Sliven,2021-10-03,71.0
 Sliven,2021-10-04,72.0
 Sliven,2021-10-05,74.0
@@ -9312,12 +9367,12 @@ Sliven,2021-11-20,41.0
 Sliven,2021-11-21,40.0
 Sliven,2021-11-22,39.0
 Sliven,2021-11-23,40.0
-Sliven,2021-11-24,40.0
+Sliven,2021-11-24,41.0
 Sliven,2021-11-25,43.0
 Sliven,2021-11-26,44.0
-Smolyan,2021-09-30,17.0
-Smolyan,2021-10-01,16.0
-Smolyan,2021-10-02,16.0
+Sliven,2021-11-27,47.0
+Smolyan,2021-10-01,14.0
+Smolyan,2021-10-02,14.0
 Smolyan,2021-10-03,15.0
 Smolyan,2021-10-04,15.0
 Smolyan,2021-10-05,17.0
@@ -9370,12 +9425,12 @@ Smolyan,2021-11-20,29.0
 Smolyan,2021-11-21,29.0
 Smolyan,2021-11-22,29.0
 Smolyan,2021-11-23,30.0
-Smolyan,2021-11-24,31.0
-Smolyan,2021-11-25,33.0
-Smolyan,2021-11-26,35.0
-Sofiya-Grad,2021-09-30,471.0
-Sofiya-Grad,2021-10-01,470.0
-Sofiya-Grad,2021-10-02,469.0
+Smolyan,2021-11-24,30.0
+Smolyan,2021-11-25,31.0
+Smolyan,2021-11-26,32.0
+Smolyan,2021-11-27,34.0
+Sofiya-Grad,2021-10-01,458.0
+Sofiya-Grad,2021-10-02,462.0
 Sofiya-Grad,2021-10-03,474.0
 Sofiya-Grad,2021-10-04,485.0
 Sofiya-Grad,2021-10-05,508.0
@@ -9427,13 +9482,13 @@ Sofiya-Grad,2021-11-19,589.0
 Sofiya-Grad,2021-11-20,597.0
 Sofiya-Grad,2021-11-21,579.0
 Sofiya-Grad,2021-11-22,576.0
-Sofiya-Grad,2021-11-23,579.0
-Sofiya-Grad,2021-11-24,596.0
-Sofiya-Grad,2021-11-25,613.0
-Sofiya-Grad,2021-11-26,642.0
-Sofiya-Oblast,2021-09-30,91.0
-Sofiya-Oblast,2021-10-01,88.0
-Sofiya-Oblast,2021-10-02,85.0
+Sofiya-Grad,2021-11-23,582.0
+Sofiya-Grad,2021-11-24,598.0
+Sofiya-Grad,2021-11-25,614.0
+Sofiya-Grad,2021-11-26,637.0
+Sofiya-Grad,2021-11-27,668.0
+Sofiya-Oblast,2021-10-01,87.0
+Sofiya-Oblast,2021-10-02,84.0
 Sofiya-Oblast,2021-10-03,85.0
 Sofiya-Oblast,2021-10-04,84.0
 Sofiya-Oblast,2021-10-05,86.0
@@ -9485,13 +9540,13 @@ Sofiya-Oblast,2021-11-19,112.0
 Sofiya-Oblast,2021-11-20,113.0
 Sofiya-Oblast,2021-11-21,109.0
 Sofiya-Oblast,2021-11-22,103.0
-Sofiya-Oblast,2021-11-23,103.0
-Sofiya-Oblast,2021-11-24,102.0
-Sofiya-Oblast,2021-11-25,103.0
-Sofiya-Oblast,2021-11-26,108.0
-Stara Zagora,2021-09-30,88.0
-Stara Zagora,2021-10-01,89.0
-Stara Zagora,2021-10-02,91.0
+Sofiya-Oblast,2021-11-23,102.0
+Sofiya-Oblast,2021-11-24,100.0
+Sofiya-Oblast,2021-11-25,101.0
+Sofiya-Oblast,2021-11-26,103.0
+Sofiya-Oblast,2021-11-27,108.0
+Stara Zagora,2021-10-01,86.0
+Stara Zagora,2021-10-02,89.0
 Stara Zagora,2021-10-03,92.0
 Stara Zagora,2021-10-04,95.0
 Stara Zagora,2021-10-05,100.0
@@ -9543,13 +9598,13 @@ Stara Zagora,2021-11-19,112.0
 Stara Zagora,2021-11-20,113.0
 Stara Zagora,2021-11-21,106.0
 Stara Zagora,2021-11-22,103.0
-Stara Zagora,2021-11-23,105.0
-Stara Zagora,2021-11-24,106.0
+Stara Zagora,2021-11-23,106.0
+Stara Zagora,2021-11-24,107.0
 Stara Zagora,2021-11-25,109.0
-Stara Zagora,2021-11-26,115.0
-Targovishte,2021-09-30,32.0
-Targovishte,2021-10-01,29.0
-Targovishte,2021-10-02,27.0
+Stara Zagora,2021-11-26,114.0
+Stara Zagora,2021-11-27,119.0
+Targovishte,2021-10-01,25.0
+Targovishte,2021-10-02,25.0
 Targovishte,2021-10-03,25.0
 Targovishte,2021-10-04,26.0
 Targovishte,2021-10-05,27.0
@@ -9605,7 +9660,7 @@ Targovishte,2021-11-23,26.0
 Targovishte,2021-11-24,25.0
 Targovishte,2021-11-25,25.0
 Targovishte,2021-11-26,26.0
-Varna,2021-09-30,145.0
+Targovishte,2021-11-27,26.0
 Varna,2021-10-01,139.0
 Varna,2021-10-02,140.0
 Varna,2021-10-03,143.0
@@ -9659,13 +9714,13 @@ Varna,2021-11-19,187.0
 Varna,2021-11-20,187.0
 Varna,2021-11-21,180.0
 Varna,2021-11-22,172.0
-Varna,2021-11-23,170.0
-Varna,2021-11-24,171.0
-Varna,2021-11-25,172.0
-Varna,2021-11-26,177.0
-Veliko Tarnovo,2021-09-30,65.0
-Veliko Tarnovo,2021-10-01,63.0
-Veliko Tarnovo,2021-10-02,61.0
+Varna,2021-11-23,169.0
+Varna,2021-11-24,170.0
+Varna,2021-11-25,170.0
+Varna,2021-11-26,173.0
+Varna,2021-11-27,179.0
+Veliko Tarnovo,2021-10-01,56.0
+Veliko Tarnovo,2021-10-02,56.0
 Veliko Tarnovo,2021-10-03,58.0
 Veliko Tarnovo,2021-10-04,58.0
 Veliko Tarnovo,2021-10-05,61.0
@@ -9718,12 +9773,12 @@ Veliko Tarnovo,2021-11-20,62.0
 Veliko Tarnovo,2021-11-21,59.0
 Veliko Tarnovo,2021-11-22,59.0
 Veliko Tarnovo,2021-11-23,60.0
-Veliko Tarnovo,2021-11-24,62.0
-Veliko Tarnovo,2021-11-25,63.0
-Veliko Tarnovo,2021-11-26,67.0
-Vidin,2021-09-30,30.0
-Vidin,2021-10-01,29.0
-Vidin,2021-10-02,28.0
+Veliko Tarnovo,2021-11-24,61.0
+Veliko Tarnovo,2021-11-25,62.0
+Veliko Tarnovo,2021-11-26,64.0
+Veliko Tarnovo,2021-11-27,66.0
+Vidin,2021-10-01,28.0
+Vidin,2021-10-02,27.0
 Vidin,2021-10-03,29.0
 Vidin,2021-10-04,32.0
 Vidin,2021-10-05,36.0
@@ -9775,13 +9830,13 @@ Vidin,2021-11-19,26.0
 Vidin,2021-11-20,26.0
 Vidin,2021-11-21,25.0
 Vidin,2021-11-22,24.0
-Vidin,2021-11-23,25.0
-Vidin,2021-11-24,25.0
-Vidin,2021-11-25,27.0
-Vidin,2021-11-26,28.0
-Vratsa,2021-09-30,38.0
-Vratsa,2021-10-01,38.0
-Vratsa,2021-10-02,38.0
+Vidin,2021-11-23,26.0
+Vidin,2021-11-24,26.0
+Vidin,2021-11-25,28.0
+Vidin,2021-11-26,30.0
+Vidin,2021-11-27,32.0
+Vratsa,2021-10-01,36.0
+Vratsa,2021-10-02,37.0
 Vratsa,2021-10-03,37.0
 Vratsa,2021-10-04,37.0
 Vratsa,2021-10-05,39.0
@@ -9834,12 +9889,12 @@ Vratsa,2021-11-20,91.0
 Vratsa,2021-11-21,86.0
 Vratsa,2021-11-22,82.0
 Vratsa,2021-11-23,81.0
-Vratsa,2021-11-24,83.0
+Vratsa,2021-11-24,82.0
 Vratsa,2021-11-25,83.0
-Vratsa,2021-11-26,87.0
-Yambol,2021-09-30,42.0
-Yambol,2021-10-01,41.0
-Yambol,2021-10-02,40.0
+Vratsa,2021-11-26,86.0
+Vratsa,2021-11-27,90.0
+Yambol,2021-10-01,42.0
+Yambol,2021-10-02,41.0
 Yambol,2021-10-03,40.0
 Yambol,2021-10-04,40.0
 Yambol,2021-10-05,40.0
@@ -9891,7 +9946,8 @@ Yambol,2021-11-19,32.0
 Yambol,2021-11-20,32.0
 Yambol,2021-11-21,30.0
 Yambol,2021-11-22,27.0
-Yambol,2021-11-23,26.0
-Yambol,2021-11-24,25.0
-Yambol,2021-11-25,24.0
-Yambol,2021-11-26,25.0
+Yambol,2021-11-23,27.0
+Yambol,2021-11-24,27.0
+Yambol,2021-11-25,26.0
+Yambol,2021-11-26,27.0
+Yambol,2021-11-27,29.0
