@@ -38,10 +38,11 @@ resources = {
     '(2) by province': ['cb5d7df0-3066-4d7a-b4a1-ac26525e0f0c', 'COVID_provinces.csv'],
     '(3) by age band': ['8f62cfcf-a979-46d4-8317-4e1ab9cbd6a8', 'COVID_age_bands.csv'],
     '(4) by test type': ['0ce4e9c3-5dfc-46e2-b4ab-42d840caab92', 'COVID_test_type.csv'],
-    '(5) by test type': ['e9f795a8-0146-4cf0-9bd1-c0ba3d9aa124', 'COVID_breakthrough_infected.csv'],
-    '(6) by test type': ['6fb4bfb1-f586-45af-8dd2-3385499c3664', 'COVID_breakthrough_hospitalized.csv'],
-    '(7) by test type': ['218d49de-88a8-472a-9bb2-b2a373bd7ab4', 'COVID_breakthrough_intensivecare.csv'],
-    '(8) by test type': ['e6a72183-28e0-486a-b4e4-b5db8b60a900', 'COVID_breakthrough_deaths.csv'],
+    '(5) breakthrough - infections': ['e9f795a8-0146-4cf0-9bd1-c0ba3d9aa124', 'COVID_breakthrough_infected.csv'],
+    '(6) breakthrough - hospitalizations': ['6fb4bfb1-f586-45af-8dd2-3385499c3664', 'COVID_breakthrough_hospitalized.csv'],
+    '(7) breakthrough - ICU': ['218d49de-88a8-472a-9bb2-b2a373bd7ab4', 'COVID_breakthrough_intensivecare.csv'],
+    '(8) breakthrough - deaths': ['e6a72183-28e0-486a-b4e4-b5db8b60a900', 'COVID_breakthrough_deaths.csv'],
+    '(9) deaths breakdown': ['18851aca-4c9d-410d-8211-0b725a70bcfd', 'COVID_deaths_breakdown.csv']
 }
 
 def get_covid_data():
