@@ -1172,10 +1172,11 @@ fig_map_vaccines_province_full.update_layout(
 #    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-vaccines_total_bg = vaccines_data.groupby('date')['total', 'first_dose', 'second_dose'].sum().reset_index()
+# vaccines_total_bg = vaccines_data.groupby('date')['total', 'first_dose', 'second_dose'].sum().reset_index()
+vaccines_total_bg = vaccines_data.groupby('date')['total', 'second_dose'].sum().reset_index()
 #vaccines_total_bg['perc_first'] = vaccines_total_bg['first_dose'] / vaccines_total_bg['total']
 vaccines_total_bg['perc_second'] = vaccines_total_bg['second_dose'] / vaccines_total_bg['total']
-vaccines_total_bg['perc_first'] = 1 - vaccines_total_bg['perc_second']
+#vaccines_total_bg['perc_first'] = 1 - vaccines_total_bg['perc_second']
 vaccines_total_bg['new'] = vaccines_total_bg['total'].diff()
 
 
@@ -1301,25 +1302,25 @@ fig_vacc_province_total_perc.update_layout(
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 
 
-logger.info('Creating chart 30: Vaccines by province - dose proportion')
-#vaccines_yesterday['perc_first'] = (vaccines_yesterday['first_dose'] / vaccines_yesterday['total']).round(4)
-vaccines_yesterday['perc_second'] = (vaccines_yesterday['second_dose'] / vaccines_yesterday['total']).round(4)
-vaccines_yesterday['perc_first'] = 1 - vaccines_yesterday['perc_second']
+# logger.info('Creating chart 30: Vaccines by province - dose proportion')
+# #vaccines_yesterday['perc_first'] = (vaccines_yesterday['first_dose'] / vaccines_yesterday['total']).round(4)
+# vaccines_yesterday['perc_second'] = (vaccines_yesterday['second_dose'] / vaccines_yesterday['total']).round(4)
+# vaccines_yesterday['perc_first'] = 1 - vaccines_yesterday['perc_second']
 
-fig_vaccines_province_dose = go.Figure()
-fig_vaccines_province_dose.add_trace(go.Bar(
-    x=vaccines_yesterday['province'],
-    y=vaccines_yesterday['perc_first'],
-    name='First dose'))
-fig_vaccines_province_dose.add_trace(go.Bar(
-    x=vaccines_yesterday['province'],
-    y=vaccines_yesterday['perc_second'],
-    name='Second dose'))
-fig_vaccines_province_dose.update_layout(
-    title='Vaccines dose proportion by province',
-    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
-    barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
-    legend={'traceorder':'normal'})
+# fig_vaccines_province_dose = go.Figure()
+# fig_vaccines_province_dose.add_trace(go.Bar(
+#     x=vaccines_yesterday['province'],
+#     y=vaccines_yesterday['perc_first'],
+#     name='First dose'))
+# fig_vaccines_province_dose.add_trace(go.Bar(
+#     x=vaccines_yesterday['province'],
+#     y=vaccines_yesterday['perc_second'],
+#     name='Second dose'))
+# fig_vaccines_province_dose.update_layout(
+#     title='Vaccines dose proportion by province',
+#     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
+#     barmode='stack', yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
+#     legend={'traceorder':'normal'})
 
 """
 logger.info('Creating chart 31: Vaccines availability')
@@ -2797,11 +2798,11 @@ tabs = html.Div([
                     #dcc.Graph(figure=fig_vaccines_availability),
                     #html.Br(),
                     #html.Br(),
-                    html.P("Vaccines doses (first/second) proportion by province:"),
-                    dcc.Graph(figure=fig_vaccines_province_dose),
-                    html.Br(),
-                    html.Br(),
-                    html.P("Fully vaccinated people by province per 100,000 population - this includes the number of people who have received the recommended by the manufacturers two vaccine doses:"),
+                   # html.P("Vaccines doses (first/second) proportion by province:"),
+                   # dcc.Graph(figure=fig_vaccines_province_dose),
+                   # html.Br(),
+                   # html.Br(),
+                   # html.P("Fully vaccinated people by province per 100,000 population - this includes the number of people who have received the recommended by the manufacturers two vaccine doses:"),
                     dcc.Graph(figure=fig_map_vaccines_province_full),
                     html.Br(),
                     html.Br()
