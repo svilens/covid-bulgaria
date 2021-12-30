@@ -191,7 +191,7 @@ result_bg_prev = pd.read_csv('./dash_data/r0_bg_r0.csv', index_col=['date'])
 result_bg_prev.index = pd.to_datetime(result_bg_prev.index).date
 result_bg.index = pd.to_datetime(result_bg.index).date
 result_bg = pd.concat([
-    result_bg_prev.loc[result_bg_prev.index <= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()],
+    result_bg_prev.loc[result_bg_prev.index < (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()],
     result_bg.loc[result_bg.index >= (datetime.now(pytz.timezone('Europe/Sofia')) - timedelta(days=57)).date()]
 ])
 result_bg.index.rename('date', inplace=True)
