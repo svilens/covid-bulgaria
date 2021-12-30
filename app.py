@@ -659,6 +659,80 @@ fig_age_area.update_layout(
 )
 
 
+
+# Deaths breakdown
+## gender
+deaths_breakdown = ReadDeathsBreakdown(
+    './data/COVID_deaths_breakdown.csv', 'Дата').to_eng()
+
+deaths_breakdown_gender = deaths_breakdown.groupby('gender', as_index=False)['num'].sum()
+fig_deaths_gender = px.pie(
+    deaths_breakdown_gender, values='num', color='gender',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'})
+fig_deaths_gender.update_layout(
+    title='Deaths breakdown by gender',
+    yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+## mortality rate by age band
+deaths_breakdown_age = deaths_breakdown.groupby('ageband', as_index=False)['num'].sum()
+deaths_breakdown_age['perc'] = deaths_breakdown_age['num'] / deaths_breakdown_age['num'].sum()
+deaths_breakdown_age['perc_cum'] = deaths_breakdown_age['perc'].cumsum()
+deaths_breakdown_age['ageband_coarse'] = np.where(
+        deaths_breakdown_age['ageband']
+        .apply(lambda x: int(x[:2])<20)
+    ,
+    '0 - 19', deaths_breakdown_age['ageband']
+)
+deaths_breakdown_age = deaths_breakdown_age.groupby('ageband_coarse', as_index=False)['num', 'perc'].sum()
+
+for band in deaths_breakdown_age['ageband_coarse']:
+    deaths_breakdown_age.loc[deaths_breakdown_age['ageband_coarse']==band, 'infections'] = covid_by_age_band[band].values[-1]
+
+deaths_breakdown_age['mortality_rate'] = deaths_breakdown_age['num'] / deaths_breakdown_age['infections']
+fig_age_mortality = px.bar(
+    deaths_breakdown_age, x='ageband_coarse', y='mortality_rate',
+    color='infections', color_continuous_scale='jet')
+fig_age_mortality.update_xaxes(title='Age band')
+fig_age_mortality.update_yaxes(title='Mortality rate')
+fig_age_mortality.update_layout(
+    title='Mortality rate by age band',
+    yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+## deaths by age band
+fig_deaths_age = px.bar(
+    deaths_breakdown_age, x='ageband_coarse', y='num')
+fig_deaths_age.update_xaxes(title='Age band')
+fig_deaths_age.update_yaxes(title='Deaths')
+fig_deaths_age.update_layout(
+    title='Total Deaths by Age Band',
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
+## deaths by age and gender
+deaths_breakdown_age_gender = (
+    deaths_breakdown
+    .groupby(['gender','ageband'], as_index=False)
+    ['num'].sum()
+)
+deaths_breakdown_age_gender
+deaths_breakdown_age_gender['perc'] = deaths_breakdown_age_gender['num'] / deaths_breakdown_age_gender.groupby('ageband')['num'].transform('sum')
+fig_deaths_age_gender = px.bar(
+    deaths_breakdown_age_gender,
+    x='ageband', y='perc', color='gender',
+    color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'}
+)
+fig_deaths_age_gender.update_xaxes(title='Age band')
+fig_deaths_age_gender.update_yaxes(title='Deaths proportion by gender')
+fig_deaths_age_gender.update_layout(
+    title='Total deaths by age band',
+    yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
+    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+
+
 ###### TESTS ######
 logger.info('Test types')
 tests = read_covid_tests('./data/COVID_test_type.csv', 'Дата')
@@ -2694,6 +2768,15 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_age_prop),
                     html.Br(),
                     dcc.Graph(figure=fig_age_area),
+                    html.Br(),
+                    html.Div([
+                        dcc.Graph(figure=fig_deaths_gender, style={'width':'30vw'}),
+                        dcc.Graph(figure=fig_deaths_age, style={'width':'67vw'})
+                    ], style={'display':'flex', 'width':'97vw'}),
+                    html.Br(),
+                    dcc.Graph(figure=fig_deaths_age_gender),
+                    html.Br(),
+                    dcc.Graph(figure=fig_age_mortality),
                     html.Br(),
                     html.H4("Cases on a weekly basis"),
                     html.Br(),

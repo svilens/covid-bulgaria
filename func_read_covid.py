@@ -99,3 +99,21 @@ def append_nat_vac_props(df, prop_az, prop_mod, prop_john, prop_pf):
     df.loc[df['vaccine'] == 'Pfizer + Moderna', 'perc_vac'] = df.loc[df['vaccine'] == 'Pfizer + Moderna', 'perc']
     return df
 
+
+class ReadDeathsBreakdown():
+    def __init__(self, path, date_col):
+        self.data = pd.read_csv(path, parse_dates=[date_col])
+        self.data = self.data.query("Пол != '-'")
+
+    def to_bg(self):
+        return self.data
+
+    def to_eng(self):
+        self.renamed = self.data.rename(
+            columns={
+                'Дата':'date', 'Пол':'gender',
+                'Възрастова група':'ageband', 'Брой починали':'num'
+            }
+        )
+        self.to_eng = self.renamed.replace('мъж', 'Male').replace('жена','Female')
+        return self.to_eng
