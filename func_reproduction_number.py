@@ -7,12 +7,12 @@ from scipy.interpolate import interp1d
 def prepare_cases(cases):
     new_cases = cases.diff()
 
-    smoothed = new_cases.rolling(9,
+    smoothed = new_cases.rolling(7,
         win_type='gaussian',
         min_periods=1,
         center=True).mean(std=3).round()
     
-    idx_start = np.searchsorted(smoothed, 9)
+    idx_start = np.searchsorted(smoothed, 7)
     smoothed = smoothed.iloc[idx_start:]
     original = new_cases.loc[smoothed.index]
     
