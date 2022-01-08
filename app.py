@@ -2215,7 +2215,9 @@ fig_bt_deaths_age_gender = px.bar(
     color_discrete_map={'Male':'#636EFA', 'Female':'#EF553B'}
 )
 fig_bt_deaths_age_gender.update_layout(
-   yaxis=dict(title='Mortality Rate'), xaxis=dict(title='Age Band'), barmode='group',
+   yaxis=dict(title='Mortality Rate'),
+   xaxis=dict(title='Age Band', categoryorder='total ascending'),
+   barmode='group',
    title='Weighted Breakthrough Mortality Rate by Age and Gender (past 30 days)',
    paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
 )
