@@ -423,16 +423,16 @@ covid_past2weeks = gpd.GeoDataFrame(
     .join(geodf[['code','geometry']].set_index('code'))
 ).reset_index(drop=True).set_index('province')
 
-covid_past2weeks_conditions = [(covid_past2weeks.new_per_100k < 20),
-                               (covid_past2weeks.new_per_100k < 60),
-                               (covid_past2weeks.new_per_100k < 120),
-                               (covid_past2weeks.new_per_100k < 200),
-                               (covid_past2weeks.new_per_100k >= 200)]
-covid_past2weeks_labels = ['< 20 per 100k pop',
-                           '20-59 per 100k pop',
-                           '60-119 per 100k pop',
-                           '120-199 per 100k pop',
-                           '200+ per 100k pop']
+covid_past2weeks_conditions = [(covid_past2weeks.new_per_100k < 100),
+                               (covid_past2weeks.new_per_100k < 250),
+                               (covid_past2weeks.new_per_100k < 500),
+                               (covid_past2weeks.new_per_100k < 1000),
+                               (covid_past2weeks.new_per_100k >= 1000)]
+covid_past2weeks_labels = ['< 100 per 100k pop',
+                           '100-250 per 100k pop',
+                           '250-500 per 100k pop',
+                           '500-1000 per 100k pop',
+                           '1000+ per 100k pop']
 covid_past2weeks_colors = ['green', 'gold', 'darkorange', 'red', 'purple']
 covid_past2weeks['label'] = np.select(
     covid_past2weeks_conditions, covid_past2weeks_labels
