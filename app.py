@@ -421,7 +421,7 @@ covid_past2weeks = gpd.GeoDataFrame(
         ].reset_index()
     ).groupby(['code','province'])[['new_per_100k']].sum().reset_index(level='province')
     .join(geodf[['code','geometry']].set_index('code'))
-).reset_index(drop=True).set_index('province')
+).reset_index(drop=True).set_index('province').sort_values(by='new_per_100k')
 
 covid_past2weeks_conditions = [(covid_past2weeks.new_per_100k < 100),
                                (covid_past2weeks.new_per_100k < 250),
