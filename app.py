@@ -2562,10 +2562,10 @@ fig_gauges.add_trace(go.Indicator(
     title = {'text': "Mortality rate", 'font': {'size': 16}},
     domain = {'x': [0.22, 0.34], 'y': [0, 1]},
     gauge = {
-        'axis': {'range': [None, 4]},
+        'axis': {'range': [None, 6]},
         'bar': {'color': "royalblue"},
         'steps': [
-             {'range': [0, 2], 'color': "green"},
+             {'range': [0, 2], 'color': "lightgreen"},
              {'range': [2, 4], 'color': "gold"},
              {'range': [4, 6], 'color': "red"},
         ],
@@ -2613,7 +2613,7 @@ fig_gauges.add_trace(go.Indicator(
         'steps': [
              {'range': [0, 30], 'color': "red"},
              {'range': [30, 60], 'color': "gold"},
-             {'range': [60, 100], 'color': "green"}
+             {'range': [60, 100], 'color': "lightgreen"}
         ],
     },
     number = {'suffix': '%'}
