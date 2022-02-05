@@ -1219,11 +1219,11 @@ for province in vaccines_data_init['province'].unique():
     vaccines_data = vaccines_data.append(vacc_single)
 
 
-vaccines_data.reset_index().sort_values(by=['date', 'province'], inplace=True)
+vaccines_data = vaccines_data.reset_index().sort_values(by=['date', 'province'])
 #vaccines_data['first_dose'] = vaccines_data['total'] - 2*vaccines_data['second_dose']
 vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
 vaccines_data['total_vaccinated_per_100k'] = (100000*(vaccines_data['total'] - vaccines_data['second_dose']) / vaccines_data['pop']).round(2)
-vaccines_yesterday = vaccines_data.loc[vaccines_data.date == vaccines_data.date.max(),:].sort_values(by='province', ascending=True)
+vaccines_yesterday = vaccines_data.loc[vaccines_data['date'] == vaccines_data['date'].max(),:].sort_values(by='province', ascending=True)
 
 vaccines_geo = pd.merge(covid_yesterday[['province','geometry']],
                         vaccines_yesterday, on='province').set_index('province')
@@ -2565,7 +2565,7 @@ fig_gauges.add_trace(go.Indicator(
         'axis': {'range': [None, 4]},
         'bar': {'color': "royalblue"},
         'steps': [
-             {'range': [0, 2], 'color': "green"}
+             {'range': [0, 2], 'color': "green"},
              {'range': [2, 4], 'color': "gold"},
              {'range': [4, 6], 'color': "red"},
         ],
