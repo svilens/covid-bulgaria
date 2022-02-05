@@ -1193,8 +1193,34 @@ fig_rt_province_actual = generate_rt_by_province(provinces, final_results)
 
 ### Vaccines ###
 logger.info('Creating chart 23: Vaccines by province - fully vaccinated')
-vaccines_data = pd.read_csv('./dash_data/vaccines.csv', parse_dates=['date']).fillna(0)
-vaccines_data['first_dose'] = vaccines_data['total'] - 2*vaccines_data['second_dose']
+vaccines_data_init = pd.read_csv('./dash_data/vaccines.csv', parse_dates=['date']).fillna(0)
+
+
+vaccines_data = pd.DataFrame()
+for province in vaccines_data_init['province'].unique():
+    vacc_single = (
+        vaccines_data_init
+        .query(f"province == '{province}'")
+        .set_index('date').resample('D').agg({
+            'pop':'pad', 'total':'sum'})
+    )
+    vacc_single.replace(0, np.nan, inplace=True)
+    vacc_single['total'] = vacc_single['total'].interpolate(method='linear').astype('int')
+    vacc_single.fillna(method='ffill', inplace=True)
+    vacc_single = pd.concat([
+        vaccines_data_init
+        .query(f"province == '{province}'")
+        .set_index('date').resample('D').sum()
+        .drop(['pop', 'total'], axis=1),
+        vacc_single
+    ], axis=1)
+    vacc_single.insert(0, 'province', [province] * len(vacc_single))
+    vacc_single.insert(1, 'code', vaccines_data_init.query(f"province == '{province}'")['code'].unique().tolist() * len(vacc_single))
+    vaccines_data = vaccines_data.append(vacc_single)
+
+
+vaccines_data.reset_index().sort_values(by=['date', 'province'], inplace=True)
+#vaccines_data['first_dose'] = vaccines_data['total'] - 2*vaccines_data['second_dose']
 vaccines_data['fully_vaccinated_per_100k'] = (100000*vaccines_data['second_dose'] / vaccines_data['pop']).round(2)
 vaccines_data['total_vaccinated_per_100k'] = (100000*(vaccines_data['total'] - vaccines_data['second_dose']) / vaccines_data['pop']).round(2)
 vaccines_yesterday = vaccines_data.loc[vaccines_data.date == vaccines_data.date.max(),:].sort_values(by='province', ascending=True)
@@ -1284,7 +1310,7 @@ fig_vaccines_total_bg_perc.add_trace(
     )
 )
 fig_vaccines_total_bg_perc.update_layout(
-    title='Daily vaccination - fully vaccinated people proportion (with second dose)',
+    title='Daily vaccination - fully vaccinated people proportion (with at least two jabs)',
     yaxis=dict(tickformat=',.0%', hoverformat=',.2%'),
     paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'
 )
@@ -2536,11 +2562,12 @@ fig_gauges.add_trace(go.Indicator(
     title = {'text': "Mortality rate", 'font': {'size': 16}},
     domain = {'x': [0.22, 0.34], 'y': [0, 1]},
     gauge = {
-        'axis': {'range': [None, 25]},
+        'axis': {'range': [None, 4]},
         'bar': {'color': "royalblue"},
         'steps': [
-             {'range': [10, 18], 'color': "gold"},
-             {'range': [18, 25], 'color': "red"},
+             {'range': [0, 2], 'color': "green"}
+             {'range': [2, 4], 'color': "gold"},
+             {'range': [4, 6], 'color': "red"},
         ],
     },
     number = {'suffix': '%'}
@@ -2581,11 +2608,12 @@ fig_gauges.add_trace(go.Indicator(
     title = {'text': "Fully vaccinated", 'font': {'size': 16}},
     domain = {'x': [0.88, 1], 'y': [0, 1]},
     gauge = {
-        'axis': {'range': [None, 30]},
+        'axis': {'range': [None, 100]},
         'bar': {'color': "royalblue"},
         'steps': [
-             {'range': [0, 10], 'color': "red"},
-             {'range': [10, 20], 'color': "gold"},
+             {'range': [0, 30], 'color': "red"},
+             {'range': [30, 60], 'color': "gold"},
+             {'range': [60, 100], 'color': "green"}
         ],
     },
     number = {'suffix': '%'}
@@ -2812,7 +2840,7 @@ tabs = html.Div([
                     dcc.Graph(figure=fig_yesterday_map_active),
                     html.Br(),
                     html.Br(),
-                    html.P("The color-coding of the provinces below is according to the categories adopted by the Ministry of Health, depending on the number of new cases per 100,000 population for the past two weeks."),
+                    html.P("The color-coding of the provinces below is according to the number of new cases per 100,000 population for the past two weeks."),
                     html.Br(),
                     dcc.Graph(figure=fig_newper100k_14days_map),
                     #html.P("Below the provinces are color-coded according to the number of total confirmed cases per 100,000 population. This map isn't as important as the other two above for the spread of the disease, because part of the historical confirmed cases are already 'closed'."),
