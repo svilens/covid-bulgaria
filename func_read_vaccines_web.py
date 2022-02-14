@@ -1,7 +1,10 @@
 import os 
 from selenium import webdriver
 
-chromedriver_dir = './tools/chromedriver.exe'
+if os.name == 'nt':
+    chromedriver_dir = './tools/chromedriver.exe'
+else:
+    chromedriver_dir = '/usr/local/bin/chromedriver'
 vaccines_url = 'https://coronavirus.bg/bg/statistika'
 
 codes_vaccines = ['BLG','BGS','VAR','VTR','VID','VRC','GAB',
@@ -26,7 +29,7 @@ def get_vaccines_data_web(url, chromedriver_dir):
     options.headless = True
     
    # driver = webdriver.Chrome(chrome_options=options, executable_path=chromedriver_dir)
-    driver = webdriver.Chrome(chrome_options=options)
+    driver = webdriver.Chrome(chromedriver_dir, chrome_options=options)
     
     driver.get(url)
     table_vac = driver.find_element_by_xpath("//div[@class='col stats']")
