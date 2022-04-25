@@ -87,6 +87,7 @@ def read_breakthrough(path):
         .replace('JANSS - MOD', 'Moderna')
         .replace('AZ - COM - MOD', 'Moderna')
         .replace('COM - JANSS - MOD', 'Moderna')
+        .replace('AZ - COM - JANSS', 'Johnson & Johnson')
     )
     return df
 
