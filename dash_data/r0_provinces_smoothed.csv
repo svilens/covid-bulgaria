@@ -16319,6 +16319,58 @@ Vratsa,2022-03-05,31.0
 Vratsa,2022-03-06,29.0
 Yambol,2022-03-05,28.0
 Yambol,2022-03-06,28.0
+Burgas,2022-03-06,131.0
+Burgas,2022-03-07,137.0
+Dobrich,2022-03-06,42.0
+Dobrich,2022-03-07,46.0
+Gabrovo,2022-03-06,19.0
+Gabrovo,2022-03-07,20.0
+Haskovo,2022-03-06,35.0
+Haskovo,2022-03-07,37.0
+Kardzhali,2022-03-06,9.0
+Kardzhali,2022-03-07,10.0
+Kyustendil,2022-03-06,12.0
+Kyustendil,2022-03-07,11.0
+Lovech,2022-03-06,23.0
+Lovech,2022-03-07,24.0
+Montana,2022-03-06,20.0
+Montana,2022-03-07,21.0
+Pazardzhik,2022-03-06,20.0
+Pazardzhik,2022-03-07,20.0
+Pernik,2022-03-06,21.0
+Pernik,2022-03-07,22.0
+Pleven,2022-03-06,48.0
+Pleven,2022-03-07,50.0
+Plovdiv,2022-03-06,123.0
+Plovdiv,2022-03-07,128.0
+Razgrad,2022-03-06,19.0
+Razgrad,2022-03-07,21.0
+Ruse,2022-03-06,36.0
+Ruse,2022-03-07,38.0
+Shumen,2022-03-06,54.0
+Shumen,2022-03-07,56.0
+Silistra,2022-03-06,36.0
+Silistra,2022-03-07,38.0
+Sliven,2022-03-06,25.0
+Sliven,2022-03-07,27.0
+Sofiya-Grad,2022-03-06,382.0
+Sofiya-Grad,2022-03-07,405.0
+Sofiya-Oblast,2022-03-06,48.0
+Sofiya-Oblast,2022-03-07,49.0
+Stara Zagora,2022-03-06,68.0
+Stara Zagora,2022-03-07,69.0
+Targovishte,2022-03-06,24.0
+Targovishte,2022-03-07,26.0
+Varna,2022-03-06,236.0
+Varna,2022-03-07,242.0
+Veliko Tarnovo,2022-03-06,55.0
+Veliko Tarnovo,2022-03-07,56.0
+Vidin,2022-03-06,15.0
+Vidin,2022-03-07,15.0
+Vratsa,2022-03-06,26.0
+Vratsa,2022-03-07,27.0
+Yambol,2022-03-06,27.0
+Yambol,2022-03-07,30.0
 Blagoevgrad,2022-04-08,8.0
 Blagoevgrad,2022-04-09,8.0
 Blagoevgrad,2022-04-10,10.0
@@ -16341,11 +16393,11 @@ Blagoevgrad,2022-04-26,14.0
 Blagoevgrad,2022-04-27,16.0
 Blagoevgrad,2022-04-28,16.0
 Blagoevgrad,2022-04-29,15.0
-Blagoevgrad,2022-04-30,15.0
-Blagoevgrad,2022-05-01,12.0
+Blagoevgrad,2022-04-30,14.0
+Blagoevgrad,2022-05-01,11.0
 Blagoevgrad,2022-05-02,10.0
-Burgas,2022-03-06,131.0
-Burgas,2022-03-07,137.0
+Blagoevgrad,2022-05-03,9.0
+Burgas,2022-03-07,134.0
 Burgas,2022-03-08,139.0
 Burgas,2022-03-09,148.0
 Burgas,2022-03-10,141.0
@@ -16399,11 +16451,11 @@ Burgas,2022-04-26,25.0
 Burgas,2022-04-27,27.0
 Burgas,2022-04-28,29.0
 Burgas,2022-04-29,29.0
-Burgas,2022-04-30,28.0
-Burgas,2022-05-01,25.0
-Burgas,2022-05-02,18.0
-Dobrich,2022-03-06,42.0
-Dobrich,2022-03-07,46.0
+Burgas,2022-04-30,26.0
+Burgas,2022-05-01,22.0
+Burgas,2022-05-02,15.0
+Burgas,2022-05-03,13.0
+Dobrich,2022-03-07,49.0
 Dobrich,2022-03-08,52.0
 Dobrich,2022-03-09,52.0
 Dobrich,2022-03-10,54.0
@@ -16459,9 +16511,9 @@ Dobrich,2022-04-28,8.0
 Dobrich,2022-04-29,7.0
 Dobrich,2022-04-30,7.0
 Dobrich,2022-05-01,5.0
-Dobrich,2022-05-02,5.0
-Gabrovo,2022-03-06,19.0
-Gabrovo,2022-03-07,20.0
+Dobrich,2022-05-02,4.0
+Dobrich,2022-05-03,3.0
+Gabrovo,2022-03-07,21.0
 Gabrovo,2022-03-08,21.0
 Gabrovo,2022-03-09,21.0
 Gabrovo,2022-03-10,21.0
@@ -16515,11 +16567,11 @@ Gabrovo,2022-04-26,8.0
 Gabrovo,2022-04-27,9.0
 Gabrovo,2022-04-28,10.0
 Gabrovo,2022-04-29,10.0
-Gabrovo,2022-04-30,10.0
-Gabrovo,2022-05-01,8.0
-Gabrovo,2022-05-02,8.0
-Haskovo,2022-03-06,35.0
-Haskovo,2022-03-07,37.0
+Gabrovo,2022-04-30,9.0
+Gabrovo,2022-05-01,7.0
+Gabrovo,2022-05-02,6.0
+Gabrovo,2022-05-03,5.0
+Haskovo,2022-03-07,40.0
 Haskovo,2022-03-08,40.0
 Haskovo,2022-03-09,39.0
 Haskovo,2022-03-10,39.0
@@ -16573,11 +16625,11 @@ Haskovo,2022-04-26,13.0
 Haskovo,2022-04-27,14.0
 Haskovo,2022-04-28,14.0
 Haskovo,2022-04-29,13.0
-Haskovo,2022-04-30,12.0
-Haskovo,2022-05-01,9.0
-Haskovo,2022-05-02,7.0
-Kardzhali,2022-03-06,9.0
-Kardzhali,2022-03-07,10.0
+Haskovo,2022-04-30,11.0
+Haskovo,2022-05-01,8.0
+Haskovo,2022-05-02,6.0
+Haskovo,2022-05-03,5.0
+Kardzhali,2022-03-07,11.0
 Kardzhali,2022-03-08,12.0
 Kardzhali,2022-03-09,13.0
 Kardzhali,2022-03-10,14.0
@@ -16632,10 +16684,10 @@ Kardzhali,2022-04-27,4.0
 Kardzhali,2022-04-28,4.0
 Kardzhali,2022-04-29,4.0
 Kardzhali,2022-04-30,3.0
-Kardzhali,2022-05-01,3.0
-Kardzhali,2022-05-02,3.0
-Kyustendil,2022-03-06,12.0
-Kyustendil,2022-03-07,11.0
+Kardzhali,2022-05-01,2.0
+Kardzhali,2022-05-02,2.0
+Kardzhali,2022-05-03,2.0
+Kyustendil,2022-03-07,12.0
 Kyustendil,2022-03-08,11.0
 Kyustendil,2022-03-09,9.0
 Kyustendil,2022-03-10,9.0
@@ -16689,11 +16741,11 @@ Kyustendil,2022-04-26,10.0
 Kyustendil,2022-04-27,11.0
 Kyustendil,2022-04-28,10.0
 Kyustendil,2022-04-29,10.0
-Kyustendil,2022-04-30,10.0
-Kyustendil,2022-05-01,6.0
-Kyustendil,2022-05-02,6.0
-Lovech,2022-03-06,23.0
-Lovech,2022-03-07,24.0
+Kyustendil,2022-04-30,9.0
+Kyustendil,2022-05-01,5.0
+Kyustendil,2022-05-02,5.0
+Kyustendil,2022-05-03,4.0
+Lovech,2022-03-07,26.0
 Lovech,2022-03-08,26.0
 Lovech,2022-03-09,24.0
 Lovech,2022-03-10,23.0
@@ -16747,11 +16799,11 @@ Lovech,2022-04-26,12.0
 Lovech,2022-04-27,15.0
 Lovech,2022-04-28,16.0
 Lovech,2022-04-29,15.0
-Lovech,2022-04-30,14.0
-Lovech,2022-05-01,13.0
-Lovech,2022-05-02,10.0
-Montana,2022-03-06,20.0
-Montana,2022-03-07,21.0
+Lovech,2022-04-30,13.0
+Lovech,2022-05-01,11.0
+Lovech,2022-05-02,9.0
+Lovech,2022-05-03,6.0
+Montana,2022-03-07,23.0
 Montana,2022-03-08,23.0
 Montana,2022-03-09,22.0
 Montana,2022-03-10,22.0
@@ -16806,10 +16858,10 @@ Montana,2022-04-27,12.0
 Montana,2022-04-28,12.0
 Montana,2022-04-29,11.0
 Montana,2022-04-30,10.0
-Montana,2022-05-01,6.0
-Montana,2022-05-02,5.0
-Pazardzhik,2022-03-06,20.0
-Pazardzhik,2022-03-07,20.0
+Montana,2022-05-01,7.0
+Montana,2022-05-02,6.0
+Montana,2022-05-03,5.0
+Pazardzhik,2022-03-07,21.0
 Pazardzhik,2022-03-08,20.0
 Pazardzhik,2022-03-09,19.0
 Pazardzhik,2022-03-10,18.0
@@ -16863,11 +16915,11 @@ Pazardzhik,2022-04-26,16.0
 Pazardzhik,2022-04-27,19.0
 Pazardzhik,2022-04-28,19.0
 Pazardzhik,2022-04-29,18.0
-Pazardzhik,2022-04-30,18.0
-Pazardzhik,2022-05-01,13.0
-Pazardzhik,2022-05-02,11.0
-Pernik,2022-03-06,21.0
-Pernik,2022-03-07,22.0
+Pazardzhik,2022-04-30,17.0
+Pazardzhik,2022-05-01,12.0
+Pazardzhik,2022-05-02,10.0
+Pazardzhik,2022-05-03,10.0
+Pernik,2022-03-07,24.0
 Pernik,2022-03-08,24.0
 Pernik,2022-03-09,23.0
 Pernik,2022-03-10,24.0
@@ -16922,10 +16974,10 @@ Pernik,2022-04-27,13.0
 Pernik,2022-04-28,13.0
 Pernik,2022-04-29,12.0
 Pernik,2022-04-30,11.0
-Pernik,2022-05-01,9.0
-Pernik,2022-05-02,8.0
-Pleven,2022-03-06,48.0
-Pleven,2022-03-07,50.0
+Pernik,2022-05-01,8.0
+Pernik,2022-05-02,7.0
+Pernik,2022-05-03,7.0
+Pleven,2022-03-07,54.0
 Pleven,2022-03-08,54.0
 Pleven,2022-03-09,52.0
 Pleven,2022-03-10,53.0
@@ -16979,11 +17031,11 @@ Pleven,2022-04-26,10.0
 Pleven,2022-04-27,11.0
 Pleven,2022-04-28,11.0
 Pleven,2022-04-29,11.0
-Pleven,2022-04-30,10.0
+Pleven,2022-04-30,9.0
 Pleven,2022-05-01,8.0
-Pleven,2022-05-02,8.0
-Plovdiv,2022-03-06,123.0
-Plovdiv,2022-03-07,128.0
+Pleven,2022-05-02,7.0
+Pleven,2022-05-03,6.0
+Plovdiv,2022-03-07,134.0
 Plovdiv,2022-03-08,135.0
 Plovdiv,2022-03-09,134.0
 Plovdiv,2022-03-10,132.0
@@ -17037,11 +17089,11 @@ Plovdiv,2022-04-26,37.0
 Plovdiv,2022-04-27,43.0
 Plovdiv,2022-04-28,43.0
 Plovdiv,2022-04-29,42.0
-Plovdiv,2022-04-30,40.0
-Plovdiv,2022-05-01,31.0
-Plovdiv,2022-05-02,26.0
-Razgrad,2022-03-06,19.0
-Razgrad,2022-03-07,21.0
+Plovdiv,2022-04-30,37.0
+Plovdiv,2022-05-01,28.0
+Plovdiv,2022-05-02,24.0
+Plovdiv,2022-05-03,20.0
+Razgrad,2022-03-07,22.0
 Razgrad,2022-03-08,22.0
 Razgrad,2022-03-09,22.0
 Razgrad,2022-03-10,21.0
@@ -17098,8 +17150,8 @@ Razgrad,2022-04-29,3.0
 Razgrad,2022-04-30,3.0
 Razgrad,2022-05-01,2.0
 Razgrad,2022-05-02,2.0
-Ruse,2022-03-06,36.0
-Ruse,2022-03-07,38.0
+Razgrad,2022-05-03,2.0
+Ruse,2022-03-07,41.0
 Ruse,2022-03-08,42.0
 Ruse,2022-03-09,40.0
 Ruse,2022-03-10,40.0
@@ -17156,8 +17208,8 @@ Ruse,2022-04-29,11.0
 Ruse,2022-04-30,10.0
 Ruse,2022-05-01,8.0
 Ruse,2022-05-02,7.0
-Shumen,2022-03-06,54.0
-Shumen,2022-03-07,56.0
+Ruse,2022-05-03,8.0
+Shumen,2022-03-07,61.0
 Shumen,2022-03-08,61.0
 Shumen,2022-03-09,57.0
 Shumen,2022-03-10,55.0
@@ -17213,9 +17265,9 @@ Shumen,2022-04-28,9.0
 Shumen,2022-04-29,9.0
 Shumen,2022-04-30,8.0
 Shumen,2022-05-01,6.0
-Shumen,2022-05-02,5.0
-Silistra,2022-03-06,36.0
-Silistra,2022-03-07,38.0
+Shumen,2022-05-02,4.0
+Shumen,2022-05-03,3.0
+Silistra,2022-03-07,40.0
 Silistra,2022-03-08,41.0
 Silistra,2022-03-09,41.0
 Silistra,2022-03-10,40.0
@@ -17270,10 +17322,10 @@ Silistra,2022-04-27,10.0
 Silistra,2022-04-28,10.0
 Silistra,2022-04-29,9.0
 Silistra,2022-04-30,8.0
-Silistra,2022-05-01,7.0
-Silistra,2022-05-02,6.0
-Sliven,2022-03-06,25.0
-Sliven,2022-03-07,27.0
+Silistra,2022-05-01,6.0
+Silistra,2022-05-02,5.0
+Silistra,2022-05-03,4.0
+Sliven,2022-03-07,28.0
 Sliven,2022-03-08,30.0
 Sliven,2022-03-09,32.0
 Sliven,2022-03-10,33.0
@@ -17327,9 +17379,12 @@ Sliven,2022-04-26,15.0
 Sliven,2022-04-27,16.0
 Sliven,2022-04-28,14.0
 Sliven,2022-04-29,14.0
-Sliven,2022-04-30,13.0
-Sliven,2022-05-01,11.0
-Sliven,2022-05-02,9.0
+Sliven,2022-04-30,12.0
+Sliven,2022-05-01,10.0
+Sliven,2022-05-02,8.0
+Sliven,2022-05-03,5.0
+Smolyan,2022-03-07,8.0
+Smolyan,2022-03-08,9.0
 Smolyan,2022-03-09,10.0
 Smolyan,2022-03-10,10.0
 Smolyan,2022-03-11,10.0
@@ -17385,8 +17440,8 @@ Smolyan,2022-04-29,6.0
 Smolyan,2022-04-30,5.0
 Smolyan,2022-05-01,4.0
 Smolyan,2022-05-02,4.0
-Sofiya-Grad,2022-03-06,382.0
-Sofiya-Grad,2022-03-07,405.0
+Smolyan,2022-05-03,4.0
+Sofiya-Grad,2022-03-07,420.0
 Sofiya-Grad,2022-03-08,433.0
 Sofiya-Grad,2022-03-09,436.0
 Sofiya-Grad,2022-03-10,434.0
@@ -17440,11 +17495,11 @@ Sofiya-Grad,2022-04-26,192.0
 Sofiya-Grad,2022-04-27,206.0
 Sofiya-Grad,2022-04-28,209.0
 Sofiya-Grad,2022-04-29,203.0
-Sofiya-Grad,2022-04-30,198.0
-Sofiya-Grad,2022-05-01,164.0
-Sofiya-Grad,2022-05-02,141.0
-Sofiya-Oblast,2022-03-06,48.0
-Sofiya-Oblast,2022-03-07,49.0
+Sofiya-Grad,2022-04-30,185.0
+Sofiya-Grad,2022-05-01,151.0
+Sofiya-Grad,2022-05-02,128.0
+Sofiya-Grad,2022-05-03,104.0
+Sofiya-Oblast,2022-03-07,50.0
 Sofiya-Oblast,2022-03-08,51.0
 Sofiya-Oblast,2022-03-09,49.0
 Sofiya-Oblast,2022-03-10,46.0
@@ -17498,11 +17553,11 @@ Sofiya-Oblast,2022-04-26,23.0
 Sofiya-Oblast,2022-04-27,25.0
 Sofiya-Oblast,2022-04-28,25.0
 Sofiya-Oblast,2022-04-29,24.0
-Sofiya-Oblast,2022-04-30,22.0
+Sofiya-Oblast,2022-04-30,21.0
 Sofiya-Oblast,2022-05-01,18.0
-Sofiya-Oblast,2022-05-02,17.0
-Stara Zagora,2022-03-06,68.0
-Stara Zagora,2022-03-07,69.0
+Sofiya-Oblast,2022-05-02,16.0
+Sofiya-Oblast,2022-05-03,16.0
+Stara Zagora,2022-03-07,72.0
 Stara Zagora,2022-03-08,70.0
 Stara Zagora,2022-03-09,66.0
 Stara Zagora,2022-03-10,65.0
@@ -17556,11 +17611,11 @@ Stara Zagora,2022-04-26,28.0
 Stara Zagora,2022-04-27,31.0
 Stara Zagora,2022-04-28,30.0
 Stara Zagora,2022-04-29,28.0
-Stara Zagora,2022-04-30,26.0
-Stara Zagora,2022-05-01,19.0
+Stara Zagora,2022-04-30,25.0
+Stara Zagora,2022-05-01,18.0
 Stara Zagora,2022-05-02,14.0
-Targovishte,2022-03-06,24.0
-Targovishte,2022-03-07,26.0
+Stara Zagora,2022-05-03,11.0
+Targovishte,2022-03-07,27.0
 Targovishte,2022-03-08,27.0
 Targovishte,2022-03-09,28.0
 Targovishte,2022-03-10,28.0
@@ -17617,8 +17672,8 @@ Targovishte,2022-04-29,3.0
 Targovishte,2022-04-30,3.0
 Targovishte,2022-05-01,3.0
 Targovishte,2022-05-02,2.0
-Varna,2022-03-06,236.0
-Varna,2022-03-07,242.0
+Targovishte,2022-05-03,2.0
+Varna,2022-03-07,248.0
 Varna,2022-03-08,246.0
 Varna,2022-03-09,245.0
 Varna,2022-03-10,236.0
@@ -17672,11 +17727,11 @@ Varna,2022-04-26,21.0
 Varna,2022-04-27,22.0
 Varna,2022-04-28,22.0
 Varna,2022-04-29,22.0
-Varna,2022-04-30,21.0
-Varna,2022-05-01,18.0
-Varna,2022-05-02,16.0
-Veliko Tarnovo,2022-03-06,55.0
-Veliko Tarnovo,2022-03-07,56.0
+Varna,2022-04-30,20.0
+Varna,2022-05-01,17.0
+Varna,2022-05-02,15.0
+Varna,2022-05-03,13.0
+Veliko Tarnovo,2022-03-07,60.0
 Veliko Tarnovo,2022-03-08,59.0
 Veliko Tarnovo,2022-03-09,58.0
 Veliko Tarnovo,2022-03-10,52.0
@@ -17731,10 +17786,10 @@ Veliko Tarnovo,2022-04-27,12.0
 Veliko Tarnovo,2022-04-28,12.0
 Veliko Tarnovo,2022-04-29,12.0
 Veliko Tarnovo,2022-04-30,11.0
-Veliko Tarnovo,2022-05-01,9.0
+Veliko Tarnovo,2022-05-01,8.0
 Veliko Tarnovo,2022-05-02,6.0
-Vidin,2022-03-06,15.0
-Vidin,2022-03-07,15.0
+Veliko Tarnovo,2022-05-03,7.0
+Vidin,2022-03-07,16.0
 Vidin,2022-03-08,16.0
 Vidin,2022-03-09,17.0
 Vidin,2022-03-10,16.0
@@ -17790,9 +17845,9 @@ Vidin,2022-04-28,9.0
 Vidin,2022-04-29,9.0
 Vidin,2022-04-30,8.0
 Vidin,2022-05-01,6.0
-Vidin,2022-05-02,6.0
-Vratsa,2022-03-06,26.0
-Vratsa,2022-03-07,27.0
+Vidin,2022-05-02,5.0
+Vidin,2022-05-03,4.0
+Vratsa,2022-03-07,29.0
 Vratsa,2022-03-08,29.0
 Vratsa,2022-03-09,28.0
 Vratsa,2022-03-10,30.0
@@ -17847,10 +17902,10 @@ Vratsa,2022-04-27,11.0
 Vratsa,2022-04-28,11.0
 Vratsa,2022-04-29,10.0
 Vratsa,2022-04-30,8.0
-Vratsa,2022-05-01,7.0
-Vratsa,2022-05-02,6.0
-Yambol,2022-03-06,27.0
-Yambol,2022-03-07,30.0
+Vratsa,2022-05-01,6.0
+Vratsa,2022-05-02,5.0
+Vratsa,2022-05-03,5.0
+Yambol,2022-03-07,32.0
 Yambol,2022-03-08,35.0
 Yambol,2022-03-09,35.0
 Yambol,2022-03-10,35.0
@@ -17904,6 +17959,7 @@ Yambol,2022-04-26,9.0
 Yambol,2022-04-27,10.0
 Yambol,2022-04-28,9.0
 Yambol,2022-04-29,9.0
-Yambol,2022-04-30,9.0
-Yambol,2022-05-01,8.0
-Yambol,2022-05-02,6.0
+Yambol,2022-04-30,8.0
+Yambol,2022-05-01,7.0
+Yambol,2022-05-02,5.0
+Yambol,2022-05-03,4.0
