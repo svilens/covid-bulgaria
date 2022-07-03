@@ -92,7 +92,10 @@ def highest_density_interval(pmf, p=.9):
         return pd.DataFrame([highest_density_interval(pmf[col], p=p) for col in pmf],
                             index=pmf.columns)
     
-    cumsum = np.cumsum(pmf.values)
+    try:
+        cumsum = np.cumsum(pmf.values)
+    except:
+        cumsum = np.cumsum(pmf)
     best = None
     for i, value in enumerate(cumsum):
         for j, high_value in enumerate(cumsum[i+1:]):
@@ -100,8 +103,12 @@ def highest_density_interval(pmf, p=.9):
                 best = (i, i+j+1)
                 break
             
-    low = pmf.index[best[0]]
-    high = pmf.index[best[1]]
+    try:
+        low = pmf.index[best[0]]
+        high = pmf.index[best[1]]
+    except:
+        low = pmf
+        high = pmf
     return pd.Series([low, high], index=[f'Low_{p*100:.0f}', f'High_{p*100:.0f}'])
 
 

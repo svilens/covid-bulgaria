@@ -17,8 +17,8 @@ from func_download_data_api import *
 
 api_request = get_covid_data()
 if api_request == 'old':
-    logger.info('The last date on the source data is different than the current date. Check if the source has been updated today. Process terminated!')
-    sys.exit()
+    logger.info('The last date on the source data is different than the current date.  the source has been updated today. Process terminated!')
+    #sys.exit()
 elif api_request == 'error':
     logger.info('There was an error while communicating with the API. Process terminated!')
     sys.exit()
@@ -256,12 +256,18 @@ for province_name, cases in provinces_to_process.groupby(level='province'):
     result['posteriors'] = []
     # Holds the log likelihood across all k for each value of sigma
     result['log_likelihoods'] = []
+
     for sigma in sigmas:
-        posteriors, log_likelihood = get_posteriors(smoothed[3:], sigma=sigma)
-        result['posteriors'].append(posteriors)
-        result['log_likelihoods'].append(log_likelihood)
+        try:
+            posteriors, log_likelihood = get_posteriors(smoothed[3:], sigma=sigma)
+            result['posteriors'].append(posteriors)
+            result['log_likelihoods'].append(log_likelihood)
+        except:
+            result['posteriors'].append(0.1)
+            result['log_likelihoods'].append(0.1)
     # Store all results keyed off of province name
     results[province_name] = result
+
 
 new_dash.reset_index().to_csv('./dash_data/r0_provinces_original.csv', header=True, index=False)
 smoothed_dash.reset_index().to_csv('./dash_data/r0_provinces_smoothed.csv', header=True, index=False)
@@ -286,10 +292,16 @@ logger.info('calculating final Rt by province')
 
 for province_name, result in results.items():
     logger.info(f'Rt for {province_name}')
-    posteriors = result['posteriors'][max_likelihood_index].fillna(0.1)
+    try:
+        posteriors = result['posteriors'][max_likelihood_index].fillna(0.1)
+    except:
+        posteriors = result['posteriors'][max_likelihood_index]
     hdis_90 = highest_density_interval(posteriors, p=.9)
     #hdis_50 = highest_density_interval(posteriors, p=.5)
-    most_likely = posteriors.idxmax().rename('Estimated')
+    try:
+        most_likely = posteriors.idxmax().rename('Estimated')
+    except:
+        most_likely = pd.DataFrame({'Estimated': [posteriors]})
     result = pd.concat([most_likely, hdis_90], axis=1)[3:]
 
     if final_results is None:
