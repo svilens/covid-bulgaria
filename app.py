@@ -2451,8 +2451,8 @@ fig_exp_smoothing_triple.update_layout(title="Holt-Winters' (triple) exponential
 logger.info('Creating dash structure')
 
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import dash_bootstrap_components as dbc
 
 
@@ -3310,7 +3310,7 @@ logger.info('Creating dash callbacks')
         dash.dependencies.Input('forecast-length-input', 'value')
     ])
 def update_triple_output_province(province, variable, forecast_length):
-    custom_triple = triple_exp_smoothing(ts_data, province, variable, forecast_length)
+    custom_triple = triple_exp_smoothing(ts_data=ts_data, province=province, column=variable, forecast_days=forecast_length)
     return (
         custom_triple[0].update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)'),
         f"Mean absolute percentage error: {custom_triple[1]}"
