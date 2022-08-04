@@ -18252,6 +18252,12 @@ Sofiya-Grad,2022-06-03,56.0
 Sofiya-Grad,2022-06-04,56.0
 Sofiya-Grad,2022-06-05,58.0
 Sofiya-Grad,2022-06-06,58.0
+Plovdiv,2022-06-06,13.0
+Plovdiv,2022-06-07,13.0
+Plovdiv,2022-06-08,14.0
+Sofiya-Grad,2022-06-06,57.0
+Sofiya-Grad,2022-06-07,57.0
+Sofiya-Grad,2022-06-08,59.0
 Blagoevgrad,2022-06-28,12.0
 Blagoevgrad,2022-06-29,15.0
 Blagoevgrad,2022-06-30,15.0
@@ -18634,9 +18640,7 @@ Pleven,2022-07-30,29.0
 Pleven,2022-07-31,29.0
 Pleven,2022-08-01,30.0
 Pleven,2022-08-02,32.0
-Plovdiv,2022-06-06,13.0
-Plovdiv,2022-06-07,13.0
-Plovdiv,2022-06-08,14.0
+Plovdiv,2022-06-08,15.0
 Plovdiv,2022-06-09,14.0
 Plovdiv,2022-06-10,13.0
 Plovdiv,2022-06-11,11.0
@@ -18719,8 +18723,6 @@ Razgrad,2022-07-30,17.0
 Razgrad,2022-07-31,17.0
 Razgrad,2022-08-01,17.0
 Razgrad,2022-08-02,17.0
-Ruse,2022-07-03,8.0
-Ruse,2022-07-04,8.0
 Ruse,2022-07-05,11.0
 Ruse,2022-07-06,12.0
 Ruse,2022-07-07,13.0
@@ -18853,9 +18855,7 @@ Smolyan,2022-07-30,13.0
 Smolyan,2022-07-31,13.0
 Smolyan,2022-08-01,13.0
 Smolyan,2022-08-02,13.0
-Sofiya-Grad,2022-06-06,57.0
-Sofiya-Grad,2022-06-07,57.0
-Sofiya-Grad,2022-06-08,59.0
+Sofiya-Grad,2022-06-08,61.0
 Sofiya-Grad,2022-06-09,59.0
 Sofiya-Grad,2022-06-10,56.0
 Sofiya-Grad,2022-06-11,53.0
@@ -18953,12 +18953,6 @@ Sofiya-Oblast,2022-07-30,52.0
 Sofiya-Oblast,2022-07-31,52.0
 Sofiya-Oblast,2022-08-01,51.0
 Sofiya-Oblast,2022-08-02,54.0
-Stara Zagora,2022-06-23,6.0
-Stara Zagora,2022-06-24,6.0
-Stara Zagora,2022-06-25,6.0
-Stara Zagora,2022-06-26,8.0
-Stara Zagora,2022-06-27,10.0
-Stara Zagora,2022-06-28,12.0
 Stara Zagora,2022-06-29,15.0
 Stara Zagora,2022-06-30,17.0
 Stara Zagora,2022-07-01,16.0
@@ -19088,6 +19082,10 @@ Veliko Tarnovo,2022-07-30,21.0
 Veliko Tarnovo,2022-07-31,20.0
 Veliko Tarnovo,2022-08-01,21.0
 Veliko Tarnovo,2022-08-02,22.0
+Vidin,2022-07-15,6.0
+Vidin,2022-07-16,7.0
+Vidin,2022-07-17,9.0
+Vidin,2022-07-18,9.0
 Vidin,2022-07-19,11.0
 Vidin,2022-07-20,12.0
 Vidin,2022-07-21,12.0
