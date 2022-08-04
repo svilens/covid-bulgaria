@@ -115,7 +115,7 @@ def double_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
 from statsmodels.tsa.holtwinters import ExponentialSmoothing as HWES
 from datetime import timedelta
 
-def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=15, validation=False):
+def triple_exp_smoothing(ts_data, province='Sofiya-Grad', column='total_cases', forecast_days=15, validation=False):
     """
     Inputs:
         ts_data = time series pandas dataframe. Columns: date, province, variable
@@ -134,11 +134,19 @@ def triple_exp_smoothing(ts_data, province, column='total_cases', forecast_days=
             calculated between testing and forecast data, if validation is set to True
             calculated between training data and model fitted values, if validation is set to False
     """
-        
-    df = ts_data.set_index('date')
-    # replace zeros with 0.1 as the multiplicative seasonal element o HWES requires strictly positive values
-    df = df.loc[((df['province'] == province) & (df[column].notnull()))].replace(0,1)
-    df = df.resample("D").sum()
+    ts_idx = ts_data.set_index('date')
+    # apply a filter for province and select the specified column
+    df = (
+        ts_idx
+        .loc[(
+            (ts_idx['province'] == province) & (ts_idx[column].notnull())
+        )]
+        # select only the past year
+        .iloc[-365:,:]
+        .resample("D").sum()
+        # replace zeros with 0.1 as the multiplicative seasonal element of HWES requires strictly positive values
+        .replace(0, 0.1)
+    )
     
     if validation == True:
         train = df.iloc[:-forecast_days]
