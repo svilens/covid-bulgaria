@@ -2,11 +2,13 @@
 
 ## How to run
 Run app_processing.py. It downloads the latest data, does some processing (90 mins) and creates some files in dash_data folder.
-To deploy to heroku:
-git push heroku master
-It will push everything to heroku, which will run app.py to read the dash_data files, draw charts and create a dashboard.
-The official page is https://covid-bulgaria.com, while the original is covid-bulgaria-smule.herokuapp.com.
-Heroku is also linked to github, so that each push to main will automatically push the changes to heroku as well.
+Then, run app.py to read the dash_data files, draw charts and create a dashboard.
+```
+python app_processing.py
+python app.py
+```
+
+This dash was previously available at covid-bulgaria.com, but since mid 2022 it was abandoned and can now run only locally.
 
 ## Business understanding
 The SARS-CoV-2 pandemic is making a huge impact on the worldwide industry, society and everyday life. The consequences of the coronavirus disease (COVID-19) outbreak are unprecedented and felt around the world. The world of work is being profoundly affected by the pandemic. In addition to the threat to public health, the economic and social disruption threatens the long-term livelihoods and wellbeing of millions. The pandemic is heavily affecting labour markets, economies and enterprises, including global supply chains, leading to widespread business and social disruptions.
