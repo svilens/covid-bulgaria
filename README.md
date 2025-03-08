@@ -26,8 +26,3 @@ We have three data feeds - (1) general COVID-19 statistics (new cases, deaths, r
 - To calculate the daily number of infections per 100,000 population for each province, we are using demographic statistics for 2019 published by NSI.
 Shape files - Download data by country | DIVA-GIS (diva-gis.org)
 To plot the stats by province and color-code the provinces by the number of new cases in each, we are using shape files with spatial data on a province level.
-
-## Data processing and modelling
-The main place where the processing happens is the covid_analysis_notebook.ipynb, however, it uses some functions from the external modules. The process is designed to backup and update the COVID data on each run, and to rerun all the processing/modelling/visualizations.
-The required packages are listed in requirements.txt.
-Models included in the analysis: Reproduction number, ARIMA, Exponential smoothing (double and triple)
